@@ -8,7 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6A3955762626EE4100A67AEB /* empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955752626EE4100A67AEB /* empty.swift */; };
-		6A39557E2626EE7400A67AEB /* empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A39557D2626EE7400A67AEB /* empty.swift */; };
+		6A39558A2626F53200A67AEB /* JourneySegment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955822626F53200A67AEB /* JourneySegment+CoreDataClass.swift */; };
+		6A39558B2626F53200A67AEB /* JourneySegment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955832626F53200A67AEB /* JourneySegment+CoreDataProperties.swift */; };
+		6A39558C2626F53200A67AEB /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955842626F53200A67AEB /* Post+CoreDataClass.swift */; };
+		6A39558D2626F53200A67AEB /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955852626F53200A67AEB /* Post+CoreDataProperties.swift */; };
+		6A39558E2626F53200A67AEB /* Journey+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955862626F53200A67AEB /* Journey+CoreDataClass.swift */; };
+		6A39558F2626F53200A67AEB /* Journey+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955872626F53200A67AEB /* Journey+CoreDataProperties.swift */; };
+		6A3955902626F53200A67AEB /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955882626F53200A67AEB /* User+CoreDataClass.swift */; };
+		6A3955912626F53200A67AEB /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955892626F53200A67AEB /* User+CoreDataProperties.swift */; };
 		6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054562626C0D000750EB8 /* AppDelegate.swift */; };
 		6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054582626C0D000750EB8 /* SceneDelegate.swift */; };
 		6AD0545B2626C0D000750EB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD0545A2626C0D000750EB8 /* ViewController.swift */; };
@@ -39,7 +46,14 @@
 
 /* Begin PBXFileReference section */
 		6A3955752626EE4100A67AEB /* empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.swift; sourceTree = "<group>"; };
-		6A39557D2626EE7400A67AEB /* empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.swift; sourceTree = "<group>"; };
+		6A3955822626F53200A67AEB /* JourneySegment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A3955832626F53200A67AEB /* JourneySegment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6A3955842626F53200A67AEB /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A3955852626F53200A67AEB /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6A3955862626F53200A67AEB /* Journey+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A3955872626F53200A67AEB /* Journey+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6A3955882626F53200A67AEB /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A3955892626F53200A67AEB /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6AD054532626C0D000750EB8 /* InMotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD054562626C0D000750EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AD054582626C0D000750EB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +99,14 @@
 		6A3955662626DC9E00A67AEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6A39557D2626EE7400A67AEB /* empty.swift */,
+				6A3955822626F53200A67AEB /* JourneySegment+CoreDataClass.swift */,
+				6A3955832626F53200A67AEB /* JourneySegment+CoreDataProperties.swift */,
+				6A3955842626F53200A67AEB /* Post+CoreDataClass.swift */,
+				6A3955852626F53200A67AEB /* Post+CoreDataProperties.swift */,
+				6A3955862626F53200A67AEB /* Journey+CoreDataClass.swift */,
+				6A3955872626F53200A67AEB /* Journey+CoreDataProperties.swift */,
+				6A3955882626F53200A67AEB /* User+CoreDataClass.swift */,
+				6A3955892626F53200A67AEB /* User+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,12 +336,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A39558F2626F53200A67AEB /* Journey+CoreDataProperties.swift in Sources */,
+				6A39558E2626F53200A67AEB /* Journey+CoreDataClass.swift in Sources */,
+				6A39558A2626F53200A67AEB /* JourneySegment+CoreDataClass.swift in Sources */,
+				6A3955902626F53200A67AEB /* User+CoreDataClass.swift in Sources */,
 				6AD0545B2626C0D000750EB8 /* ViewController.swift in Sources */,
 				6A3955762626EE4100A67AEB /* empty.swift in Sources */,
+				6A39558D2626F53200A67AEB /* Post+CoreDataProperties.swift in Sources */,
 				6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */,
+				6A39558C2626F53200A67AEB /* Post+CoreDataClass.swift in Sources */,
+				6A39558B2626F53200A67AEB /* JourneySegment+CoreDataProperties.swift in Sources */,
+				6A3955912626F53200A67AEB /* User+CoreDataProperties.swift in Sources */,
 				6AD054612626C0D000750EB8 /* InMotion.xcdatamodeld in Sources */,
 				6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */,
-				6A39557E2626EE7400A67AEB /* empty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
