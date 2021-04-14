@@ -78,6 +78,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A3955662626DC9E00A67AEB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6A3955672626DCAA00A67AEB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6AD0545A2626C0D000750EB8 /* ViewController.swift */,
+				6A3955682626DCCA00A67AEB /* Storyboards */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6A3955682626DCCA00A67AEB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6AD054642626C0D300750EB8 /* LaunchScreen.storyboard */,
+				6AD0545C2626C0D000750EB8 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		6A3955692626DCEC00A67AEB /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				6AD054582626C0D000750EB8 /* SceneDelegate.swift */,
+				6AD054562626C0D000750EB8 /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		6A3955702626DD0B00A67AEB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6AD0545F2626C0D000750EB8 /* InMotion.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		6AD0544A2626C0D000750EB8 = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +143,12 @@
 		6AD054552626C0D000750EB8 /* InMotion */ = {
 			isa = PBXGroup;
 			children = (
-				6AD054562626C0D000750EB8 /* AppDelegate.swift */,
-				6AD054582626C0D000750EB8 /* SceneDelegate.swift */,
-				6AD0545A2626C0D000750EB8 /* ViewController.swift */,
-				6AD0545C2626C0D000750EB8 /* Main.storyboard */,
+				6A3955662626DC9E00A67AEB /* Models */,
+				6A3955702626DD0B00A67AEB /* CoreData */,
+				6A3955692626DCEC00A67AEB /* Delegates */,
+				6A3955672626DCAA00A67AEB /* ViewControllers */,
 				6AD054622626C0D300750EB8 /* Assets.xcassets */,
-				6AD054642626C0D300750EB8 /* LaunchScreen.storyboard */,
 				6AD054672626C0D300750EB8 /* Info.plist */,
-				6AD0545F2626C0D000750EB8 /* InMotion.xcdatamodeld */,
 			);
 			path = InMotion;
 			sourceTree = "<group>";
