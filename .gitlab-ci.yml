@@ -13,4 +13,5 @@ build_project:
     script:
         - xcodebuild clean -project InMotion.xcodeproj -scheme InMotion #| xcpretty
         - xcodebuild test -project InMotion.xcodeproj -scheme InMotion -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.1' #| xcpretty -s
-    tags: iOS
+    tags:
+        - iOS
