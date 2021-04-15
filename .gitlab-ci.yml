@@ -3,4 +3,5 @@ stages:
 build_project:
     stage: build
     script:
-        - echo "Hello"
+        - xcodebuild clean -project InMotion.xcodeproj -scheme InMotion
+        - xcodebuild test -project InMotion.xcodeproj -scheme InMotion -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.0'
