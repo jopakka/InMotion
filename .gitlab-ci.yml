@@ -6,5 +6,5 @@ say_hello:
 build_project:
     stage: build
     script:
-        - xcodebuild clean -project InMotion.xcodeproj -scheme InMotion | xcpretty
-        - xcodebuild test -project InMotion.xcodeproj -scheme InMotion -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' | xcpretty -s
+        - xcodebuild clean -project InMotion.xcodeproj -scheme InMotion
+        - xcodebuild test -project InMotion.xcodeproj -scheme InMotion -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.7'
