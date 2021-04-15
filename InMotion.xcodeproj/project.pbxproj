@@ -25,6 +25,8 @@
 		6AD054662626C0D300750EB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD054642626C0D300750EB8 /* LaunchScreen.storyboard */; };
 		6AD054712626C0D300750EB8 /* InMotionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054702626C0D300750EB8 /* InMotionTests.swift */; };
 		6AD0547C2626C0D300750EB8 /* InMotionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD0547B2626C0D300750EB8 /* InMotionUITests.swift */; };
+		6AD054902628280600750EB8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6AD0548F2628280600750EB8 /* .gitignore */; };
+		6AD81514262828670033399B /* .gitlab-ci.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6AD81513262828670033399B /* .gitlab-ci.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		6AD054772626C0D300750EB8 /* InMotionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InMotionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD0547B2626C0D300750EB8 /* InMotionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMotionUITests.swift; sourceTree = "<group>"; };
 		6AD0547D2626C0D300750EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AD0548F2628280600750EB8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6AD81513262828670033399B /* .gitlab-ci.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = ".gitlab-ci.yml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,8 @@
 		6AD0544A2626C0D000750EB8 = {
 			isa = PBXGroup;
 			children = (
+				6AD81513262828670033399B /* .gitlab-ci.yml */,
+				6AD0548F2628280600750EB8 /* .gitignore */,
 				6AD054552626C0D000750EB8 /* InMotion */,
 				6AD0546F2626C0D300750EB8 /* InMotionTests */,
 				6AD0547A2626C0D300750EB8 /* InMotionUITests */,
@@ -309,8 +315,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AD054902628280600750EB8 /* .gitignore in Resources */,
 				6AD054662626C0D300750EB8 /* LaunchScreen.storyboard in Resources */,
 				6AD054632626C0D300750EB8 /* Assets.xcassets in Resources */,
+				6AD81514262828670033399B /* .gitlab-ci.yml in Resources */,
 				6AD0545E2626C0D000750EB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
