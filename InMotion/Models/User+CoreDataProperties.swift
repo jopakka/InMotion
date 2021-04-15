@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  InMotion
 //
-//  Created by iosdev on 14.4.2021.
+//  Created by iosdev on 15.4.2021.
 //
 //
 
@@ -16,10 +16,10 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var firstname: String?
-    @NSManaged public var lastname: String?
     @NSManaged public var avatar: String?
     @NSManaged public var banner: String?
+    @NSManaged public var firstname: String?
+    @NSManaged public var lastname: String?
     @NSManaged public var password: String?
     @NSManaged public var username: String?
     @NSManaged public var journey: NSSet?
