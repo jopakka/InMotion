@@ -5,7 +5,7 @@ say_hello:
     stage: build
     script:
         - echo Hello
-    tag:
+    tags:
         - iOS
 
 build_project:
@@ -13,4 +13,4 @@ build_project:
     script:
         - xcodebuild clean -project InMotion.xcodeproj -scheme InMotion #| xcpretty
         - xcodebuild test -project InMotion.xcodeproj -scheme InMotion -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.1' #| xcpretty -s
-    tag: iOS
+    tags: iOS
