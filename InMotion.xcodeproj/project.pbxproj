@@ -8,14 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6A3955762626EE4100A67AEB /* empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955752626EE4100A67AEB /* empty.swift */; };
-		6A39558A2626F53200A67AEB /* JourneySegment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955822626F53200A67AEB /* JourneySegment+CoreDataClass.swift */; };
-		6A39558B2626F53200A67AEB /* JourneySegment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955832626F53200A67AEB /* JourneySegment+CoreDataProperties.swift */; };
-		6A39558C2626F53200A67AEB /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955842626F53200A67AEB /* Post+CoreDataClass.swift */; };
-		6A39558D2626F53200A67AEB /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955852626F53200A67AEB /* Post+CoreDataProperties.swift */; };
-		6A39558E2626F53200A67AEB /* Journey+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955862626F53200A67AEB /* Journey+CoreDataClass.swift */; };
-		6A39558F2626F53200A67AEB /* Journey+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955872626F53200A67AEB /* Journey+CoreDataProperties.swift */; };
-		6A3955902626F53200A67AEB /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955882626F53200A67AEB /* User+CoreDataClass.swift */; };
-		6A3955912626F53200A67AEB /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955892626F53200A67AEB /* User+CoreDataProperties.swift */; };
 		6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054562626C0D000750EB8 /* AppDelegate.swift */; };
 		6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054582626C0D000750EB8 /* SceneDelegate.swift */; };
 		6AD0545B2626C0D000750EB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD0545A2626C0D000750EB8 /* ViewController.swift */; };
@@ -28,6 +20,16 @@
 		6AD054902628280600750EB8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6AD0548F2628280600750EB8 /* .gitignore */; };
 		6AD81514262828670033399B /* .gitlab-ci.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6AD81513262828670033399B /* .gitlab-ci.yml */; };
 		6AD8151F26282DE90033399B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6AD8151E26282DE90033399B /* README.md */; };
+		6AD8152426283A950033399B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8152326283A950033399B /* RegisterViewController.swift */; };
+		6AD8153E262844090033399B /* Journey+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81536262844090033399B /* Journey+CoreDataClass.swift */; };
+		6AD8153F262844090033399B /* Journey+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81537262844090033399B /* Journey+CoreDataProperties.swift */; };
+		6AD81540262844090033399B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81538262844090033399B /* User+CoreDataClass.swift */; };
+		6AD81541262844090033399B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81539262844090033399B /* User+CoreDataProperties.swift */; };
+		6AD81542262844090033399B /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8153A262844090033399B /* Post+CoreDataClass.swift */; };
+		6AD81543262844090033399B /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8153B262844090033399B /* Post+CoreDataProperties.swift */; };
+		6AD81544262844090033399B /* JourneySegment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8153C262844090033399B /* JourneySegment+CoreDataClass.swift */; };
+		6AD81545262844090033399B /* JourneySegment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8153D262844090033399B /* JourneySegment+CoreDataProperties.swift */; };
+		6AD8154D262853980033399B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8154C262853980033399B /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,14 +51,6 @@
 
 /* Begin PBXFileReference section */
 		6A3955752626EE4100A67AEB /* empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.swift; sourceTree = "<group>"; };
-		6A3955822626F53200A67AEB /* JourneySegment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6A3955832626F53200A67AEB /* JourneySegment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		6A3955842626F53200A67AEB /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6A3955852626F53200A67AEB /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		6A3955862626F53200A67AEB /* Journey+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6A3955872626F53200A67AEB /* Journey+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		6A3955882626F53200A67AEB /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6A3955892626F53200A67AEB /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6AD054532626C0D000750EB8 /* InMotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD054562626C0D000750EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AD054582626C0D000750EB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +69,16 @@
 		6AD0548F2628280600750EB8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6AD81513262828670033399B /* .gitlab-ci.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = ".gitlab-ci.yml"; sourceTree = "<group>"; };
 		6AD8151E26282DE90033399B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6AD8152326283A950033399B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		6AD81536262844090033399B /* Journey+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6AD81537262844090033399B /* Journey+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6AD81538262844090033399B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6AD81539262844090033399B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6AD8153A262844090033399B /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6AD8153B262844090033399B /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6AD8153C262844090033399B /* JourneySegment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6AD8153D262844090033399B /* JourneySegment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6AD8154C262853980033399B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,14 +109,14 @@
 		6A3955662626DC9E00A67AEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6A3955822626F53200A67AEB /* JourneySegment+CoreDataClass.swift */,
-				6A3955832626F53200A67AEB /* JourneySegment+CoreDataProperties.swift */,
-				6A3955842626F53200A67AEB /* Post+CoreDataClass.swift */,
-				6A3955852626F53200A67AEB /* Post+CoreDataProperties.swift */,
-				6A3955862626F53200A67AEB /* Journey+CoreDataClass.swift */,
-				6A3955872626F53200A67AEB /* Journey+CoreDataProperties.swift */,
-				6A3955882626F53200A67AEB /* User+CoreDataClass.swift */,
-				6A3955892626F53200A67AEB /* User+CoreDataProperties.swift */,
+				6AD81536262844090033399B /* Journey+CoreDataClass.swift */,
+				6AD81537262844090033399B /* Journey+CoreDataProperties.swift */,
+				6AD81538262844090033399B /* User+CoreDataClass.swift */,
+				6AD81539262844090033399B /* User+CoreDataProperties.swift */,
+				6AD8153A262844090033399B /* Post+CoreDataClass.swift */,
+				6AD8153B262844090033399B /* Post+CoreDataProperties.swift */,
+				6AD8153C262844090033399B /* JourneySegment+CoreDataClass.swift */,
+				6AD8153D262844090033399B /* JourneySegment+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				6AD0545A2626C0D000750EB8 /* ViewController.swift */,
+				6AD8152326283A950033399B /* RegisterViewController.swift */,
+				6AD8154C262853980033399B /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -348,18 +354,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A39558F2626F53200A67AEB /* Journey+CoreDataProperties.swift in Sources */,
-				6A39558E2626F53200A67AEB /* Journey+CoreDataClass.swift in Sources */,
-				6A39558A2626F53200A67AEB /* JourneySegment+CoreDataClass.swift in Sources */,
-				6A3955902626F53200A67AEB /* User+CoreDataClass.swift in Sources */,
 				6AD0545B2626C0D000750EB8 /* ViewController.swift in Sources */,
+				6AD8153E262844090033399B /* Journey+CoreDataClass.swift in Sources */,
 				6A3955762626EE4100A67AEB /* empty.swift in Sources */,
-				6A39558D2626F53200A67AEB /* Post+CoreDataProperties.swift in Sources */,
+				6AD8154D262853980033399B /* LoginViewController.swift in Sources */,
 				6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */,
-				6A39558C2626F53200A67AEB /* Post+CoreDataClass.swift in Sources */,
-				6A39558B2626F53200A67AEB /* JourneySegment+CoreDataProperties.swift in Sources */,
-				6A3955912626F53200A67AEB /* User+CoreDataProperties.swift in Sources */,
+				6AD81542262844090033399B /* Post+CoreDataClass.swift in Sources */,
+				6AD81544262844090033399B /* JourneySegment+CoreDataClass.swift in Sources */,
+				6AD81543262844090033399B /* Post+CoreDataProperties.swift in Sources */,
+				6AD8153F262844090033399B /* Journey+CoreDataProperties.swift in Sources */,
+				6AD81545262844090033399B /* JourneySegment+CoreDataProperties.swift in Sources */,
+				6AD81540262844090033399B /* User+CoreDataClass.swift in Sources */,
+				6AD8152426283A950033399B /* RegisterViewController.swift in Sources */,
 				6AD054612626C0D000750EB8 /* InMotion.xcdatamodeld in Sources */,
+				6AD81541262844090033399B /* User+CoreDataProperties.swift in Sources */,
 				6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
