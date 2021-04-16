@@ -32,10 +32,10 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        u = trimString(u)
-        e = trimString(e)
-        p = trimString(p)
-        cp = trimString(cp)
+        u = u.trimmingCharacters(in: .whitespacesAndNewlines)
+        e = e.trimmingCharacters(in: .whitespacesAndNewlines)
+        p = p.trimmingCharacters(in: .whitespacesAndNewlines)
+        cp = cp.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if(u.count > 0 && e.count > 0 && p.count > 0 && cp.count > 0) {
             registerButton.isEnabled = true
@@ -44,15 +44,11 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    // Action to take user to login page
-    @IBAction func toLoginPageAction(_ sender: UIButton) {
+    // Pop current view to navigate back login view
+    @IBAction func haveActionAction(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
-    
     // Action to registering new user
     @IBAction func registerAction(_ sender: UIButton) {
-    }
-    
-    private func trimString(_ text: String) -> String {
-        return text.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
