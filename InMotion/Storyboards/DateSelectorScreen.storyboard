@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Date Selector-->
         <scene sceneID="vg9-Yn-kf1">
             <objects>
                 <viewController id="Jkj-q2-Zlm" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         <viewLayoutGuide key="safeArea" id="qIU-tv-W9G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AmJ-JI-VnN"/>
+                    <navigationItem key="navigationItem" title="Date Selector" id="AmJ-JI-VnN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s97-TR-kSe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
