@@ -22,21 +22,71 @@ class InMotionUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testLoginButtonVisibility1() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssert(!loginButton.isEnabled, "Login button is visible")
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    
+    func testLoginButtonVisibility2() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        let emailField = app.textFields["Email"]
+        emailField.tap()
+        emailField.typeText("user@email.com")
+        
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("P4ssw0rd")
+        
+        let loginButton = app.buttons["Login"]
+        XCTAssert(loginButton.isEnabled, "Login button is not visible")
     }
+    
+    func testRegisterButtonVisibility1() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        let toRegisterButton = app.buttons["Don't have an account yet? Register here"]
+        toRegisterButton.tap()
+        
+        let registerButton = app.buttons["Register"]
+        XCTAssert(!registerButton.isEnabled, "Register button is not visible")
+    }
+    
+    func testRegisterButtonVisibility2() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        let toRegisterButton = app.buttons["Don't have an account yet? Register here"]
+        toRegisterButton.tap()
+        
+        let usernameField = app.textFields["Username"]
+        usernameField.tap()
+        usernameField.typeText("username")
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("user@email.com")
+        
+        let pwField = app.secureTextFields["Password"]
+        pwField.tap()
+        pwField.typeText("P4ssw0rd")
+        
+        let cpwField = app.secureTextFields["Confirm Password"]
+        cpwField.tap()
+        cpwField.typeText("P4ssw0rd")
+        
+        let registerButton = app.buttons["Register"]
+        XCTAssert(registerButton.isEnabled, "Register button is not visible")
+    }
+    
+    
 }
