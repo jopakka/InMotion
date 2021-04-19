@@ -38,22 +38,22 @@
 		6AD81544262844090033399B /* JourneySegment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8153C262844090033399B /* JourneySegment+CoreDataClass.swift */; };
 		6AD81545262844090033399B /* JourneySegment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8153D262844090033399B /* JourneySegment+CoreDataProperties.swift */; };
 		6AD8154D262853980033399B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8154C262853980033399B /* LoginViewController.swift */; };
-		6AD815D8262D8AFC0033399B /* AWSMobileClientXCF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D0262D8AFC0033399B /* AWSMobileClientXCF.xcframework */; };
-		6AD815D9262D8AFC0033399B /* AWSMobileClientXCF.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D0262D8AFC0033399B /* AWSMobileClientXCF.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6AD815DA262D8AFC0033399B /* AWSAuthCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D1262D8AFC0033399B /* AWSAuthCore.xcframework */; };
-		6AD815DB262D8AFC0033399B /* AWSAuthCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D1262D8AFC0033399B /* AWSAuthCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6AD815DC262D8AFC0033399B /* AWSCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D2262D8AFC0033399B /* AWSCore.xcframework */; };
-		6AD815DD262D8AFC0033399B /* AWSCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D2262D8AFC0033399B /* AWSCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6AD815DE262D8AFC0033399B /* AWSAPIGateway.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D3262D8AFC0033399B /* AWSAPIGateway.xcframework */; };
-		6AD815DF262D8AFC0033399B /* AWSAPIGateway.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D3262D8AFC0033399B /* AWSAPIGateway.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6AD815E0262D8AFC0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D4262D8AFC0033399B /* AWSCognitoIdentityProviderASF.xcframework */; };
-		6AD815E1262D8AFC0033399B /* AWSCognitoIdentityProviderASF.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D4262D8AFC0033399B /* AWSCognitoIdentityProviderASF.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6AD815E2262D8AFC0033399B /* AWSS3.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D5262D8AFC0033399B /* AWSS3.xcframework */; };
-		6AD815E3262D8AFC0033399B /* AWSS3.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D5262D8AFC0033399B /* AWSS3.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6AD815E4262D8AFC0033399B /* MOPRIMTmdSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D6262D8AFC0033399B /* MOPRIMTmdSdk.xcframework */; };
-		6AD815E5262D8AFC0033399B /* MOPRIMTmdSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D6262D8AFC0033399B /* MOPRIMTmdSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6AD815E6262D8AFC0033399B /* AWSCognitoIdentityProvider.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D7262D8AFC0033399B /* AWSCognitoIdentityProvider.xcframework */; };
-		6AD815E7262D8AFC0033399B /* AWSCognitoIdentityProvider.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD815D7262D8AFC0033399B /* AWSCognitoIdentityProvider.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817AA262D8E6B0033399B /* AWSS3.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A2262D8E6B0033399B /* AWSS3.xcframework */; };
+		6AD817AB262D8E6B0033399B /* AWSS3.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A2262D8E6B0033399B /* AWSS3.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817AC262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A3262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework */; };
+		6AD817AD262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A3262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817AE262D8E6B0033399B /* AWSCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A4262D8E6B0033399B /* AWSCore.xcframework */; };
+		6AD817AF262D8E6B0033399B /* AWSCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A4262D8E6B0033399B /* AWSCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817B0262D8E6B0033399B /* AWSAuthCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A5262D8E6B0033399B /* AWSAuthCore.xcframework */; };
+		6AD817B1262D8E6B0033399B /* AWSAuthCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A5262D8E6B0033399B /* AWSAuthCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817B2262D8E6B0033399B /* AWSCognitoIdentityProvider.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A6262D8E6B0033399B /* AWSCognitoIdentityProvider.xcframework */; };
+		6AD817B3262D8E6B0033399B /* AWSCognitoIdentityProvider.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A6262D8E6B0033399B /* AWSCognitoIdentityProvider.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817B4262D8E6B0033399B /* AWSMobileClientXCF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A7262D8E6B0033399B /* AWSMobileClientXCF.xcframework */; };
+		6AD817B5262D8E6C0033399B /* AWSMobileClientXCF.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A7262D8E6B0033399B /* AWSMobileClientXCF.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817B6262D8E6C0033399B /* MOPRIMTmdSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A8262D8E6B0033399B /* MOPRIMTmdSdk.xcframework */; };
+		6AD817B7262D8E6C0033399B /* MOPRIMTmdSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A8262D8E6B0033399B /* MOPRIMTmdSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817B8262D8E6C0033399B /* AWSAPIGateway.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A9262D8E6B0033399B /* AWSAPIGateway.xcframework */; };
+		6AD817B9262D8E6C0033399B /* AWSAPIGateway.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A9262D8E6B0033399B /* AWSAPIGateway.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,20 +74,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6AD815E8262D8AFD0033399B /* Embed Frameworks */ = {
+		6AD817BA262D8E6C0033399B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6AD815E7262D8AFC0033399B /* AWSCognitoIdentityProvider.xcframework in Embed Frameworks */,
-				6AD815E1262D8AFC0033399B /* AWSCognitoIdentityProviderASF.xcframework in Embed Frameworks */,
-				6AD815E3262D8AFC0033399B /* AWSS3.xcframework in Embed Frameworks */,
-				6AD815DB262D8AFC0033399B /* AWSAuthCore.xcframework in Embed Frameworks */,
-				6AD815D9262D8AFC0033399B /* AWSMobileClientXCF.xcframework in Embed Frameworks */,
-				6AD815DD262D8AFC0033399B /* AWSCore.xcframework in Embed Frameworks */,
-				6AD815E5262D8AFC0033399B /* MOPRIMTmdSdk.xcframework in Embed Frameworks */,
-				6AD815DF262D8AFC0033399B /* AWSAPIGateway.xcframework in Embed Frameworks */,
+				6AD817B5262D8E6C0033399B /* AWSMobileClientXCF.xcframework in Embed Frameworks */,
+				6AD817B1262D8E6B0033399B /* AWSAuthCore.xcframework in Embed Frameworks */,
+				6AD817AB262D8E6B0033399B /* AWSS3.xcframework in Embed Frameworks */,
+				6AD817AD262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework in Embed Frameworks */,
+				6AD817AF262D8E6B0033399B /* AWSCore.xcframework in Embed Frameworks */,
+				6AD817B7262D8E6C0033399B /* MOPRIMTmdSdk.xcframework in Embed Frameworks */,
+				6AD817B3262D8E6B0033399B /* AWSCognitoIdentityProvider.xcframework in Embed Frameworks */,
+				6AD817B9262D8E6C0033399B /* AWSAPIGateway.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,14 +132,14 @@
 		6AD8153C262844090033399B /* JourneySegment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6AD8153D262844090033399B /* JourneySegment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6AD8154C262853980033399B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		6AD815D0262D8AFC0033399B /* AWSMobileClientXCF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSMobileClientXCF.xcframework; path = "../../Downloads/Needed for project/AWSMobileClientXCF.xcframework"; sourceTree = "<group>"; };
-		6AD815D1262D8AFC0033399B /* AWSAuthCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSAuthCore.xcframework; path = "../../Downloads/Needed for project/AWSAuthCore.xcframework"; sourceTree = "<group>"; };
-		6AD815D2262D8AFC0033399B /* AWSCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSCore.xcframework; path = "../../Downloads/Needed for project/AWSCore.xcframework"; sourceTree = "<group>"; };
-		6AD815D3262D8AFC0033399B /* AWSAPIGateway.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSAPIGateway.xcframework; path = "../../Downloads/Needed for project/AWSAPIGateway.xcframework"; sourceTree = "<group>"; };
-		6AD815D4262D8AFC0033399B /* AWSCognitoIdentityProviderASF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSCognitoIdentityProviderASF.xcframework; path = "../../Downloads/Needed for project/AWSCognitoIdentityProviderASF.xcframework"; sourceTree = "<group>"; };
-		6AD815D5262D8AFC0033399B /* AWSS3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSS3.xcframework; path = "../../Downloads/Needed for project/AWSS3.xcframework"; sourceTree = "<group>"; };
-		6AD815D6262D8AFC0033399B /* MOPRIMTmdSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MOPRIMTmdSdk.xcframework; path = "../../Downloads/Needed for project/MOPRIMTmdSdk.xcframework"; sourceTree = "<group>"; };
-		6AD815D7262D8AFC0033399B /* AWSCognitoIdentityProvider.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSCognitoIdentityProvider.xcframework; path = "../../Downloads/Needed for project/AWSCognitoIdentityProvider.xcframework"; sourceTree = "<group>"; };
+		6AD817A2262D8E6B0033399B /* AWSS3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSS3.xcframework; path = SubFrameworks/AWSS3.xcframework; sourceTree = "<group>"; };
+		6AD817A3262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSCognitoIdentityProviderASF.xcframework; path = SubFrameworks/AWSCognitoIdentityProviderASF.xcframework; sourceTree = "<group>"; };
+		6AD817A4262D8E6B0033399B /* AWSCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSCore.xcframework; path = SubFrameworks/AWSCore.xcframework; sourceTree = "<group>"; };
+		6AD817A5262D8E6B0033399B /* AWSAuthCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSAuthCore.xcframework; path = SubFrameworks/AWSAuthCore.xcframework; sourceTree = "<group>"; };
+		6AD817A6262D8E6B0033399B /* AWSCognitoIdentityProvider.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSCognitoIdentityProvider.xcframework; path = SubFrameworks/AWSCognitoIdentityProvider.xcframework; sourceTree = "<group>"; };
+		6AD817A7262D8E6B0033399B /* AWSMobileClientXCF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSMobileClientXCF.xcframework; path = SubFrameworks/AWSMobileClientXCF.xcframework; sourceTree = "<group>"; };
+		6AD817A8262D8E6B0033399B /* MOPRIMTmdSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MOPRIMTmdSdk.xcframework; path = SubFrameworks/MOPRIMTmdSdk.xcframework; sourceTree = "<group>"; };
+		6AD817A9262D8E6B0033399B /* AWSAPIGateway.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSAPIGateway.xcframework; path = SubFrameworks/AWSAPIGateway.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,14 +147,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AD815E6262D8AFC0033399B /* AWSCognitoIdentityProvider.xcframework in Frameworks */,
-				6AD815E0262D8AFC0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */,
-				6AD815E2262D8AFC0033399B /* AWSS3.xcframework in Frameworks */,
-				6AD815DA262D8AFC0033399B /* AWSAuthCore.xcframework in Frameworks */,
-				6AD815D8262D8AFC0033399B /* AWSMobileClientXCF.xcframework in Frameworks */,
-				6AD815DC262D8AFC0033399B /* AWSCore.xcframework in Frameworks */,
-				6AD815E4262D8AFC0033399B /* MOPRIMTmdSdk.xcframework in Frameworks */,
-				6AD815DE262D8AFC0033399B /* AWSAPIGateway.xcframework in Frameworks */,
+				6AD817B4262D8E6B0033399B /* AWSMobileClientXCF.xcframework in Frameworks */,
+				6AD817B0262D8E6B0033399B /* AWSAuthCore.xcframework in Frameworks */,
+				6AD817AA262D8E6B0033399B /* AWSS3.xcframework in Frameworks */,
+				6AD817AC262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */,
+				6AD817AE262D8E6B0033399B /* AWSCore.xcframework in Frameworks */,
+				6AD817B6262D8E6C0033399B /* MOPRIMTmdSdk.xcframework in Frameworks */,
+				6AD817B2262D8E6B0033399B /* AWSCognitoIdentityProvider.xcframework in Frameworks */,
+				6AD817B8262D8E6C0033399B /* AWSAPIGateway.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +252,7 @@
 				6AD0546F2626C0D300750EB8 /* InMotionTests */,
 				6AD0547A2626C0D300750EB8 /* InMotionUITests */,
 				6AD054542626C0D000750EB8 /* Products */,
-				6AD815CF262D8AFB0033399B /* Frameworks */,
+				6AD817A1262D8E6B0033399B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,17 +299,17 @@
 			path = InMotionUITests;
 			sourceTree = "<group>";
 		};
-		6AD815CF262D8AFB0033399B /* Frameworks */ = {
+		6AD817A1262D8E6B0033399B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6AD815D3262D8AFC0033399B /* AWSAPIGateway.xcframework */,
-				6AD815D1262D8AFC0033399B /* AWSAuthCore.xcframework */,
-				6AD815D7262D8AFC0033399B /* AWSCognitoIdentityProvider.xcframework */,
-				6AD815D4262D8AFC0033399B /* AWSCognitoIdentityProviderASF.xcframework */,
-				6AD815D2262D8AFC0033399B /* AWSCore.xcframework */,
-				6AD815D0262D8AFC0033399B /* AWSMobileClientXCF.xcframework */,
-				6AD815D5262D8AFC0033399B /* AWSS3.xcframework */,
-				6AD815D6262D8AFC0033399B /* MOPRIMTmdSdk.xcframework */,
+				6AD817A9262D8E6B0033399B /* AWSAPIGateway.xcframework */,
+				6AD817A5262D8E6B0033399B /* AWSAuthCore.xcframework */,
+				6AD817A6262D8E6B0033399B /* AWSCognitoIdentityProvider.xcframework */,
+				6AD817A3262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework */,
+				6AD817A4262D8E6B0033399B /* AWSCore.xcframework */,
+				6AD817A7262D8E6B0033399B /* AWSMobileClientXCF.xcframework */,
+				6AD817A2262D8E6B0033399B /* AWSS3.xcframework */,
+				6AD817A8262D8E6B0033399B /* MOPRIMTmdSdk.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 				6AD0544F2626C0D000750EB8 /* Sources */,
 				6AD054502626C0D000750EB8 /* Frameworks */,
 				6AD054512626C0D000750EB8 /* Resources */,
-				6AD815E8262D8AFD0033399B /* Embed Frameworks */,
+				6AD817BA262D8E6C0033399B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
