@@ -38,6 +38,7 @@
 		6AD81544262844090033399B /* JourneySegment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8153C262844090033399B /* JourneySegment+CoreDataClass.swift */; };
 		6AD81545262844090033399B /* JourneySegment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8153D262844090033399B /* JourneySegment+CoreDataProperties.swift */; };
 		6AD8154D262853980033399B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8154C262853980033399B /* LoginViewController.swift */; };
+		6AD81578262D68300033399B /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD81577262D68300033399B /* LoginRegister.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		6AD8153C262844090033399B /* JourneySegment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6AD8153D262844090033399B /* JourneySegment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JourneySegment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6AD8154C262853980033399B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6AD81577262D68300033399B /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				6A3955E1262AE12400A67AEB /* JourneyDetailsScreen.storyboard */,
 				6AD054642626C0D300750EB8 /* LaunchScreen.storyboard */,
 				6AD0545C2626C0D000750EB8 /* Main.storyboard */,
+				6AD81577262D68300033399B /* LoginRegister.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				6AD8151F26282DE90033399B /* README.md in Resources */,
 				6A3955EB262AE1A000A67AEB /* SelectedDateDetailsScreen.storyboard in Resources */,
 				6A3955F3262AE1C800A67AEB /* DateSelectorScreen.storyboard in Resources */,
+				6AD81578262D68300033399B /* LoginRegister.storyboard in Resources */,
 				6AD054902628280600750EB8 /* .gitignore in Resources */,
 				6AD054662626C0D300750EB8 /* LaunchScreen.storyboard in Resources */,
 				6AD054632626C0D300750EB8 /* Assets.xcassets in Resources */,
