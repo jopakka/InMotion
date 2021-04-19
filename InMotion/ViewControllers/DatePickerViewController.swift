@@ -11,7 +11,7 @@ class DatePickerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("screen loaded")
+        print("screen loaded now")
     }
 
 
