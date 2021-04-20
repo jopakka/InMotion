@@ -207,6 +207,7 @@
 				6A3955D1262ADD0900A67AEB /* JourneyDetailsViewController.swift */,
 				6A3955D6262ADD2A00A67AEB /* JourneyMediaDetailsViewController.swift */,
 				6A377276262D8462003A6417 /* JourneyCreateViewController.swift */,
+				6A377260262D6724003A6417 /* MapView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -221,7 +222,6 @@
 				6A3955E1262AE12400A67AEB /* JourneyDetailsScreen.storyboard */,
 				6AD054642626C0D300750EB8 /* LaunchScreen.storyboard */,
 				6AD0545C2626C0D000750EB8 /* Main.storyboard */,
-				6A377260262D6724003A6417 /* MapView.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
