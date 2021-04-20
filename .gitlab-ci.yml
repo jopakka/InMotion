@@ -1,0 +1,19 @@
+stages:
+    - build
+
+say_hello:
+    stage: build
+    script:
+        - echo Hello
+    tags:
+        - iOS
+
+build_project:
+    stage: build
+    script:
+        - xcodebuild clean -project InMotion.xcodeproj -scheme InMotion #| xcpretty
+        - xcodebuild test -project InMotion.xcodeproj -scheme InMotion -destination 'platform=iOS Simulator,name=iPhone 11,OS=14.4' #| xcpretty -s
+    tags:
+        - joonas
+        - mike
+        - pat
