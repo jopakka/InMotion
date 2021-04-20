@@ -51,6 +51,18 @@ class RegisterViewController: UIViewController {
     
     // Action to registering new user
     @IBAction func registerAction(_ sender: UIButton) {
+        guard var u = usernameTf.text,
+           var e = emailTf.text,
+           var p = passwordTf.text,
+           var cp = confirmPasswordTf.text else {
+            return
+        }
+        
+        u = u.trimmingCharacters(in: .whitespacesAndNewlines)
+        e = e.trimmingCharacters(in: .whitespacesAndNewlines)
+        p = p.trimmingCharacters(in: .whitespacesAndNewlines)
+        cp = cp.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         
     }
 }
