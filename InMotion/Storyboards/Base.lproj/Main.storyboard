@@ -169,13 +169,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iq1-Qj-vmu">
                                 <rect key="frame" x="20" y="185" width="374" height="171"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PN1-5U-2Od">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PN1-5U-2Od">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="email" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JA9-AB-S7q">
+                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="email" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JA9-AB-S7q">
                                         <rect key="frame" x="0.0" y="28.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
@@ -230,9 +230,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="IqG-MU-JcV"/>
                     <connections>
-                        <outlet property="emailTf" destination="JA9-AB-S7q" id="iCb-zq-adm"/>
                         <outlet property="loginButton" destination="6Um-qB-0xL" id="Hcc-e4-wLi"/>
                         <outlet property="passwordTf" destination="TQp-Fj-iOD" id="J59-pX-EtE"/>
+                        <outlet property="usernameTf" destination="JA9-AB-S7q" id="Zfr-p9-Vdp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyW-DP-LBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -254,7 +254,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IgX-qV-Kgm">
-                                <rect key="frame" x="20" y="185" width="374" height="312"/>
+                                <rect key="frame" x="20" y="185" width="374" height="241.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn8-A9-Us3">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
@@ -270,28 +270,14 @@
                                             <action selector="textFieldOnChage:" destination="ftp-FJ-JBn" eventType="editingChanged" id="Hxu-1s-6Hg"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnS-LJ-Y6z">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeL-zE-wnv">
                                         <rect key="frame" x="0.0" y="70.5" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="email" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x1A-gg-y4i">
-                                        <rect key="frame" x="0.0" y="99" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
-                                        <connections>
-                                            <action selector="textFieldOnChage:" destination="ftp-FJ-JBn" eventType="editingChanged" id="RUj-UH-pbz"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeL-zE-wnv">
-                                        <rect key="frame" x="0.0" y="141" width="374" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="password" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QF9-XU-yhk">
-                                        <rect key="frame" x="0.0" y="169.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="99" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
@@ -299,13 +285,13 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kU-FA-ITW">
-                                        <rect key="frame" x="0.0" y="211.5" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="141" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="confirmPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8B-iN-bQG">
-                                        <rect key="frame" x="0.0" y="240" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="169.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                         <connections>
@@ -313,7 +299,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhM-m6-yyj">
-                                        <rect key="frame" x="0.0" y="282" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="211.5" width="374" height="30"/>
                                         <state key="normal" title="Already have an account? Login here"/>
                                         <connections>
                                             <action selector="haveActionAction:" destination="ftp-FJ-JBn" eventType="touchUpInside" id="HgR-C5-v2b"/>
@@ -322,7 +308,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-bR-tkD">
-                                <rect key="frame" x="321" y="517" width="73" height="36"/>
+                                <rect key="frame" x="321" y="446.5" width="73" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
@@ -347,7 +333,6 @@
                     <navigationItem key="navigationItem" id="F4y-r2-SqV"/>
                     <connections>
                         <outlet property="confirmPasswordTf" destination="O8B-iN-bQG" id="rtt-vu-hpr"/>
-                        <outlet property="emailTf" destination="x1A-gg-y4i" id="zDx-pc-M5X"/>
                         <outlet property="passwordTf" destination="QF9-XU-yhk" id="2FP-HJ-7z2"/>
                         <outlet property="registerButton" destination="aC3-bR-tkD" id="TVd-MP-1yr"/>
                         <outlet property="usernameTf" destination="BtV-EI-zeY" id="Bp6-zF-GdD"/>

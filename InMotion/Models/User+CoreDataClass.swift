@@ -20,8 +20,7 @@ public class User: NSManagedObject {
                 let newMember = User(context: context)
                 return newMember
             } else {
-                print("Database dublicate with username: \(username)")
-                return matchingMember[0]
+                return nil
             }
         } catch {
             throw error

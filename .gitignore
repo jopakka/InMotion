@@ -90,5 +90,3 @@ fastlane/test_output
 iOSInjectionProject/
 
 builds/
-
-.gitlab-ci.yml

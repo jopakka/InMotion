@@ -25,7 +25,6 @@
 		6AD054712626C0D300750EB8 /* InMotionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054702626C0D300750EB8 /* InMotionTests.swift */; };
 		6AD0547C2626C0D300750EB8 /* InMotionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD0547B2626C0D300750EB8 /* InMotionUITests.swift */; };
 		6AD054902628280600750EB8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6AD0548F2628280600750EB8 /* .gitignore */; };
-		6AD81514262828670033399B /* .gitlab-ci.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6AD81513262828670033399B /* .gitlab-ci.yml */; };
 		6AD8151F26282DE90033399B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6AD8151E26282DE90033399B /* README.md */; };
 		6AD8152426283A950033399B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8152326283A950033399B /* RegisterViewController.swift */; };
 		6AD8153E262844090033399B /* Journey+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81536262844090033399B /* Journey+CoreDataClass.swift */; };
@@ -53,6 +52,7 @@
 		6AD817B7262D8E6C0033399B /* MOPRIMTmdSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A8262D8E6B0033399B /* MOPRIMTmdSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6AD817B8262D8E6C0033399B /* AWSAPIGateway.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A9262D8E6B0033399B /* AWSAPIGateway.xcframework */; };
 		6AD817B9262D8E6C0033399B /* AWSAPIGateway.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD817A9262D8E6B0033399B /* AWSAPIGateway.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6AD817C7262EC5300033399B /* .gitlab-ci.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6AD817C6262EC5300033399B /* .gitlab-ci.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +118,6 @@
 		6AD0547B2626C0D300750EB8 /* InMotionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMotionUITests.swift; sourceTree = "<group>"; };
 		6AD0547D2626C0D300750EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AD0548F2628280600750EB8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		6AD81513262828670033399B /* .gitlab-ci.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = ".gitlab-ci.yml"; sourceTree = "<group>"; };
 		6AD8151E26282DE90033399B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6AD8152326283A950033399B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6AD81536262844090033399B /* Journey+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -138,6 +137,7 @@
 		6AD817A7262D8E6B0033399B /* AWSMobileClientXCF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSMobileClientXCF.xcframework; path = SubFrameworks/AWSMobileClientXCF.xcframework; sourceTree = "<group>"; };
 		6AD817A8262D8E6B0033399B /* MOPRIMTmdSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MOPRIMTmdSdk.xcframework; path = SubFrameworks/MOPRIMTmdSdk.xcframework; sourceTree = "<group>"; };
 		6AD817A9262D8E6B0033399B /* AWSAPIGateway.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AWSAPIGateway.xcframework; path = SubFrameworks/AWSAPIGateway.xcframework; sourceTree = "<group>"; };
+		6AD817C6262EC5300033399B /* .gitlab-ci.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = ".gitlab-ci.yml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,9 +242,9 @@
 		6AD0544A2626C0D000750EB8 = {
 			isa = PBXGroup;
 			children = (
-				6AD81513262828670033399B /* .gitlab-ci.yml */,
 				6AD8151E26282DE90033399B /* README.md */,
 				6AD0548F2628280600750EB8 /* .gitignore */,
+				6AD817C6262EC5300033399B /* .gitlab-ci.yml */,
 				6AD054552626C0D000750EB8 /* InMotion */,
 				6AD0546F2626C0D300750EB8 /* InMotionTests */,
 				6AD0547A2626C0D300750EB8 /* InMotionUITests */,
@@ -420,7 +420,7 @@
 				6AD054902628280600750EB8 /* .gitignore in Resources */,
 				6AD054662626C0D300750EB8 /* LaunchScreen.storyboard in Resources */,
 				6AD054632626C0D300750EB8 /* Assets.xcassets in Resources */,
-				6AD81514262828670033399B /* .gitlab-ci.yml in Resources */,
+				6AD817C7262EC5300033399B /* .gitlab-ci.yml in Resources */,
 				6AD0545E2626C0D000750EB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
