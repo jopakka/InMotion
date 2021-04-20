@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A377261262D6724003A6417 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A377260262D6724003A6417 /* MapView.swift */; };
+		6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */; };
+		6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A377276262D8462003A6417 /* JourneyCreateViewController.swift */; };
 		6A3955762626EE4100A67AEB /* empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955752626EE4100A67AEB /* empty.swift */; };
 		6A3955BC2629EB7900A67AEB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955BB2629EB7900A67AEB /* DatePickerViewController.swift */; };
 		6A3955CD262ADCED00A67AEB /* SelectedDateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955CC262ADCED00A67AEB /* SelectedDateDetailsViewController.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A377260262D6724003A6417 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JourneyCreate.storyboard; sourceTree = "<group>"; };
+		6A377276262D8462003A6417 /* JourneyCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyCreateViewController.swift; sourceTree = "<group>"; };
 		6A3955752626EE4100A67AEB /* empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.swift; sourceTree = "<group>"; };
 		6A3955BB2629EB7900A67AEB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		6A3955CC262ADCED00A67AEB /* SelectedDateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDateDetailsViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 				6A3955CC262ADCED00A67AEB /* SelectedDateDetailsViewController.swift */,
 				6A3955D1262ADD0900A67AEB /* JourneyDetailsViewController.swift */,
 				6A3955D6262ADD2A00A67AEB /* JourneyMediaDetailsViewController.swift */,
+				6A377276262D8462003A6417 /* JourneyCreateViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -154,12 +161,14 @@
 		6A3955682626DCCA00A67AEB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */,
 				6A3955F2262AE1C800A67AEB /* DateSelectorScreen.storyboard */,
 				6A3955E9262AE1A000A67AEB /* SelectedDateDetailsScreen.storyboard */,
 				6A3955DB262AE0FD00A67AEB /* JourneyMediaDetailsScreen.storyboard */,
 				6A3955E1262AE12400A67AEB /* JourneyDetailsScreen.storyboard */,
 				6AD054642626C0D300750EB8 /* LaunchScreen.storyboard */,
 				6AD0545C2626C0D000750EB8 /* Main.storyboard */,
+				6A377260262D6724003A6417 /* MapView.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 			files = (
 				6A3955E2262AE12400A67AEB /* JourneyDetailsScreen.storyboard in Resources */,
 				6AD8151F26282DE90033399B /* README.md in Resources */,
+				6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */,
 				6A3955EB262AE1A000A67AEB /* SelectedDateDetailsScreen.storyboard in Resources */,
 				6A3955F3262AE1C800A67AEB /* DateSelectorScreen.storyboard in Resources */,
 				6AD054902628280600750EB8 /* .gitignore in Resources */,
@@ -399,6 +409,8 @@
 				6AD81540262844090033399B /* User+CoreDataClass.swift in Sources */,
 				6AD8152426283A950033399B /* RegisterViewController.swift in Sources */,
 				6AD054612626C0D000750EB8 /* InMotion.xcdatamodeld in Sources */,
+				6A377261262D6724003A6417 /* MapView.swift in Sources */,
+				6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */,
 				6AD81541262844090033399B /* User+CoreDataProperties.swift in Sources */,
 				6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */,
 			);
