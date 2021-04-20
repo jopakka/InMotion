@@ -36,9 +36,9 @@ class InMotionUITests: XCTestCase {
 //        let app = XCUIApplication()
 //        app.launch()
 //
-//        let emailField = app.textFields["Email"]
-//        emailField.tap()
-//        emailField.typeText("user@email.com")
+//        let usernameField = app.textFields["Username"]
+//        usernameField.tap()
+//        usernameField.typeText("username")
 //
 //        let passwordSecureTextField = app.secureTextFields["Password"]
 //        passwordSecureTextField.tap()
@@ -71,10 +71,6 @@ class InMotionUITests: XCTestCase {
 //        let usernameField = app.textFields["Username"]
 //        usernameField.tap()
 //        usernameField.typeText("username")
-//        
-//        let emailTextField = app.textFields["Email"]
-//        emailTextField.tap()
-//        emailTextField.typeText("user@email.com")
 //        
 //        let pwField = app.secureTextFields["Password"]
 //        pwField.tap()
