@@ -39,7 +39,7 @@ class InMotionUITests: XCTestCase {
         let emailField = app.textFields["Email"]
         emailField.tap()
         emailField.typeText("user@email.com")
-        
+
         let passwordSecureTextField = app.secureTextFields["Password"]
         passwordSecureTextField.tap()
         passwordSecureTextField.typeText("P4ssw0rd")
@@ -75,7 +75,7 @@ class InMotionUITests: XCTestCase {
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         emailTextField.typeText("user@email.com")
-        
+
         let pwField = app.secureTextFields["Password"]
         pwField.tap()
         pwField.typeText("P4ssw0rd")
