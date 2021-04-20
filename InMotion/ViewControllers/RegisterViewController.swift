@@ -48,7 +48,9 @@ class RegisterViewController: UIViewController {
     @IBAction func haveActionAction(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
+    
     // Action to registering new user
     @IBAction func registerAction(_ sender: UIButton) {
+        
     }
 }
