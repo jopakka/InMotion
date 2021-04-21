@@ -90,6 +90,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="klw-yp-g4i" kind="relationship" relationship="rootViewController" id="NqH-PT-O7w"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fmc-rV-e9D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -350,6 +353,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hli-jV-bH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="-1090.1785714285713"/>
+        </scene>
+        <!--DateSelector-->
+        <scene sceneID="diU-Ud-kcx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DateSelector" id="klw-yp-g4i" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cPc-TY-8zu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iuo-CR-9hQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971" y="-243"/>
         </scene>
     </scenes>
     <resources>
