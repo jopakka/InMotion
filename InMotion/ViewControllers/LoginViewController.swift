@@ -8,7 +8,7 @@
 import UIKit
 
 // View controller for register view
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // Text Fields
     @IBOutlet weak var usernameTf: UITextField!
@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.usernameTf.delegate = self
+        self.passwordTf.delegate = self
         
     }
     
@@ -90,5 +92,17 @@ class LoginViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
         self.present(alert, animated: true)
+    }
+    
+    // Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // Hide keyboard when presses return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameTf.resignFirstResponder()
+        passwordTf.resignFirstResponder()
+        return(true)
     }
 }
