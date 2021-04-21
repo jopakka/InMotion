@@ -53,6 +53,10 @@ class JourneyCreateViewController: UIViewController, CLLocationManagerDelegate{
         
         let region = MKCoordinateRegion(center: coordinate, span: span)
         map.setRegion(region, animated: true)
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinate
+        map.addAnnotation(pin)
     }
 }
 
