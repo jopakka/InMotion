@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ETL-ez-BjY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,14 +11,16 @@
         <!--Date Selector-->
         <scene sceneID="ETx-zN-403">
             <objects>
-                <viewController id="ETL-ez-BjY" sceneMemberID="viewController">
+                <viewController id="ETL-ez-BjY" customClass="DatePickerViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIC-F3-HUG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBE-NH-XgB">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBE-NH-XgB">
+                                <rect key="frame" x="195" y="749" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QyZ-O5-RHA"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="piH-UC-kad" kind="show" id="eOw-YX-k9g"/>
@@ -26,6 +29,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Js8-DE-TVE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Js8-DE-TVE" firstAttribute="bottom" secondItem="lBE-NH-XgB" secondAttribute="bottom" constant="83" id="4aI-7E-UOS"/>
+                            <constraint firstItem="lBE-NH-XgB" firstAttribute="leading" secondItem="Js8-DE-TVE" secondAttribute="leading" constant="195" id="ALo-KF-4is"/>
+                            <constraint firstItem="Js8-DE-TVE" firstAttribute="trailing" secondItem="lBE-NH-XgB" secondAttribute="trailing" constant="173" id="Ftt-Uj-asR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Date Selector" id="bV0-nP-nje"/>
                 </viewController>
