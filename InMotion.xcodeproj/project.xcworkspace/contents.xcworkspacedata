@@ -1,6 +1,1390 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:/Users/iosdev/Desktop/InMotion/InMotion/SubFrameworks"
+      name = "SubFrameworks">
+      <Group
+         location = "group:AWSCore.xcframework"
+         name = "AWSCore.xcframework">
+         <Group
+            location = "group:ios-arm64_i386_x86_64-simulator"
+            name = "ios-arm64_i386_x86_64-simulator">
+            <Group
+               location = "group:AWSCore.framework"
+               name = "AWSCore.framework">
+               <Group
+                  location = "group:_CodeSignature"
+                  name = "_CodeSignature">
+                  <FileRef
+                     location = "group:CodeResources">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:AWSCore">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSMTLModel+NSCoding.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCancellationTokenSource.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSExecutor.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSClientContext.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSTask.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDTTYLogger.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCore.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCategory.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSKSReachability.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMTLValueTransformer.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSNSCodingUtilities.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSNetworking.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSTSService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSGZIP.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDASLLogCapture.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSTS.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDOSLogger.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDAssertMacros.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSTaskCompletionSource.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityResources.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMTLJSONAdapter.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDB+AWSHelpers.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDASLLogger.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSValueTransformer+AWSMTLInversionAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSValidation.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSNetworkingHelpers.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMTLModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSTimestampSerialization.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignature.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSXMLDictionary.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSIdentityProvider.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSTSModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSGeneric.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCancellationToken.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDB.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSURLRequestSerialization.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDLog.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCancellationTokenRegistration.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDatabasePool.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMTLManagedObjectAdapter.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSBolts.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSynchronizedMutableDictionary.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSUICKeyChainStore.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSURLSessionManager.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSObject+AWSMTLComparisonAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCredentialsProvider.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCocoaLumberjack.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSArray+AWSMTLManipulationAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSURLResponseSerialization.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDFileLogger.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSValueTransformer+AWSMTLPredefinedTransformerAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDLogMacros.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSServiceEnum.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSDictionary+AWSMTLManipulationAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDatabaseAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSURLRequestRetryHandler.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSInfo.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMantle.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSerialization.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSTSResources.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDatabaseQueue.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDatabase.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentity.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMResultSet.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSLogging.h">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:strip-frameworks.sh">
+               </FileRef>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:ios-arm64_armv7"
+            name = "ios-arm64_armv7">
+            <Group
+               location = "group:AWSCore.framework"
+               name = "AWSCore.framework">
+               <FileRef
+                  location = "group:AWSCore">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSMTLModel+NSCoding.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCancellationTokenSource.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSExecutor.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSClientContext.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSTask.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDTTYLogger.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCore.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCategory.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSKSReachability.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMTLValueTransformer.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSNSCodingUtilities.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSNetworking.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSTSService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSGZIP.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDASLLogCapture.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSTS.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDOSLogger.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDAssertMacros.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSTaskCompletionSource.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityResources.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMTLJSONAdapter.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDB+AWSHelpers.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDASLLogger.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSValueTransformer+AWSMTLInversionAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSValidation.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSNetworkingHelpers.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMTLModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSTimestampSerialization.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignature.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSXMLDictionary.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSIdentityProvider.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSTSModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSGeneric.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCancellationToken.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDB.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSURLRequestSerialization.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDLog.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCancellationTokenRegistration.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDatabasePool.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMTLManagedObjectAdapter.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSBolts.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSynchronizedMutableDictionary.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSUICKeyChainStore.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSURLSessionManager.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSObject+AWSMTLComparisonAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCredentialsProvider.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCocoaLumberjack.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSArray+AWSMTLManipulationAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSURLResponseSerialization.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDFileLogger.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSValueTransformer+AWSMTLPredefinedTransformerAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSDDLogMacros.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSServiceEnum.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:NSDictionary+AWSMTLManipulationAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDatabaseAdditions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSURLRequestRetryHandler.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSInfo.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMantle.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSerialization.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSTSResources.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDatabaseQueue.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMDatabase.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentity.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSFMResultSet.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSLogging.h">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:strip-frameworks.sh">
+               </FileRef>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:MOPRIMTmdSdk.xcframework"
+         name = "MOPRIMTmdSdk.xcframework">
+         <Group
+            location = "group:ios-arm64_x86_64-simulator"
+            name = "ios-arm64_x86_64-simulator">
+            <Group
+               location = "group:MOPRIMTmdSdk.framework"
+               name = "MOPRIMTmdSdk.framework">
+               <Group
+                  location = "group:_CodeSignature"
+                  name = "_CodeSignature">
+                  <FileRef
+                     location = "group:CodeResources">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:MOPRIMTmdSdk">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:TMDSensors.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunityUserField.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDActivity.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunityAPIReponse.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDStatus.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUserSessionDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUploadMetadata.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MOPRIMTmdSdk.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUploadDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MOPRIMTmdSdk-Swift.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDSyntheticRequestType.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDStats.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCloudMetadata.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunityCard.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUserApi.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunityOwner.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunity.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUserPersonalInfo.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCloudApi.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDTask.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMD.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDErrorType.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <Group
+                     location = "group:MOPRIMTmdSdk.swiftmodule"
+                     name = "MOPRIMTmdSdk.swiftmodule">
+                     <FileRef
+                        location = "group:x86_64-apple-ios-simulator.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:x86_64-apple-ios-simulator.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:x86_64.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64-apple-ios-simulator.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64-apple-ios-simulator.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:x86_64.swiftinterface">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:ios-arm64"
+            name = "ios-arm64">
+            <Group
+               location = "group:MOPRIMTmdSdk.framework"
+               name = "MOPRIMTmdSdk.framework">
+               <FileRef
+                  location = "group:MOPRIMTmdSdk">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:TMDSensors.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunityUserField.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDActivity.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunityAPIReponse.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDStatus.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUserSessionDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUploadMetadata.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MOPRIMTmdSdk.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUploadDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MOPRIMTmdSdk-Swift.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDSyntheticRequestType.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDStats.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCloudMetadata.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunityCard.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUserApi.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunityOwner.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCommunity.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDUserPersonalInfo.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDCloudApi.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDTask.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMD.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TMDErrorType.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <Group
+                     location = "group:MOPRIMTmdSdk.swiftmodule"
+                     name = "MOPRIMTmdSdk.swiftmodule">
+                     <FileRef
+                        location = "group:arm64-apple-ios.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64-apple-ios.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64.swiftdoc">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AWSAPIGateway.xcframework"
+         name = "AWSAPIGateway.xcframework">
+         <Group
+            location = "group:ios-arm64_i386_x86_64-simulator"
+            name = "ios-arm64_i386_x86_64-simulator">
+            <Group
+               location = "group:AWSAPIGateway.framework"
+               name = "AWSAPIGateway.framework">
+               <Group
+                  location = "group:_CodeSignature"
+                  name = "_CodeSignature">
+                  <FileRef
+                     location = "group:CodeResources">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:AWSAPIGateway">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSAPIGatewayClient.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSAPIGatewayModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSAPIGateway.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:ios-arm64_armv7"
+            name = "ios-arm64_armv7">
+            <Group
+               location = "group:AWSAPIGateway.framework"
+               name = "AWSAPIGateway.framework">
+               <FileRef
+                  location = "group:AWSAPIGateway">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSAPIGatewayClient.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSAPIGatewayModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSAPIGateway.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:AWSCognitoIdentityProvider.xcframework"
+         name = "AWSCognitoIdentityProvider.xcframework">
+         <Group
+            location = "group:ios-arm64_i386_x86_64-simulator"
+            name = "ios-arm64_i386_x86_64-simulator">
+            <Group
+               location = "group:AWSCognitoIdentityProvider.framework"
+               name = "AWSCognitoIdentityProvider.framework">
+               <Group
+                  location = "group:_CodeSignature"
+                  name = "_CodeSignature">
+                  <FileRef
+                     location = "group:CodeResources">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:AWSCognitoIdentityProvider">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProviderModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityUserPool.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProviderService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProvider.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProviderResources.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityUser.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:ios-arm64_armv7"
+            name = "ios-arm64_armv7">
+            <Group
+               location = "group:AWSCognitoIdentityProvider.framework"
+               name = "AWSCognitoIdentityProvider.framework">
+               <FileRef
+                  location = "group:AWSCognitoIdentityProvider">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProviderModel.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityUserPool.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProviderService.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProvider.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProviderResources.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityUser.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:AWSS3.xcframework"
+         name = "AWSS3.xcframework">
+         <Group
+            location = "group:ios-arm64_i386_x86_64-simulator"
+            name = "ios-arm64_i386_x86_64-simulator">
+            <Group
+               location = "group:AWSS3.framework"
+               name = "AWSS3.framework">
+               <Group
+                  location = "group:_CodeSignature"
+                  name = "_CodeSignature">
+                  <FileRef
+                     location = "group:CodeResources">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSS3TransferUtilityTasks.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3Service.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3TransferUtility.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3PreSignedURL.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3Model.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3Resources.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:AWSS3">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:ios-arm64_armv7"
+            name = "ios-arm64_armv7">
+            <Group
+               location = "group:AWSS3.framework"
+               name = "AWSS3.framework">
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSS3TransferUtilityTasks.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3Service.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3TransferUtility.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3PreSignedURL.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3Model.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3Resources.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSS3.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:AWSS3">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:AWSMobileClientXCF.xcframework"
+         name = "AWSMobileClientXCF.xcframework">
+         <Group
+            location = "group:ios-arm64_i386_x86_64-simulator"
+            name = "ios-arm64_i386_x86_64-simulator">
+            <Group
+               location = "group:AWSMobileClientXCF.framework"
+               name = "AWSMobileClientXCF.framework">
+               <Group
+                  location = "group:_CodeSignature"
+                  name = "_CodeSignature">
+                  <FileRef
+                     location = "group:CodeResources">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:AWSMobileClientXCF">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSMobileClientXCF-Swift.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoAuth+Extensions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityUserPool+Extension.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoAuth.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMobileClientXCF.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_AWSMobileClient.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoCredentialsProvider+Extension.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <Group
+                     location = "group:AWSMobileClientXCF.swiftmodule"
+                     name = "AWSMobileClientXCF.swiftmodule">
+                     <FileRef
+                        location = "group:x86_64-apple-ios-simulator.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:x86_64-apple-ios-simulator.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:x86_64.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:i386-apple-ios-simulator.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:i386.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64-apple-ios-simulator.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:i386-apple-ios-simulator.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:i386.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64-apple-ios-simulator.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:x86_64.swiftinterface">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:ios-arm64_armv7"
+            name = "ios-arm64_armv7">
+            <Group
+               location = "group:AWSMobileClientXCF.framework"
+               name = "AWSMobileClientXCF.framework">
+               <FileRef
+                  location = "group:AWSMobileClientXCF">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSMobileClientXCF-Swift.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoAuth+Extensions.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoIdentityUserPool+Extension.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoAuth.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSMobileClientXCF.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_AWSMobileClient.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSCognitoCredentialsProvider+Extension.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <Group
+                     location = "group:AWSMobileClientXCF.swiftmodule"
+                     name = "AWSMobileClientXCF.swiftmodule">
+                     <FileRef
+                        location = "group:arm64-apple-ios.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64-apple-ios.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:armv7.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:armv7-apple-ios.swiftinterface">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:armv7.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm64.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:armv7-apple-ios.swiftdoc">
+                     </FileRef>
+                     <FileRef
+                        location = "group:arm.swiftinterface">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:AWSCognitoIdentityProviderASF.xcframework"
+         name = "AWSCognitoIdentityProviderASF.xcframework">
+         <Group
+            location = "group:ios-arm64_i386_x86_64-simulator"
+            name = "ios-arm64_i386_x86_64-simulator">
+            <Group
+               location = "group:AWSCognitoIdentityProviderASF.framework"
+               name = "AWSCognitoIdentityProviderASF.framework">
+               <Group
+                  location = "group:_CodeSignature"
+                  name = "_CodeSignature">
+                  <FileRef
+                     location = "group:CodeResources">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:AWSCognitoIdentityProviderASF">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProviderASF.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:ios-arm64_armv7"
+            name = "ios-arm64_armv7">
+            <Group
+               location = "group:AWSCognitoIdentityProviderASF.framework"
+               name = "AWSCognitoIdentityProviderASF.framework">
+               <FileRef
+                  location = "group:AWSCognitoIdentityProviderASF">
+               </FileRef>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSCognitoIdentityProviderASF.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:AWSAuthCore.xcframework"
+         name = "AWSAuthCore.xcframework">
+         <Group
+            location = "group:ios-arm64_i386_x86_64-simulator"
+            name = "ios-arm64_i386_x86_64-simulator">
+            <Group
+               location = "group:AWSAuthCore.framework"
+               name = "AWSAuthCore.framework">
+               <Group
+                  location = "group:_CodeSignature"
+                  name = "_CodeSignature">
+                  <FileRef
+                     location = "group:CodeResources">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSUIConfiguration.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSAuthUIHelper.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignInButtonView.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSIdentityManager.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignInProviderApplicationIntercept.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSAuthCore.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignInManager.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignInProvider.h">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:AWSAuthCore">
+               </FileRef>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:ios-arm64_armv7"
+            name = "ios-arm64_armv7">
+            <Group
+               location = "group:AWSAuthCore.framework"
+               name = "AWSAuthCore.framework">
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AWSUIConfiguration.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSAuthUIHelper.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignInButtonView.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSIdentityManager.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignInProviderApplicationIntercept.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSAuthCore.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignInManager.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AWSSignInProvider.h">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:AWSAuthCore">
+               </FileRef>
+               <Group
+                  location = "group:Modules"
+                  name = "Modules">
+                  <FileRef
+                     location = "group:module.modulemap">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+   </Group>
    <FileRef
       location = "self:">
    </FileRef>

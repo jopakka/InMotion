@@ -22,7 +22,29 @@ class LoginViewController: UIViewController {
         
     }
     
+    // Trims text fields and if every text field have some text
+    // enables login button
     @IBAction func textFieldOnChage(_ sender: UITextField) {
+        // Check if text fields have text
+        guard var u = usernameTf.text,
+           var p = passwordTf.text else {
+            return
+        }
+        
+        // Trims text fields
+        u = u.trimmingCharacters(in: .whitespacesAndNewlines)
+        p = p.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        // Enables login button if text fields have enought text
+        if(u.count >= 3 && p.count >= 6) {
+            loginButton.isEnabled = true
+        } else {
+            loginButton.isEnabled = false
+        }
+    }
+    
+    // Action for login button
+    @IBAction func loginAction(_ sender: UIButton) {
         guard var u = usernameTf.text,
            var p = passwordTf.text else {
             return
@@ -31,10 +53,24 @@ class LoginViewController: UIViewController {
         u = u.trimmingCharacters(in: .whitespacesAndNewlines)
         p = p.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if(u.count > 0 && p.count > 0) {
-            loginButton.isEnabled = true
-        } else {
-            loginButton.isEnabled = false
+        let managedContext = AppDelegate.viewContext
+        guard let user = try? User.checkIfUserExist(username: u, context: managedContext) else {
+            NSLog("User with username \"%@\" not exists", u)
+            return
         }
+        
+        if user.password != p {
+            NSLog("Wrong password")
+            return
+        }
+        
+        let prefs = UserDefaults.standard
+        prefs.setValue(u, forKey: "user")
+        let saved = prefs.synchronize()
+        if !saved {
+            NSLog("Failed to save user in defaults")
+            return
+        }
+        // TODO: navigate to next view
     }
 }

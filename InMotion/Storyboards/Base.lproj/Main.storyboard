@@ -211,7 +211,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="s7B-gs-IB6" kind="show" id="f2e-nW-U1z"/>
+                                    <action selector="loginAction:" destination="I4H-9k-1A9" eventType="touchUpInside" id="5AK-V1-8lq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -312,8 +312,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <action selector="registerAction:" destination="ftp-FJ-JBn" eventType="touchUpInside" id="kec-l0-vwQ"/>
-                                    <segue destination="s7B-gs-IB6" kind="show" id="59n-Se-BGz"/>
+                                    <action selector="registerAction:" destination="ftp-FJ-JBn" eventType="touchUpInside" id="dOL-82-lWg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -353,9 +352,6 @@
             <point key="canvasLocation" x="1055.072463768116" y="-1090.1785714285713"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="f2e-nW-U1z"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="globe" catalog="system" width="128" height="121"/>
