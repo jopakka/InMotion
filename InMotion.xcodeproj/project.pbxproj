@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */; };
 		6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A377276262D8462003A6417 /* JourneyCreateViewController.swift */; };
+		6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */; };
+		6A3772B82630D4DB003A6417 /* AddMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772B72630D4DB003A6417 /* AddMemoryViewController.swift */; };
+		6A3772BC2630D626003A6417 /* JourneySaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772BB2630D626003A6417 /* JourneySaveViewController.swift */; };
 		6A3955762626EE4100A67AEB /* empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955752626EE4100A67AEB /* empty.swift */; };
 		6A3955BC2629EB7900A67AEB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955BB2629EB7900A67AEB /* DatePickerViewController.swift */; };
 		6A3955CD262ADCED00A67AEB /* SelectedDateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955CC262ADCED00A67AEB /* SelectedDateDetailsViewController.swift */; };
@@ -109,6 +112,9 @@
 /* Begin PBXFileReference section */
 		6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JourneyCreate.storyboard; sourceTree = "<group>"; };
 		6A377276262D8462003A6417 /* JourneyCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyCreateViewController.swift; sourceTree = "<group>"; };
+		6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyTrackViewController.swift; sourceTree = "<group>"; };
+		6A3772B72630D4DB003A6417 /* AddMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoryViewController.swift; sourceTree = "<group>"; };
+		6A3772BB2630D626003A6417 /* JourneySaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySaveViewController.swift; sourceTree = "<group>"; };
 		6A3955752626EE4100A67AEB /* empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.swift; sourceTree = "<group>"; };
 		6A3955BB2629EB7900A67AEB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		6A3955CC262ADCED00A67AEB /* SelectedDateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDateDetailsViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +240,9 @@
 				6A3955D6262ADD2A00A67AEB /* JourneyMediaDetailsViewController.swift */,
 				6A377276262D8462003A6417 /* JourneyCreateViewController.swift */,
 				6AD81B6226301C000033399B /* MainTabViewController.swift */,
+				6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */,
+				6A3772B72630D4DB003A6417 /* AddMemoryViewController.swift */,
+				6A3772BB2630D626003A6417 /* JourneySaveViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -516,7 +525,16 @@
 				6A3955762626EE4100A67AEB /* empty.swift in Sources */,
 				6AD8154D262853980033399B /* LoginViewController.swift in Sources */,
 				6A3955D7262ADD2A00A67AEB /* JourneyMediaDetailsViewController.swift in Sources */,
+
+				6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */,
+				6AD86B0A2630BD100016839B /* FSCalendarStickyHeader.m in Sources */,
+				6AD86B112630BD100016839B /* FSCalendarCalculator.m in Sources */,
+				6AD86B142630BD100016839B /* FSCalendarAppearance.m in Sources */,
 				6A3955BC2629EB7900A67AEB /* DatePickerViewController.swift in Sources */,
+				6AD86B082630BD100016839B /* FSCalendarDelegationFactory.m in Sources */,
+				6AD86B0F2630BD100016839B /* FSCalendarExtensions.m in Sources */,
+				6A3772B82630D4DB003A6417 /* AddMemoryViewController.swift in Sources */,
+
 				6A3955CD262ADCED00A67AEB /* SelectedDateDetailsViewController.swift in Sources */,
 				6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */,
 				6AD81542262844090033399B /* Post+CoreDataClass.swift in Sources */,
@@ -530,6 +548,10 @@
 				6AD81B6326301C000033399B /* MainTabViewController.swift in Sources */,
 				6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */,
 				6AD81541262844090033399B /* User+CoreDataProperties.swift in Sources */,
+
+				6A3772BC2630D626003A6417 /* JourneySaveViewController.swift in Sources */,
+				6AD86B122630BD100016839B /* FSCalendarHeaderView.m in Sources */,
+
 				6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
