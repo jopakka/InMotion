@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBE-NH-XgB">
-                                <rect key="frame" x="195" y="749" width="46" height="30"/>
+                                <rect key="frame" x="161" y="749" width="80" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QyZ-O5-RHA"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Press me"/>
                                 <connections>
                                     <segue destination="piH-UC-kad" kind="show" id="eOw-YX-k9g"/>
                                 </connections>
@@ -31,7 +31,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Js8-DE-TVE" firstAttribute="bottom" secondItem="lBE-NH-XgB" secondAttribute="bottom" constant="83" id="4aI-7E-UOS"/>
-                            <constraint firstItem="lBE-NH-XgB" firstAttribute="leading" secondItem="Js8-DE-TVE" secondAttribute="leading" constant="195" id="ALo-KF-4is"/>
+                            <constraint firstItem="lBE-NH-XgB" firstAttribute="leading" secondItem="Js8-DE-TVE" secondAttribute="leading" constant="161" id="ALo-KF-4is"/>
                             <constraint firstItem="Js8-DE-TVE" firstAttribute="trailing" secondItem="lBE-NH-XgB" secondAttribute="trailing" constant="173" id="Ftt-Uj-asR"/>
                         </constraints>
                     </view>
@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hx-0v-UBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971" y="-243"/>
+            <point key="canvasLocation" x="969.56521739130437" y="-243.08035714285714"/>
         </scene>
         <!--UIViewController-Wvx-qw-cYy-->
         <scene sceneID="BIX-3D-N2g">
