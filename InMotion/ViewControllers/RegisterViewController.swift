@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 // View controller for register view
-class RegisterViewController: UIViewController, NSFetchedResultsControllerDelegate {
+class RegisterViewController: UIViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
     
     // Text Fields
     @IBOutlet weak var usernameTf: UITextField!
@@ -21,7 +21,9 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.usernameTf.delegate = self
+        self.passwordTf.delegate = self
+        self.confirmPasswordTf.delegate = self
     }
     
     // Trims text fields and if every text field have some text
@@ -115,6 +117,20 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
         self.present(alert, animated: true)
     }
+    
+    // Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // Hide keyboard when presses return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameTf.resignFirstResponder()
+        passwordTf.resignFirstResponder()
+        confirmPasswordTf.resignFirstResponder()
+        return(true)
+    }
+    
 }
 
 enum UserCreationErrors: Error {
