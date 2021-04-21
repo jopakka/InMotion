@@ -26,16 +26,29 @@
                                     <segue destination="piH-UC-kad" kind="show" id="eOw-YX-k9g"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERg-J2-AFN" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="54" width="414" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="YOd-lb-kyr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Js8-DE-TVE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Js8-DE-TVE" firstAttribute="bottom" secondItem="lBE-NH-XgB" secondAttribute="bottom" constant="83" id="4aI-7E-UOS"/>
+                            <constraint firstItem="ERg-J2-AFN" firstAttribute="leading" secondItem="Js8-DE-TVE" secondAttribute="leading" id="4t2-rm-ARM"/>
                             <constraint firstItem="lBE-NH-XgB" firstAttribute="leading" secondItem="Js8-DE-TVE" secondAttribute="leading" constant="161" id="ALo-KF-4is"/>
                             <constraint firstItem="Js8-DE-TVE" firstAttribute="trailing" secondItem="lBE-NH-XgB" secondAttribute="trailing" constant="173" id="Ftt-Uj-asR"/>
+                            <constraint firstItem="ERg-J2-AFN" firstAttribute="top" secondItem="Js8-DE-TVE" secondAttribute="top" constant="10" id="g8f-YF-442"/>
+                            <constraint firstItem="ERg-J2-AFN" firstAttribute="trailing" secondItem="Js8-DE-TVE" secondAttribute="trailing" id="m5Z-f7-4lq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Date Selector" id="bV0-nP-nje"/>
+                    <connections>
+                        <outlet property="calendar" destination="ERg-J2-AFN" id="kwY-NA-Knc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hx-0v-UBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
