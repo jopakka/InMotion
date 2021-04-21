@@ -1,6 +1,9 @@
 stages:
     - build
 
+variables:
+  LC_ALL: "en_US.UTF-8"
+
 say_hello:
     stage: build
     script:
