@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="-1849.5535714285713"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="VBQ-lr-9wW">
             <objects>
-                <tabBarController id="s7B-gs-IB6" sceneMemberID="viewController">
+                <tabBarController id="s7B-gs-IB6" customClass="MainTabViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Lz6-9h-yXh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kuv-vE-5R3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -214,7 +214,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="s7B-gs-IB6" kind="show" id="f2e-nW-U1z"/>
+                                    <action selector="loginAction:" destination="I4H-9k-1A9" eventType="touchUpInside" id="5AK-V1-8lq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,6 +236,7 @@
                         <outlet property="loginButton" destination="6Um-qB-0xL" id="Hcc-e4-wLi"/>
                         <outlet property="passwordTf" destination="TQp-Fj-iOD" id="J59-pX-EtE"/>
                         <outlet property="usernameTf" destination="JA9-AB-S7q" id="Zfr-p9-Vdp"/>
+                        <segue destination="s7B-gs-IB6" kind="show" identifier="loginSegue" id="XSE-Mq-0e3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyW-DP-LBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -315,8 +316,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <action selector="registerAction:" destination="ftp-FJ-JBn" eventType="touchUpInside" id="kec-l0-vwQ"/>
-                                    <segue destination="s7B-gs-IB6" kind="show" id="59n-Se-BGz"/>
+                                    <action selector="registerAction:" destination="ftp-FJ-JBn" eventType="touchUpInside" id="dOL-82-lWg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -339,6 +339,7 @@
                         <outlet property="passwordTf" destination="QF9-XU-yhk" id="2FP-HJ-7z2"/>
                         <outlet property="registerButton" destination="aC3-bR-tkD" id="TVd-MP-1yr"/>
                         <outlet property="usernameTf" destination="BtV-EI-zeY" id="Bp6-zF-GdD"/>
+                        <segue destination="s7B-gs-IB6" kind="show" identifier="registerSegue" id="0dW-LI-LAv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJn-IQ-Ema" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -367,7 +368,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f2e-nW-U1z"/>
+        <segue reference="0dW-LI-LAv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
