@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Journey Create View Controller-->
         <scene sceneID="JVY-rt-xys">
             <objects>
-                <viewController id="kOq-Gp-Inj" sceneMemberID="viewController">
+                <viewController id="kOq-Gp-Inj" customClass="JourneyCreateViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5JP-0M-JWN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,6 +38,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Wz8-Of-Hke"/>
                     <connections>
+                        <outlet property="map" destination="yba-SV-IkC" id="GES-F0-Dv6"/>
                         <segue destination="6G9-Of-gM4" kind="show" id="IPd-yt-aiX"/>
                     </connections>
                 </viewController>

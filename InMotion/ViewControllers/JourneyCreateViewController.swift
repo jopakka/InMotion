@@ -11,14 +11,30 @@ import MapKit
 
 class JourneyCreateViewController: UIViewController {
 
-    @IBOutlet private var mapView: MKMapView!
+  
+    @IBOutlet weak var map: MKMapView!
+   
+    
+    fileprivate let locationManager:CLLocationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
-    
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        locationManager.requestWhenInUseAuthorization()
+        print("A")
+        //locationManager.requestAlwaysAuthorization()
+        //locationManager.allowsBackgroundLocationUpdates = true
+        //locationManager.pausesLocationUpdatesAutomatically = true
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        print("B")
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        print("C")
+        locationManager.startUpdatingLocation()
+        print("D")
+        map.showsUserLocation = true
+        print("E")
     }
-
-
 }
+
 
