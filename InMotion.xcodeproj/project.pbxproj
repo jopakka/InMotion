@@ -65,6 +65,7 @@
 		6AD81B5D2630164A0033399B /* AWSMobileClientXCF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD81B552630164A0033399B /* AWSMobileClientXCF.xcframework */; };
 		6AD81B5E2630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD81B562630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework */; };
 		6AD81B5F2630164A0033399B /* AWSAuthCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD81B572630164A0033399B /* AWSAuthCore.xcframework */; };
+		6AD81B6326301C000033399B /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81B6226301C000033399B /* MainTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,7 @@
 		6AD81B552630164A0033399B /* AWSMobileClientXCF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AWSMobileClientXCF.xcframework; sourceTree = "<group>"; };
 		6AD81B562630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AWSCognitoIdentityProviderASF.xcframework; sourceTree = "<group>"; };
 		6AD81B572630164A0033399B /* AWSAuthCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AWSAuthCore.xcframework; sourceTree = "<group>"; };
+		6AD81B6226301C000033399B /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 				6A3955D6262ADD2A00A67AEB /* JourneyMediaDetailsViewController.swift */,
 				6A377276262D8462003A6417 /* JourneyCreateViewController.swift */,
 				6A377260262D6724003A6417 /* MapView.swift */,
+				6AD81B6226301C000033399B /* MainTabViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				6AD81540262844090033399B /* User+CoreDataClass.swift in Sources */,
 				6AD8152426283A950033399B /* RegisterViewController.swift in Sources */,
 				6AD054612626C0D000750EB8 /* InMotion.xcdatamodeld in Sources */,
+				6AD81B6326301C000033399B /* MainTabViewController.swift in Sources */,
 				6A377261262D6724003A6417 /* MapView.swift in Sources */,
 				6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */,
 				6AD81541262844090033399B /* User+CoreDataProperties.swift in Sources */,

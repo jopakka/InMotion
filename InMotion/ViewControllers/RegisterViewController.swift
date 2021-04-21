@@ -67,17 +67,20 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         cp = cp.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check text fields for errors
-        // TODO: Do something nice with errors
-        var errors = false
-        if u.count < 3 { errors = true }
-        if p.count < 6 { errors = true }
-        if p != cp { errors = true }
-        if errors { return }
+        var errors = ""
+        if u.count < 3 { errors += "Username must be atleast 3 characters long.\n" }
+        if p.count < 6 { errors += "Password must be atleast 6 characters long.\n" }
+        if p != cp { errors += "Passwords don't match" }
+        if errors.count > 0 {
+            showSimpleAlert(title: "Errors while creating user", message: errors)
+            return
+        }
         
         // Checks if username already exists
         let managedContext = AppDelegate.viewContext
         guard let user = try? User.createIfNotExist(username: u, context: managedContext) else {
             NSLog("Username already exists")
+            showSimpleAlert(title: "Username already exists", message: "Username already exists")
             return
         }
         
@@ -94,12 +97,26 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
             let saved = prefs.synchronize()
             if !saved {
                 NSLog("Failed to save user in defaults")
-                return
+                throw UserCreationErrors.creationFailed
             }
             NSLog("User saved to defaults")
-            // TODO: navigate to next view
+            
+            // Navigate to next screen
+            self.performSegue(withIdentifier: "registerSegue", sender: self)
         } catch {
             NSLog("Creating user failed")
+            showSimpleAlert(title: "Creating user failed", message: "There was some errors while creating user. Please try again.")
         }
     }
+    
+    // Show alert popup
+    private func showSimpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        self.present(alert, animated: true)
+    }
+}
+
+enum UserCreationErrors: Error {
+    case creationFailed
 }
