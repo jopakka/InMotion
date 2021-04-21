@@ -1,5 +1,5 @@
 //
-//  JourneyCreateViewController.swift
+//  JourneyTrackViewController.swift
 //  InMotion
 //
 //  Created by iosdev on 19.4.2021.
@@ -10,12 +10,11 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class JourneyCreateViewController: UIViewController, CLLocationManagerDelegate{
+class JourneyTrackViewController: UIViewController, CLLocationManagerDelegate{
 
-  
-    @IBOutlet weak var map: MKMapView!
-   
-    @IBOutlet weak var startJourneyButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
+    
+
     
     fileprivate let manager = CLLocationManager()
     
@@ -29,6 +28,10 @@ class JourneyCreateViewController: UIViewController, CLLocationManagerDelegate{
         
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
+        //other permissions we might want to use
+        //locationManager.requestAlwaysAuthorization()
+        //locationManager.allowsBackgroundLocationUpdates = true
+        //locationManager.pausesLocationUpdatesAutomatically = true
         manager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
         manager.distanceFilter = kCLDistanceFilterNone
         manager.startUpdatingLocation()
@@ -49,11 +52,11 @@ class JourneyCreateViewController: UIViewController, CLLocationManagerDelegate{
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         
         let region = MKCoordinateRegion(center: coordinate, span: span)
-        map.setRegion(region, animated: true)
+        mapView.setRegion(region, animated: true)
         
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
-        map.addAnnotation(pin)
+        mapView.addAnnotation(pin)
     }
 }
 

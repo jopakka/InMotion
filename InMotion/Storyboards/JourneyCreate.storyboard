@@ -17,20 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yba-SV-IkC">
-                                <rect key="frame" x="10" y="95" width="396" height="510"/>
+                                <rect key="frame" x="10" y="175" width="396" height="510"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JourneyScreen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ko-qt-ue3">
-                                <rect key="frame" x="150" y="66" width="115" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwv-Um-xUV">
-                                <rect key="frame" x="162" y="613" width="93" height="30"/>
+                                <rect key="frame" x="161" y="124" width="93" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Journey"/>
+                                <connections>
+                                    <segue destination="6G9-Of-gM4" kind="show" id="5Aw-bV-BAj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z1e-VL-Dsf"/>
@@ -39,30 +35,40 @@
                     <navigationItem key="navigationItem" id="Wz8-Of-Hke"/>
                     <connections>
                         <outlet property="map" destination="yba-SV-IkC" id="GES-F0-Dv6"/>
-                        <segue destination="6G9-Of-gM4" kind="show" id="IPd-yt-aiX"/>
+                        <outlet property="startJourneyButton" destination="dwv-Um-xUV" id="u3Z-BX-kL5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmV-6l-Pum" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="-1090.1785714285713"/>
         </scene>
-        <!--View Controller-->
+        <!--Journey Track View Controller-->
         <scene sceneID="1Hh-4F-6zO">
             <objects>
-                <viewController id="6G9-Of-gM4" sceneMemberID="viewController">
+                <viewController id="6G9-Of-gM4" customClass="JourneyTrackViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vay-KE-bw5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-C5-zhy">
-                                <rect key="frame" x="163" y="433" width="88" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save journey"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wa-5U-y9C">
-                                <rect key="frame" x="163" y="326" width="88" height="30"/>
+                                <rect key="frame" x="74" y="97" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add memory"/>
+                                <connections>
+                                    <segue destination="igI-gy-RFy" kind="show" id="7Ls-NS-jPH"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HCG-dX-qM5">
+                                <rect key="frame" x="0.0" y="148" width="414" height="446"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-C5-zhy">
+                                <rect key="frame" x="248" y="97" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save journey"/>
+                                <connections>
+                                    <segue destination="go0-JO-t3e" kind="show" id="d46-Dx-mTb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d24-kN-11t"/>
@@ -70,21 +76,27 @@
                     </view>
                     <navigationItem key="navigationItem" id="mIy-SS-zU5"/>
                     <connections>
-                        <segue destination="igI-gy-RFy" kind="show" id="pyq-gn-ijA"/>
-                        <segue destination="go0-JO-t3e" kind="show" id="OWY-oZ-L9k"/>
+                        <outlet property="mapView" destination="HCG-dX-qM5" id="Hed-xs-hLQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuA-Ko-M9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1835" y="-1090"/>
+            <point key="canvasLocation" x="1834.7826086956522" y="-1090.1785714285713"/>
         </scene>
-        <!--View Controller-->
+        <!--Journey Save View Controller-->
         <scene sceneID="3w9-Ty-jRt">
             <objects>
-                <viewController id="go0-JO-t3e" sceneMemberID="viewController">
+                <viewController id="go0-JO-t3e" customClass="JourneySaveViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qTm-7n-vwb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3HY-fG-QqX">
+                                <rect key="frame" x="163" y="499" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save journey"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="r4w-th-46O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -94,13 +106,20 @@
             </objects>
             <point key="canvasLocation" x="2549" y="-416"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Memory View Controller-->
         <scene sceneID="kMc-py-dMA">
             <objects>
-                <viewController id="igI-gy-RFy" sceneMemberID="viewController">
+                <viewController id="igI-gy-RFy" customClass="AddMemoryViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnZ-tw-YrM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvp-ni-rqu">
+                                <rect key="frame" x="161" y="244" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save memory"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Yzr-48-f6U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
