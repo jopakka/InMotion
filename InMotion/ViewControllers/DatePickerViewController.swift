@@ -24,5 +24,11 @@ class DatePickerViewController: UIViewController, FSCalendarDelegate {
 //        view.addSubview(calendar)
 //    }
 
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE MM-dd-YYYY"
+        let string = formatter.string(from: date)
+        print(string)
+    }
 }
 
