@@ -19,9 +19,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Check if user is logged in
+        if getLoggedUser() != nil {
+            // Navigate to next screen
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
+        }
+        
         self.usernameTf.delegate = self
         self.passwordTf.delegate = self
         
+    }
+    
+    private func getLoggedUser() -> String? {
+        let prefs = UserDefaults.standard
+        let user = prefs.string(forKey: "user")
+        return  user
     }
     
     // Trims text fields and if every text field have some text
