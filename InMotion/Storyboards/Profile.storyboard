@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sx-xz-ee0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="777"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWm-w0-ePE">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -71,6 +71,21 @@
                                                     <constraint firstItem="g6E-Jo-keF" firstAttribute="top" secondItem="kWm-w0-ePE" secondAttribute="top" id="vRg-vW-5LX"/>
                                                 </constraints>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LkG-TR-gGv" userLabel="Upload">
+                                                <rect key="frame" x="20" y="208" width="374" height="72"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dB0-Wk-0bH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" title="Select profile picture"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEX-eq-i46">
+                                                        <rect key="frame" x="0.0" y="36" width="374" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" title="Select banner picture"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cAc-d3-nU9" userLabel="Update">
                                                 <rect key="frame" x="20" y="288" width="374" height="175"/>
                                                 <subviews>
@@ -106,6 +121,9 @@
                                                         <rect key="frame" x="0.0" y="139" width="374" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="Save"/>
+                                                        <connections>
+                                                            <action selector="updateName:" destination="mfT-MX-q7u" eventType="touchUpInside" id="ghI-mZ-XmW"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -158,21 +176,14 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LkG-TR-gGv" userLabel="Upload">
-                                                <rect key="frame" x="20" y="208" width="374" height="72"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dB0-Wk-0bH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Select profile picture"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEX-eq-i46">
-                                                        <rect key="frame" x="0.0" y="36" width="374" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <state key="normal" title="Select banner picture"/>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-Cc-zs8">
+                                                <rect key="frame" x="20" y="720.5" width="374" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Logout"/>
+                                                <connections>
+                                                    <action selector="logoutAction:" destination="mfT-MX-q7u" eventType="touchUpInside" id="3LD-7e-nLq"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -182,10 +193,13 @@
                                             <constraint firstItem="LkG-TR-gGv" firstAttribute="leading" secondItem="2sx-xz-ee0" secondAttribute="leading" constant="20" id="Et1-I9-JTP"/>
                                             <constraint firstItem="kWm-w0-ePE" firstAttribute="leading" secondItem="2sx-xz-ee0" secondAttribute="leading" id="HW4-8D-PWW"/>
                                             <constraint firstAttribute="trailing" secondItem="cN3-gu-f6S" secondAttribute="trailing" constant="20" id="UQg-4P-Ogi"/>
+                                            <constraint firstAttribute="trailing" secondItem="MuT-Cc-zs8" secondAttribute="trailing" constant="20" id="V7a-OI-XqH"/>
                                             <constraint firstItem="cN3-gu-f6S" firstAttribute="top" secondItem="cAc-d3-nU9" secondAttribute="bottom" constant="8" id="XRk-JZ-jOm"/>
+                                            <constraint firstItem="MuT-Cc-zs8" firstAttribute="leading" secondItem="2sx-xz-ee0" secondAttribute="leading" constant="20" id="hrV-Qb-Sp4"/>
                                             <constraint firstItem="cAc-d3-nU9" firstAttribute="top" secondItem="LkG-TR-gGv" secondAttribute="bottom" constant="8" id="j3f-oe-IXA"/>
-                                            <constraint firstAttribute="height" constant="721" id="jPc-xi-MNO"/>
+                                            <constraint firstAttribute="height" constant="777" id="jPc-xi-MNO"/>
                                             <constraint firstItem="cN3-gu-f6S" firstAttribute="leading" secondItem="2sx-xz-ee0" secondAttribute="leading" constant="20" id="ly8-cE-f0J"/>
+                                            <constraint firstItem="MuT-Cc-zs8" firstAttribute="top" secondItem="cN3-gu-f6S" secondAttribute="bottom" constant="20" id="mFw-j9-PTS"/>
                                             <constraint firstAttribute="trailing" secondItem="cAc-d3-nU9" secondAttribute="trailing" constant="20" id="o8C-s2-WNI"/>
                                             <constraint firstItem="cAc-d3-nU9" firstAttribute="leading" secondItem="2sx-xz-ee0" secondAttribute="leading" constant="20" id="qFC-Ap-L0E"/>
                                             <constraint firstAttribute="trailing" secondItem="LkG-TR-gGv" secondAttribute="trailing" constant="20" id="voF-0k-st3"/>
@@ -213,11 +227,21 @@
                     <navigationItem key="navigationItem" title="Profile" id="M41-3m-Cl8"/>
                     <connections>
                         <outlet property="bannerImageView" destination="g6E-Jo-keF" id="5gb-GV-qMr"/>
+                        <outlet property="confirmPasswordTf" destination="55p-f3-9hW" id="fA9-6c-mdX"/>
+                        <outlet property="firstnameTf" destination="YXv-w4-tWd" id="nJc-yA-YyP"/>
                         <outlet property="fullNameLabel" destination="1it-JD-CNa" id="2Xa-IR-O1w"/>
+                        <outlet property="lastnameTf" destination="RZn-m6-3Eu" id="lNw-rJ-0n7"/>
+                        <outlet property="newPasswordTf" destination="bDF-Gk-vIl" id="qRF-4l-QQA"/>
+                        <outlet property="oldPasswordTf" destination="7fc-JM-6Th" id="aRY-Dc-dJo"/>
                         <outlet property="profileImageView" destination="Ob1-RT-s5R" id="tCS-iu-M8B"/>
+                        <outlet property="saveNameButton" destination="uIf-Ga-A0o" id="FLo-VT-NrI"/>
+                        <outlet property="savePasswordButton" destination="xGt-bJ-Wso" id="sAD-BV-hZc"/>
+                        <outlet property="scrollview" destination="qoZ-yS-8YL" id="Ef0-Kh-jdX"/>
+                        <segue destination="ar0-7e-XIg" kind="unwind" identifier="backToPrevious" unwindAction="unwind2StoryboardExample:" id="Mw7-ju-iWl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yd3-ln-WFF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ar0-7e-XIg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="-2496.4285714285711"/>
         </scene>
