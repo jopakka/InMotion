@@ -25,6 +25,7 @@ class InMotionUITests: XCTestCase {
     func testLoginButtonVisibility1() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
+        app.launchArguments += ["UI-Testing"]
         app.launch()
         
         let loginButton = app.buttons["Login"]
@@ -51,6 +52,7 @@ class InMotionUITests: XCTestCase {
     func testRegisterButtonVisibility1() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
+        app.launchArguments += ["UI-Testing"]
         app.launch()
         
         let toRegisterButton = app.buttons["Don't have an account yet? Register here"]

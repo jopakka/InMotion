@@ -36,8 +36,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return task;
         }
         
+        setStateForUITesting()
+        
         return true
     }
+    
+    // Stackoverflow code https://stackoverflow.com/a/52223139
+    static var isUITestingEnabled: Bool {
+        get {
+            return ProcessInfo.processInfo.arguments.contains("UI-Testing")
+        }
+    }
+
+    private func setStateForUITesting() {
+        if AppDelegate.isUITestingEnabled {
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        }
+    }
+    // End of stackoverflow code
 
     // MARK: UISceneSession Lifecycle
 
