@@ -10,11 +10,12 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class JourneyTrackViewController: UIViewController{
-
-    @IBOutlet weak var mapView: MKMapView!
+class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
-
+    var arrayOfLocations = [CLLocationCoordinate2D]()
+    
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     fileprivate let locationManager = CLLocationManager()
     
@@ -27,6 +28,7 @@ class JourneyTrackViewController: UIViewController{
         super.viewDidAppear(animated)
         
         locationManager.delegate = self
+        mapView.delegate = self
         locationManager.requestWhenInUseAuthorization()
         //other permissions we might want to use
         //locationManager.requestAlwaysAuthorization()
@@ -39,14 +41,34 @@ class JourneyTrackViewController: UIViewController{
 }
 
 extension JourneyTrackViewController: CLLocationManagerDelegate{
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: locations[0].coordinate, span: span)
         mapView.setRegion(region, animated: true)
         mapView.showsUserLocation = true
+        arrayOfLocations.append(locations.last!.coordinate)
+        
+        
+        if arrayOfLocations.count>0 {
+            
+            let polyline = MKPolyline(coordinates: arrayOfLocations, count: arrayOfLocations.count)
+            mapView.addOverlay(polyline)
+        } else {
+            print("waiting")
+        }
+        
+        
     }
     
-    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let pathRenderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        pathRenderer.strokeColor = .blue
+        pathRenderer.lineWidth = 5
+        pathRenderer.alpha = 0.85
+        
+        return pathRenderer
+    }
 }
+
