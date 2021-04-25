@@ -24,6 +24,7 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         TMD.start()
+        TMD.setAllowUploadOnCellularNetwork(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
