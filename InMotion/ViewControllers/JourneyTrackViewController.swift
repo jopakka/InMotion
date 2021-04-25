@@ -9,16 +9,16 @@ import UIKit
 import Foundation
 import MapKit
 import CoreLocation
+import CoreMotion
 
 class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     var arrayOfLocations = [CLLocationCoordinate2D]()
     
-    
     @IBOutlet weak var mapView: MKMapView!
     
     fileprivate let locationManager = CLLocationManager()
-    
+    fileprivate let motionActivityManager = CMMotionActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,8 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
     }
+    
+    
 }
 
 extension JourneyTrackViewController: CLLocationManagerDelegate{
@@ -59,6 +61,14 @@ extension JourneyTrackViewController: CLLocationManagerDelegate{
             print("waiting")
         }
         
+        func askMotionPermissions() {
+            if CMMotionActivityManager.isActivityAvailable() {
+                self.motionActivityManager.startActivityUpdates(to: OperationQueue.main) { (motion) in
+                    print("received motion activity")
+                    self.motionActivityManager.stopActivityUpdates()
+                }
+            }
+        }
         
     }
     
