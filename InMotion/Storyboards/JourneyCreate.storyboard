@@ -16,13 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yba-SV-IkC">
-                                <rect key="frame" x="10" y="175" width="396" height="510"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yba-SV-IkC">
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwv-Um-xUV">
-                                <rect key="frame" x="161" y="124" width="93" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwv-Um-xUV">
+                                <rect key="frame" x="0.0" y="44" width="414" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Start Journey"/>
                                 <connections>
                                     <segue destination="6G9-Of-gM4" kind="show" id="5Aw-bV-BAj"/>
@@ -31,6 +30,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z1e-VL-Dsf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yba-SV-IkC" firstAttribute="top" secondItem="dwv-Um-xUV" secondAttribute="bottom" id="2H8-jX-Siv"/>
+                            <constraint firstItem="yba-SV-IkC" firstAttribute="leading" secondItem="z1e-VL-Dsf" secondAttribute="leading" id="2I8-U1-jkt"/>
+                            <constraint firstItem="dwv-Um-xUV" firstAttribute="leading" secondItem="z1e-VL-Dsf" secondAttribute="leading" id="Bgw-lt-E1y"/>
+                            <constraint firstItem="z1e-VL-Dsf" firstAttribute="trailing" secondItem="yba-SV-IkC" secondAttribute="trailing" id="Jgp-b1-coN"/>
+                            <constraint firstItem="z1e-VL-Dsf" firstAttribute="trailing" secondItem="dwv-Um-xUV" secondAttribute="trailing" id="Rt8-Ge-48x"/>
+                            <constraint firstItem="dwv-Um-xUV" firstAttribute="top" secondItem="z1e-VL-Dsf" secondAttribute="top" id="dG9-V7-7f8"/>
+                            <constraint firstItem="z1e-VL-Dsf" firstAttribute="bottom" secondItem="yba-SV-IkC" secondAttribute="bottom" id="n7W-aE-9QV"/>
+                            <constraint firstItem="dwv-Um-xUV" firstAttribute="leading" secondItem="z1e-VL-Dsf" secondAttribute="leading" id="nIc-UU-KqO"/>
+                            <constraint firstItem="z1e-VL-Dsf" firstAttribute="trailing" secondItem="dwv-Um-xUV" secondAttribute="trailing" id="qDi-T5-EDm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wz8-Of-Hke"/>
                     <connections>
@@ -50,29 +60,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wa-5U-y9C">
-                                <rect key="frame" x="74" y="97" width="88" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add memory"/>
-                                <connections>
-                                    <segue destination="igI-gy-RFy" kind="show" id="7Ls-NS-jPH"/>
-                                </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HCG-dX-qM5">
-                                <rect key="frame" x="0.0" y="148" width="414" height="446"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MTl-kn-HX5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wa-5U-y9C">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Add memory"/>
+                                        <connections>
+                                            <segue destination="igI-gy-RFy" kind="show" id="7Ls-NS-jPH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-C5-zhy">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Save journey"/>
+                                        <connections>
+                                            <action selector="saveJourneyButton:" destination="6G9-Of-gM4" eventType="touchUpInside" id="zAZ-pz-WWd"/>
+                                            <segue destination="go0-JO-t3e" kind="show" id="d46-Dx-mTb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HCG-dX-qM5">
+                                <rect key="frame" x="0.0" y="50" width="414" height="758"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-C5-zhy">
-                                <rect key="frame" x="248" y="97" width="88" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save journey"/>
-                                <connections>
-                                    <segue destination="go0-JO-t3e" kind="show" id="d46-Dx-mTb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d24-kN-11t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MTl-kn-HX5" firstAttribute="leading" secondItem="d24-kN-11t" secondAttribute="leading" id="Apk-q1-PqJ"/>
+                            <constraint firstItem="HCG-dX-qM5" firstAttribute="leading" secondItem="d24-kN-11t" secondAttribute="leading" id="Cko-Fw-Kbe"/>
+                            <constraint firstItem="HCG-dX-qM5" firstAttribute="trailing" secondItem="d24-kN-11t" secondAttribute="trailing" id="fHP-g0-u1a"/>
+                            <constraint firstItem="MTl-kn-HX5" firstAttribute="top" secondItem="d24-kN-11t" secondAttribute="top" id="iOq-zW-UoA"/>
+                            <constraint firstItem="HCG-dX-qM5" firstAttribute="bottom" secondItem="d24-kN-11t" secondAttribute="bottom" id="mrX-34-upj"/>
+                            <constraint firstItem="HCG-dX-qM5" firstAttribute="top" secondItem="MTl-kn-HX5" secondAttribute="bottom" constant="2" id="oiq-k3-dok"/>
+                            <constraint firstItem="d24-kN-11t" firstAttribute="trailing" secondItem="MTl-kn-HX5" secondAttribute="trailing" id="taZ-FC-55g"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mIy-SS-zU5"/>
                     <connections>

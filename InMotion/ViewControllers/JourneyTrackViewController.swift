@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import CoreLocation
 import CoreMotion
-import MOPRIMTmdSdk
+//import MOPRIMTmdSdk
 
 class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
@@ -18,13 +18,20 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBAction func saveJourneyButton(_ sender: UIButton) {
+        // Uncomment for testing on device
+        // 
+    }
     fileprivate let locationManager = CLLocationManager()
-    fileprivate let motionActivityManager = CMMotionActivityManager()
+    //fileprivate let motionActivityManager = CMMotionActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TMD.start()
-        TMD.setAllowUploadOnCellularNetwork(true)
+        //Uncomment this for testing on device
+      //  TMD.start()
+      //  TMD.setAllowUploadOnCellularNetwork(true)
+      //  let firstUploadTime = Date() // format 2021-04-25 14:10:18 +0000
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,14 +71,14 @@ extension JourneyTrackViewController: CLLocationManagerDelegate{
             print("waiting")
         }
         
-        func askMotionPermissions() {
-            if CMMotionActivityManager.isActivityAvailable() {
-                self.motionActivityManager.startActivityUpdates(to: OperationQueue.main) { (motion) in
-                    print("received motion activity")
-                    self.motionActivityManager.stopActivityUpdates()
-                }
-            }
-        }
+       // func askMotionPermissions() {
+        //    if CMMotionActivityManager.isActivityAvailable() {
+         //       self.motionActivityManager.startActivityUpdates(to: OperationQueue.main) { (motion) in
+        //            print("received motion activity")
+        //            self.motionActivityManager.stopActivityUpdates()
+          //      }
+         //   }
+      //  }
         
     }
     
