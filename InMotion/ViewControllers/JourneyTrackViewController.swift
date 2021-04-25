@@ -10,6 +10,7 @@ import Foundation
 import MapKit
 import CoreLocation
 import CoreMotion
+import MOPRIMTmdSdk
 
 class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
@@ -22,6 +23,7 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        TMD.start()
     }
     
     override func viewDidAppear(_ animated: Bool) {
