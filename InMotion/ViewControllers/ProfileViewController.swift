@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Scroll view
     @IBOutlet weak var scrollview: UIScrollView!
@@ -32,6 +32,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var savePasswordButton: UIButton!
     
     private var user: User?
+    private var imagePicker = UIImagePickerController()
+    private var selectedImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +63,28 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @objc func touch() {
         self.view.endEditing(true)
     }
+    
+    // Select image from gallery
+    // https://stackoverflow.com/a/25514262
+    @IBAction func selectImageFromGallery(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            NSLog("Selecting image from album")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = true
+            
+            present(imagePicker, animated: true)
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+            print("xD")
+            self.dismiss(animated: true, completion: { () -> Void in })
+
+            selectedImage = image
+            print(image)
+        }
     
     @IBAction func nameEdited(_ sender: UITextField) {
         setSaveNameButtonStatus()
