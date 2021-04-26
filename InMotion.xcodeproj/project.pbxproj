@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6A1FA0EE263157B60083F61E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1FA0ED263157B60083F61E /* Home.storyboard */; };
 		6A1FA0F7263164DE0083F61E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1FA0F6263164DE0083F61E /* ProfileViewController.swift */; };
-		6A1FA10D263685530083F61E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1FA10C263685530083F61E /* Profile.storyboard */; };
+		6A1FA1132636924A0083F61E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1FA1122636924A0083F61E /* Profile.storyboard */; };
 		6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */; };
 		6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A377276262D8462003A6417 /* JourneyCreateViewController.swift */; };
 		6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */; };
@@ -115,7 +115,7 @@
 /* Begin PBXFileReference section */
 		6A1FA0ED263157B60083F61E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		6A1FA0F6263164DE0083F61E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6A1FA10C263685530083F61E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../../../../.Trash/Profile.storyboard; sourceTree = "<group>"; };
+		6A1FA1122636924A0083F61E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JourneyCreate.storyboard; sourceTree = "<group>"; };
 		6A377276262D8462003A6417 /* JourneyCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyCreateViewController.swift; sourceTree = "<group>"; };
 		6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyTrackViewController.swift; sourceTree = "<group>"; };
@@ -257,8 +257,8 @@
 		6A3955682626DCCA00A67AEB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				6A1FA10C263685530083F61E /* Profile.storyboard */,
 				6A395640262FF87000A67AEB /* DateSelector.storyboard */,
+				6A1FA1122636924A0083F61E /* Profile.storyboard */,
 				6A39563B262FF84500A67AEB /* SelectedDateDetails.storyboard */,
 				6A395636262FF7B200A67AEB /* JourneyDetails.storyboard */,
 				6A395631262FF58A00A67AEB /* JourneyMedia.storyboard */,
@@ -498,7 +498,7 @@
 				6A39563D262FF84500A67AEB /* SelectedDateDetails.storyboard in Resources */,
 				6A1FA0EE263157B60083F61E /* Home.storyboard in Resources */,
 				6A395642262FF87000A67AEB /* DateSelector.storyboard in Resources */,
-				6A1FA10D263685530083F61E /* Profile.storyboard in Resources */,
+				6A1FA1132636924A0083F61E /* Profile.storyboard in Resources */,
 				6A395633262FF58A00A67AEB /* JourneyMedia.storyboard in Resources */,
 				6A395638262FF7B200A67AEB /* JourneyDetails.storyboard in Resources */,
 				6AD054902628280600750EB8 /* .gitignore in Resources */,
