@@ -66,6 +66,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         setSaveNameButtonStatus()
     }
     
+    @IBAction func passwordEdited(_ sender: UITextField) {
+        if user?.password == oldPasswordTf.text && newPasswordTf.text?.count ?? 0 >= 6 && confirmPasswordTf.text == newPasswordTf.text {
+            savePasswordButton.isEnabled = true
+        } else {
+            savePasswordButton.isEnabled = false
+        }
+    }
+    
     private func setSaveNameButtonStatus() {
         if user?.firstname == firstnameTf.text, user?.lastname == lastnameTf.text {
             saveNameButton.isEnabled = false
@@ -80,8 +88,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         firstnameTf.text = "\(user?.firstname ?? "")"
         lastnameTf.text = "\(user?.lastname ?? "")"
     }
-    
-    
     
     private func getUser() -> User? {
         let managedContext = AppDelegate.viewContext
@@ -148,8 +154,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         do {
             try managedContext.save()
-            updateInfos()
-            setSaveNameButtonStatus()
+            if type == .password {
+                oldPasswordTf.text = ""
+                newPasswordTf.text = ""
+                confirmPasswordTf.text = ""
+                savePasswordButton.isEnabled = false
+            } else {
+                updateInfos()
+                setSaveNameButtonStatus()
+            }
+            
             view.endEditing(true)
         } catch {
             NSLog("Failed to save user to core")
