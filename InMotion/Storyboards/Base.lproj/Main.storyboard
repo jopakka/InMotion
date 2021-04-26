@@ -88,12 +88,22 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BNb-MC-yjF" kind="relationship" relationship="rootViewController" id="7VU-Sm-Qxx"/>
+                        <segue destination="1NV-U7-RVS" kind="relationship" relationship="rootViewController" id="Jfm-8b-8ie"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJN-jJ-e5w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.92753623188406" y="-2496.4285714285711"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="eDD-Uu-zco">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="1NV-U7-RVS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FDX-0i-5JX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="slk-Cq-dV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="826" y="-2498"/>
         </scene>
         <!--Home-->
         <scene sceneID="MyM-Qq-nwH">
@@ -343,16 +353,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuo-CR-9hQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971" y="-243"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="c6b-jI-atM">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="BNb-MC-yjF" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="l0X-oW-v3e"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wze-g9-kED" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="970" y="-2496"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

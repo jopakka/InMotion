@@ -62,12 +62,26 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    @IBAction func nameEdited(_ sender: UITextField) {
+        setSaveNameButtonStatus()
+    }
+    
+    private func setSaveNameButtonStatus() {
+        if user?.firstname == firstnameTf.text, user?.lastname == lastnameTf.text {
+            saveNameButton.isEnabled = false
+        } else {
+            saveNameButton.isEnabled = true
+        }
+    }
+    
     private func updateInfos() {
         fullNameLabel.text = "\(user?.firstname ?? "") \(user?.lastname ?? "")"
         
         firstnameTf.text = "\(user?.firstname ?? "")"
         lastnameTf.text = "\(user?.lastname ?? "")"
     }
+    
+    
     
     private func getUser() -> User? {
         let managedContext = AppDelegate.viewContext
@@ -111,11 +125,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         // Navigate to login page
 //        navigationController?.popToRootViewController(animated: true)
-        guard let parent = navigationController?.parent else {
-            NSLog("No parent")
-            return
-        }
         
+        showSimpleAlert(title: "Not working", message: "This function is not working")
     }
     
     // Save users new data to core
@@ -138,9 +149,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         do {
             try managedContext.save()
             updateInfos()
+            setSaveNameButtonStatus()
+            view.endEditing(true)
         } catch {
             NSLog("Failed to save user to core")
         }
+    }
+    
+    // Show alert popup
+    private func showSimpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        self.present(alert, animated: true)
     }
     
     // Hide keyboard when user touches outside keyboard
