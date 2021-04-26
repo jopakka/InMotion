@@ -78,13 +78,23 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-            print("xD")
-            self.dismiss(animated: true, completion: { () -> Void in })
-
-            selectedImage = image
-            print(image)
+    // MARK:-- ImagePicker delegate
+    // https://stackoverflow.com/a/52263803
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let pickedImage = info[.editedImage] as? UIImage else {
+            NSLog("No picked image")
+            return
         }
+        
+        guard let imgData = pickedImage.jpegData(compressionQuality: 80) else {
+            NSLog("No image data")
+            return
+        }
+        
+        profileImageView.image = UIImage(data: imgData)
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func nameEdited(_ sender: UITextField) {
         setSaveNameButtonStatus()
@@ -107,10 +117,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     private func updateInfos() {
-        fullNameLabel.text = "\(user?.firstname ?? "") \(user?.lastname ?? "")"
+        guard let user = user else {
+            NSLog("No user")
+            return
+        }
         
-        firstnameTf.text = "\(user?.firstname ?? "")"
-        lastnameTf.text = "\(user?.lastname ?? "")"
+        fullNameLabel.text = "\(user.firstname ?? "") \(user.lastname ?? "")"
+        
+        firstnameTf.text = "\(user.firstname ?? "")"
+        lastnameTf.text = "\(user.lastname ?? "")"
     }
     
     private func getUser() -> User? {
