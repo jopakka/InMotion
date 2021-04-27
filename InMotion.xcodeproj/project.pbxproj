@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A1FA0EE263157B60083F61E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1FA0ED263157B60083F61E /* Home.storyboard */; };
+		6A1FA0F7263164DE0083F61E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1FA0F6263164DE0083F61E /* ProfileViewController.swift */; };
+		6A1FA1132636924A0083F61E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1FA1122636924A0083F61E /* Profile.storyboard */; };
+		6A1FA1962636D4940083F61E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1FA1952636D4940083F61E /* HomeViewController.swift */; };
 		6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */; };
 		6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A377276262D8462003A6417 /* JourneyCreateViewController.swift */; };
 		6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */; };
@@ -21,6 +25,7 @@
 		6A395638262FF7B200A67AEB /* JourneyDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A395636262FF7B200A67AEB /* JourneyDetails.storyboard */; };
 		6A39563D262FF84500A67AEB /* SelectedDateDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A39563B262FF84500A67AEB /* SelectedDateDetails.storyboard */; };
 		6A395642262FF87000A67AEB /* DateSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A395640262FF87000A67AEB /* DateSelector.storyboard */; };
+		6ABA149C2636DC0000A13DC3 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABA149B2636DC0000A13DC3 /* UserHelper.swift */; };
 		6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054562626C0D000750EB8 /* AppDelegate.swift */; };
 		6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054582626C0D000750EB8 /* SceneDelegate.swift */; };
 		6AD0545B2626C0D000750EB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD0545A2626C0D000750EB8 /* ViewController.swift */; };
@@ -110,6 +115,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6A1FA0ED263157B60083F61E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		6A1FA0F6263164DE0083F61E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6A1FA1122636924A0083F61E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		6A1FA1952636D4940083F61E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JourneyCreate.storyboard; sourceTree = "<group>"; };
 		6A377276262D8462003A6417 /* JourneyCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyCreateViewController.swift; sourceTree = "<group>"; };
 		6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyTrackViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +133,7 @@
 		6A395637262FF7B200A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/JourneyDetails.storyboard; sourceTree = "<group>"; };
 		6A39563C262FF84500A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SelectedDateDetails.storyboard; sourceTree = "<group>"; };
 		6A395641262FF87000A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DateSelector.storyboard; sourceTree = "<group>"; };
+		6ABA149B2636DC0000A13DC3 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		6AD054532626C0D000750EB8 /* InMotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD054562626C0D000750EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AD054582626C0D000750EB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +253,8 @@
 				6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */,
 				6A3772B72630D4DB003A6417 /* AddMemoryViewController.swift */,
 				6A3772BB2630D626003A6417 /* JourneySaveViewController.swift */,
+				6A1FA0F6263164DE0083F61E /* ProfileViewController.swift */,
+				6A1FA1952636D4940083F61E /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -251,12 +263,14 @@
 			isa = PBXGroup;
 			children = (
 				6A395640262FF87000A67AEB /* DateSelector.storyboard */,
+				6A1FA1122636924A0083F61E /* Profile.storyboard */,
 				6A39563B262FF84500A67AEB /* SelectedDateDetails.storyboard */,
 				6A395636262FF7B200A67AEB /* JourneyDetails.storyboard */,
 				6A395631262FF58A00A67AEB /* JourneyMedia.storyboard */,
 				6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */,
 				6AD054642626C0D300750EB8 /* LaunchScreen.storyboard */,
 				6AD0545C2626C0D000750EB8 /* Main.storyboard */,
+				6A1FA0ED263157B60083F61E /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -284,6 +298,14 @@
 				6A3955752626EE4100A67AEB /* empty.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		6ABA149A2636DBBA00A13DC3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6ABA149B2636DC0000A13DC3 /* UserHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6AD0544A2626C0D000750EB8 = {
@@ -314,6 +336,7 @@
 		6AD054552626C0D000750EB8 /* InMotion */ = {
 			isa = PBXGroup;
 			children = (
+				6ABA149A2636DBBA00A13DC3 /* Helpers */,
 				6A3955742626EE0900A67AEB /* Networking */,
 				6A3955662626DC9E00A67AEB /* Models */,
 				6A3955702626DD0B00A67AEB /* CoreData */,
@@ -487,7 +510,9 @@
 				6AD8151F26282DE90033399B /* README.md in Resources */,
 				6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */,
 				6A39563D262FF84500A67AEB /* SelectedDateDetails.storyboard in Resources */,
+				6A1FA0EE263157B60083F61E /* Home.storyboard in Resources */,
 				6A395642262FF87000A67AEB /* DateSelector.storyboard in Resources */,
+				6A1FA1132636924A0083F61E /* Profile.storyboard in Resources */,
 				6A395633262FF58A00A67AEB /* JourneyMedia.storyboard in Resources */,
 				6A395638262FF7B200A67AEB /* JourneyDetails.storyboard in Resources */,
 				6AD054902628280600750EB8 /* .gitignore in Resources */,
@@ -525,22 +550,17 @@
 				6A3955762626EE4100A67AEB /* empty.swift in Sources */,
 				6AD8154D262853980033399B /* LoginViewController.swift in Sources */,
 				6A3955D7262ADD2A00A67AEB /* JourneyMediaDetailsViewController.swift in Sources */,
-
 				6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */,
-				6AD86B0A2630BD100016839B /* FSCalendarStickyHeader.m in Sources */,
-				6AD86B112630BD100016839B /* FSCalendarCalculator.m in Sources */,
-				6AD86B142630BD100016839B /* FSCalendarAppearance.m in Sources */,
 				6A3955BC2629EB7900A67AEB /* DatePickerViewController.swift in Sources */,
-				6AD86B082630BD100016839B /* FSCalendarDelegationFactory.m in Sources */,
-				6AD86B0F2630BD100016839B /* FSCalendarExtensions.m in Sources */,
 				6A3772B82630D4DB003A6417 /* AddMemoryViewController.swift in Sources */,
-
 				6A3955CD262ADCED00A67AEB /* SelectedDateDetailsViewController.swift in Sources */,
 				6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */,
 				6AD81542262844090033399B /* Post+CoreDataClass.swift in Sources */,
 				6AD81544262844090033399B /* JourneySegment+CoreDataClass.swift in Sources */,
 				6AD81543262844090033399B /* Post+CoreDataProperties.swift in Sources */,
+				6ABA149C2636DC0000A13DC3 /* UserHelper.swift in Sources */,
 				6AD8153F262844090033399B /* Journey+CoreDataProperties.swift in Sources */,
+				6A1FA1962636D4940083F61E /* HomeViewController.swift in Sources */,
 				6AD81545262844090033399B /* JourneySegment+CoreDataProperties.swift in Sources */,
 				6AD81540262844090033399B /* User+CoreDataClass.swift in Sources */,
 				6AD8152426283A950033399B /* RegisterViewController.swift in Sources */,
@@ -548,10 +568,8 @@
 				6AD81B6326301C000033399B /* MainTabViewController.swift in Sources */,
 				6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */,
 				6AD81541262844090033399B /* User+CoreDataProperties.swift in Sources */,
-
+				6A1FA0F7263164DE0083F61E /* ProfileViewController.swift in Sources */,
 				6A3772BC2630D626003A6417 /* JourneySaveViewController.swift in Sources */,
-				6AD86B122630BD100016839B /* FSCalendarHeaderView.m in Sources */,
-
 				6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
