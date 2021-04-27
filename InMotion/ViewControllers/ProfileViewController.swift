@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var saveNameButton: UIButton!
     @IBOutlet weak var savePasswordButton: UIButton!
     
-    private var user: User?
+    private var user: User!
     private var imagePicker = UIImagePickerController()
     private var selectedImage: UIImage?
     
@@ -50,10 +50,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         recognizer.numberOfTouchesRequired = 1
         scrollview.addGestureRecognizer(recognizer)
         
-        user = getUser()
+        user = UserHelper.instance.user
         guard user != nil else {
             // User not found
             // TODO: Logout
+            NSLog("This should logout")
             return
         }
         updateInfos()
@@ -101,7 +102,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     @IBAction func passwordEdited(_ sender: UITextField) {
-        if user?.password == oldPasswordTf.text && newPasswordTf.text?.count ?? 0 >= 6 && confirmPasswordTf.text == newPasswordTf.text {
+        if user.password == oldPasswordTf.text && newPasswordTf.text?.count ?? 0 >= 6 && confirmPasswordTf.text == newPasswordTf.text {
             savePasswordButton.isEnabled = true
         } else {
             savePasswordButton.isEnabled = false
@@ -109,7 +110,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     private func setSaveNameButtonStatus() {
-        if user?.firstname == firstnameTf.text, user?.lastname == lastnameTf.text {
+        if user.firstname == firstnameTf.text, user.lastname == lastnameTf.text {
             saveNameButton.isEnabled = false
         } else {
             saveNameButton.isEnabled = true
@@ -117,30 +118,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     private func updateInfos() {
-        guard let user = user else {
-            NSLog("No user")
-            return
-        }
-        
         fullNameLabel.text = "\(user.firstname ?? "") \(user.lastname ?? "")"
         
         firstnameTf.text = "\(user.firstname ?? "")"
         lastnameTf.text = "\(user.lastname ?? "")"
-    }
-    
-    private func getUser() -> User? {
-        let managedContext = AppDelegate.viewContext
-        let prefs = UserDefaults.standard
-        guard let username: String = prefs.string(forKey: "user") else {
-            NSLog("No username found")
-            return nil
-        }
-        guard let user = try? User.checkIfUserExist(username: username, context: managedContext) else {
-            NSLog("No user found on Core Data")
-            return nil
-        }
-        
-        return user
     }
     
     @IBAction func updateName(_ sender: UIButton) {
@@ -177,10 +158,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     // Save users new data to core
     private func saveData(username: String, value: String, type: UserData) {
         let managedContext = AppDelegate.viewContext
-        guard let user = try? User.checkIfUserExist(username: username, context: managedContext) else {
-            // No user found for some reason
-            return
-        }
         
         switch type {
         case .fname:
