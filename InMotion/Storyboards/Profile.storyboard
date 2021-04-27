@@ -258,11 +258,9 @@
                         <outlet property="saveNameButton" destination="uIf-Ga-A0o" id="FLo-VT-NrI"/>
                         <outlet property="savePasswordButton" destination="xGt-bJ-Wso" id="sAD-BV-hZc"/>
                         <outlet property="scrollview" destination="qoZ-yS-8YL" id="Ef0-Kh-jdX"/>
-                        <segue destination="ar0-7e-XIg" kind="unwind" identifier="backToPrevious" unwindAction="unwind2StoryboardExample:" id="Mw7-ju-iWl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yd3-ln-WFF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="ar0-7e-XIg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="-2496.4285714285711"/>
         </scene>
