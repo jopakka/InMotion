@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     private var user: User!
     private var imagePicker = UIImagePickerController()
-    private var selectedImage: UIImage?
+    private var currentImagePickerButton: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +69,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     // https://stackoverflow.com/a/25514262
     @IBAction func selectImageFromGallery(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            currentImagePickerButton = sender.tag
             NSLog("Selecting image from album")
             
             imagePicker.delegate = self
@@ -92,15 +93,28 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             return
         }
         
-        profileImageView.image = UIImage(data: imgData)
+        switch currentImagePickerButton {
+        case 0:
+            saveData(value: imgData, type: .avatar)
+            break
+        case 1:
+            saveData(value: imgData, type: .banner)
+            break
+        default:
+            break
+        }
         
         picker.dismiss(animated: true, completion: nil)
+        currentImagePickerButton = nil
+        updateInfos()
     }
     
+    // First name and last name text fields on change edit function
     @IBAction func nameEdited(_ sender: UITextField) {
         setSaveNameButtonStatus()
     }
     
+    // Password fields on change edit function
     @IBAction func passwordEdited(_ sender: UITextField) {
         if user.password == oldPasswordTf.text && newPasswordTf.text?.count ?? 0 >= 6 && confirmPasswordTf.text == newPasswordTf.text {
             savePasswordButton.isEnabled = true
@@ -109,6 +123,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
+    // Checks status for save name button
     private func setSaveNameButtonStatus() {
         if user.firstname == firstnameTf.text, user.lastname == lastnameTf.text {
             saveNameButton.isEnabled = false
@@ -117,13 +132,27 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
+    // Updates displayed values
     private func updateInfos() {
         fullNameLabel.text = "\(user.firstname ?? "") \(user.lastname ?? "")"
         
         firstnameTf.text = "\(user.firstname ?? "")"
         lastnameTf.text = "\(user.lastname ?? "")"
+        
+        var profileImage = UIImage(systemName: "person.fill")
+        if user.avatarImg != nil {
+            profileImage = UIImage(data: user.avatarImg!)!
+        }
+        profileImageView.image = profileImage
+        
+        var bannerImage = UIImage(named: "loginBackground")
+        if user.bannerImg != nil {
+            bannerImage = UIImage(data: user.bannerImg!)!
+        }
+        bannerImageView.image = bannerImage
     }
     
+    // Action for save name button
     @IBAction func updateName(_ sender: UIButton) {
         NSLog("Update name")
         // Check that text fields are valid
@@ -136,9 +165,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         fname = fname.trimmingCharacters(in: .whitespacesAndNewlines)
         lname = lname.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let username = user?.username ?? ""
-        saveData(username: username, value: fname, type: .fname)
-        saveData(username: username, value: lname, type: .lname)
+        saveData(value: fname, type: .fname)
+        saveData(value: lname, type: .lname)
     }
     
     // Logout button action
@@ -156,37 +184,23 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     // Save users new data to core
-    private func saveData(username: String, value: String, type: UserData) {
-        let managedContext = AppDelegate.viewContext
+    private func saveData(value: Any, type: UserDataTypes) {
+        CoreHelper.instance.saveUserData(user: user, value: value, type: type)
         
-        switch type {
-        case .fname:
-            user.firstname = value
-        case .lname:
-            user.lastname = value
-        case .password:
-            user.password = value
+        if type == .password {
+            oldPasswordTf.text = ""
+            newPasswordTf.text = ""
+            confirmPasswordTf.text = ""
+            savePasswordButton.isEnabled = false
+        } else {
+            updateInfos()
+            setSaveNameButtonStatus()
         }
         
-        do {
-            try managedContext.save()
-            if type == .password {
-                oldPasswordTf.text = ""
-                newPasswordTf.text = ""
-                confirmPasswordTf.text = ""
-                savePasswordButton.isEnabled = false
-            } else {
-                updateInfos()
-                setSaveNameButtonStatus()
-            }
-            
-            view.endEditing(true)
-        } catch {
-            NSLog("Failed to save user to core")
-        }
+        view.endEditing(true)
     }
     
-    // Show alert popup
+    // Show alert popup with simple text
     private func showSimpleAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
@@ -208,10 +222,4 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         confirmPasswordTf.resignFirstResponder()
         return true
     }
-}
-
-private enum UserData {
-    case fname
-    case lname
-    case password
 }
