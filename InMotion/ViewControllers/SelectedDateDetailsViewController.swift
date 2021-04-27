@@ -14,37 +14,60 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     var date: String?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         let nib = UINib(nibName: "JourneyOverviewCell", bundle: nil)
+        let carbonNib = UINib(nibName: "CarbonDetailsTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "JourneyOverviewCell")
+        tableView.register(carbonNib, forCellReuseIdentifier: "CarbonDetailsTableViewCell")
+        
         self.title = date
     }
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        if section == 0 {
+            return 1
+        } else {
+            return items.count
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "JourneyOverviewCell", for: indexPath) as! JourneyOverviewCell
-        cell.name.text = items[indexPath.row]
-        cell.photoView.clipsToBounds = true
-        cell.photoView.layer.masksToBounds = true
-        cell.photoView.contentMode = .scaleAspectFill
-        cell.photoView.image = UIImage(named: "loginBackground")
-        return cell
-    }
         
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CarbonDetailsTableViewCell", for: indexPath) as! CarbonDetailsTableViewCell
+            cell.carbonAnswer1.text = "It is answer number 1"
+            cell.carbonAnswer2.text = "It is answer number 2"
+            cell.carbonAnswer3.text = "It is answer number 3"
+            cell.carbonAnswer4.text = "It is answer number 4"
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "JourneyOverviewCell", for: indexPath) as! JourneyOverviewCell
+            cell.name.text = items[indexPath.row]
+            cell.photoView.clipsToBounds = true
+            cell.photoView.layer.masksToBounds = true
+            cell.photoView.contentMode = .scaleAspectFill
+            cell.photoView.image = UIImage(named: "loginBackground")
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = view.backgroundColor
+        return headerView
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetails", sender: self)
@@ -54,8 +77,8 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         let destVC = segue.destination as! JourneyDetailsViewController
         destVC.index = tableView.indexPathForSelectedRow!.row
         self.tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-
-        }
-
-
+        
+    }
+    
+    
 }

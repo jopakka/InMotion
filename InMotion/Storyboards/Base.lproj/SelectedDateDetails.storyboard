@@ -16,23 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piechartPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="rrR-oN-qln">
-                                <rect key="frame" x="0.0" y="54" width="414" height="300"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AC0-U9-rq0">
-                                <rect key="frame" x="0.0" y="364" width="414" height="498"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piechartPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="rrR-oN-qln">
+                                <rect key="frame" x="0.0" y="44" width="414" height="350"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="498" id="NIp-0C-Ruw"/>
+                                    <constraint firstAttribute="height" constant="350" id="bEt-7d-MM2"/>
                                 </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="20" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AC0-U9-rq0">
+                                <rect key="frame" x="0.0" y="404" width="414" height="458"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hJs-QQ-VYY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rrR-oN-qln" firstAttribute="trailing" secondItem="hJs-QQ-VYY" secondAttribute="trailing" id="2XN-wb-8BG"/>
+                            <constraint firstItem="rrR-oN-qln" firstAttribute="leading" secondItem="hJs-QQ-VYY" secondAttribute="leading" id="DMU-EN-7xi"/>
+                            <constraint firstItem="rrR-oN-qln" firstAttribute="top" secondItem="hJs-QQ-VYY" secondAttribute="top" id="IRj-uD-iqO"/>
                             <constraint firstItem="AC0-U9-rq0" firstAttribute="bottom" secondItem="hJs-QQ-VYY" secondAttribute="bottom" id="J76-il-yuj"/>
                             <constraint firstItem="AC0-U9-rq0" firstAttribute="leading" secondItem="rrR-oN-qln" secondAttribute="leading" id="LYQ-OH-RVC"/>
-                            <constraint firstItem="rrR-oN-qln" firstAttribute="top" secondItem="hJs-QQ-VYY" secondAttribute="top" constant="10" id="VhB-vf-Tun"/>
                             <constraint firstItem="rrR-oN-qln" firstAttribute="leading" secondItem="hJs-QQ-VYY" secondAttribute="leading" id="etj-0k-I7f"/>
                             <constraint firstItem="AC0-U9-rq0" firstAttribute="trailing" secondItem="rrR-oN-qln" secondAttribute="trailing" id="gjz-bj-qOL"/>
                             <constraint firstItem="AC0-U9-rq0" firstAttribute="top" secondItem="rrR-oN-qln" secondAttribute="bottom" constant="10" id="ke1-vK-yOj"/>
