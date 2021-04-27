@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,26 +13,41 @@
             <objects>
                 <viewController storyboardIdentifier="UIViewController-Wvx-qw-cYy" id="Wvx-qw-cYy" customClass="SelectedDateDetailsViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YIF-ud-4IZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZT7-ou-1lF">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="kmD-Bq-wte" kind="show" id="0pU-bg-KVy"/>
-                                </connections>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piechartPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="rrR-oN-qln">
+                                <rect key="frame" x="0.0" y="54" width="414" height="300"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AC0-U9-rq0">
+                                <rect key="frame" x="0.0" y="364" width="414" height="498"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="498" id="NIp-0C-Ruw"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hJs-QQ-VYY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AC0-U9-rq0" firstAttribute="bottom" secondItem="hJs-QQ-VYY" secondAttribute="bottom" id="J76-il-yuj"/>
+                            <constraint firstItem="AC0-U9-rq0" firstAttribute="leading" secondItem="rrR-oN-qln" secondAttribute="leading" id="LYQ-OH-RVC"/>
+                            <constraint firstItem="rrR-oN-qln" firstAttribute="top" secondItem="hJs-QQ-VYY" secondAttribute="top" constant="10" id="VhB-vf-Tun"/>
+                            <constraint firstItem="rrR-oN-qln" firstAttribute="leading" secondItem="hJs-QQ-VYY" secondAttribute="leading" id="etj-0k-I7f"/>
+                            <constraint firstItem="AC0-U9-rq0" firstAttribute="trailing" secondItem="rrR-oN-qln" secondAttribute="trailing" id="gjz-bj-qOL"/>
+                            <constraint firstItem="AC0-U9-rq0" firstAttribute="top" secondItem="rrR-oN-qln" secondAttribute="bottom" constant="10" id="ke1-vK-yOj"/>
+                            <constraint firstItem="hJs-QQ-VYY" firstAttribute="trailing" secondItem="rrR-oN-qln" secondAttribute="trailing" id="oDy-JV-vEJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Selected Date Details" id="IP9-wE-zDH"/>
+                    <connections>
+                        <outlet property="tableView" destination="AC0-U9-rq0" id="FaH-Fl-74W"/>
+                        <segue destination="kmD-Bq-wte" kind="show" identifier="showDetails" id="bCY-mj-Z5b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzY-8n-bsk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="-243"/>
+            <point key="canvasLocation" x="1721.7391304347827" y="-243.08035714285714"/>
         </scene>
         <!--JourneyDetails-->
         <scene sceneID="2Sy-Xo-Opp">
@@ -45,6 +61,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="piechartPlaceHolder" width="773" height="435"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
