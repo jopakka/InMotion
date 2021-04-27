@@ -82,7 +82,7 @@
                                                             <action selector="selectImageFromGallery:" destination="mfT-MX-q7u" eventType="touchUpInside" id="bq0-Pw-BsM"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEX-eq-i46">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEX-eq-i46">
                                                         <rect key="frame" x="0.0" y="36" width="374" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="Select banner picture"/>

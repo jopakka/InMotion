@@ -14,6 +14,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // Text fields
     @IBOutlet weak var fullnameTf: UILabel!
     
+    // Image views
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var bannerImageView: UIImageView!
+    
     // Table view
     @IBOutlet weak var favouriteTableView: UITableView!
     
@@ -45,6 +49,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        setRoutesToTableView()
     }
     
+    // Fetches routes from core data and sets controller for those
     private func setRoutesToTableView() {
         if fetchedResultController == nil {
             let managedContext = AppDelegate.viewContext
@@ -69,10 +74,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    // Updates displayed values
     private func updateInfos() {
         fullnameTf.text = "\(user.firstname ?? "") \(user.lastname ?? "")"
+        
+        var profileImage = UIImage(systemName: "person.fill")
+        if user.avatarImg != nil {
+            profileImage = UIImage(data: user.avatarImg!)!
+        }
+        profileImageView.image = profileImage
+        
+        var bannerImage = UIImage(named: "loginBackground")
+        if user.bannerImg != nil {
+            bannerImage = UIImage(data: user.bannerImg!)!
+        }
+        bannerImageView.image = bannerImage
     }
 
+    // MARK: Favourite routes table view stuffs
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favRoutes.count
     }
@@ -89,10 +109,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.photoView.contentMode = .scaleAspectFill
         cell.photoView.image = UIImage(named: "loginBackground")
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "showDetails", sender: self)
     }
 
 }
