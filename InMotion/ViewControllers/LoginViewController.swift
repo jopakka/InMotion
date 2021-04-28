@@ -20,6 +20,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setting background image
+        assignbackground()
         // Check if user is logged in
         if getLoggedUser() != nil {
             // Navigate to next screen
@@ -118,4 +120,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTf.resignFirstResponder()
         return(true)
     }
+    
+    // Setting background image
+    func assignbackground(){
+          let background = UIImage(named: "loginBackground")
+
+          var imageView : UIImageView!
+          imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+          imageView.clipsToBounds = true
+          imageView.image = background
+          imageView.center = view.center
+          view.addSubview(imageView)
+          self.view.sendSubviewToBack(imageView)
+      }
 }

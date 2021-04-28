@@ -66,7 +66,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = view.backgroundColor
-        return headerView
+        return headerView 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
