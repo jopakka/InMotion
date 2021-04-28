@@ -24,6 +24,9 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         self.usernameTf.delegate = self
         self.passwordTf.delegate = self
         self.confirmPasswordTf.delegate = self
+        
+        // assigning background
+        assignbackground()
     }
     
     // Trims text fields and if every text field have some text
@@ -126,6 +129,21 @@ extension RegisterViewController: UITextFieldDelegate {
         confirmPasswordTf.resignFirstResponder()
         return(true)
     }
+    
+    // Setting background image
+    func assignbackground(){
+          let background = UIImage(named: "loginBackground")
+
+          var imageView : UIImageView!
+          imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+          imageView.clipsToBounds = true
+          imageView.image = background
+          imageView.center = view.center
+          view.addSubview(imageView)
+          self.view.sendSubviewToBack(imageView)
+      }
+    
 }
 
 enum UserCreationErrors: Error {

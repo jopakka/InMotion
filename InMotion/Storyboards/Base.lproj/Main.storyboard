@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,10 +27,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kuv-vE-5R3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <color key="tintColor" systemColor="systemPinkColor"/>
-                        <color key="barTintColor" systemColor="systemBlueColor"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.17388709980632866" green="0.53508901101404338" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.96824876448363228" green="1" blue="0.49554895967050594" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="guX-5c-398" kind="relationship" relationship="viewControllers" id="DzI-om-nz8"/>
@@ -64,11 +64,20 @@
         <scene sceneID="YT2-cn-Fcg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aZa-7M-HU3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" image="calendar" catalog="system" id="sh8-1F-dd0"/>
+                    <tabBarItem key="tabBarItem" title="History" id="sh8-1F-dd0">
+                        <imageReference key="image" image="calendar" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mqR-RP-Vt2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1738870998" green="0.53508901099999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -88,6 +97,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jx0-tN-uo1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1738870998" green="0.53508901099999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -117,6 +127,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RUz-Et-htT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1738870998" green="0.53508901099999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -136,6 +147,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JoF-fI-XeG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1738870998" green="0.53508901099999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -212,7 +224,9 @@
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Um-qB-0xL">
                                 <rect key="frame" x="345" y="376" width="49" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.1738870998" green="0.53508901099999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="loginAction:" destination="I4H-9k-1A9" eventType="touchUpInside" id="5AK-V1-8lq"/>
                                 </connections>
@@ -224,6 +238,7 @@
                             <constraint firstItem="qsm-0L-NIk" firstAttribute="leading" secondItem="lA3-bd-HGv" secondAttribute="leading" constant="8" id="67r-wI-RUd"/>
                             <constraint firstItem="Iq1-Qj-vmu" firstAttribute="leading" secondItem="lA3-bd-HGv" secondAttribute="leading" constant="20" id="8WY-rf-LmJ"/>
                             <constraint firstItem="qsm-0L-NIk" firstAttribute="top" secondItem="lA3-bd-HGv" secondAttribute="top" constant="50" id="IP4-Z8-ZmE"/>
+                            <constraint firstItem="6Um-qB-0xL" firstAttribute="leading" secondItem="lA3-bd-HGv" secondAttribute="leading" constant="345" id="LJ5-Wa-Cka"/>
                             <constraint firstItem="lA3-bd-HGv" firstAttribute="trailing" secondItem="6Um-qB-0xL" secondAttribute="trailing" constant="20" id="PiV-Ug-Mgb"/>
                             <constraint firstItem="lA3-bd-HGv" firstAttribute="trailing" secondItem="qsm-0L-NIk" secondAttribute="trailing" constant="8" id="YXY-Fx-Jow"/>
                             <constraint firstItem="lA3-bd-HGv" firstAttribute="trailing" secondItem="Iq1-Qj-vmu" secondAttribute="trailing" constant="20" id="eNC-oC-njR"/>
@@ -241,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyW-DP-LBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1630" y="-1759"/>
+            <point key="canvasLocation" x="-1630.4347826086957" y="-1759.1517857142856"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="drz-g9-tCp">
@@ -314,7 +329,9 @@
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-bR-tkD">
                                 <rect key="frame" x="321" y="446.5" width="73" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Register"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" red="0.1738870998" green="0.53508901099999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="registerAction:" destination="ftp-FJ-JBn" eventType="touchUpInside" id="dOL-82-lWg"/>
                                 </connections>
@@ -327,6 +344,7 @@
                             <constraint firstItem="IgX-qV-Kgm" firstAttribute="leading" secondItem="ZuV-Sc-m6H" secondAttribute="leading" constant="20" id="FDG-Ax-7sV"/>
                             <constraint firstItem="5aB-7M-2Ja" firstAttribute="leading" secondItem="ZuV-Sc-m6H" secondAttribute="leading" constant="8" id="LWq-Rl-3uj"/>
                             <constraint firstItem="aC3-bR-tkD" firstAttribute="top" secondItem="IgX-qV-Kgm" secondAttribute="bottom" constant="20" id="TOo-BA-gec"/>
+                            <constraint firstItem="aC3-bR-tkD" firstAttribute="leading" secondItem="ZuV-Sc-m6H" secondAttribute="leading" constant="321" id="XZn-nj-FW9"/>
                             <constraint firstItem="ZuV-Sc-m6H" firstAttribute="trailing" secondItem="aC3-bR-tkD" secondAttribute="trailing" constant="20" id="eAg-KN-RJJ"/>
                             <constraint firstItem="ZuV-Sc-m6H" firstAttribute="trailing" secondItem="5aB-7M-2Ja" secondAttribute="trailing" constant="8" id="hDS-bg-2Vh"/>
                             <constraint firstItem="ZuV-Sc-m6H" firstAttribute="trailing" secondItem="IgX-qV-Kgm" secondAttribute="trailing" constant="20" id="lwb-pa-MAH"/>
@@ -370,6 +388,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="XSE-Mq-0e3"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="globe" catalog="system" width="128" height="121"/>
@@ -377,12 +396,6 @@
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

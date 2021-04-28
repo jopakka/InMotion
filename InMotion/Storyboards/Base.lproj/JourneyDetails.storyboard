@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,14 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="cRN-CW-DFh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VTD-UF-5t5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="dI7-Nh-9Oa"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8pe-eX-d7z">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IpW-bO-7lk">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="YBT-ZL-03a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VTD-UF-5t5" firstAttribute="leading" secondItem="YBT-ZL-03a" secondAttribute="leading" id="5P2-GP-yai"/>
+                            <constraint firstItem="YBT-ZL-03a" firstAttribute="bottom" secondItem="VTD-UF-5t5" secondAttribute="bottom" id="Bhz-gc-uvw"/>
+                            <constraint firstItem="YBT-ZL-03a" firstAttribute="trailing" secondItem="VTD-UF-5t5" secondAttribute="trailing" id="IXd-fx-qjN"/>
+                            <constraint firstItem="VTD-UF-5t5" firstAttribute="top" secondItem="YBT-ZL-03a" secondAttribute="top" id="pRZ-Yj-Mc8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Journey Details" id="SW7-3H-4S3"/>
+                    <connections>
+                        <outlet property="collectionView" destination="VTD-UF-5t5" id="l1Z-21-tP6"/>
+                        <segue destination="qaE-xf-vS3" kind="show" identifier="showPostDetails" id="rWa-hM-Er1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xb-YC-C6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="-243"/>
+            <point key="canvasLocation" x="2547.826086956522" y="-243.08035714285714"/>
         </scene>
         <!--JourneyMedia-->
         <scene sceneID="ZYJ-oB-j1J">
