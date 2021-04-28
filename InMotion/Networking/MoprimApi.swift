@@ -14,7 +14,29 @@ class MoprimApi {
     
     func fetchData(date: Date) {
         TMDCloudApi.fetchData(date, minutesOffset: 0.0).continueOnSuccessWith { task in
-            
+            DispatchQueue.main.async {
+                if let error = task.error {
+                    NSLog("fetchData error: %@", error.localizedDescription)
+                } else if let data = task.result {
+                    print(data)
+                    for d in data {
+                        let x = d as! TMDActivity
+                        print("x: \(x)")
+                    }
+                }
+            }
+        }
+    }
+    
+    func fetchStats() {
+        TMDCloudApi.fetchMetadata().continueOnSuccessWith { task in
+            DispatchQueue.main.async {
+                if let error = task.error {
+                    NSLog("fetchData error: %@", error.localizedDescription)
+                } else if let data = task.result {
+                    print(data)
+                }
+            }
         }
     }
 }
