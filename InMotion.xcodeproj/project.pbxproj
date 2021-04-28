@@ -76,6 +76,7 @@
 		6AD81B5E2630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD81B562630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework */; };
 		6AD81B5F2630164A0033399B /* AWSAuthCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD81B572630164A0033399B /* AWSAuthCore.xcframework */; };
 		6AD81B6326301C000033399B /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81B6226301C000033399B /* MainTabViewController.swift */; };
+		6ADF42D72639BE1B00D025F1 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF42D62639BE1B00D025F1 /* AlertHelper.swift */; };
 		6AFE46D12630CD4C00A63746 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 6AFE46D02630CD4C00A63746 /* FSCalendar */; };
 		6AFE46E22637EE7000A63746 /* JourneyOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE46E02637EE7000A63746 /* JourneyOverviewCell.swift */; };
 		6AFE46E32637EE7000A63746 /* JourneyOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFE46E12637EE7000A63746 /* JourneyOverviewCell.xib */; };
@@ -187,6 +188,7 @@
 		6AD81B562630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AWSCognitoIdentityProviderASF.xcframework; sourceTree = "<group>"; };
 		6AD81B572630164A0033399B /* AWSAuthCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AWSAuthCore.xcframework; sourceTree = "<group>"; };
 		6AD81B6226301C000033399B /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		6ADF42D62639BE1B00D025F1 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		6AFE46E02637EE7000A63746 /* JourneyOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyOverviewCell.swift; sourceTree = "<group>"; };
 		6AFE46E12637EE7000A63746 /* JourneyOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JourneyOverviewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -315,6 +317,7 @@
 			children = (
 				6ABA149B2636DC0000A13DC3 /* UserHelper.swift */,
 				6AA4A17226389B06005F1BB9 /* CoreHelper.swift */,
+				6ADF42D62639BE1B00D025F1 /* AlertHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				6A6DA3F82638321D00D1FED0 /* CarbonDetailsTableViewCell.swift in Sources */,
 				6A1FA0F7263164DE0083F61E /* ProfileViewController.swift in Sources */,
 				6A3772BC2630D626003A6417 /* JourneySaveViewController.swift in Sources */,
+				6ADF42D72639BE1B00D025F1 /* AlertHelper.swift in Sources */,
 				6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

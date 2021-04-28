@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 // View controller for register view
-class RegisterViewController: UIViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
+class RegisterViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     // Text Fields
     @IBOutlet weak var usernameTf: UITextField!
@@ -29,17 +29,9 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
     // Trims text fields and if every text field have some text
     // enables register button
     @IBAction func textFieldOnChage(_ sender: UITextField) {
-        // Check if text fields have text
-        guard var u = usernameTf.text,
-           var p = passwordTf.text,
-           var cp = confirmPasswordTf.text else {
+        guard let (u, p, cp) = getTrimmedTexts() else {
             return
         }
-        
-        // Trim text fields
-        u = u.trimmingCharacters(in: .whitespacesAndNewlines)
-        p = p.trimmingCharacters(in: .whitespacesAndNewlines)
-        cp = cp.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Enables register button if text fields have enought text
         if(u.count > 0 && p.count > 0 && cp.count > 0) {
@@ -56,25 +48,17 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
     
     // Action to registering new user
     @IBAction func registerAction(_ sender: UIButton) {
-        // Check if text fields have text
-        guard var u = usernameTf.text,
-           var p = passwordTf.text,
-           var cp = confirmPasswordTf.text else {
+        guard let (u, p, cp) = getTrimmedTexts() else {
             return
         }
-        
-        // Trim text fields
-        u = u.trimmingCharacters(in: .whitespacesAndNewlines)
-        p = p.trimmingCharacters(in: .whitespacesAndNewlines)
-        cp = cp.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check text fields for errors
         var errors = ""
         if u.count < 3 { errors += "Username must be atleast 3 characters long.\n" }
         if p.count < 6 { errors += "Password must be atleast 6 characters long.\n" }
-        if p != cp { errors += "Passwords don't match" }
+        if p != cp { errors += "Passwords doesn't match" }
         if errors.count > 0 {
-            showSimpleAlert(title: "Errors while creating user", message: errors)
+            AlertHelper.instance.showSimpleAlert(title: "Errors while creating user", message: errors, presenter: self)
             return
         }
         
@@ -82,7 +66,7 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         let managedContext = AppDelegate.viewContext
         guard let user = try? User.createIfNotExist(username: u, context: managedContext) else {
             NSLog("Username already exists")
-            showSimpleAlert(title: "Username already exists", message: "Username already exists")
+            AlertHelper.instance.showSimpleAlert(title: "Username already exists", message: "Username already exists", presenter: self)
             return
         }
         
@@ -91,7 +75,7 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         
         // Try to save new user to Core Data.
         // If succeed set username to defaults
-        // so we know user is logged in
+        // so we know that user is logged in
         do {
             try managedContext.save()
             let prefs = UserDefaults.standard
@@ -107,17 +91,29 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
             self.performSegue(withIdentifier: "registerSegue", sender: self)
         } catch {
             NSLog("Creating user failed")
-            showSimpleAlert(title: "Creating user failed", message: "There was some errors while creating user. Please try again.")
+            AlertHelper.instance.showSimpleAlert(title: "Creating user failed", message: "There was some errors while creating user. Please try again.", presenter: self)
         }
     }
     
-    // Show alert popup
-    private func showSimpleAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-        self.present(alert, animated: true)
+    func getTrimmedTexts() -> (String, String, String)? {
+        // Check if text fields have text
+        guard var u = usernameTf.text,
+              var p = passwordTf.text,
+              var cp = confirmPasswordTf.text else {
+            return nil
+        }
+        
+        // Trim text fields
+        u = u.trimmingCharacters(in: .whitespacesAndNewlines)
+        p = p.trimmingCharacters(in: .whitespacesAndNewlines)
+        cp = cp.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return (u, p, cp)
     }
     
+}
+
+extension RegisterViewController: UITextFieldDelegate {
     // Hide keyboard when user touches outside keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -130,7 +126,6 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         confirmPasswordTf.resignFirstResponder()
         return(true)
     }
-    
 }
 
 enum UserCreationErrors: Error {

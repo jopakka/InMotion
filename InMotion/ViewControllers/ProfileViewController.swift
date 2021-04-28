@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController {
     
     // Scroll view
     @IBOutlet weak var scrollview: UIScrollView!
@@ -63,50 +63,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     // https://developer.apple.com/forums/thread/110223?answerId=337254022#337254022
     @objc func touch() {
         self.view.endEditing(true)
-    }
-    
-    // Select image from gallery
-    // https://stackoverflow.com/a/25514262
-    @IBAction func selectImageFromGallery(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            currentImagePickerButton = sender.tag
-            NSLog("Selecting image from album")
-            
-            imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum
-            imagePicker.allowsEditing = true
-            
-            present(imagePicker, animated: true)
-        }
-    }
-    
-    // MARK:-- ImagePicker delegate
-    // https://stackoverflow.com/a/52263803
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let pickedImage = info[.editedImage] as? UIImage else {
-            NSLog("No picked image")
-            return
-        }
-        
-        guard let imgData = pickedImage.jpegData(compressionQuality: 80) else {
-            NSLog("No image data")
-            return
-        }
-        
-        switch currentImagePickerButton {
-        case 0:
-            saveData(value: imgData, type: .avatar)
-            break
-        case 1:
-            saveData(value: imgData, type: .banner)
-            break
-        default:
-            break
-        }
-        
-        picker.dismiss(animated: true, completion: nil)
-        currentImagePickerButton = nil
-        updateInfos()
     }
     
     // First name and last name text fields on change edit function
@@ -174,13 +130,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         NSLog("Logout begin")
         
         // Clear username from defaults
-//        let prefs = UserDefaults.standard
-//        prefs.removeObject(forKey: "user")
+        let prefs = UserDefaults.standard
+        prefs.removeObject(forKey: "user")
         
         // Navigate to login page
 //        navigationController?.popToRootViewController(animated: true)
         
-        showSimpleAlert(title: "Not working", message: "This function is not working")
+        AlertHelper.instance.showSimpleAlert(title: "Not working", message: "This function is not working perfectly. You have to now restart app", presenter: self)
     }
     
     // Save users new data to core
@@ -199,14 +155,55 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         view.endEditing(true)
     }
-    
-    // Show alert popup with simple text
-    private func showSimpleAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-        self.present(alert, animated: true)
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // Select image from gallery
+    // https://stackoverflow.com/a/25514262
+    @IBAction func selectImageFromGallery(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            currentImagePickerButton = sender.tag
+            NSLog("Selecting image from album")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = true
+            
+            present(imagePicker, animated: true)
+        }
     }
     
+    // MARK:-- ImagePicker delegate
+    // https://stackoverflow.com/a/52263803
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let pickedImage = info[.editedImage] as? UIImage else {
+            NSLog("No picked image")
+            return
+        }
+        
+        guard let imgData = pickedImage.jpegData(compressionQuality: 80) else {
+            NSLog("No image data")
+            return
+        }
+        
+        switch currentImagePickerButton {
+        case 0:
+            saveData(value: imgData, type: .avatar)
+            break
+        case 1:
+            saveData(value: imgData, type: .banner)
+            break
+        default:
+            break
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+        currentImagePickerButton = nil
+        updateInfos()
+    }
+}
+
+extension ProfileViewController: UITextFieldDelegate {
     // Hide keyboard when user touches outside keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         NSLog("View pressed")
