@@ -9,7 +9,7 @@ import UIKit
 import MOPRIMTmdSdk
 import CoreData
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     // Text fields
     @IBOutlet weak var fullnameTf: UILabel!
@@ -91,7 +91,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         bannerImageView.image = bannerImage
     }
 
-    // MARK: Favourite routes table view stuffs
+    
+
+}
+
+// MARK: Favourite routes table view stuffs
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favRoutes.count
@@ -110,5 +115,4 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.photoView.image = UIImage(named: "loginBackground")
         return cell
     }
-
 }
