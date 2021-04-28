@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Journey Create View Controller-->
+        <!--Journey-->
         <scene sceneID="JVY-rt-xys">
             <objects>
                 <viewController id="kOq-Gp-Inj" customClass="JourneyCreateViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,7 +24,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Start Journey"/>
                                 <connections>
-                                    <segue destination="6G9-Of-gM4" kind="show" id="5Aw-bV-BAj"/>
+                                    <action selector="startJourneyAction:" destination="kOq-Gp-Inj" eventType="touchUpInside" id="4OQ-Ic-ag7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -42,17 +42,18 @@
                             <constraint firstItem="z1e-VL-Dsf" firstAttribute="trailing" secondItem="dwv-Um-xUV" secondAttribute="trailing" id="qDi-T5-EDm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Wz8-Of-Hke"/>
+                    <navigationItem key="navigationItem" title="Journey" id="Wz8-Of-Hke"/>
                     <connections>
                         <outlet property="map" destination="yba-SV-IkC" id="GES-F0-Dv6"/>
                         <outlet property="startJourneyButton" destination="dwv-Um-xUV" id="u3Z-BX-kL5"/>
+                        <segue destination="6G9-Of-gM4" kind="show" identifier="trackJourney" id="Rpk-nv-LGC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmV-6l-Pum" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="-1090.1785714285713"/>
         </scene>
-        <!--Journey Track View Controller-->
+        <!--Tracking Journey-->
         <scene sceneID="1Hh-4F-6zO">
             <objects>
                 <viewController id="6G9-Of-gM4" customClass="JourneyTrackViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +78,6 @@
                                         <state key="normal" title="Save journey"/>
                                         <connections>
                                             <action selector="saveJourneyButton:" destination="6G9-Of-gM4" eventType="touchUpInside" id="zAZ-pz-WWd"/>
-                                            <segue destination="go0-JO-t3e" kind="show" id="d46-Dx-mTb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -98,16 +98,17 @@
                             <constraint firstItem="d24-kN-11t" firstAttribute="trailing" secondItem="MTl-kn-HX5" secondAttribute="trailing" id="taZ-FC-55g"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mIy-SS-zU5"/>
+                    <navigationItem key="navigationItem" title="Tracking Journey" id="mIy-SS-zU5"/>
                     <connections>
                         <outlet property="mapView" destination="HCG-dX-qM5" id="Hed-xs-hLQ"/>
+                        <segue destination="go0-JO-t3e" kind="show" identifier="saveJourney" id="p96-JI-tjG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuA-Ko-M9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1834.7826086956522" y="-1090.1785714285713"/>
         </scene>
-        <!--Journey Save View Controller-->
+        <!--Save Journey-->
         <scene sceneID="3w9-Ty-jRt">
             <objects>
                 <viewController id="go0-JO-t3e" customClass="JourneySaveViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
@@ -213,7 +214,7 @@
                             <constraint firstAttribute="trailing" secondItem="UFb-Wt-ITh" secondAttribute="trailing" id="rgI-cm-2o0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4WU-65-klM"/>
+                    <navigationItem key="navigationItem" title="Save Journey" id="4WU-65-klM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mt9-T9-TmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

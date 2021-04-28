@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import CoreLocation
 import CoreMotion
-//import MOPRIMTmdSdk
+import MOPRIMTmdSdk
 
 class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
@@ -20,10 +20,13 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func saveJourneyButton(_ sender: UIButton) {
         // Uncomment for testing on device
-        // 
+        //
+        TMD.stop()
+        performSegue(withIdentifier: "saveJourney", sender: self)
     }
+    
     fileprivate let locationManager = CLLocationManager()
-    //fileprivate let motionActivityManager = CMMotionActivityManager()
+    fileprivate let motionActivityManager = CMMotionActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,25 +34,52 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
       //  TMD.start()
       //  TMD.setAllowUploadOnCellularNetwork(true)
       //  let firstUploadTime = Date() // format 2021-04-25 14:10:18 +0000
+        
+        NSLog(TMD.isOn() ? "TMD is ON" : "TMD is OFF")
+        navigationItem.hidesBackButton = true
     
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        askLocationPermissions()
+        askMotionPermissions()
+    }
+    
+    func askMotionPermissions() {
+        if CMMotionActivityManager.isActivityAvailable() {
+            self.motionActivityManager.startActivityUpdates(to: OperationQueue.main) { (motion) in
+                print("received motion activity")
+                self.motionActivityManager.stopActivityUpdates()
+            }
+        }
+    }
+    
+    func askLocationPermissions() {
         locationManager.delegate = self
-        mapView.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        //other permissions we might want to use
-        //locationManager.requestAlwaysAuthorization()
-        //locationManager.allowsBackgroundLocationUpdates = true
-        //locationManager.pausesLocationUpdatesAutomatically = true
+//        locationManager.requestWhenInUseAuthorization()
+//        other permissions we might want to use
+        locationManager.requestAlwaysAuthorization()
+//        locationManager.allowsBackgroundLocationUpdates = true
+//        locationManager.pausesLocationUpdatesAutomatically = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
     }
     
-    
+//    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+//        if #available(iOS 14.0, *) {
+//            let preciseLocationAuthorized = (manager.accuracyAuthorization == .fullAccuracy)
+//            if preciseLocationAuthorized == false {
+//                manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "tmd.AccurateLocationPurpose")
+//                // Note that this will only ask for TEMPORARY precise location.
+//                // You should make sure to ask your user to keep the Precise Location turned on in the Settings.
+//            }
+//        } else {
+//            // No need to ask for precise location before iOS 14
+//        }
+//    }
 }
 
 extension JourneyTrackViewController: CLLocationManagerDelegate{
