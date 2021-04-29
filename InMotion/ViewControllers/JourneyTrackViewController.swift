@@ -15,25 +15,34 @@ import MOPRIMTmdSdk
 class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     var arrayOfLocations = [CLLocationCoordinate2D]()
+    var currentJourney: Journey!
     
     @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func saveJourneyButton(_ sender: UIButton) {
         // Uncomment for testing on device
         TMD.stop()
-performSegue(withIdentifier: "saveJourney", sender: self)
+        let managedContext = AppDelegate.viewContext
+        currentJourney.journeyEnded = Date()
+        do {
+            try managedContext.save()
+        } catch {
+            NSLog("Failed to save journey end to core")
+        }
+        performSegue(withIdentifier: "saveJourney", sender: self)
     }
+    
     fileprivate let locationManager = CLLocationManager()
     fileprivate let motionActivityManager = CMMotionActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Uncomment this for testing on device
-      TMD.start()
+        TMD.start()
         TMD.setAllowUploadOnCellularNetwork(true)
         let firstUploadTime = Date() // format 2021-04-25 14:10:18 +0000
 
-NSLog(TMD.isOn() ? "TMD is ON" : "TMD is OFF")
+        NSLog(TMD.isOn() ? "TMD is ON" : "TMD is OFF")
         navigationItem.hidesBackButton = true
     
     }
@@ -51,7 +60,7 @@ NSLog(TMD.isOn() ? "TMD is ON" : "TMD is OFF")
         locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
-askMotionPermissions()
+        askMotionPermissions()
     }
     
     func askMotionPermissions() {
@@ -61,6 +70,11 @@ askMotionPermissions()
                 self.motionActivityManager.stopActivityUpdates()
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as? JourneySaveViewController
+        destVC?.journey = currentJourney
     }
 }
 
