@@ -388,7 +388,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="XSE-Mq-0e3"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="globe" catalog="system" width="128" height="121"/>
