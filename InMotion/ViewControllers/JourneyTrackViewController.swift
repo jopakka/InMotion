@@ -24,7 +24,6 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
         TMD.stop()
         let managedContext = AppDelegate.viewContext
         currentJourney.journeyEnded = Date()
-        currentJourney.favourite = true
         do {
             try managedContext.save()
         } catch {
