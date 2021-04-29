@@ -17,6 +17,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
     let yesterday = Date().advanced(by: -86400)
     let polyline = Polyline(encodedPolyline: "qkqtFbn_Vui`Xu`l]")
+    var journey: Journey?
     
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let locationManager = CLLocationManager()
