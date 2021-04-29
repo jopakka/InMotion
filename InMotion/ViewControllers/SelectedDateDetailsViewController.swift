@@ -46,7 +46,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.identifier, for: indexPath) as! PieChartTableViewCell
-            cell.configure(with: UIImage(named: "piechartPlaceHolder")!)
+//            cell.configure(with: UIImage(named: "piechartPlaceHolder")!)
             cell.selectionStyle = .none
             return cell
         }

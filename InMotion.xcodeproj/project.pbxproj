@@ -36,6 +36,7 @@
 		6A6DA449263AD0BA00D1FED0 /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6DA447263AD0BA00D1FED0 /* PieChartTableViewCell.xib */; };
 		6A6DA452263AD85500D1FED0 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA450263AD85500D1FED0 /* MapCollectionViewCell.swift */; };
 		6A6DA453263AD85500D1FED0 /* MapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6DA451263AD85500D1FED0 /* MapCollectionViewCell.xib */; };
+		6A6DA461263AE56E00D1FED0 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 6A6DA460263AE56E00D1FED0 /* Charts */; };
 		6AA4A17326389B06005F1BB9 /* CoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA4A17226389B06005F1BB9 /* CoreHelper.swift */; };
 		6ABA149C2636DC0000A13DC3 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABA149B2636DC0000A13DC3 /* UserHelper.swift */; };
 		6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054562626C0D000750EB8 /* AppDelegate.swift */; };
@@ -221,6 +222,7 @@
 				6AD817B4262D8E6B0033399B /* AWSMobileClientXCF.xcframework in Frameworks */,
 				6AD817B0262D8E6B0033399B /* AWSAuthCore.xcframework in Frameworks */,
 				6AD81B5F2630164A0033399B /* AWSAuthCore.xcframework in Frameworks */,
+				6A6DA461263AE56E00D1FED0 /* Charts in Frameworks */,
 				6AD817AA262D8E6B0033399B /* AWSS3.xcframework in Frameworks */,
 				6AD81B5C2630164A0033399B /* AWSS3.xcframework in Frameworks */,
 				6AD817AC262D8E6B0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */,
@@ -477,6 +479,7 @@
 			packageProductDependencies = (
 				6AFE46D02630CD4C00A63746 /* FSCalendar */,
 				6A377320263A388F003A6417 /* Polyline */,
+				6A6DA460263AE56E00D1FED0 /* Charts */,
 			);
 			productName = InMotion;
 			productReference = 6AD054532626C0D000750EB8 /* InMotion.app */;
@@ -552,6 +555,7 @@
 			packageReferences = (
 				6AFE46CF2630CD4C00A63746 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				6A37731F263A388F003A6417 /* XCRemoteSwiftPackageReference "Polyline" */,
+				6A6DA45F263AE56E00D1FED0 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 6AD054542626C0D000750EB8 /* Products */;
 			projectDirPath = "";
@@ -1017,6 +1021,14 @@
 				minimumVersion = 5.0.2;
 			};
 		};
+		6A6DA45F263AE56E00D1FED0 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
 		6AFE46CF2630CD4C00A63746 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -1032,6 +1044,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6A37731F263A388F003A6417 /* XCRemoteSwiftPackageReference "Polyline" */;
 			productName = Polyline;
+		};
+		6A6DA460263AE56E00D1FED0 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A6DA45F263AE56E00D1FED0 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 		6AFE46D02630CD4C00A63746 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
