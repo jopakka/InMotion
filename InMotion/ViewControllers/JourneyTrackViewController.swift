@@ -24,6 +24,7 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
         TMD.stop()
         let managedContext = AppDelegate.viewContext
         currentJourney.journeyEnded = Date()
+        currentJourney.favourite = true
         do {
             try managedContext.save()
         } catch {
@@ -37,10 +38,11 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // I think this is safe to delete
         //Uncomment this for testing on device
-        TMD.start()
-        TMD.setAllowUploadOnCellularNetwork(true)
-        let firstUploadTime = Date() // format 2021-04-25 14:10:18 +0000
+//        TMD.start()
+//        TMD.setAllowUploadOnCellularNetwork(true)
+//        let firstUploadTime = Date() // format 2021-04-25 14:10:18 +0000
 
         NSLog(TMD.isOn() ? "TMD is ON" : "TMD is OFF")
         navigationItem.hidesBackButton = true
