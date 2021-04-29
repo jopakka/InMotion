@@ -215,6 +215,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Save Journey" id="4WU-65-klM"/>
+                    <connections>
+                        <outlet property="mapView" destination="t9C-mk-Ror" id="JVn-Fe-z2O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mt9-T9-TmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

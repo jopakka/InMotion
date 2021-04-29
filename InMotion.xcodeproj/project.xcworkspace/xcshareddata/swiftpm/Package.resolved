@@ -9,6 +9,15 @@
           "revision": "4e79a201fad268408a4fd9e2ef429497def9594f",
           "version": "2.8.2"
         }
+      },
+      {
+        "package": "Polyline",
+        "repositoryURL": "https://github.com/raphaelmor/Polyline.git",
+        "state": {
+          "branch": null,
+          "revision": "36f7b1222aaf8fa741d0d179c12e186998d97f42",
+          "version": "5.0.2"
+        }
       }
     ]
   },
