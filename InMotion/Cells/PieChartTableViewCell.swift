@@ -12,6 +12,7 @@ import UIKit
 class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
 
     static var identifier = "PieChartTableViewCell"
+    var entries = [ChartDataEntry]()
     
     @IBOutlet weak var pieChartView: PieChartView!
     
@@ -21,15 +22,10 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         // Initialization code
         pieChartView.delegate = self
         
-        var entries = [ChartDataEntry]()
+        // pie chart formatting and options
         
-        for x in 0..<10 {
-            entries.append(ChartDataEntry(x: Double(x), y: Double(x)))
-        }
-        let set = PieChartDataSet(entries:entries)
-        set.colors = ChartColorTemplates.joyful()
-        let data = PieChartData(dataSet: set)
-        pieChartView.data = data
+        pieChartView.drawHoleEnabled = false
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,9 +34,17 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         // Configure the view for the selected state
     }
     
-//    public func configure(with image: UIImage){
-//        pieChartImage.image = image
-//    }
+    public func configure(pieChartDataArray data: [String: Int]){
+        
+        for x in data {
+            print(x)
+            entries.append(PieChartDataEntry(value: Double(x.value), label: x.key))
+        }
+        let set = PieChartDataSet(entries:entries)
+        set.colors = ChartColorTemplates.joyful()
+        let data = PieChartData(dataSet: set)
+        pieChartView.data = data
+    }
     
     static func nib() -> UINib {
         return UINib(nibName: "PieChartTableViewCell", bundle: nil)

@@ -10,6 +10,7 @@ import UIKit
 class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var items = ["item1", "item2", "item3"]
+    var pieChartData = ["Car": 20, "Bus": 30, "Walking": 40, "Cycling": 10]
     var rowSelected: Int?
     var date: String?
     @IBOutlet weak var tableView: UITableView!
@@ -46,8 +47,8 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.identifier, for: indexPath) as! PieChartTableViewCell
-//            cell.configure(with: UIImage(named: "piechartPlaceHolder")!)
-            cell.selectionStyle = .none
+            cell.configure(pieChartDataArray: pieChartData)
+            
             return cell
         }
         else if indexPath.section == 1 {
