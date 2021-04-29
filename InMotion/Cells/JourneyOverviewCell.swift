@@ -11,6 +11,8 @@ class JourneyOverviewCell: UITableViewCell {
     
     @IBOutlet var name: UILabel!
     @IBOutlet var photoView: UIImageView!
+    
+    static var identifier = "JourneyOverviewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +31,10 @@ class JourneyOverviewCell: UITableViewCell {
         let margins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         contentView.frame = contentView.frame.inset(by: margins)
 
+    }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "JourneyOverviewCell", bundle: nil)
     }
     
 }

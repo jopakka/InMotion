@@ -19,18 +19,36 @@ class JourneyDetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(), animated: true)
     
         collectionView.register(JourneyDetailsCollectionViewCell.nib(), forCellWithReuseIdentifier: JourneyDetailsCollectionViewCell.identifier)
         collectionView.register(ImagePostCollectionViewCell.nib(), forCellWithReuseIdentifier: ImagePostCollectionViewCell.identifier)
+        collectionView.register(MapCollectionViewCell.nib(), forCellWithReuseIdentifier: MapCollectionViewCell.identifier)
         
-
-        collectionView.backgroundColor = .white
+        
         collectionView.dataSource = self
+        collectionView.delegate = self
         
     }
     
-    static func createLayout() -> UICollectionViewCompositionalLayout{
+    
+    static func createSingleCellLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalWidth(2/3))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: itemSize,
+            subitem: item,
+            count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return section
+    }
+    
+    static func createImageLayout() -> NSCollectionLayoutSection{
         //item
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
@@ -73,8 +91,20 @@ class JourneyDetailsViewController: UIViewController{
         //section
         let section = NSCollectionLayoutSection(group: group)
         
-        //return
-        return UICollectionViewCompositionalLayout(section: section)
+        return section
+    }
+    
+    static func createLayout() -> UICollectionViewCompositionalLayout{
+        let layout = UICollectionViewCompositionalLayout {
+            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            if sectionIndex == 0 || sectionIndex == 1 {
+                return self.createSingleCellLayout()
+            }else{
+                return self.createImageLayout()
+            }
+        }
+        return layout
     }
     
 
@@ -84,19 +114,23 @@ class JourneyDetailsViewController: UIViewController{
 extension JourneyDetailsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("item was pressed!")
-        collectionView.deselectItem(at: indexPath, animated: true)
+        if indexPath.section == 1 {
+            print("item was pressed!")
+        }
+        
     }
+   
+    
 }
 
 extension JourneyDetailsViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == 0 || section == 1 {
             return 1
         }else {
             return 30
@@ -105,9 +139,16 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as! MapCollectionViewCell
+            
+            cell.configure(with: "route goes here")
+            return cell
+        }
+        else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyDetailsCollectionViewCell.identifier, for: indexPath) as! JourneyDetailsCollectionViewCell
             
-            cell.distanceTravelled.text = "test"
+            cell.configure(distanceTravelled: "10km", timeTravelled: "30mins", emissions: "300g", popularTransport: "Bus", averageSpeed: "60km/h")
+            
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImagePostCollectionViewCell.identifier, for: indexPath) as! ImagePostCollectionViewCell

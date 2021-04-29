@@ -25,4 +25,6 @@ class ImagePostCollectionViewCell: UICollectionViewListCell {
     static func nib() -> UINib {
         return UINib(nibName: "ImagePostCollectionViewCell", bundle: nil)
     }
+    
+    
 }
