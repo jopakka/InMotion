@@ -16,7 +16,8 @@
 		6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */; };
 		6A3772B82630D4DB003A6417 /* AddMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772B72630D4DB003A6417 /* AddMemoryViewController.swift */; };
 		6A3772BC2630D626003A6417 /* JourneySaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772BB2630D626003A6417 /* JourneySaveViewController.swift */; };
-		6A3955762626EE4100A67AEB /* empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955752626EE4100A67AEB /* empty.swift */; };
+		6A377321263A388F003A6417 /* Polyline in Frameworks */ = {isa = PBXBuildFile; productRef = 6A377320263A388F003A6417 /* Polyline */; };
+		6A3955762626EE4100A67AEB /* MoprimApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955752626EE4100A67AEB /* MoprimApi.swift */; };
 		6A3955BC2629EB7900A67AEB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955BB2629EB7900A67AEB /* DatePickerViewController.swift */; };
 		6A3955CD262ADCED00A67AEB /* SelectedDateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955CC262ADCED00A67AEB /* SelectedDateDetailsViewController.swift */; };
 		6A3955D2262ADD0900A67AEB /* JourneyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3955D1262ADD0900A67AEB /* JourneyDetailsViewController.swift */; };
@@ -25,6 +26,17 @@
 		6A395638262FF7B200A67AEB /* JourneyDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A395636262FF7B200A67AEB /* JourneyDetails.storyboard */; };
 		6A39563D262FF84500A67AEB /* SelectedDateDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A39563B262FF84500A67AEB /* SelectedDateDetails.storyboard */; };
 		6A395642262FF87000A67AEB /* DateSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A395640262FF87000A67AEB /* DateSelector.storyboard */; };
+		6A6DA3F82638321D00D1FED0 /* CarbonDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA3F62638321D00D1FED0 /* CarbonDetailsTableViewCell.swift */; };
+		6A6DA3F92638321D00D1FED0 /* CarbonDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6DA3F72638321D00D1FED0 /* CarbonDetailsTableViewCell.xib */; };
+		6A6DA41826388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA41626388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift */; };
+		6A6DA41926388DA500D1FED0 /* JourneyDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6DA41726388DA500D1FED0 /* JourneyDetailsCollectionViewCell.xib */; };
+		6A6DA4352639668D00D1FED0 /* ImagePostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA4342639668D00D1FED0 /* ImagePostCollectionViewCell.swift */; };
+		6A6DA439263966C900D1FED0 /* ImagePostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6DA438263966C900D1FED0 /* ImagePostCollectionViewCell.xib */; };
+		6A6DA448263AD0BA00D1FED0 /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA446263AD0BA00D1FED0 /* PieChartTableViewCell.swift */; };
+		6A6DA449263AD0BA00D1FED0 /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6DA447263AD0BA00D1FED0 /* PieChartTableViewCell.xib */; };
+		6A6DA452263AD85500D1FED0 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA450263AD85500D1FED0 /* MapCollectionViewCell.swift */; };
+		6A6DA453263AD85500D1FED0 /* MapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6DA451263AD85500D1FED0 /* MapCollectionViewCell.xib */; };
+		6AA4A17326389B06005F1BB9 /* CoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA4A17226389B06005F1BB9 /* CoreHelper.swift */; };
 		6ABA149C2636DC0000A13DC3 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABA149B2636DC0000A13DC3 /* UserHelper.swift */; };
 		6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054562626C0D000750EB8 /* AppDelegate.swift */; };
 		6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD054582626C0D000750EB8 /* SceneDelegate.swift */; };
@@ -73,6 +85,7 @@
 		6AD81B5E2630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD81B562630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework */; };
 		6AD81B5F2630164A0033399B /* AWSAuthCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD81B572630164A0033399B /* AWSAuthCore.xcframework */; };
 		6AD81B6326301C000033399B /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81B6226301C000033399B /* MainTabViewController.swift */; };
+		6ADF42D72639BE1B00D025F1 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF42D62639BE1B00D025F1 /* AlertHelper.swift */; };
 		6AFE46D12630CD4C00A63746 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 6AFE46D02630CD4C00A63746 /* FSCalendar */; };
 		6AFE46E22637EE7000A63746 /* JourneyOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE46E02637EE7000A63746 /* JourneyOverviewCell.swift */; };
 		6AFE46E32637EE7000A63746 /* JourneyOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFE46E12637EE7000A63746 /* JourneyOverviewCell.xib */; };
@@ -126,7 +139,7 @@
 		6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyTrackViewController.swift; sourceTree = "<group>"; };
 		6A3772B72630D4DB003A6417 /* AddMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoryViewController.swift; sourceTree = "<group>"; };
 		6A3772BB2630D626003A6417 /* JourneySaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySaveViewController.swift; sourceTree = "<group>"; };
-		6A3955752626EE4100A67AEB /* empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.swift; sourceTree = "<group>"; };
+		6A3955752626EE4100A67AEB /* MoprimApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoprimApi.swift; sourceTree = "<group>"; };
 		6A3955BB2629EB7900A67AEB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		6A3955CC262ADCED00A67AEB /* SelectedDateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDateDetailsViewController.swift; sourceTree = "<group>"; };
 		6A3955D1262ADD0900A67AEB /* JourneyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +148,17 @@
 		6A395637262FF7B200A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/JourneyDetails.storyboard; sourceTree = "<group>"; };
 		6A39563C262FF84500A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SelectedDateDetails.storyboard; sourceTree = "<group>"; };
 		6A395641262FF87000A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DateSelector.storyboard; sourceTree = "<group>"; };
+		6A6DA3F62638321D00D1FED0 /* CarbonDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		6A6DA3F72638321D00D1FED0 /* CarbonDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarbonDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		6A6DA41626388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		6A6DA41726388DA500D1FED0 /* JourneyDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JourneyDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		6A6DA4342639668D00D1FED0 /* ImagePostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostCollectionViewCell.swift; sourceTree = "<group>"; };
+		6A6DA438263966C900D1FED0 /* ImagePostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePostCollectionViewCell.xib; sourceTree = "<group>"; };
+		6A6DA446263AD0BA00D1FED0 /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
+		6A6DA447263AD0BA00D1FED0 /* PieChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieChartTableViewCell.xib; sourceTree = "<group>"; };
+		6A6DA450263AD85500D1FED0 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
+		6A6DA451263AD85500D1FED0 /* MapCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCollectionViewCell.xib; sourceTree = "<group>"; };
+		6AA4A17226389B06005F1BB9 /* CoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHelper.swift; sourceTree = "<group>"; };
 		6ABA149B2636DC0000A13DC3 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		6AD054532626C0D000750EB8 /* InMotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD054562626C0D000750EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +205,7 @@
 		6AD81B562630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AWSCognitoIdentityProviderASF.xcframework; sourceTree = "<group>"; };
 		6AD81B572630164A0033399B /* AWSAuthCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AWSAuthCore.xcframework; sourceTree = "<group>"; };
 		6AD81B6226301C000033399B /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		6ADF42D62639BE1B00D025F1 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		6AFE46E02637EE7000A63746 /* JourneyOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyOverviewCell.swift; sourceTree = "<group>"; };
 		6AFE46E12637EE7000A63746 /* JourneyOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JourneyOverviewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +217,7 @@
 			files = (
 				6AD81B5E2630164A0033399B /* AWSCognitoIdentityProviderASF.xcframework in Frameworks */,
 				6AD81B5D2630164A0033399B /* AWSMobileClientXCF.xcframework in Frameworks */,
+				6A377321263A388F003A6417 /* Polyline in Frameworks */,
 				6AD817B4262D8E6B0033399B /* AWSMobileClientXCF.xcframework in Frameworks */,
 				6AD817B0262D8E6B0033399B /* AWSAuthCore.xcframework in Frameworks */,
 				6AD81B5F2630164A0033399B /* AWSAuthCore.xcframework in Frameworks */,
@@ -299,15 +325,24 @@
 		6A3955742626EE0900A67AEB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				6A3955752626EE4100A67AEB /* empty.swift */,
+				6A3955752626EE4100A67AEB /* MoprimApi.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		6A6DA42226393D3F00D1FED0 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		6ABA149A2636DBBA00A13DC3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				6ABA149B2636DC0000A13DC3 /* UserHelper.swift */,
+				6AA4A17226389B06005F1BB9 /* CoreHelper.swift */,
+				6ADF42D62639BE1B00D025F1 /* AlertHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -340,7 +375,13 @@
 		6AD054552626C0D000750EB8 /* InMotion */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				6AFE46DF2637EE3100A63746 /* Components */,
+=======
+				6A6DA42226393D3F00D1FED0 /* Layout */,
+				6AFE46DF2637EE3100A63746 /* Cells */,
+				6ABA149A2636DBBA00A13DC3 /* Helpers */,
+>>>>>>> main
 				6A3955742626EE0900A67AEB /* Networking */,
 				6A3955662626DC9E00A67AEB /* Models */,
 				6A3955702626DD0B00A67AEB /* CoreData */,
@@ -401,13 +442,23 @@
 			path = SubFrameworks;
 			sourceTree = "<group>";
 		};
-		6AFE46DF2637EE3100A63746 /* Components */ = {
+		6AFE46DF2637EE3100A63746 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				6AFE46E02637EE7000A63746 /* JourneyOverviewCell.swift */,
 				6AFE46E12637EE7000A63746 /* JourneyOverviewCell.xib */,
+				6A6DA3F62638321D00D1FED0 /* CarbonDetailsTableViewCell.swift */,
+				6A6DA3F72638321D00D1FED0 /* CarbonDetailsTableViewCell.xib */,
+				6A6DA41626388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift */,
+				6A6DA41726388DA500D1FED0 /* JourneyDetailsCollectionViewCell.xib */,
+				6A6DA438263966C900D1FED0 /* ImagePostCollectionViewCell.xib */,
+				6A6DA4342639668D00D1FED0 /* ImagePostCollectionViewCell.swift */,
+				6A6DA446263AD0BA00D1FED0 /* PieChartTableViewCell.swift */,
+				6A6DA447263AD0BA00D1FED0 /* PieChartTableViewCell.xib */,
+				6A6DA450263AD85500D1FED0 /* MapCollectionViewCell.swift */,
+				6A6DA451263AD85500D1FED0 /* MapCollectionViewCell.xib */,
 			);
-			path = Components;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +480,7 @@
 			name = InMotion;
 			packageProductDependencies = (
 				6AFE46D02630CD4C00A63746 /* FSCalendar */,
+				6A377320263A388F003A6417 /* Polyline */,
 			);
 			productName = InMotion;
 			productReference = 6AD054532626C0D000750EB8 /* InMotion.app */;
@@ -503,6 +555,7 @@
 			mainGroup = 6AD0544A2626C0D000750EB8;
 			packageReferences = (
 				6AFE46CF2630CD4C00A63746 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				6A37731F263A388F003A6417 /* XCRemoteSwiftPackageReference "Polyline" */,
 			);
 			productRefGroup = 6AD054542626C0D000750EB8 /* Products */;
 			projectDirPath = "";
@@ -522,6 +575,7 @@
 			files = (
 				6AD8151F26282DE90033399B /* README.md in Resources */,
 				6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */,
+				6A6DA453263AD85500D1FED0 /* MapCollectionViewCell.xib in Resources */,
 				6A39563D262FF84500A67AEB /* SelectedDateDetails.storyboard in Resources */,
 				6A1FA0EE263157B60083F61E /* Home.storyboard in Resources */,
 				6A395642262FF87000A67AEB /* DateSelector.storyboard in Resources */,
@@ -533,7 +587,11 @@
 				6AD054632626C0D300750EB8 /* Assets.xcassets in Resources */,
 				6AD817C7262EC5300033399B /* .gitlab-ci.yml in Resources */,
 				6AD0545E2626C0D000750EB8 /* Main.storyboard in Resources */,
+				6A6DA439263966C900D1FED0 /* ImagePostCollectionViewCell.xib in Resources */,
 				6AFE46E32637EE7000A63746 /* JourneyOverviewCell.xib in Resources */,
+				6A6DA41926388DA500D1FED0 /* JourneyDetailsCollectionViewCell.xib in Resources */,
+				6A6DA3F92638321D00D1FED0 /* CarbonDetailsTableViewCell.xib in Resources */,
+				6A6DA449263AD0BA00D1FED0 /* PieChartTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,32 +616,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6DA452263AD85500D1FED0 /* MapCollectionViewCell.swift in Sources */,
 				6A3955D2262ADD0900A67AEB /* JourneyDetailsViewController.swift in Sources */,
 				6AD0545B2626C0D000750EB8 /* ViewController.swift in Sources */,
 				6AD8153E262844090033399B /* Journey+CoreDataClass.swift in Sources */,
-				6A3955762626EE4100A67AEB /* empty.swift in Sources */,
+				6A3955762626EE4100A67AEB /* MoprimApi.swift in Sources */,
 				6AD8154D262853980033399B /* LoginViewController.swift in Sources */,
 				6A3955D7262ADD2A00A67AEB /* JourneyMediaDetailsViewController.swift in Sources */,
 				6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */,
 				6A3955BC2629EB7900A67AEB /* DatePickerViewController.swift in Sources */,
 				6A3772B82630D4DB003A6417 /* AddMemoryViewController.swift in Sources */,
 				6A3955CD262ADCED00A67AEB /* SelectedDateDetailsViewController.swift in Sources */,
+				6A6DA4352639668D00D1FED0 /* ImagePostCollectionViewCell.swift in Sources */,
 				6AD054572626C0D000750EB8 /* AppDelegate.swift in Sources */,
 				6AD81542262844090033399B /* Post+CoreDataClass.swift in Sources */,
 				6AD81544262844090033399B /* JourneySegment+CoreDataClass.swift in Sources */,
 				6AD81543262844090033399B /* Post+CoreDataProperties.swift in Sources */,
 				6ABA149C2636DC0000A13DC3 /* UserHelper.swift in Sources */,
 				6AD8153F262844090033399B /* Journey+CoreDataProperties.swift in Sources */,
+<<<<<<< HEAD
 				6AFE46E22637EE7000A63746 /* JourneyOverviewCell.swift in Sources */,
+=======
+				6A6DA41826388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift in Sources */,
+				6AFE46E22637EE7000A63746 /* JourneyOverviewCell.swift in Sources */,
+				6A1FA1962636D4940083F61E /* HomeViewController.swift in Sources */,
+>>>>>>> main
 				6AD81545262844090033399B /* JourneySegment+CoreDataProperties.swift in Sources */,
 				6AD81540262844090033399B /* User+CoreDataClass.swift in Sources */,
+				6AA4A17326389B06005F1BB9 /* CoreHelper.swift in Sources */,
 				6AD8152426283A950033399B /* RegisterViewController.swift in Sources */,
 				6AD054612626C0D000750EB8 /* InMotion.xcdatamodeld in Sources */,
 				6AD81B6326301C000033399B /* MainTabViewController.swift in Sources */,
 				6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */,
+				6A6DA448263AD0BA00D1FED0 /* PieChartTableViewCell.swift in Sources */,
 				6AD81541262844090033399B /* User+CoreDataProperties.swift in Sources */,
+				6A6DA3F82638321D00D1FED0 /* CarbonDetailsTableViewCell.swift in Sources */,
 				6A1FA0F7263164DE0083F61E /* ProfileViewController.swift in Sources */,
 				6A3772BC2630D626003A6417 /* JourneySaveViewController.swift in Sources */,
+				6ADF42D72639BE1B00D025F1 /* AlertHelper.swift in Sources */,
 				6AD054592626C0D000750EB8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -947,6 +1017,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6A37731F263A388F003A6417 /* XCRemoteSwiftPackageReference "Polyline" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raphaelmor/Polyline.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 		6AFE46CF2630CD4C00A63746 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -958,6 +1036,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6A377320263A388F003A6417 /* Polyline */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A37731F263A388F003A6417 /* XCRemoteSwiftPackageReference "Polyline" */;
+			productName = Polyline;
+		};
 		6AFE46D02630CD4C00A63746 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6AFE46CF2630CD4C00A63746 /* XCRemoteSwiftPackageReference "FSCalendar" */;

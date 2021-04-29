@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setStateForUITesting()
         
+        //tab icon color setting
+        UITabBar.appearance().unselectedItemTintColor = UIColor.white
+        
         return true
     }
     

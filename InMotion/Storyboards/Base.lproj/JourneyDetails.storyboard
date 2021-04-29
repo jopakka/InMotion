@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ozQ-WL-80L">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,26 +13,34 @@
             <objects>
                 <viewController id="ozQ-WL-80L" customClass="JourneyDetailsViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cRN-CW-DFh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoX-lv-USS">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="qaE-xf-vS3" kind="show" id="9Ng-rx-mQx"/>
-                                </connections>
-                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VTD-UF-5t5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="dI7-Nh-9Oa"/>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YBT-ZL-03a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VTD-UF-5t5" firstAttribute="leading" secondItem="YBT-ZL-03a" secondAttribute="leading" id="5P2-GP-yai"/>
+                            <constraint firstItem="YBT-ZL-03a" firstAttribute="bottom" secondItem="VTD-UF-5t5" secondAttribute="bottom" id="Bhz-gc-uvw"/>
+                            <constraint firstItem="YBT-ZL-03a" firstAttribute="trailing" secondItem="VTD-UF-5t5" secondAttribute="trailing" id="IXd-fx-qjN"/>
+                            <constraint firstItem="VTD-UF-5t5" firstAttribute="top" secondItem="YBT-ZL-03a" secondAttribute="top" id="pRZ-Yj-Mc8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Journey Details" id="SW7-3H-4S3"/>
+                    <connections>
+                        <outlet property="collectionView" destination="VTD-UF-5t5" id="l1Z-21-tP6"/>
+                        <segue destination="qaE-xf-vS3" kind="show" identifier="showPostDetails" id="rWa-hM-Er1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xb-YC-C6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="-243"/>
+            <point key="canvasLocation" x="2547.826086956522" y="-243.08035714285714"/>
         </scene>
         <!--JourneyMedia-->
         <scene sceneID="ZYJ-oB-j1J">
