@@ -42,6 +42,23 @@ class CoreHelper {
             NSLog("saveUserData error: %@", error.localizedDescription)
         }
     }
+    
+    func saveJourneyData(journey: Journey, value: Any, type: JourneyDataTypes) {
+        switch type {
+        case .started:
+            journey.journeyStarted = value as? Date
+            break
+        default:
+            NSLog("Nothing is saved to journey")
+            return
+        }
+        
+        do {
+            try managedContext.save()
+        } catch {
+            NSLog("saveJourneyData error: %@", error.localizedDescription)
+        }
+    }
 }
 
 enum UserDataTypes {
@@ -51,4 +68,8 @@ enum UserDataTypes {
     case lname
     case password
     case username
+}
+
+enum JourneyDataTypes {
+    case started
 }

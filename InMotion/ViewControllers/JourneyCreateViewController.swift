@@ -22,6 +22,8 @@ class JourneyCreateViewController: UIViewController{
     fileprivate let locationManager = CLLocationManager()
     fileprivate let motionActivityManager = CMMotionActivityManager()
     
+    var journey: Journey!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +61,14 @@ class JourneyCreateViewController: UIViewController{
     
     @IBAction func startJourneyAction(_ sender: UIButton) {
         TMD.start()
+        let managedContext = AppDelegate.viewContext
+        journey = Journey.createNewJourney(context: managedContext)
         performSegue(withIdentifier: "trackJourney", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as? JourneyTrackViewController
+        destVC?.currentJourney = journey
     }
 }
 
