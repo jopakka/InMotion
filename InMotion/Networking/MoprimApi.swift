@@ -19,9 +19,11 @@ class MoprimApi {
                     NSLog("fetchData error: %@", error.localizedDescription)
                 } else if let data = task.result {
                     print(data)
+                    print("test words")
                     for d in data {
                         let x = d as! TMDActivity
                         print("x: \(x)")
+                        print(" other test words")
                     }
                 }
             }
