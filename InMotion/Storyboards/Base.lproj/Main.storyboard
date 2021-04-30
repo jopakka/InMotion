@@ -161,7 +161,7 @@
         <!--Login View Controller-->
         <scene sceneID="OcP-lh-Ow0">
             <objects>
-                <viewController id="I4H-9k-1A9" customClass="LoginViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="I4H-9k-1A9" customClass="LoginViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnL-Ch-uNG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
