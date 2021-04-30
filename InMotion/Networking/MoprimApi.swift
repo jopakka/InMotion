@@ -13,32 +13,33 @@ import CoreData
 class MoprimApi {
     static let instance = MoprimApi()
     
-    func saveDataToCore(date: Date, journey: Journey, context: NSManagedObjectContext) {
-        TMDCloudApi.fetchData(date, minutesOffset: 0.0).continueOnSuccessWith { task in
-            DispatchQueue.main.async {
-                if let error = task.error {
-                    NSLog("fetchData error: %@", error.localizedDescription)
-                } else if let data = task.result, data.count > 0 {
-                    for d in data {
-                        let segment = JourneySegment(context: context)
-                        let x = d as! TMDActivity
-                        let dateConventer = DateHelper.instance
-                        segment.segmentDistanceTravelled = Int64(x.distance)
-                        segment.segmentStart = dateConventer.timeStampToDate(x.timestampStart)
-                        segment.segmentEnd = dateConventer.timeStampToDate(x.timestampEnd)
-                        segment.segmentModeOfTravel = x.activity()
-                        segment.segmentEncodedPolyLine = x.polyline
-                        segment.segmentCo2 = x.co2
-                        journey.addToJourneySegment(segment)
-                    }
-                    
-                    do {
-                        try context.save()
-                    } catch {
-                        NSLog("SaveDataToCore error: ", error.localizedDescription)
-                    }
+    func saveDataToCore(date: Date, journey: Journey, context: NSManagedObjectContext) -> TMDTask<AnyObject> {
+        return TMDCloudApi.fetchData(date, minutesOffset: 0.0).continueOnSuccessWith { task in
+            if let error = task.error {
+                NSLog("fetchData error: %@", error.localizedDescription)
+            } else if let data = task.result, data.count > 0 {
+                for d in data {
+                    let segment = JourneySegment(context: context)
+                    let x = d as! TMDActivity
+                    let dateConventer = DateHelper.instance
+                    segment.segmentDistanceTravelled = Int64(x.distance)
+                    segment.segmentStart = dateConventer.timeStampToDate(x.timestampStart)
+                    let endTime = dateConventer.timeStampToDate(x.timestampEnd)
+                    segment.segmentEnd = endTime
+                    segment.segmentModeOfTravel = x.activity()
+                    segment.segmentEncodedPolyLine = x.polyline
+                    segment.segmentCo2 = x.co2
+                    journey.addToJourneySegment(segment)
+                }
+                
+                do {
+                    try context.save()
+                    NSLog("journey saved")
+                } catch {
+                    NSLog("SaveDataToCore error: ", error.localizedDescription)
                 }
             }
+            return nil
         }
     }
     
