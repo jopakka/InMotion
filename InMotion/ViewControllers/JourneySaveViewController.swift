@@ -30,9 +30,19 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         setNewBackButton()
+        // Use only with emulator
+//        CustomLocation.instance.generateTripToMoprim().continueWith { task in
+//            print("trip saved")
+//            // fetching the route that we want to display
+            MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
+                print("data saved")
+                print("journey: ", self.journey)
+                return nil
+            }
+            
+//            return nil
+//        }
         
-        // fetching the route that we want to display
-        MoprimApi.instance.fetchData(date: yesterday)
         
         // decoding coordinates
         let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates

@@ -8,25 +8,38 @@
 
 import Foundation
 import MOPRIMTmdSdk
+import CoreData
 
 class MoprimApi {
     static let instance = MoprimApi()
     
-    func fetchData(date: Date) {
-        TMDCloudApi.fetchData(date, minutesOffset: 0.0).continueOnSuccessWith { task in
-            DispatchQueue.main.async {
-                if let error = task.error {
-                    NSLog("fetchData error: %@", error.localizedDescription)
-                } else if let data = task.result, data.count > 0 {
-                    print(data)
-                    print("data date: \((data[0] as! TMDActivity).timestampStart)")
-                    for d in data {
-                        let x = d as! TMDActivity
-                        print("x: \(x)")
-                        print(" other test words")
-                    }
+    func saveDataToCore(date: Date, journey: Journey, context: NSManagedObjectContext) -> TMDTask<AnyObject> {
+        return TMDCloudApi.fetchData(date, minutesOffset: 0.0).continueOnSuccessWith { task in
+            if let error = task.error {
+                NSLog("fetchData error: %@", error.localizedDescription)
+            } else if let data = task.result, data.count > 0 {
+                for d in data {
+                    let segment = JourneySegment(context: context)
+                    let x = d as! TMDActivity
+                    let dateConventer = DateHelper.instance
+                    segment.segmentDistanceTravelled = Int64(x.distance)
+                    segment.segmentStart = dateConventer.timeStampToDate(x.timestampStart)
+                    let endTime = dateConventer.timeStampToDate(x.timestampEnd)
+                    segment.segmentEnd = endTime
+                    segment.segmentModeOfTravel = x.activity()
+                    segment.segmentEncodedPolyLine = x.polyline
+                    segment.segmentCo2 = x.co2
+                    journey.addToJourneySegment(segment)
+                }
+                
+                do {
+                    try context.save()
+                    NSLog("journey saved")
+                } catch {
+                    NSLog("SaveDataToCore error: ", error.localizedDescription)
                 }
             }
+            return nil
         }
     }
     

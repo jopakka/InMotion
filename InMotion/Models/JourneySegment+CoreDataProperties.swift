@@ -2,7 +2,7 @@
 //  JourneySegment+CoreDataProperties.swift
 //  InMotion
 //
-//  Created by iosdev on 15.4.2021.
+//  Created by iosdev on 30.4.2021.
 //
 //
 
@@ -17,7 +17,6 @@ extension JourneySegment {
     }
 
     @NSManaged public var segmentAverageSpeed: Int64
-    @NSManaged public var segmentCarbonDioxideValue: Int64
     @NSManaged public var segmentDestination: String?
     @NSManaged public var segmentDistanceTravelled: Int64
     @NSManaged public var segmentEncodedPolyLine: String?
@@ -25,6 +24,7 @@ extension JourneySegment {
     @NSManaged public var segmentModeOfTravel: String?
     @NSManaged public var segmentOrigin: String?
     @NSManaged public var segmentStart: Date?
+    @NSManaged public var segmentCo2: Double
     @NSManaged public var journey: Journey?
     @NSManaged public var post: NSSet?
 

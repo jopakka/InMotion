@@ -11,7 +11,7 @@
     </entity>
     <entity name="JourneySegment" representedClassName=".JourneySegment" syncable="YES">
         <attribute name="segmentAverageSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="segmentCarbonDioxideValue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="segmentCo2" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="segmentDestination" optional="YES" attributeType="String"/>
         <attribute name="segmentDistanceTravelled" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="segmentEncodedPolyLine" optional="YES" attributeType="String"/>
@@ -41,7 +41,7 @@
     </entity>
     <elements>
         <element name="Journey" positionX="-218.515625" positionY="-15.08203125" width="128" height="148"/>
-        <element name="JourneySegment" positionX="-388.01171875" positionY="319.875" width="128" height="208"/>
+        <element name="JourneySegment" positionX="-388.01171875" positionY="319.875" width="128" height="28"/>
         <element name="Post" positionX="-177.73828125" positionY="394.1875" width="128" height="133"/>
         <element name="User" positionX="-118.67578125" positionY="222.359375" width="128" height="148"/>
     </elements>
