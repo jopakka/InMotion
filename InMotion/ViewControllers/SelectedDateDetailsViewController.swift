@@ -14,7 +14,6 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     var rowSelected: Int?
     var date: String?
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var dateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

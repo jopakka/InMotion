@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a0u-by-3wn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,16 +13,41 @@
             <objects>
                 <viewController id="a0u-by-3wn" customClass="JourneyMediaDetailsViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qxK-ht-a31">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aPZ-eZ-3sT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MediaDetailsTableViewCell" id="k8u-nb-7pR">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k8u-nb-7pR" id="1mh-h2-mdp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6rk-YA-fSL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aPZ-eZ-3sT" firstAttribute="leading" secondItem="6rk-YA-fSL" secondAttribute="leading" id="BmQ-g7-XoE"/>
+                            <constraint firstItem="6rk-YA-fSL" firstAttribute="trailing" secondItem="aPZ-eZ-3sT" secondAttribute="trailing" id="fI2-8J-17O"/>
+                            <constraint firstItem="aPZ-eZ-3sT" firstAttribute="top" secondItem="6rk-YA-fSL" secondAttribute="top" id="nFK-T8-7dQ"/>
+                            <constraint firstItem="6rk-YA-fSL" firstAttribute="bottom" secondItem="aPZ-eZ-3sT" secondAttribute="bottom" id="vXm-7R-eBR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Jounrey Media" id="5mc-6F-xto"/>
+                    <connections>
+                        <outlet property="tableView" destination="aPZ-eZ-3sT" id="FC3-0s-TGR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPX-yx-bry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3267" y="-243"/>
+            <point key="canvasLocation" x="3266.666666666667" y="-243.08035714285714"/>
         </scene>
     </scenes>
     <resources>

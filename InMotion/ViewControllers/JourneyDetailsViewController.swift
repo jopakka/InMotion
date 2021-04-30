@@ -12,6 +12,21 @@ class JourneyDetailsViewController: UIViewController{
     
     
     var index: Int?
+    var postToSend: String?
+    var image: UIImage?
+    
+    let images: [UIImage] = [
+        UIImage(named: "image1"),
+        UIImage(named: "image2"),
+        UIImage(named: "image3"),
+        UIImage(named: "image4"),
+        UIImage(named: "image5"),
+        UIImage(named: "image6"),
+        UIImage(named: "image7"),
+        UIImage(named: "image8"),
+        UIImage(named: "image9"),
+        UIImage(named: "image10")
+    ].compactMap({$0})
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -114,8 +129,19 @@ class JourneyDetailsViewController: UIViewController{
 extension JourneyDetailsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            print("item was pressed!")
+        if indexPath.section == 2 {
+            print("image pressed")
+            image = images[indexPath.row]
+            performSegue(withIdentifier: "showPostDetails", sender: self)
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPostDetails" {
+
+            let destVC = segue.destination as! JourneyMediaDetailsViewController
+            destVC.cellImage = image
         }
         
     }
@@ -133,7 +159,7 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         if section == 0 || section == 1 {
             return 1
         }else {
-            return 30
+            return images.count
         }
     }
     
@@ -153,19 +179,7 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImagePostCollectionViewCell.identifier, for: indexPath) as! ImagePostCollectionViewCell
             
-            let images: [UIImage] = [
-            UIImage(named: "image1"),
-                UIImage(named: "image2"),
-                UIImage(named: "image3"),
-                UIImage(named: "image4"),
-                UIImage(named: "image5"),
-                UIImage(named: "image6"),
-                UIImage(named: "image7"),
-                UIImage(named: "image8"),
-                UIImage(named: "image9"),
-                UIImage(named: "image10")
-            ].compactMap({$0})
-            cell.imageView.image = images.randomElement()
+            cell.imageView.image = images[indexPath.row]
             return cell
         }
         
