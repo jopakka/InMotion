@@ -58,11 +58,14 @@ class JourneyCreateViewController: UIViewController{
         locationManager.startUpdatingLocation()
     }
     
-    
     @IBAction func startJourneyAction(_ sender: UIButton) {
         TMD.start()
         let managedContext = AppDelegate.viewContext
-        journey = Journey.createNewJourney(context: managedContext)
+        guard let user = UserHelper.instance.getUser() else {
+            // Ideally this should take user back to login screen
+            return
+        }
+        journey = Journey.createNewJourney(user: user ,context: managedContext)
         performSegue(withIdentifier: "trackJourney", sender: self)
     }
     

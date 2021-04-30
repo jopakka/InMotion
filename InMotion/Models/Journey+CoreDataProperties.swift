@@ -2,7 +2,7 @@
 //  Journey+CoreDataProperties.swift
 //  InMotion
 //
-//  Created by iosdev on 15.4.2021.
+//  Created by iosdev on 29.4.2021.
 //
 //
 
@@ -16,6 +16,7 @@ extension Journey {
         return NSFetchRequest<Journey>(entityName: "Journey")
     }
 
+    @NSManaged public var favourite: Bool
     @NSManaged public var journeyEnded: Date?
     @NSManaged public var journeyId: UUID?
     @NSManaged public var journeyName: String?

@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var favouriteTableView: UITableView!
     
     private var user: User!
-    private var favRoutes = ["one", "two", "three"]
+    private var favRoutes = [Journey]()
     private var fetchedResultController: NSFetchedResultsController<Journey>?
     
     override func viewDidLoad() {
@@ -45,8 +45,7 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
         updateInfos()
         
-        // TODO: Uncomment when journey can be saved
-//        setRoutesToTableView()
+        setRoutesToTableView()
     }
     
     // Fetches routes from core data and sets controller for those
@@ -61,13 +60,14 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         }
         
         // Fetch only favourited ones
-//        var predicate = NSPredicate(format: "favourite == true")
-//        fetchedResultController?.fetchRequest.predicate = predicate
+        let userPredicate = NSPredicate(format: "user == %@", user)
+        let favPredicate = NSPredicate(format: "favourite == true")
+        let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate, favPredicate])
+        fetchedResultController?.fetchRequest.predicate = andPredicate
         
         do {
             try fetchedResultController!.performFetch()
             print("fetch ok")
-            print(fetchedResultController?.fetchedObjects ?? "No fetched objects")
             favouriteTableView.reloadData()
         } catch {
             print("fetch failed")
@@ -99,20 +99,34 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favRoutes.count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if let sections = fetchedResultController!.sections, sections.count > 0 {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JourneyOverviewCell", for: indexPath) as! JourneyOverviewCell
-        cell.name.text = favRoutes[indexPath.row]
+        
+        guard let journeyItem = self.fetchedResultController?.object(at: indexPath) else {
+            fatalError("Journey not found in contoller")
+        }
+        
+        cell.name.text = journeyItem.journeyName ?? "Placeholder name"
         cell.photoView.clipsToBounds = true
         cell.photoView.layer.masksToBounds = true
         cell.photoView.contentMode = .scaleAspectFill
         cell.photoView.image = UIImage(named: "loginBackground")
         return cell
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("Controller change content")
+        favouriteTableView.reloadData()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultController!.sections?.count ?? 1
     }
 }

@@ -129,14 +129,14 @@ class ProfileViewController: UIViewController {
     @IBAction func logoutAction(_ sender: UIButton) {
         NSLog("Logout begin")
         
-        // Clear username from defaults
-        let prefs = UserDefaults.standard
-        prefs.removeObject(forKey: "user")
+        
         
         // Navigate to login page
 //        navigationController?.popToRootViewController(animated: true)
         
-        AlertHelper.instance.showSimpleAlert(title: "Not working", message: "This function is not working perfectly. You have to now restart app", presenter: self)
+//        AlertHelper.instance.showSimpleAlert(title: "Not working", message: "This function is not working perfectly. You have to now restart app", presenter: self)
+        
+        logout()
     }
     
     // Save users new data to core
@@ -154,6 +154,20 @@ class ProfileViewController: UIViewController {
         }
         
         view.endEditing(true)
+    }
+    
+    private func logout() {
+        // Clear username from defaults
+        let prefs = UserDefaults.standard
+        prefs.removeObject(forKey: "user")
+        
+        let board = UIStoryboard(name: "Main", bundle: nil)
+        let vc = board.instantiateViewController(identifier: "Login") as! LoginViewController
+        let win = UIApplication.shared.windows.first
+        win?.rootViewController = vc
+        win?.makeKeyAndVisible()
+        navigationController?.popToRootViewController(animated: true)
+        
     }
 }
 

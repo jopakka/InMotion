@@ -14,10 +14,14 @@ import MapKit
 
 class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
+    @IBOutlet weak var favouriteSwitch: UISwitch!
+    @IBOutlet weak var nameTf: UITextField!
     
     let yesterday = Date().advanced(by: -86400)
-    let polyline = Polyline(encodedPolyline: "qkqtFbn_Vui`Xu`l]")
-    var journey: Journey?
+    let polyline = Polyline(encodedPolyline: "{yd~FnvfvO{eE_uJo|FlfAhm@fbEjxE{pCuzBr`K")
+    let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
+    var journey: Journey!
+
     
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let locationManager = CLLocationManager()
@@ -27,36 +31,73 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         
         setNewBackButton()
         
-        print(yesterday)
-        print(Date())
-        
+        // fetching the route that we want to display
         MoprimApi.instance.fetchData(date: yesterday)
-        let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
-        print(decodedCoordinates ?? [])
         
-        // mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = false
-       
-        let polyline = MKPolyline(coordinates: decodedCoordinates ?? [], count: decodedCoordinates?.count ?? 0)
-        mapView.addOverlay(polyline)
+        // decoding coordinates
+        let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
+        
+        //render trail
+        createPath(decodedCoordinates : decodedCoordinates ?? [pointIfNil])
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        locationManager.delegate = self
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let rendere = MKPolylineRenderer(overlay: overlay)
+        rendere.lineWidth = 5
+        rendere.strokeColor = .systemBlue
+        return rendere
+    }
+    
+    func createPath(decodedCoordinates : [CLLocationCoordinate2D]) {
         mapView.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
-        locationManager.distanceFilter = kCLDistanceFilterNone
+        let polylineTwo = MKPolyline(coordinates: decodedCoordinates , count: decodedCoordinates.count )
         
+        let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
         
+        // set annotations for start and end points
+        let sourceLocation = decodedCoordinates.first ?? pointIfNil
+        let destinationLocation = decodedCoordinates.last ?? pointIfNil
+        
+        let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
+        let destinationItem = MKMapItem(placemark: destinationPlaceMark)
+        
+        let sourceAnotation = MKPointAnnotation()
+        //sourceAnotation.title = ""
+        //sourceAnotation.subtitle = ""
+        if let location = sourcePlaceMark.location {
+            sourceAnotation.coordinate = location.coordinate
+        }
+        
+        let destinationAnotation = MKPointAnnotation()
+        //destinationAnotation.title = ""
+        //destinationAnotation.subtitle = ""
+        if let location = destinationPlaceMark.location {
+            destinationAnotation.coordinate = location.coordinate
+        }
+        
+        self.mapView.showAnnotations([sourceAnotation, destinationAnotation], animated: true)
+        
+        // show whole route
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationItem
+        directionRequest.transportType = .automobile
+        
+     
+        
+        let rect = polylineTwo.boundingMapRect
+        self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+        mapView.addOverlay(polylineTwo)
+      
     }
     
     private func setNewBackButton() {
         // https://stackoverflow.com/a/27713813
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(self.back(sender:)))
+        let newBackButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
@@ -66,33 +107,30 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         // ...
         // Go back to the previous ViewController
         print("back works !!!!")
-        navigationController?.popViewController(animated: false)
+        
+        guard let n = getTrimmedTexts(), n.count > 0 else {
+            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Name can't be empty", presenter: self)
+            return
+        }
+        
+        journey.journeyName = n
+        journey.favourite = favouriteSwitch.isOn
+        
+        let managedContext = AppDelegate.viewContext
+        try? managedContext.save()
+        
+        navigationController?.popToRootViewController(animated: true)
     }
     
-    
-    
+    func getTrimmedTexts() -> String? {
+        // Check if text fields have text
+        guard var n = nameTf.text else {
+            return nil
+        }
+        
+        // Trim text fields
+        n = n.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return n
+    }
 }
-
-extension JourneySaveViewController: CLLocationManagerDelegate{
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-      
-     
-        
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion(center: locations[0].coordinate, span: span)
-        
-        
-    }
-    
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let pathRenderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-        pathRenderer.strokeColor = .blue
-        pathRenderer.lineWidth = 5
-        pathRenderer.alpha = 0.85
-        
-        return pathRenderer
-    }
-}
-
-

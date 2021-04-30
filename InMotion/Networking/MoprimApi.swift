@@ -17,9 +17,9 @@ class MoprimApi {
             DispatchQueue.main.async {
                 if let error = task.error {
                     NSLog("fetchData error: %@", error.localizedDescription)
-                } else if let data = task.result {
+                } else if let data = task.result, data.count > 0 {
                     print(data)
-                    print("test words")
+                    print("data date: \((data[0] as! TMDActivity).timestampStart)")
                     for d in data {
                         let x = d as! TMDActivity
                         print("x: \(x)")
@@ -30,15 +30,32 @@ class MoprimApi {
         }
     }
     
-    func fetchStats() {
-        TMDCloudApi.fetchMetadata().continueOnSuccessWith { task in
+    // This function is usually called when one wants to know what data can be fetched from the Cloud
+    
+    //    fetchMetadata result: {
+    //    firstUploadTimestamp: -1,
+    //    lastTmdTimestamp: -1,
+    //    lastTmdMovingActivityTimestamp: -1,
+    //    lastLocationTimestamp: -1,
+    //    _lastTmdUploadTimestamp: -1,
+    //    lastLocationUploadTimestamp: -1,
+    //    communityDailyCo2:-1.000000,
+    //    communityDailyDistance:-1.000000,
+    //    communityDailyDuration:-1.000000}
+    
+    func fetchMetadata(){
+        TMDCloudApi.fetchMetadata().continueWith { (task) -> Any? in
             DispatchQueue.main.async {
+                // Execute your UI related code on the main thread
                 if let error = task.error {
-                    NSLog("fetchData error: %@", error.localizedDescription)
-                } else if let data = task.result {
-                    print(data)
+                    NSLog("fetchMetadata Error: %@", error.localizedDescription)
+                }
+                else if let metadata = task.result {
+                    NSLog("fetchMetadata result: %@", metadata)
+                    print(metadata)
                 }
             }
+            return nil;
         }
     }
 }
