@@ -59,19 +59,19 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
     
     
     func configureChart(_ pieChart: PieChartView){
-        
+        //pieChart.drawHoleEnabled = false
         pieChart.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)
         pieChart.drawEntryLabelsEnabled = false
     }
     
     func formatDescription(_ description: Description){
-        description.position = CGPoint(x: 143, y: 0)
-        description.text = "Daily Travel Modes"
-        description.font = UIFont.boldSystemFont(ofSize: 15)
+        description.text = "Daily Travel Breakdown"
+        description.font = UIFont.systemFont(ofSize: 15)
     }
     
     func formatCenter(_ pieChart: PieChartView){
         pieChart.centerTextRadiusPercent = 0.95
+
     }
     
     func formatLegend(_ legend: Legend){
@@ -86,7 +86,7 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
     }
     
     func formatDataSet(_ dataSet: ChartDataSet){
-        dataSet.colors = ChartColorTemplates.joyful()
+        dataSet.colors = ChartColorTemplates.vordiplom()
         dataSet.label = ""
         
     }
@@ -100,12 +100,15 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         pFormatter.percentSymbol = " %"
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
         
-        data.setValueFont(.systemFont(ofSize: 15, weight: .light))
+        data.setValueFont(.systemFont(ofSize: 15, weight: .regular))
         data.setValueTextColor(.black)
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let text = entry.value(forKey: "label") as! String
-        pieChart.centerText = text.capitalized
+        let font = UIFont.systemFont(ofSize: 18)
+        let myAttribute = [ NSAttributedString.Key.font: font]
+        let myAttrString = NSAttributedString(string: text, attributes: myAttribute)
+        pieChart.centerAttributedText = myAttrString
     }
 }
