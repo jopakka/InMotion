@@ -34,7 +34,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="pieChartView" destination="PLC-EI-S9g" id="tG8-hZ-oOw"/>
+                <outlet property="pieChart" destination="PLC-EI-S9g" id="tG8-hZ-oOw"/>
             </connections>
             <point key="canvasLocation" x="118.11594202898551" y="245.08928571428569"/>
         </tableViewCell>

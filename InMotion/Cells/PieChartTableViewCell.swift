@@ -14,18 +14,17 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
     static var identifier = "PieChartTableViewCell"
     var entries = [ChartDataEntry]()
     
-    @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var pieChart: PieChartView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        pieChartView.delegate = self
+        pieChart.delegate = self
         
-        // pie chart formatting and options
+
         
-        pieChartView.drawHoleEnabled = false
-        
+    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,14 +39,55 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
             print(x)
             entries.append(PieChartDataEntry(value: Double(x.value), label: x.key))
         }
-        let set = PieChartDataSet(entries:entries)
-        set.colors = ChartColorTemplates.joyful()
-        let data = PieChartData(dataSet: set)
-        pieChartView.data = data
+        let dataSet = PieChartDataSet(entries:entries)
+        let data = PieChartData(dataSet: dataSet)
+        pieChart.data = data
+        
+        configureChart(pieChart)
+        formatLegend(pieChart.legend)
+        formatDescription(pieChart.chartDescription)
+        formatDataSet(dataSet)
+        
+        
+        pieChart.notifyDataSetChanged()
     }
     
     static func nib() -> UINib {
         return UINib(nibName: "PieChartTableViewCell", bundle: nil)
     }
     
+    
+    func configureChart(_ pieChart: PieChartView){
+        
+        pieChart.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)
+        pieChart.drawEntryLabelsEnabled = false
+    }
+    
+    func formatDescription(_ description: Description){
+        description.text = "Daily Breakdown of Travel Modes"
+    }
+    
+    func formatCenter(_ pieChart: PieChartView){
+        pieChart.centerTextRadiusPercent = 0.95
+    }
+    
+    func formatLegend(_ legend: Legend){
+        legend.horizontalAlignment = .right
+        legend.verticalAlignment = .top
+        legend.orientation = .vertical
+        legend.xEntrySpace = 7
+        legend.yEntrySpace = 0
+        legend.yOffset = 0
+    }
+    
+    func formatDataSet(_ dataSet: ChartDataSet){
+        dataSet.colors = ChartColorTemplates.joyful()
+    }
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        let text = entry.value(forKey: "label") as! String
+        pieChart.centerText = """
+            \(text)
+            """
+    }
 }
