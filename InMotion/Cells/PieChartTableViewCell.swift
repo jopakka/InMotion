@@ -47,6 +47,7 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         formatLegend(pieChart.legend)
         formatDescription(pieChart.chartDescription)
         formatDataSet(dataSet)
+        formatData(data)
         
         
         pieChart.notifyDataSetChanged()
@@ -64,7 +65,9 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
     }
     
     func formatDescription(_ description: Description){
-        description.text = "Daily Breakdown of Travel Modes"
+        description.position = CGPoint(x: 143, y: 0)
+        description.text = "Daily Travel Modes"
+        description.font = UIFont.boldSystemFont(ofSize: 15)
     }
     
     func formatCenter(_ pieChart: PieChartView){
@@ -72,22 +75,37 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
     }
     
     func formatLegend(_ legend: Legend){
+        legend.font = UIFont.systemFont(ofSize: 13)
         legend.horizontalAlignment = .right
         legend.verticalAlignment = .top
         legend.orientation = .vertical
         legend.xEntrySpace = 7
         legend.yEntrySpace = 0
         legend.yOffset = 0
+
     }
     
     func formatDataSet(_ dataSet: ChartDataSet){
         dataSet.colors = ChartColorTemplates.joyful()
+        dataSet.label = ""
+        
+    }
+    
+    func formatData(_ data: PieChartData){
+        
+        let pFormatter = NumberFormatter()
+        pFormatter.numberStyle = .percent
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+        pFormatter.percentSymbol = " %"
+        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        
+        data.setValueFont(.systemFont(ofSize: 15, weight: .light))
+        data.setValueTextColor(.black)
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let text = entry.value(forKey: "label") as! String
-        pieChart.centerText = """
-            \(text)
-            """
+        pieChart.centerText = text.capitalized
     }
 }

@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLC-EI-S9g" customClass="PieChartView" customModule="Charts">
-                        <rect key="frame" x="10" y="10" width="281" height="300"/>
+                        <rect key="frame" x="10" y="10" width="281" height="320"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="300" id="gtw-2j-huB"/>
+                            <constraint firstAttribute="height" constant="320" id="nhx-aV-ePx"/>
                         </constraints>
                     </view>
                 </subviews>
