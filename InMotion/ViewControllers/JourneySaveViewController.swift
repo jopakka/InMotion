@@ -31,8 +31,6 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         
         setNewBackButton()
         
-        favouriteSwitch.addTarget(self, action: #selector(favToggled), for: .valueChanged)
-        
         // fetching the route that we want to display
         MoprimApi.instance.fetchData(date: yesterday)
         
@@ -116,16 +114,12 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         }
         
         journey.journeyName = n
+        journey.favourite = favouriteSwitch.isOn
         
         let managedContext = AppDelegate.viewContext
         try? managedContext.save()
         
         navigationController?.popToRootViewController(animated: true)
-    }
-    
-    @objc private func favToggled(mySwitch: UISwitch) {
-        let value = mySwitch.isOn
-        journey.favourite = value
     }
     
     func getTrimmedTexts() -> String? {
