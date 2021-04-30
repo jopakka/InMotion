@@ -32,7 +32,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         setNewBackButton()
         
         // fetching the route that we want to display
-        MoprimApi.instance.fetchData(date: yesterday)
+        MoprimApi.instance.saveDataToCore(date: Date(), journey: journey, context: AppDelegate.viewContext)
         
         // decoding coordinates
         let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
