@@ -14,10 +14,13 @@ import MapKit
 
 class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
+    @IBOutlet weak var favouriteSwitch: UISwitch!
+    @IBOutlet weak var nameTf: UITextField!
+    
     let yesterday = Date().advanced(by: -86400)
     let polyline = Polyline(encodedPolyline: "{yd~FnvfvO{eE_uJo|FlfAhm@fbEjxE{pCuzBr`K")
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
-    var journey: Journey?
+    var journey: Journey!
 
     
     @IBOutlet weak var mapView: MKMapView!
@@ -27,6 +30,8 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         setNewBackButton()
+        
+        favouriteSwitch.addTarget(self, action: #selector(favToggled), for: .valueChanged)
         
         // fetching the route that we want to display
         MoprimApi.instance.fetchData(date: yesterday)
@@ -94,7 +99,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     private func setNewBackButton() {
         // https://stackoverflow.com/a/27713813
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(self.back(sender:)))
+        let newBackButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
@@ -104,6 +109,34 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         // ...
         // Go back to the previous ViewController
         print("back works !!!!")
-        navigationController?.popViewController(animated: false)
+        
+        guard let n = getTrimmedTexts(), n.count > 0 else {
+            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Name can't be empty", presenter: self)
+            return
+        }
+        
+        journey.journeyName = n
+        
+        let managedContext = AppDelegate.viewContext
+        try? managedContext.save()
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc private func favToggled(mySwitch: UISwitch) {
+        let value = mySwitch.isOn
+        journey.favourite = value
+    }
+    
+    func getTrimmedTexts() -> String? {
+        // Check if text fields have text
+        guard var n = nameTf.text else {
+            return nil
+        }
+        
+        // Trim text fields
+        n = n.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return n
     }
 }
