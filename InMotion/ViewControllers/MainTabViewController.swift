@@ -23,9 +23,6 @@ class MainTabViewController : UITabBarController {
             MoprimApi.instance.fetchData(date: Date().advanced(by: TimeInterval(-86400*i)))
             i += 1
         }
-        
-        print("FETCH STATS")
-        MoprimApi.instance.fetchStats()
     }
     
 }

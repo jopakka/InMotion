@@ -30,18 +30,6 @@ class MoprimApi {
         }
     }
     
-    func fetchStats() {
-        TMDCloudApi.fetchMetadata().continueOnSuccessWith { task in
-            DispatchQueue.main.async {
-                if let error = task.error {
-                    NSLog("fetchData error: %@", error.localizedDescription)
-                } else if let data = task.result {
-                    print(data)
-                }
-            }
-        }
-    }
-    
     // This function is usually called when one wants to know what data can be fetched from the Cloud
     
     //    fetchMetadata result: {
