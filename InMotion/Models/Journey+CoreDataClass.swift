@@ -17,7 +17,8 @@ public class Journey: NSManagedObject {
         let journey = Journey(context: context)
         journey.journeyId = uuid
         journey.journeyStarted = Date()
-        journey.user = user
+        user.addToJourney(journey)
+        try? context.save()
         return journey
     }
     
