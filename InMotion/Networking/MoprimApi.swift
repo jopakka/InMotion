@@ -41,4 +41,33 @@ class MoprimApi {
             }
         }
     }
+    
+    // This function is usually called when one wants to know what data can be fetched from the Cloud
+    
+    //    fetchMetadata result: {
+    //    firstUploadTimestamp: -1,
+    //    lastTmdTimestamp: -1,
+    //    lastTmdMovingActivityTimestamp: -1,
+    //    lastLocationTimestamp: -1,
+    //    _lastTmdUploadTimestamp: -1,
+    //    lastLocationUploadTimestamp: -1,
+    //    communityDailyCo2:-1.000000,
+    //    communityDailyDistance:-1.000000,
+    //    communityDailyDuration:-1.000000}
+    
+    func fetchMetadata(){
+        TMDCloudApi.fetchMetadata().continueWith { (task) -> Any? in
+            DispatchQueue.main.async {
+                // Execute your UI related code on the main thread
+                if let error = task.error {
+                    NSLog("fetchMetadata Error: %@", error.localizedDescription)
+                }
+                else if let metadata = task.result {
+                    NSLog("fetchMetadata result: %@", metadata)
+                    print(metadata)
+                }
+            }
+            return nil;
+        }
+    }
 }
