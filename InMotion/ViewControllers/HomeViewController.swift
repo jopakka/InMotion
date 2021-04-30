@@ -45,7 +45,6 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
         updateInfos()
         
-        // TODO: Uncomment when journey can be saved
         setRoutesToTableView()
     }
     
@@ -101,7 +100,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultController!.sections, sections.count > 0 {
-            print("sections: ", sections[section].numberOfObjects)
             return sections[section].numberOfObjects
         } else {
             return 0

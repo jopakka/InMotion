@@ -108,7 +108,7 @@
             </objects>
             <point key="canvasLocation" x="1834.7826086956522" y="-1090.1785714285713"/>
         </scene>
-        <!--Save Journey-->
+        <!--Edit Journey-->
         <scene sceneID="3w9-Ty-jRt">
             <objects>
                 <viewController id="go0-JO-t3e" customClass="JourneySaveViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
@@ -122,74 +122,72 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4l-4H-h5e" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit journey before saving" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iL-j7-gEo">
-                                                <rect key="frame" x="0.0" y="37" width="414" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="2hR-fh-oDF">
-                                                <rect key="frame" x="0.0" y="87.5" width="414" height="31"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="2hR-fh-oDF">
+                                                <rect key="frame" x="20" y="50" width="374" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to favourites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5b-rs-kGy">
-                                                        <rect key="frame" x="0.0" y="5.5" width="129.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="263" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXr-JR-diX">
-                                                        <rect key="frame" x="191.5" y="5.5" width="22" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ar9-Ys-ZbF">
-                                                        <rect key="frame" x="275.5" y="0.0" width="51" height="31"/>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ar9-Ys-ZbF">
+                                                        <rect key="frame" x="325" y="0.0" width="51" height="31"/>
                                                     </switch>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZK-VP-MVh">
-                                                        <rect key="frame" x="386.5" y="5.5" width="27.5" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                             </stackView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="t9C-mk-Ror">
-                                                <rect key="frame" x="8" y="148.5" width="398" height="379"/>
+                                                <rect key="frame" x="8" y="111" width="398" height="379"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="379" id="m9P-Ua-LvY"/>
                                                 </constraints>
                                             </mapView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2oM-OJ-ke6">
-                                                <rect key="frame" x="8" y="557.5" width="398" height="400"/>
+                                                <rect key="frame" x="8" y="520" width="398" height="400"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="UAi-jj-vYa"/>
                                                 </constraints>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7c-bn-rff">
-                                                <rect key="frame" x="184" y="987.5" width="46" height="30"/>
+                                                <rect key="frame" x="184" y="950" width="46" height="30"/>
                                                 <state key="normal" title="Save journey"/>
                                             </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4bU-wk-U0i">
+                                                <rect key="frame" x="20" y="8" width="374" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iz-dG-XWN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give name to this journey" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2A-wC-gez">
+                                                        <rect key="frame" x="65" y="0.0" width="309" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="7iL-j7-gEo" firstAttribute="top" secondItem="t4l-4H-h5e" secondAttribute="top" constant="37" id="3tT-YD-N3v"/>
-                                            <constraint firstItem="7iL-j7-gEo" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" id="5IK-t1-si0"/>
-                                            <constraint firstItem="2hR-fh-oDF" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" id="9Y8-hH-dtJ"/>
+                                            <constraint firstItem="2hR-fh-oDF" firstAttribute="top" secondItem="4bU-wk-U0i" secondAttribute="bottom" constant="8" id="4rU-bl-kpQ"/>
+                                            <constraint firstItem="2hR-fh-oDF" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="20" id="9Y8-hH-dtJ"/>
                                             <constraint firstItem="2oM-OJ-ke6" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="8" id="CJO-9t-a7j"/>
                                             <constraint firstItem="2oM-OJ-ke6" firstAttribute="top" secondItem="t9C-mk-Ror" secondAttribute="bottom" constant="30" id="FPn-Ah-Gfv"/>
                                             <constraint firstAttribute="height" constant="1000" id="G29-ib-RBj"/>
                                             <constraint firstItem="p7c-bn-rff" firstAttribute="top" secondItem="2oM-OJ-ke6" secondAttribute="bottom" constant="30" id="JVQ-L7-WD0"/>
                                             <constraint firstAttribute="trailing" secondItem="t9C-mk-Ror" secondAttribute="trailing" constant="8" id="Jqo-dt-j9J"/>
-                                            <constraint firstAttribute="trailing" secondItem="2hR-fh-oDF" secondAttribute="trailing" id="aRf-Wu-buf"/>
+                                            <constraint firstAttribute="trailing" secondItem="4bU-wk-U0i" secondAttribute="trailing" constant="20" id="Wbe-w9-bOI"/>
+                                            <constraint firstAttribute="trailing" secondItem="2hR-fh-oDF" secondAttribute="trailing" constant="20" id="aRf-Wu-buf"/>
                                             <constraint firstAttribute="trailing" secondItem="2oM-OJ-ke6" secondAttribute="trailing" constant="8" id="fWJ-XS-Y3J"/>
                                             <constraint firstItem="t9C-mk-Ror" firstAttribute="top" secondItem="2hR-fh-oDF" secondAttribute="bottom" constant="30" id="i2v-zJ-G9N"/>
+                                            <constraint firstItem="4bU-wk-U0i" firstAttribute="top" secondItem="t4l-4H-h5e" secondAttribute="top" constant="8" id="pXS-8r-U5w"/>
                                             <constraint firstItem="p7c-bn-rff" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="184" id="pbA-kP-d36"/>
-                                            <constraint firstAttribute="trailing" secondItem="7iL-j7-gEo" secondAttribute="trailing" id="pus-Fz-eKj"/>
                                             <constraint firstItem="t9C-mk-Ror" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="8" id="vog-zL-g5o"/>
                                             <constraint firstAttribute="trailing" secondItem="p7c-bn-rff" secondAttribute="trailing" constant="184" id="yRx-Z2-Rox"/>
-                                            <constraint firstItem="2hR-fh-oDF" firstAttribute="top" secondItem="7iL-j7-gEo" secondAttribute="bottom" constant="30" id="zQx-hi-BoQ"/>
+                                            <constraint firstItem="4bU-wk-U0i" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="20" id="yXQ-qt-JAZ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -214,14 +212,16 @@
                             <constraint firstAttribute="trailing" secondItem="UFb-Wt-ITh" secondAttribute="trailing" id="rgI-cm-2o0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Save Journey" id="4WU-65-klM"/>
+                    <navigationItem key="navigationItem" title="Edit Journey" id="4WU-65-klM"/>
                     <connections>
+                        <outlet property="favouriteSwitch" destination="ar9-Ys-ZbF" id="EyN-Cl-H0b"/>
                         <outlet property="mapView" destination="t9C-mk-Ror" id="JVn-Fe-z2O"/>
+                        <outlet property="nameTf" destination="u2A-wC-gez" id="XcZ-Jb-DQk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mt9-T9-TmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="-229"/>
+            <point key="canvasLocation" x="928.98550724637687" y="-229.01785714285714"/>
         </scene>
         <!--Add Memory View Controller-->
         <scene sceneID="kMc-py-dMA">
