@@ -17,9 +17,9 @@ class MoprimApi {
             DispatchQueue.main.async {
                 if let error = task.error {
                     NSLog("fetchData error: %@", error.localizedDescription)
-                } else if let data = task.result {
+                } else if let data = task.result, data.count > 0 {
                     print(data)
-                    print("test words")
+                    print("data date: \((data[0] as! TMDActivity).timestampStart)")
                     for d in data {
                         let x = d as! TMDActivity
                         print("x: \(x)")
