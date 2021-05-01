@@ -173,7 +173,7 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyDetailsCollectionViewCell.identifier, for: indexPath) as! JourneyDetailsCollectionViewCell
             
-            cell.configure(distanceTravelled: "10km", timeTravelled: "30mins", emissions: "300g", popularTransport: "Bus", averageSpeed: "60km/h")
+            cell.configure(distanceTravelled: "10km", timeTravelled: "30mins", emissions: "300g", popularTransport: "Bus", averageSpeed: "60km/h", title: "journey title")
             
             return cell
         }else{

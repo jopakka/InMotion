@@ -26,17 +26,10 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         
     
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     public func configure(pieChartDataArray data: [String: Int]){
         
         for x in data {
-            print(x)
             entries.append(PieChartDataEntry(value: Double(x.value), label: x.key))
         }
         let dataSet = PieChartDataSet(entries:entries)

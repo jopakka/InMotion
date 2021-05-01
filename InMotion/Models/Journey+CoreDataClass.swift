@@ -43,7 +43,7 @@ public class Journey: NSManagedObject {
         do {
             let matchingJourneys = try context.fetch(request)
             for j in matchingJourneys {
-                print(j.journeyId)
+                print(j.journeyId!)
             }
             return matchingJourneys
         } catch {

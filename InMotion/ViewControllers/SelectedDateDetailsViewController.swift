@@ -6,29 +6,75 @@
 //
 
 import UIKit
+import CoreData
 
-class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+    
+    var dateRecieved = Date()
     
     var items = ["item1", "item2", "item3"]
     var pieChartData = ["Car": 20, "Bus": 30, "Walking": 40, "Cycling": 10]
     var rowSelected: Int?
-    var date: String?
+
+    var user: User!
+    var userJourneys = [Journey]()
+    private var fetchedResultController: NSFetchedResultsController<Journey>?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        user = UserHelper.instance.user
+        if user == nil {
+            // TODO: This should log user out
+            NSLog("No user. Logging out")
+            return
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
         
- 
         tableView.register(JourneyOverviewCell.nib(), forCellReuseIdentifier: JourneyOverviewCell.identifier)
         tableView.register(CarbonDetailsTableViewCell.nib(), forCellReuseIdentifier: CarbonDetailsTableViewCell.identifier)
         tableView.register(PieChartTableViewCell.nib(), forCellReuseIdentifier: PieChartTableViewCell.identifier)
         
-        self.title = date
+        setDateHeader(date: dateRecieved)
+        fetchJourneyByDate(date: dateRecieved)
+
     }
     
+    func fetchJourneyByDate(date: Date){
+        if fetchedResultController == nil {
+            let managedContext = AppDelegate.viewContext
+            let fetchRequest: NSFetchRequest<Journey> = Journey.fetchRequest()
+            let sorter = NSSortDescriptor(key: "journeyStarted", ascending: true)
+            fetchRequest.sortDescriptors = [sorter]
+            fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: "journeyStarted", cacheName: nil)
+            fetchedResultController!.delegate = self as NSFetchedResultsControllerDelegate
+        }
+        
+        let userPredicate = NSPredicate(format: "user == %@", user)
+//        let datePredicate = NSPredicate(format: "journeyStarted == %@", dateRecieved as CVarArg)
+        let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate])
+        fetchedResultController?.fetchRequest.predicate = andPredicate
+        
+        do {
+            try fetchedResultController!.performFetch()
+            print("fetch ok")
+            print(self.fetchedResultController?.fetchedObjects! ?? "no objects found")
+            
+        } catch {
+            print("fetch failed")
+        }
+    }
+    
+    func setDateHeader(date: Date){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE dd-MM-YYYY"
+        let date = formatter.string(from: dateRecieved)
+        self.title = String(date)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 || section == 1 {

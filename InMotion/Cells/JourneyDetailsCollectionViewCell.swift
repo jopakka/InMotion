@@ -14,6 +14,7 @@ class JourneyDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var emissions: UILabel!
     @IBOutlet weak var popularTransport: UILabel!
     @IBOutlet weak var averageSpeed: UILabel!
+    @IBOutlet weak var journeyTitle: UILabel!
     
     static let identifier = "JourneyDetailsCollectionViewCell"
     
@@ -26,13 +27,14 @@ class JourneyDetailsCollectionViewCell: UICollectionViewCell {
         return UINib(nibName: "JourneyDetailsCollectionViewCell", bundle: nil)
     }
 
-    func configure(distanceTravelled distance: String, timeTravelled time: String, emissions carbon: String, popularTransport transport: String, averageSpeed speed: String){
+    func configure(distanceTravelled distance: String, timeTravelled time: String, emissions carbon: String, popularTransport transport: String, averageSpeed speed: String, title: String){
         
         distanceTravelled.text = distance
         timeTravelled.text = time
         emissions.text = carbon
         popularTransport.text = transport
         averageSpeed.text = speed
+        journeyTitle.text = title
         
     }
 }

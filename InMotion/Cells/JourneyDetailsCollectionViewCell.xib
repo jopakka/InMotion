@@ -164,6 +164,7 @@
                 <outlet property="averageSpeed" destination="yAw-xW-PSp" id="4nr-jy-q9E"/>
                 <outlet property="distanceTravelled" destination="DHN-X9-U5R" id="d1e-To-GYK"/>
                 <outlet property="emissions" destination="zoO-Bt-Krn" id="BBz-72-Xf7"/>
+                <outlet property="journeyTitle" destination="aTf-xc-VZb" id="DsO-bR-h9S"/>
                 <outlet property="popularTransport" destination="Jsk-sz-8Yg" id="bns-sn-yAy"/>
                 <outlet property="timeTravelled" destination="jL9-MC-679" id="POc-gm-qsZ"/>
             </connections>
