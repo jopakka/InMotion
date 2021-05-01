@@ -2,7 +2,7 @@
 //  Post+CoreDataProperties.swift
 //  InMotion
 //
-//  Created by iosdev on 15.4.2021.
+//  Created by iosdev on 1.5.2021.
 //
 //
 
@@ -17,11 +17,13 @@ extension Post {
     }
 
     @NSManaged public var postBlog: String?
-    @NSManaged public var postImage: String?
-    @NSManaged public var postLatCoord: String?
-    @NSManaged public var postLongCoord: String?
+    @NSManaged public var postId: UUID?
+    @NSManaged public var postImg: Data?
+    @NSManaged public var postLat: Double
+    @NSManaged public var postLong: Double
+    @NSManaged public var postTime: Date?
     @NSManaged public var postTitle: String?
-    @NSManaged public var journeySegment: JourneySegment?
+    @NSManaged public var journey: Journey?
 
 }
 
