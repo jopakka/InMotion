@@ -17,11 +17,11 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var favouriteSwitch: UISwitch!
     @IBOutlet weak var nameTf: UITextField!
     
-    let yesterday = Date().advanced(by: -86400)
-    let polyline = Polyline(encodedPolyline: "{yd~FnvfvO{eE_uJo|FlfAhm@fbEjxE{pCuzBr`K")
+    
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
+    let polylineIfNil = "kr_nJcngvC"
     var journey: Journey!
-
+    
     
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let locationManager = CLLocationManager()
@@ -31,24 +31,37 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         
         setNewBackButton()
         // Use only with emulator
-//        CustomLocation.instance.generateTripToMoprim().continueWith { task in
-//            print("trip saved")
-//            // fetching the route that we want to display
-            MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
-                print("data saved")
-                print("journey: ", self.journey)
-                return nil
-            }
+        //        CustomLocation.instance.generateTripToMoprim().continueWith { task in
+        //            print("trip saved")
+        //            // fetching the route that we want to display
+        MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
+            print("data saved")
+            print("journey: ", self.journey)
+          
+            // Drawing journey and points of interest into a map
             
-//            return nil
-//        }
+            for j in self.journey.journeySegment ?? [] {
+                print("LOOPING")
+                let x = j as! JourneySegment
+                print("JOYRNEY SEGMENT: ",j)
+                let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
+                print("POLYLINE: ", polyline)
+                let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
+                print ("POLYLINE COORDINATES: ", decodedCoordinates)
+                //render trailfrom the main thread
+                DispatchQueue.main.async{
+                self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil])
+                }
+            }
+            return nil
+        }
+        
+        //            return nil
+        //        }
         
         
-        // decoding coordinates
-        let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
-        
-        //render trail
-        createPath(decodedCoordinates : decodedCoordinates ?? [pointIfNil])
+
+ 
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -96,12 +109,12 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         directionRequest.destination = destinationItem
         directionRequest.transportType = .automobile
         
-     
+        
         
         let rect = polylineTwo.boundingMapRect
         self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
         mapView.addOverlay(polylineTwo)
-      
+        print("PATH DRAWN SUCCESSFULLY")
     }
     
     private func setNewBackButton() {
