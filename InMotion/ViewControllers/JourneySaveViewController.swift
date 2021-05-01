@@ -20,6 +20,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
     let polylineIfNil = "kr_nJcngvC"
+    let modeIfNil = "unknown"
     var journey: Journey!
     
     
@@ -37,21 +38,24 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
             print("data saved")
             print("journey: ", self.journey)
-          
+            
             // Drawing journey and points of interest into a map
             
             for j in self.journey.journeySegment ?? [] {
                 print("LOOPING")
                 let x = j as! JourneySegment
-                print("JOYRNEY SEGMENT: ",j)
+                
                 let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
-                print("POLYLINE: ", polyline)
+                let mode = x.segmentModeOfTravel
                 let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
-                print ("POLYLINE COORDINATES: ", decodedCoordinates)
-                //render trailfrom the main thread
+                
+                //render trail from the main thread
                 DispatchQueue.main.async{
-                self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil])
+                    self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil], mode: mode ?? self.modeIfNil)
                 }
+                
+                //fetch memories
+                // ...add code here...
             }
             return nil
         }
@@ -60,8 +64,8 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         //        }
         
         
-
- 
+        
+        
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -71,7 +75,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         return rendere
     }
     
-    func createPath(decodedCoordinates : [CLLocationCoordinate2D]) {
+    func createPath(decodedCoordinates : [CLLocationCoordinate2D], mode : String) {
         mapView.delegate = self
         let polylineTwo = MKPolyline(coordinates: decodedCoordinates , count: decodedCoordinates.count )
         
