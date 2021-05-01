@@ -24,7 +24,6 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     var mode:String? = "unknown"
     var journey: Journey!
     
-    
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let locationManager = CLLocationManager()
     
@@ -45,7 +44,8 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
             for j in self.journey.journeySegment ?? [] {
                 print("LOOPING")
                 let x = j as! JourneySegment
-                
+                print("SEGMENT")
+                print(x)
                 let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
                 self.mode = x.segmentModeOfTravel ?? self.modeIfNil
                 print("MODE in Segment: ", self.mode)
