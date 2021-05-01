@@ -72,15 +72,39 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         print("MODE in mapView: ", mode)
         switch mode {
         case "stationary"?:
-            rendere.strokeColor = .systemRed
+            rendere.strokeColor = .systemGray2
         case "walk"?:
-            rendere.strokeColor = .systemRed
+            rendere.strokeColor = .systemGreen
         case "car"?:
             rendere.strokeColor = .systemRed
         case "bus"?:
-            rendere.strokeColor = .systemRed
-        default:
+            rendere.strokeColor = .systemOrange
+        case "bicycle"?:
             rendere.strokeColor = .systemBlue
+        case "pedestrian"?:
+            rendere.strokeColor = .systemPurple
+        case "run"?:
+            rendere.strokeColor = .systemIndigo
+        case "rail"?:
+            rendere.strokeColor = .systemTeal
+        case "tram"?:
+            rendere.strokeColor = .systemYellow
+        case "train"?:
+            rendere.strokeColor = .systemYellow
+        case "metro"?:
+            rendere.strokeColor = .systemOrange
+        case "plane"?:
+            rendere.strokeColor = .systemBlue
+        case "road"?:
+            rendere.strokeColor = .systemIndigo
+        case "motorized"?:
+            rendere.strokeColor = .systemPurple
+        case "non-motorized"?:
+            rendere.strokeColor = .systemPink
+        case "water"?:
+            rendere.strokeColor = .systemBlue
+        default:
+            rendere.strokeColor = .systemGray
         }
        
         return rendere
