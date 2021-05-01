@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  InMotion
 //
-//  Created by iosdev on 15.4.2021.
+//  Created by iosdev on 1.5.2021.
 //
 //
 

@@ -74,8 +74,12 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC = segue.destination as? JourneySaveViewController
-        destVC?.journey = currentJourney
+        if let destVC = segue.destination as? JourneySaveViewController {
+            destVC.journey = currentJourney
+        } else if let destVC = segue.destination as? AddMemoryViewController {
+            destVC.journey = currentJourney
+            destVC.location = mapView.userLocation.location
+        }
     }
 }
 
