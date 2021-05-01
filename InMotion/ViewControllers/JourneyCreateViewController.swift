@@ -48,11 +48,11 @@ class JourneyCreateViewController: UIViewController{
     
     func askLocationPermissions() {
         locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
-//        other permissions we might want to use
+        //        locationManager.requestWhenInUseAuthorization()
+        //        other permissions we might want to use
         locationManager.requestAlwaysAuthorization()
-//        locationManager.allowsBackgroundLocationUpdates = true
-//        locationManager.pausesLocationUpdatesAutomatically = true
+        locationManager.allowsBackgroundLocationUpdates = true
+        //        locationManager.pausesLocationUpdatesAutomatically = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
@@ -61,6 +61,7 @@ class JourneyCreateViewController: UIViewController{
     @IBAction func startJourneyAction(_ sender: UIButton) {
         TMD.start()
         let managedContext = AppDelegate.viewContext
+        
         guard let user = UserHelper.instance.getUser() else {
             // Ideally this should take user back to login screen
             return

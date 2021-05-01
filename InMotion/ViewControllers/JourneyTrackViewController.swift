@@ -16,6 +16,7 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     var arrayOfLocations = [CLLocationCoordinate2D]()
     var currentJourney: Journey!
+    let journeyStartTime = Date()
     
     @IBOutlet weak var mapView: MKMapView!
     

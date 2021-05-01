@@ -45,17 +45,6 @@ class MoprimApi {
     
     // This function is usually called when one wants to know what data can be fetched from the Cloud
     
-    //    fetchMetadata result: {
-    //    firstUploadTimestamp: -1,
-    //    lastTmdTimestamp: -1,
-    //    lastTmdMovingActivityTimestamp: -1,
-    //    lastLocationTimestamp: -1,
-    //    _lastTmdUploadTimestamp: -1,
-    //    lastLocationUploadTimestamp: -1,
-    //    communityDailyCo2:-1.000000,
-    //    communityDailyDistance:-1.000000,
-    //    communityDailyDuration:-1.000000}
-    
     func fetchMetadata(){
         TMDCloudApi.fetchMetadata().continueWith { (task) -> Any? in
             DispatchQueue.main.async {
@@ -69,6 +58,46 @@ class MoprimApi {
                 }
             }
             return nil;
+        }
+    }
+    
+    // For testing purposes only
+    
+    func printData(date: Date) {
+        TMDCloudApi.fetchData(date, minutesOffset: 0.0).continueOnSuccessWith { task in
+            DispatchQueue.main.async {
+                if let error = task.error {
+                    NSLog("fetchData error: %@", error.localizedDescription)
+                } else if let data = task.result {
+                    print(data)
+                    print("DATA")
+                    for d in data {
+                        let x = d as! TMDActivity
+                        print("x.activity: \(x.activity())")
+                        print("x.activityId: \(x.activityId)")
+                        print("x.co2: \(x.co2)")
+                        print("x.correctedActivity: \(x.correctedActivity)")
+                        print("x.destination: \(x.destination)")
+                        print("x.distance: \(x.distance)")
+                        print("x.duration: \(x.duration())")
+                        print("x.isCheckedByUser: \(x.isCheckedByUser())")
+                        print("x.isCorrect: \(x.isCorrect())")
+                        print("x.origin: \(x.origin)")
+                        print("x.originalActivity: \(x.originalActivity)")
+                        print("x.polyline: \(x.polyline)")
+                        print("x.speed: \(x.speed)")
+                        print("x.syncedWithCloud: \(x.syncedWithCloud)")
+                        print("x.timestampDownload: \(x.timestampDownload)")
+                        print("x.timestampEnd: \(x.timestampEnd)")
+                        print("x.timestampStart: \(x.timestampStart)")
+                        print("x.timestampUpdate: \(x.timestampUpdate)")
+                        print("x.verifiedByUser: \(x.verifiedByUser)")
+                        print("x.description: \(x.description)")
+                        print("x.hash: \(x.hash)")
+                        print("x.hashValue: \(x.hashValue)")
+                    }
+                }
+            }
         }
     }
 }
