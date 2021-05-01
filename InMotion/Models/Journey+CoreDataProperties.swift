@@ -2,7 +2,7 @@
 //  Journey+CoreDataProperties.swift
 //  InMotion
 //
-//  Created by iosdev on 29.4.2021.
+//  Created by iosdev on 1.5.2021.
 //
 //
 
@@ -23,6 +23,7 @@ extension Journey {
     @NSManaged public var journeyStarted: Date?
     @NSManaged public var journeySegment: NSSet?
     @NSManaged public var user: User?
+    @NSManaged public var post: Post?
 
 }
 
