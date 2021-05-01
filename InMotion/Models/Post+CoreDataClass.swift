@@ -19,6 +19,8 @@ public class Post: NSManagedObject {
         post.postBlog = blog
         post.postImg = imgData
         post.postTime = Date()
+        post.postLong = location.coordinate.longitude
+        post.postLat = location.coordinate.latitude
         
         do {
             try context.save()
