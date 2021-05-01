@@ -17,7 +17,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var favouriteSwitch: UISwitch!
     @IBOutlet weak var nameTf: UITextField!
     
-    let polyline = Polyline(encodedPolyline: "{yd~FnvfvO{eE_uJo|FlfAhm@fbEjxE{pCuzBr`K")
+    
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
     var journey: Journey!
     
@@ -36,6 +36,13 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
             print("data saved")
             print("journey: ", self.journey)
+            for j in self.journey.journeySegment ?? [] {
+                print("SEGMENT J")
+                print(j)
+                let x = j as! TMDActivity
+                print("SEGMENT X")
+                print(x.polyline)
+            }
             return nil
         }
         
@@ -43,11 +50,16 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         //        }
         
         
-        // decoding coordinates
-        let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
-        
-        //render trail
-        createPath(decodedCoordinates : decodedCoordinates ?? [pointIfNil])
+        // Drawing journey and points of interest into a map
+        for j in journey.journeySegment ?? [] {
+            let x = j as! TMDActivity
+            // decoding coordinates
+            let polyline = Polyline(encodedPolyline: x.polyline)
+            let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
+            print ("POLYLINE COORDINATES: ", decodedCoordinates)
+            //render trail
+            createPath(decodedCoordinates : decodedCoordinates ?? [pointIfNil])
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -100,7 +112,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         let rect = polylineTwo.boundingMapRect
         self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
         mapView.addOverlay(polylineTwo)
-        
+        print("PATH DRAWN SUCCESSFULLY")
     }
     
     private func setNewBackButton() {

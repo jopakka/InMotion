@@ -61,6 +61,7 @@ class MoprimApi {
         }
     }
     
+    // For testing purposes only
     
     func printData(date: Date) {
         TMDCloudApi.fetchData(date, minutesOffset: 0.0).continueOnSuccessWith { task in
