@@ -12,7 +12,6 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     
     var dateRecieved = Date()
     
-    var items = ["item1", "item2", "item3"]
     var pieChartData = ["Car": 20, "Bus": 30, "Walking": 40, "Cycling": 10]
     var rowSelected: Int?
 
@@ -62,7 +61,13 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         do {
             try fetchedResultController!.performFetch()
             print("fetch ok")
-            print(self.fetchedResultController?.fetchedObjects! ?? "no objects found")
+            guard let values = self.fetchedResultController?.fetchedObjects! else {
+                return
+            }
+            for x in values {
+                print(x)
+                userJourneys.append(x)
+            }
             
         } catch {
             print("fetch failed")
@@ -81,7 +86,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
             return 1
         }
         else {
-            return items.count
+            return userJourneys.count
         }
     }
     
@@ -104,7 +109,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: JourneyOverviewCell.identifier, for: indexPath) as! JourneyOverviewCell
-            cell.name.text = items[indexPath.row]
+            cell.name.text = userJourneys[indexPath.row].journeyName
             cell.photoView.clipsToBounds = true
             cell.photoView.layer.masksToBounds = true
             cell.photoView.contentMode = .scaleAspectFill
