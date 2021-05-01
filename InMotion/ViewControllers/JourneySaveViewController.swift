@@ -17,11 +17,10 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var favouriteSwitch: UISwitch!
     @IBOutlet weak var nameTf: UITextField!
     
-    let yesterday = Date().advanced(by: -86400)
     let polyline = Polyline(encodedPolyline: "{yd~FnvfvO{eE_uJo|FlfAhm@fbEjxE{pCuzBr`K")
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
     var journey: Journey!
-
+    
     
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let locationManager = CLLocationManager()
@@ -31,17 +30,17 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         
         setNewBackButton()
         // Use only with emulator
-//        CustomLocation.instance.generateTripToMoprim().continueWith { task in
-//            print("trip saved")
-//            // fetching the route that we want to display
-            MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
-                print("data saved")
-                print("journey: ", self.journey)
-                return nil
-            }
-            
-//            return nil
-//        }
+        //        CustomLocation.instance.generateTripToMoprim().continueWith { task in
+        //            print("trip saved")
+        //            // fetching the route that we want to display
+        MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
+            print("data saved")
+            print("journey: ", self.journey)
+            return nil
+        }
+        
+        //            return nil
+        //        }
         
         
         // decoding coordinates
@@ -96,12 +95,12 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         directionRequest.destination = destinationItem
         directionRequest.transportType = .automobile
         
-     
+        
         
         let rect = polylineTwo.boundingMapRect
         self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
         mapView.addOverlay(polylineTwo)
-      
+        
     }
     
     private func setNewBackButton() {
