@@ -19,6 +19,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
     
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
+    let polylineIfNil = "kr_nJcngvC"
     var journey: Journey!
     
     
@@ -36,12 +37,21 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
             print("data saved")
             print("journey: ", self.journey)
+          
+            // Drawing journey and points of interest into a map
+            
             for j in self.journey.journeySegment ?? [] {
-                print("SEGMENT J")
-                print(j)
-                let x = j as! TMDActivity
-                print("SEGMENT X")
-                print(x.polyline)
+                print("LOOPING")
+                let x = j as! JourneySegment
+                print("JOYRNEY SEGMENT: ",j)
+                let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
+                print("POLYLINE: ", polyline)
+                let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
+                print ("POLYLINE COORDINATES: ", decodedCoordinates)
+                //render trailfrom the main thread
+                DispatchQueue.main.async{
+                self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil])
+                }
             }
             return nil
         }
@@ -50,16 +60,8 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         //        }
         
         
-        // Drawing journey and points of interest into a map
-        for j in journey.journeySegment ?? [] {
-            let x = j as! TMDActivity
-            // decoding coordinates
-            let polyline = Polyline(encodedPolyline: x.polyline)
-            let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
-            print ("POLYLINE COORDINATES: ", decodedCoordinates)
-            //render trail
-            createPath(decodedCoordinates : decodedCoordinates ?? [pointIfNil])
-        }
+
+ 
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
