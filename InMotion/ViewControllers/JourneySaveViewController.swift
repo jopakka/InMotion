@@ -21,6 +21,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
     let polylineIfNil = "kr_nJcngvC"
     let modeIfNil = "unknown"
+    var mode:String? = "unknown"
     var journey: Journey!
     
     
@@ -46,12 +47,13 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                 let x = j as! JourneySegment
                 
                 let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
-                let mode = x.segmentModeOfTravel
+                self.mode = x.segmentModeOfTravel ?? self.modeIfNil
+                print("MODE in Segment: ", self.mode)
                 let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
                 
                 //render trail from the main thread
                 DispatchQueue.main.async{
-                    self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil], mode: mode ?? self.modeIfNil)
+                    self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil], mode: self.mode ?? self.modeIfNil )
                 }
                 
                 //fetch memories
@@ -59,25 +61,40 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
             }
             return nil
         }
-        
         //            return nil
         //        }
-        
-        
-        
         
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let rendere = MKPolylineRenderer(overlay: overlay)
         rendere.lineWidth = 5
-        rendere.strokeColor = .systemBlue
+        print("MODE in mapView: ", mode)
+        switch mode {
+        case "stationary"?:
+            rendere.strokeColor = .systemRed
+        case "walk"?:
+            rendere.strokeColor = .systemRed
+        case "car"?:
+            rendere.strokeColor = .systemRed
+        case "bus"?:
+            rendere.strokeColor = .systemRed
+        default:
+            rendere.strokeColor = .systemBlue
+        }
+       
         return rendere
     }
     
     func createPath(decodedCoordinates : [CLLocationCoordinate2D], mode : String) {
         mapView.delegate = self
+        
+       
+        
         let polylineTwo = MKPolyline(coordinates: decodedCoordinates , count: decodedCoordinates.count )
+        
+      //  MKPolylineRenderer(overlay: polylineTwo).lineWidth = 5
+       // MKPolylineRenderer(overlay: polylineTwo).strokeColor = .systemRed
         
         let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
         
@@ -107,13 +124,11 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         
         self.mapView.showAnnotations([sourceAnotation, destinationAnotation], animated: true)
         
-        // show whole route
+        // show segment´s route
         let directionRequest = MKDirections.Request()
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationItem
         directionRequest.transportType = .automobile
-        
-        
         
         let rect = polylineTwo.boundingMapRect
         self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
