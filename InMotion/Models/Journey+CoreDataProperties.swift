@@ -23,7 +23,7 @@ extension Journey {
     @NSManaged public var journeyStarted: Date?
     @NSManaged public var journeySegment: NSSet?
     @NSManaged public var user: User?
-    @NSManaged public var post: Post?
+    @NSManaged public var posts: NSSet?
 
 }
 
@@ -41,6 +41,23 @@ extension Journey {
 
     @objc(removeJourneySegment:)
     @NSManaged public func removeFromJourneySegment(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for posts
+extension Journey {
+
+    @objc(addPostsObject:)
+    @NSManaged public func addToPosts(_ value: Post)
+
+    @objc(removePostsObject:)
+    @NSManaged public func removeFromPosts(_ value: Post)
+
+    @objc(addPosts:)
+    @NSManaged public func addToPosts(_ values: NSSet)
+
+    @objc(removePosts:)
+    @NSManaged public func removeFromPosts(_ values: NSSet)
 
 }
 

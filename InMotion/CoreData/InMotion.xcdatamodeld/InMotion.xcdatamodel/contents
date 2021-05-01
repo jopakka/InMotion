@@ -7,7 +7,7 @@
         <attribute name="journeyName" optional="YES" attributeType="String"/>
         <attribute name="journeyStarted" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="journeySegment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JourneySegment" inverseName="journey" inverseEntity="JourneySegment"/>
-        <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="journey" inverseEntity="Post"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="journey" inverseEntity="Post"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="journey" inverseEntity="User"/>
     </entity>
     <entity name="JourneySegment" representedClassName=".JourneySegment" syncable="YES">
@@ -30,7 +30,7 @@
         <attribute name="postLong" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="postTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="postTitle" optional="YES" attributeType="String"/>
-        <relationship name="journey" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journey" inverseName="post" inverseEntity="Journey"/>
+        <relationship name="journey" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journey" inverseName="posts" inverseEntity="Journey"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="avatarImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>

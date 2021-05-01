@@ -16,6 +16,9 @@ class AddMemoryViewController: UIViewController{
     @IBOutlet weak var notesTextView: UITextView!
     
     private var imagePicker = UIImagePickerController()
+    private var selectedImageData: Data?
+    var journey: Journey!
+    var location: CLLocation!
     
     private let notePlaceholder = "Here you can enter memory text"
     
@@ -37,6 +40,37 @@ class AddMemoryViewController: UIViewController{
     
     @objc func save(sender: UIBarButtonItem) {
         print("save work")
+        
+        guard let location = location else {
+            AlertHelper.instance.showSimpleAlert(title: "Error", message: "No location", presenter: self)
+            return
+        }
+        
+        guard let (title, blog) = getTrimmedTexts() else {
+            return
+        }
+        
+        if title.count == 0 {
+            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Title can't be empty", presenter: self)
+            return
+        }
+        
+        guard let imgData = selectedImageData else {
+            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Missing image", presenter: self)
+            return
+        }
+        
+        let managedContext = AppDelegate.viewContext
+        let post = Post.createNewPost(title: title, blog: blog, imgData: imgData, location: location, journey: journey, context: managedContext)
+        
+        if post != nil {
+            AlertHelper.instance.showSimpleAlert(title: "Success", message: "Memory saved", presenter: self, actions: [UIAlertAction(title: "OK", style: .default, handler: ({ _ in
+                self.clearAll()
+                self.navigationController?.popViewController(animated: true)
+            }))])
+        } else {
+            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Error while saving memory", presenter: self)
+        }
     }
     
     private func setNewBackButton() {
@@ -67,6 +101,19 @@ class AddMemoryViewController: UIViewController{
         notesTextView.text = ""
         memoryPhoto.image = nil
     }
+    
+    func getTrimmedTexts() -> (String, String)? {
+        // Check if text fields have text
+        guard var t = addTitleTextView.text, var b = notesTextView.text else {
+            return nil
+        }
+        
+        // Trim text fields
+        t = t.trimmingCharacters(in: .whitespacesAndNewlines)
+        b = b.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return (t, b)
+    }
 }
 
 extension AddMemoryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -84,6 +131,21 @@ extension AddMemoryViewController: UIImagePickerControllerDelegate, UINavigation
         }
     }
     
+    
+    @IBAction func takeImageAction(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            NSLog("Taking image")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = true
+            
+            present(imagePicker, animated: true)
+        } else {
+            AlertHelper.instance.showSimpleAlert(title: "Error", message: "This is not working on simulator", presenter: self)
+        }
+    }
+    
     // MARK:-- ImagePicker delegate
     // https://stackoverflow.com/a/52263803
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -96,6 +158,9 @@ extension AddMemoryViewController: UIImagePickerControllerDelegate, UINavigation
             NSLog("No image data")
             return
         }
+        
+        selectedImageData = imgData
+        memoryPhoto.image = UIImage(data: imgData)
         
         picker.dismiss(animated: true, completion: nil)
     }

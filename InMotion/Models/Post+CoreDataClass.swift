@@ -21,6 +21,7 @@ public class Post: NSManagedObject {
         post.postTime = Date()
         post.postLong = location.coordinate.longitude
         post.postLat = location.coordinate.latitude
+        journey.addToPosts(post)
         
         do {
             try context.save()

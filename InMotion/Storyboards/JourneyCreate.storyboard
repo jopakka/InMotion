@@ -257,7 +257,7 @@
                                                         <rect key="frame" x="243.5" y="0.0" width="110.5" height="30"/>
                                                         <state key="normal" title="Take photo"/>
                                                         <connections>
-                                                            <action selector="takeImageAction:" destination="igI-gy-RFy" eventType="touchUpInside" id="OgD-JX-IeN"/>
+                                                            <action selector="takeImageAction:" destination="igI-gy-RFy" eventType="touchUpInside" id="XYu-RF-3Tm"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
