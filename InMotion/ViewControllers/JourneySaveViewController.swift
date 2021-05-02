@@ -32,8 +32,8 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         
         setNewBackButton()
         // Use only with emulator
-        //        CustomLocation.instance.generateTripToMoprim().continueWith { task in
-        //            print("trip saved")
+                CustomLocation.instance.generateTripToMoprim().continueWith { task in
+                    print("trip saved")
         //            // fetching the route that we want to display
         MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
             print("data saved")
@@ -61,8 +61,8 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
             }
             return nil
         }
-        //            return nil
-        //        }
+                    return nil
+                }
         
     }
     

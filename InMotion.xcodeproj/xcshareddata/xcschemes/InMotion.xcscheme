@@ -71,6 +71,13 @@
             ReferencedContainer = "container:InMotion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "HERE_API"
+            value = "sFoEeObCpFp_QKXyVQ258Nie9otjzb6eV_F9A6Tbf84"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <LocationScenarioReference
          identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
          referenceType = "1">
