@@ -17,10 +17,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="466" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emK-bJ-f45">
+                    <imageView verifyAmbiguity="off" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emK-bJ-f45">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="HZ0-aL-85Q"/>
                             <constraint firstAttribute="width" constant="250" id="aqh-XV-XDT"/>
                         </constraints>
                     </imageView>
@@ -34,8 +33,11 @@
                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                 <constraints>
                     <constraint firstItem="emK-bJ-f45" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3wb-rR-0Fp"/>
+                    <constraint firstAttribute="bottom" secondItem="emK-bJ-f45" secondAttribute="bottom" id="O5d-Wu-SRx"/>
                     <constraint firstAttribute="bottom" secondItem="fNX-4f-chl" secondAttribute="bottom" constant="10" id="Rm4-Uv-JPv"/>
+                    <constraint firstItem="emK-bJ-f45" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Srf-KH-SeC"/>
                     <constraint firstAttribute="trailing" secondItem="fNX-4f-chl" secondAttribute="trailing" constant="10" id="Xxl-0V-ufh"/>
+                    <constraint firstItem="emK-bJ-f45" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ZZu-Ln-KBY"/>
                     <constraint firstItem="fNX-4f-chl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="g9V-pa-ybm"/>
                     <constraint firstItem="fNX-4f-chl" firstAttribute="leading" secondItem="emK-bJ-f45" secondAttribute="trailing" constant="10" id="j5A-Ep-Kwz"/>
                     <constraint firstAttribute="bottom" secondItem="emK-bJ-f45" secondAttribute="bottom" id="vBA-e6-fqq"/>

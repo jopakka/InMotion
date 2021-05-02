@@ -11,7 +11,7 @@ class JourneyDetailsViewController: UIViewController{
     
     
     
-    var index: Int?
+    var receivedJourney: Journey?
     var postToSend: String?
     var image: UIImage?
     
@@ -44,6 +44,10 @@ class JourneyDetailsViewController: UIViewController{
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        print(receivedJourney!)
+        print("segment")
+        print(receivedJourney!.journeySegment!.allObjects)
         
     }
     
@@ -173,7 +177,7 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyDetailsCollectionViewCell.identifier, for: indexPath) as! JourneyDetailsCollectionViewCell
             
-            cell.configure(distanceTravelled: "10km", timeTravelled: "30mins", emissions: "300g", popularTransport: "Bus", averageSpeed: "60km/h", title: "journey title")
+            cell.configure(distanceTravelled: "10km", timeTravelled: "30mins", emissions: "300g", popularTransport: "Bus", averageSpeed: "60km/h", title: (receivedJourney?.journeyName!)!)
             
             return cell
         }else{

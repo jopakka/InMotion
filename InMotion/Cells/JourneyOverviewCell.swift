@@ -25,6 +25,7 @@ class JourneyOverviewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         roundCorners(corners: [.topLeft, .bottomLeft], radius: 20.0)

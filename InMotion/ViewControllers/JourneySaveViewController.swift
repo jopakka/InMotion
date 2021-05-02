@@ -36,7 +36,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         //            // fetching the route that we want to display
         MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
             print("data saved")
-            print("journey: ", self.journey)
+            print("journey: ", self.journey!)
           
             // Drawing journey and points of interest into a map
             
@@ -47,7 +47,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                 let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
                 print("POLYLINE: ", polyline)
                 let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
-                print ("POLYLINE COORDINATES: ", decodedCoordinates)
+                print ("POLYLINE COORDINATES: ", decodedCoordinates!)
                 //render trailfrom the main thread
                 DispatchQueue.main.async{
                 self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil])

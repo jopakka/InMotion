@@ -13,16 +13,19 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     var dateRecieved = Date()
     
     var pieChartData = ["Car": 20, "Bus": 30, "Walking": 40, "Cycling": 10]
-    var rowSelected: Int?
-
+    
+    
     var user: User!
     var userJourneys = [Journey]()
+    var journeySelected: Journey?
     private var fetchedResultController: NSFetchedResultsController<Journey>?
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("date received: \(dateRecieved)")
         
         user = UserHelper.instance.user
         if user == nil {
@@ -126,6 +129,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2{
+            journeySelected = userJourneys[indexPath.row]
             performSegue(withIdentifier: "showDetails", sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -133,9 +137,21 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! JourneyDetailsViewController
-        destVC.index = tableView.indexPathForSelectedRow!.row
+        destVC.receivedJourney = journeySelected
         self.tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return 300
+        }
+        else if indexPath.section == 1 {
+            return 300
+        }
+        else {
+            return 100
+        }
     }
     
     
