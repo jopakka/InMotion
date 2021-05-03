@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     private var user: User!
     private var favRoutes = [Journey]()
+    private var journeySelected: Journey?
     private var fetchedResultController: NSFetchedResultsController<Journey>?
     
     override func viewDidLoad() {
@@ -67,7 +68,12 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         
         do {
             try fetchedResultController!.performFetch()
-            print("fetch ok")
+            guard let values = self.fetchedResultController?.fetchedObjects! else {
+                return
+            }
+            for x in values {
+                favRoutes.append(x)
+            }
             favouriteTableView.reloadData()
         } catch {
             print("fetch failed")
@@ -122,6 +128,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        journeySelected = favRoutes[indexPath.row]
         performSegue(withIdentifier: "showDetails", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -129,7 +136,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! JourneyDetailsViewController
         let indexPath = favouriteTableView.indexPathForSelectedRow
-        destVC.index = indexPath!.row
+        destVC.receivedJourney = journeySelected
         self.favouriteTableView.deselectRow(at: indexPath!, animated: true)
         
     }
