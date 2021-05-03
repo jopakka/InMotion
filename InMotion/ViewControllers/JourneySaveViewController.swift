@@ -71,15 +71,11 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                     DispatchQueue.main.async{
                         self.createPostPOI(postCoordinates : postCoordinates ?? self.pointIfNil, title: y.postTitle ?? "", subtitle: y.postBlog ?? "" )
                     }
-                    
                 }
-                
-                
                 return nil
             }
             return nil
         }
-        
     }
     
     
@@ -131,50 +127,56 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
     // Func for point on a map baloon shape
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("ANNOTATION: ", annotation)
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
         print("MODE in mapView for points: ", mode)
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
         }
-
-        switch mode {
-        case "stationary"?:
-            annotationView?.image = UIImage(named: "flagman")
-        case "walk"?:
-            annotationView?.image = UIImage(named: "pedestriancrossing")
-        case "car"?:
-            annotationView?.image = UIImage(named: "car")
-        case "bus"?:
-            annotationView?.image = UIImage(named: "bus")
-        case "non-motorized/bicycle"?:
-            annotationView?.image = UIImage(named: "cycling")
-        case "pedestrian"?:
-            annotationView?.image = UIImage(named: "pedestriancrossing")
-        case "run"?:
-            annotationView?.image = UIImage(named: "pedestriancrossing")
-        case "rail"?:
-            annotationView?.image = UIImage(named: "train")
-        case "tram"?:
-            annotationView?.image = UIImage(named: "tramway")
-        case "train"?:
-            annotationView?.image = UIImage(named: "train")
-        case "metro"?:
-            annotationView?.image = UIImage(named: "underground")
-        case "plane"?:
-            annotationView?.image = UIImage(named: "airport")
-        case "road"?:
-            annotationView?.image = UIImage(named: "vespa")
-        case "motorized"?:
-            annotationView?.image = UIImage(named: "sportutilityvehicle")
-        case "non-motorized"?:
-            annotationView?.image = UIImage(named: "flagman")
-        case "water"?:
-            annotationView?.image = UIImage(named: "boat")
-        case "post"?:
+        
+        if let title = annotation.title, title == "start" || title == "finish" {
+            switch mode {
+            case "stationary"?:
+                annotationView?.image = UIImage(named: "flagman")
+            case "walk"?:
+                annotationView?.image = UIImage(named: "pedestriancrossing")
+            case "car"?:
+                annotationView?.image = UIImage(named: "car")
+            case "bus"?:
+                annotationView?.image = UIImage(named: "bus")
+            case "non-motorized/bicycle"?:
+                annotationView?.image = UIImage(named: "cycling")
+            case "pedestrian"?:
+                annotationView?.image = UIImage(named: "pedestriancrossing")
+            case "run"?:
+                annotationView?.image = UIImage(named: "pedestriancrossing")
+            case "rail"?:
+                annotationView?.image = UIImage(named: "train")
+            case "tram"?:
+                annotationView?.image = UIImage(named: "tramway")
+            case "train"?:
+                annotationView?.image = UIImage(named: "train")
+            case "metro"?:
+                annotationView?.image = UIImage(named: "underground")
+            case "plane"?:
+                annotationView?.image = UIImage(named: "airport")
+            case "road"?:
+                annotationView?.image = UIImage(named: "vespa")
+            case "motorized"?:
+                annotationView?.image = UIImage(named: "sportutilityvehicle")
+            case "non-motorized"?:
+                annotationView?.image = UIImage(named: "flagman")
+            case "water"?:
+                annotationView?.image = UIImage(named: "boat")
+            default:
+                annotationView?.image = UIImage(named: "flagman")
+            }
+            
+        } else  {
             annotationView?.image = UIImage(named: "photo")
-        default:
-            annotationView?.image = UIImage(named: "flagman")
         }
+        
+        
         
         annotationView?.canShowCallout = true
         
