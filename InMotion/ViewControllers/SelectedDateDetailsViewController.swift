@@ -13,7 +13,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     var startDate = NSDate()
     var endDate = NSDate()
     
-    var pieChartData = ["Car": 20, "Bus": 30, "Walking": 40, "Cycling": 10]
+    
 
     var dailyDetails: DailyDetails?
 
@@ -138,7 +138,10 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.identifier, for: indexPath) as! PieChartTableViewCell
-            cell.configure(pieChartDataArray: pieChartData)
+            guard let data = dailyDetails?.pieChartData else {
+                return cell
+            }
+            cell.configure(pieChartDataArray: data)
             
             return cell
         }
@@ -207,6 +210,7 @@ struct DailyDetails {
     var co2Emissions = Double()
     var modeTransports = [String : Double]()
     var popularTransport = String()
+    var pieChartData = [String: Int]()
     
     init(dailyInfo: [Dictionary<String, Double>], transports: [String : Double]){
         distanceTravelled = dailyInfo.compactMap { dict in
@@ -220,8 +224,44 @@ struct DailyDetails {
         }.reduce(0, {$0 + $1})
         
         popularTransport = transports.max{a, b in a.value < b.value }?.key ?? "no data"
+        popularTransport = transportMode(value: popularTransport)
         modeTransports = transports
+        createPieData()
     }
     
+    mutating func createPieData(){
+        
+        for (key, value) in modeTransports {
+            pieChartData[self.transportMode(value: key)] = Int(value/timeTravelledInSeconds * 100)
+        }
+        if pieChartData.isEmpty {
+            pieChartData["No Data"] = 100
+        }
+    }
+    
+    func transportMode(value: String) -> String {
+        
+        switch value {
+        case "non-motorized/pedestrian/walk":
+            return "Walking"
+        case "non-motorized/bicycle":
+            return "Bicycle"
+        case "non-motorized/pedestrian/run":
+            return "Running"
+        case "motorized/road/car":
+            return "Car"
+        case "motorized/road/bus":
+            return "Bus"
+        case "motorized/rail/tram":
+            return "Tram"
+        case "motorized/rail/train":
+            return "Train"
+        case "motorized/rail/metro":
+            return "Metro"
+        case "motorized/air/plane":
+            return "Airplane"
+        default:
+            return value.capitalized
+        }
+    }
 }
-
