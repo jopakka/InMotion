@@ -10,10 +10,11 @@ import CoreData
 
 class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
-    var dateRecieved = Date()
+    var startDate = NSDate()
+    var endDate = NSDate()
     
     var pieChartData = ["Car": 20, "Bus": 30, "Walking": 40, "Cycling": 10]
-    
+    var dailyInfo = [Dictionary<String, String>]()
     
     var user: User!
     var userJourneys = [Journey]()
@@ -25,7 +26,8 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("date received: \(dateRecieved)")
+//        print("startDate: \(startDate)")
+//        print("endDate: \(endDate)")
         
         user = UserHelper.instance.user
         if user == nil {
@@ -41,24 +43,25 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         tableView.register(CarbonDetailsTableViewCell.nib(), forCellReuseIdentifier: CarbonDetailsTableViewCell.identifier)
         tableView.register(PieChartTableViewCell.nib(), forCellReuseIdentifier: PieChartTableViewCell.identifier)
         
-        setDateHeader(date: dateRecieved)
-        fetchJourneyByDate(date: dateRecieved)
-
+        setDateHeader(date: startDate)
+        fetchJourneyByDate()
+        setDailyInfo()
     }
     
-    func fetchJourneyByDate(date: Date){
+    func fetchJourneyByDate(){
         if fetchedResultController == nil {
             let managedContext = AppDelegate.viewContext
             let fetchRequest: NSFetchRequest<Journey> = Journey.fetchRequest()
+            fetchRequest.returnsObjectsAsFaults = false
             let sorter = NSSortDescriptor(key: "journeyStarted", ascending: true)
             fetchRequest.sortDescriptors = [sorter]
             fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: "journeyStarted", cacheName: nil)
             fetchedResultController!.delegate = self as NSFetchedResultsControllerDelegate
         }
-        
+
         let userPredicate = NSPredicate(format: "user == %@", user)
-//        let datePredicate = NSPredicate(format: "journeyStarted == %@", dateRecieved as CVarArg)
-        let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate])
+        let datePredicate = NSPredicate(format: "journeyStarted >= %@ AND journeyStarted < %@ ", startDate, endDate)
+        let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate, datePredicate])
         fetchedResultController?.fetchRequest.predicate = andPredicate
         
         do {
@@ -68,7 +71,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
                 return
             }
             for x in values {
-                print(x)
+                //print(x)
                 userJourneys.append(x)
             }
             
@@ -77,11 +80,46 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
-    func setDateHeader(date: Date){
+    func setDateHeader(date: NSDate){
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE dd-MM-YYYY"
-        let date = formatter.string(from: dateRecieved)
+        let date = formatter.string(from: startDate as Date)
         self.title = String(date)
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func setDailyInfo(){
+        var distance = 0
+        var time = TimeInterval()
+        var co2 = Double()
+        var modeTransport = [String]()
+        
+        for journey in userJourneys {
+
+            for segment in journey.journeySegment ?? []  {
+                let s = segment as! JourneySegment
+                
+                print("distance ", s.segmentDistanceTravelled)
+                distance = distance + Int(s.segmentDistanceTravelled)
+                
+                print("start time ", s.segmentStart! as Date)
+                print("end time ", s.segmentEnd! as Date)
+                let diffInSeconds = s.segmentEnd?.timeIntervalSince(s.segmentStart!)
+                time = time + diffInSeconds!
+                
+                print("mode of transport ", s.segmentModeOfTravel!)
+                modeTransport.append(s.segmentModeOfTravel!)
+                
+                print("CO2 ", s.segmentCo2)
+                co2 = co2 + s.segmentCo2
+            }
+            
+            let totalDistance = ["Distance Travelled": String(distance)]
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -156,3 +194,4 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     
     
 }
+

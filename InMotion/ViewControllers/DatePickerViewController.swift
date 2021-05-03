@@ -10,7 +10,8 @@ import UIKit
 
 class DatePickerViewController: UIViewController, FSCalendarDelegate  {
 
-    var dateSelected = Date()
+    var startDate = NSDate()
+    var endDate = NSDate()
 
 
     @IBOutlet var calendar: FSCalendar!
@@ -19,21 +20,28 @@ class DatePickerViewController: UIViewController, FSCalendarDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         calendar.delegate = self
-
+        calendar.firstWeekday = 2
+        calendar.scrollDirection = .vertical
         
     }
 
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        dateSelected = date
-        print(date)
+        startDate = date.addingTimeInterval(Double(3600 * 3)) as NSDate
+        endDate = startDate.addingTimeInterval(Double(3600 * 24)) as NSDate
+
+        print(startDate)
+        print(endDate)
         performSegue(withIdentifier: "showDetails", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? SelectedDateDetailsViewController{
-            destVC.dateRecieved = dateSelected
+            destVC.startDate = startDate
+            destVC.endDate = endDate
         }
         }
+    
+
 }
 
