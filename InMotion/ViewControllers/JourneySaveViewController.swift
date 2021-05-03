@@ -41,9 +41,9 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                 
                 // Drawing journey and points of interest into a map
                 
-                for j in self.journey.journeySegment ?? [] {
+                for s in self.journey.journeySegment ?? [] {
                     print("LOOPING")
-                    let x = j as! JourneySegment
+                    let x = s as! JourneySegment
                     print("SEGMENT")
                     print(x)
                     let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
@@ -59,6 +59,22 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                     //fetch memories
                     // ...add code here...
                 }
+                for p in self.journey.posts ?? [] {
+                    print("LOOPING POSTS")
+                    let y = p as! Post
+                    print("POST")
+                    print(y)
+                    let postCoordinates: CLLocationCoordinate2D? = CLLocationCoordinate2D( latitude: y.postLat, longitude: y.postLong)
+                    print("POST COORDINATES: ", postCoordinates)
+                    
+                    //render post from the main thread
+                    DispatchQueue.main.async{
+                        self.createPostPOI(postCoordinates : postCoordinates ?? self.pointIfNil, title: y.postTitle ?? "", subtitle: y.postBlog ?? "" )
+                    }
+                    
+                }
+                
+                
                 return nil
             }
             return nil
@@ -116,12 +132,11 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     // Func for point on a map baloon shape
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
-        
+        print("MODE in mapView for points: ", mode)
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
         }
-        
-        
+
         switch mode {
         case "stationary"?:
             annotationView?.image = UIImage(named: "flagman")
@@ -155,6 +170,8 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
             annotationView?.image = UIImage(named: "flagman")
         case "water"?:
             annotationView?.image = UIImage(named: "boat")
+        case "post"?:
+            annotationView?.image = UIImage(named: "photo")
         default:
             annotationView?.image = UIImage(named: "flagman")
         }
@@ -172,12 +189,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     func createPath(decodedCoordinates : [CLLocationCoordinate2D], mode : String) {
         mapView.delegate = self
         
-        
-        
         let polylineTwo = MKPolyline(coordinates: decodedCoordinates , count: decodedCoordinates.count )
-        
-        //  MKPolylineRenderer(overlay: polylineTwo).lineWidth = 5
-        // MKPolylineRenderer(overlay: polylineTwo).strokeColor = .systemRed
         
         let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
         
@@ -188,18 +200,15 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
         let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
         
-        let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
-        let destinationItem = MKMapItem(placemark: destinationPlaceMark)
-        
         let sourceAnotation = MKPointAnnotation()
-        sourceAnotation.title = "Start"
+        sourceAnotation.title = "start"
         //sourceAnotation.subtitle = ""
         if let location = sourcePlaceMark.location {
             sourceAnotation.coordinate = location.coordinate
         }
         
         let destinationAnotation = MKPointAnnotation()
-        destinationAnotation.title = "Finnish"
+        destinationAnotation.title = "finish"
         //destinationAnotation.subtitle = ""
         if let location = destinationPlaceMark.location {
             destinationAnotation.coordinate = location.coordinate
@@ -207,16 +216,25 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         
         self.mapView.showAnnotations([sourceAnotation, destinationAnotation], animated: true)
         
-        // show segment´s route
-        let directionRequest = MKDirections.Request()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationItem
-        directionRequest.transportType = .automobile
-        
         let rect = polylineTwo.boundingMapRect
         self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
         mapView.addOverlay(polylineTwo)
         print("PATH DRAWN SUCCESSFULLY")
+    }
+    
+    func createPostPOI(postCoordinates : CLLocationCoordinate2D, title : String, subtitle : String) {
+        mapView.delegate = self
+        let postPlaceMark = MKPlacemark(coordinate: postCoordinates, addressDictionary: nil)
+        let postAnotation = MKPointAnnotation()
+        
+        postAnotation.title = title
+        postAnotation.subtitle = subtitle
+        if let location = postPlaceMark.location {
+            postAnotation.coordinate = location.coordinate
+        }
+        
+        self.mapView.showAnnotations([postAnotation], animated: true)
+        print("POST POI DRAWN SUCCESSFULLY")
     }
     
     private func setNewBackButton() {
