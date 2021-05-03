@@ -13,11 +13,8 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     var startDate = NSDate()
     var endDate = NSDate()
     
-    
+    var dailyDetails: Details?
 
-    var dailyDetails: DailyDetails?
-
-    
     var user: User!
     var userJourneys = [Journey]()
     
@@ -96,10 +93,9 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         
         
         for journey in userJourneys {
-            
+
             for segment in journey.journeySegment ?? []  {
                 let s = segment as! JourneySegment
-                
                 distance = distance + Int(s.segmentDistanceTravelled)
                 
                 let diffInSeconds = s.segmentEnd?.timeIntervalSince(s.segmentStart!)
@@ -109,7 +105,6 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
                 
                 co2 = co2 + s.segmentCo2
             }
-            
             let totalDistance = ["Distance Travelled": Double(distance)]
             dailyInfo.append(totalDistance)
             let totalTime = ["Time Spent Travelling" : time]
@@ -119,7 +114,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
  
         }
         
-        dailyDetails = DailyDetails(dailyInfo: dailyInfo, transports: modeTransports)
+        dailyDetails = Details(dailyInfo: dailyInfo, transports: modeTransports)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -201,67 +196,11 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("Controller change content")
+        tableView.reloadData()
+    }
     
 }
 
-struct DailyDetails {
-    var distanceTravelled = Double()
-    var timeTravelledInSeconds = Double()
-    var co2Emissions = Double()
-    var modeTransports = [String : Double]()
-    var popularTransport = String()
-    var pieChartData = [String: Int]()
-    
-    init(dailyInfo: [Dictionary<String, Double>], transports: [String : Double]){
-        distanceTravelled = dailyInfo.compactMap { dict in
-            return dict["Distance Travelled"]
-        }.reduce(0, {$0 + $1})
-        timeTravelledInSeconds = dailyInfo.compactMap { dict in
-            return dict["Time Spent Travelling"]
-        }.reduce(0, {$0 + $1})
-        co2Emissions = dailyInfo.compactMap { dict in
-            return dict["Total CO2 Emmissions"]
-        }.reduce(0, {$0 + $1})
-        
-        popularTransport = transports.max{a, b in a.value < b.value }?.key ?? "no data"
-        popularTransport = transportMode(value: popularTransport)
-        modeTransports = transports
-        createPieData()
-    }
-    
-    mutating func createPieData(){
-        
-        for (key, value) in modeTransports {
-            pieChartData[self.transportMode(value: key)] = Int(value/timeTravelledInSeconds * 100)
-        }
-        if pieChartData.isEmpty {
-            pieChartData["No Data"] = 100
-        }
-    }
-    
-    func transportMode(value: String) -> String {
-        
-        switch value {
-        case "non-motorized/pedestrian/walk":
-            return "Walking"
-        case "non-motorized/bicycle":
-            return "Bicycle"
-        case "non-motorized/pedestrian/run":
-            return "Running"
-        case "motorized/road/car":
-            return "Car"
-        case "motorized/road/bus":
-            return "Bus"
-        case "motorized/rail/tram":
-            return "Tram"
-        case "motorized/rail/train":
-            return "Train"
-        case "motorized/rail/metro":
-            return "Metro"
-        case "motorized/air/plane":
-            return "Airplane"
-        default:
-            return value.capitalized
-        }
-    }
-}
+

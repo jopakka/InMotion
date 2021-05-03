@@ -28,6 +28,7 @@
 		6A395638262FF7B200A67AEB /* JourneyDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A395636262FF7B200A67AEB /* JourneyDetails.storyboard */; };
 		6A39563D262FF84500A67AEB /* SelectedDateDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A39563B262FF84500A67AEB /* SelectedDateDetails.storyboard */; };
 		6A395642262FF87000A67AEB /* DateSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A395640262FF87000A67AEB /* DateSelector.storyboard */; };
+		6A63FA732640725B00E6EC4E /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63FA722640725B00E6EC4E /* Details.swift */; };
 		6A6DA3F82638321D00D1FED0 /* CarbonDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA3F62638321D00D1FED0 /* CarbonDetailsTableViewCell.swift */; };
 		6A6DA3F92638321D00D1FED0 /* CarbonDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6DA3F72638321D00D1FED0 /* CarbonDetailsTableViewCell.xib */; };
 		6A6DA41826388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA41626388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift */; };
@@ -156,6 +157,7 @@
 		6A395637262FF7B200A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/JourneyDetails.storyboard; sourceTree = "<group>"; };
 		6A39563C262FF84500A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SelectedDateDetails.storyboard; sourceTree = "<group>"; };
 		6A395641262FF87000A67AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DateSelector.storyboard; sourceTree = "<group>"; };
+		6A63FA722640725B00E6EC4E /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		6A6DA3F62638321D00D1FED0 /* CarbonDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		6A6DA3F72638321D00D1FED0 /* CarbonDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarbonDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		6A6DA41626388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				6AD8153B262844090033399B /* Post+CoreDataProperties.swift */,
 				6AD8153C262844090033399B /* JourneySegment+CoreDataClass.swift */,
 				6AD8153D262844090033399B /* JourneySegment+CoreDataProperties.swift */,
+				6A63FA722640725B00E6EC4E /* Details.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				6A3955762626EE4100A67AEB /* MoprimApi.swift in Sources */,
 				6AD8154D262853980033399B /* LoginViewController.swift in Sources */,
 				6A3955D7262ADD2A00A67AEB /* JourneyMediaDetailsViewController.swift in Sources */,
+				6A63FA732640725B00E6EC4E /* Details.swift in Sources */,
 				6A6DA471263C44FC00D1FED0 /* MediaDetailsTableViewCell.swift in Sources */,
 				6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */,
 				6A3955BC2629EB7900A67AEB /* DatePickerViewController.swift in Sources */,

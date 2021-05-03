@@ -14,6 +14,8 @@ class JourneyDetailsViewController: UIViewController{
     var receivedJourney: Journey?
     var postToSend: String?
     var image: UIImage?
+    var journeyDetails: Details?
+    var arrayOfPolyline: [Int: String?] = [:]
     
     let images: [UIImage] = [
         UIImage(named: "image1"),
@@ -44,7 +46,7 @@ class JourneyDetailsViewController: UIViewController{
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        setDailyInfo()
         collectionView.reloadData()
     }
     
@@ -123,7 +125,41 @@ class JourneyDetailsViewController: UIViewController{
         return layout
     }
     
+    func setDailyInfo(){
+        var distance = 0
+        var time = TimeInterval()
+        var co2 = Double()
+        var dailyInfo = [Dictionary<String, Double>]()
+        var modeTransports: [String : Double] = [:]
+        
+        var counter = 0
 
+
+        for segment in receivedJourney!.journeySegment ?? []  {
+                let s = segment as! JourneySegment
+
+                distance = distance + Int(s.segmentDistanceTravelled)
+                
+                let diffInSeconds = s.segmentEnd?.timeIntervalSince(s.segmentStart!)
+                time = time + diffInSeconds!
+            
+                arrayOfPolyline[counter] = s.segmentEncodedPolyLine
+                counter = counter + 1
+            
+                modeTransports[String(s.segmentModeOfTravel!)] = Double(diffInSeconds!)
+
+                co2 = co2 + s.segmentCo2
+            }
+            let totalDistance = ["Distance Travelled": Double(distance)]
+            dailyInfo.append(totalDistance)
+            let totalTime = ["Time Spent Travelling" : time]
+            dailyInfo.append(totalTime)
+            let totalCO2 = ["Total CO2 Emmissions" : co2]
+            dailyInfo.append(totalCO2)
+ 
+        
+        journeyDetails = Details(dailyInfo: dailyInfo, transports: modeTransports)
+    }
     
 }
 
@@ -168,13 +204,13 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as! MapCollectionViewCell
             
-            cell.configure(with: "route goes here")
+            cell.configure(with: arrayOfPolyline)
             return cell
         }
         else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyDetailsCollectionViewCell.identifier, for: indexPath) as! JourneyDetailsCollectionViewCell
             
-            cell.configure(distanceTravelled: "10km", timeTravelled: "30mins", emissions: "300g", popularTransport: "Bus", averageSpeed: "60km/h", title: (receivedJourney?.journeyName!)!)
+            cell.configure(journey: journeyDetails!, title: (receivedJourney?.journeyName)!)
             
             return cell
         }else{
@@ -186,4 +222,5 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         
     }
 }
+
 
