@@ -98,11 +98,22 @@
                         <outlet property="favouriteTableView" destination="mN7-kK-I1i" id="3oO-Ue-Fbx"/>
                         <outlet property="fullnameTf" destination="Toy-g9-Dvs" id="iGZ-Ju-nZe"/>
                         <outlet property="profileImageView" destination="gRq-Su-Css" id="rPV-q2-CU8"/>
+                        <segue destination="JTx-JF-APJ" kind="show" identifier="showDetails" id="axD-7N-gpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8AC-kY-iCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-168.11594202898553" y="-1454.4642857142856"/>
+        </scene>
+        <!--JourneyDetails-->
+        <scene sceneID="fr8-LK-sD2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JourneyDetails" id="JTx-JF-APJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kYd-qQ-xoU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eQ7-Tx-ULo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="504" y="-1422"/>
         </scene>
     </scenes>
     <resources>
