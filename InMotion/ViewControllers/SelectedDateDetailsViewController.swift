@@ -86,10 +86,11 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
 
     func setDailyInfo(){
         var distance = 0
-        var time = TimeInterval()
+        var time = 0.0
         var co2 = Double()
         var dailyInfo = [Dictionary<String, Double>]()
-        var modeTransports: [String : Double] = [:]
+        var modeTransports: [Int: [String : Double]] = [:]
+        var count = 0
         
         
         for journey in userJourneys {
@@ -101,8 +102,8 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
                 let diffInSeconds = s.segmentEnd?.timeIntervalSince(s.segmentStart!)
                 time = time + diffInSeconds!
                 
-                modeTransports[String(s.segmentModeOfTravel!)] = Double(diffInSeconds!)
-                
+                modeTransports[count] = [String(s.segmentModeOfTravel!): Double(diffInSeconds!)]
+                count = count + 1
                 co2 = co2 + s.segmentCo2
             }
             let totalDistance = ["Distance Travelled": Double(distance)]
@@ -133,7 +134,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.identifier, for: indexPath) as! PieChartTableViewCell
-            guard let data = dailyDetails?.pieChartData else {
+            guard let data = dailyDetails?.chartData else {
                 return cell
             }
             cell.configure(pieChartDataArray: data)

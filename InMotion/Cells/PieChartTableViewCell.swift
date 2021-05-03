@@ -27,7 +27,7 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
     
     }
     
-    public func configure(pieChartDataArray data: [String: Int]){
+    public func configure(pieChartDataArray data: [String: Double]){
         
         for x in data {
             entries.append(PieChartDataEntry(value: Double(x.value), label: x.key))

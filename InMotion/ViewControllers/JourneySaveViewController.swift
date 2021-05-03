@@ -37,7 +37,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
             //            // fetching the route that we want to display
             MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
                 print("data saved")
-                print("journey: ", self.journey)
+                print("journey: ", self.journey!)
                 
                 // Drawing journey and points of interest into a map
                 
@@ -48,7 +48,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                     print(x)
                     let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
                     self.mode = x.segmentModeOfTravel ?? self.modeIfNil
-                    print("MODE in Segment: ", self.mode)
+                    print("MODE in Segment: ", self.mode!)
                     let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
                     
                     //render trail from the main thread
@@ -65,7 +65,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                     print("POST")
                     print(y)
                     let postCoordinates: CLLocationCoordinate2D? = CLLocationCoordinate2D( latitude: y.postLat, longitude: y.postLong)
-                    print("POST COORDINATES: ", postCoordinates)
+                    print("POST COORDINATES: ", postCoordinates!)
                     
                     //render post from the main thread
                     DispatchQueue.main.async{
@@ -84,7 +84,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let rendere = MKPolylineRenderer(overlay: overlay)
         rendere.lineWidth = 5
-        print("MODE in mapView: ", mode)
+        print("MODE in mapView: ", mode!)
         switch mode {
         case "stationary"?:
             rendere.strokeColor = .systemGray2
@@ -129,7 +129,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         print("ANNOTATION: ", annotation)
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
-        print("MODE in mapView for points: ", mode)
+        print("MODE in mapView for points: ", mode!)
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
         }

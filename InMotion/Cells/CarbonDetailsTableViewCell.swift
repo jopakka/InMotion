@@ -47,7 +47,7 @@ class CarbonDetailsTableViewCell: UITableViewCell {
                                     time.0,
                                     time.1,
                                     time.2)
-        emissions.text = String(format: "%.1f g",
+        emissions.text = String(format: "%.3f kg",
                                 dailyInfo.co2Emissions)
         popularTransport.text = dailyInfo.popularTransport
     }

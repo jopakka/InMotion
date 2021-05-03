@@ -15,7 +15,8 @@ class JourneyDetailsViewController: UIViewController{
     var postToSend: String?
     var image: UIImage?
     var journeyDetails: Details?
-    var arrayOfPolyline: [Int: String?] = [:]
+    var arrayOfPolyline: [String?: String?] = [:]
+    var imageArray = [Data]()
     
     let images: [UIImage] = [
         UIImage(named: "image1"),
@@ -132,9 +133,8 @@ class JourneyDetailsViewController: UIViewController{
         var time = TimeInterval()
         var co2 = Double()
         var dailyInfo = [Dictionary<String, Double>]()
-        var modeTransports: [String : Double] = [:]
-        
-        var counter = 0
+        var modeTransports: [Int: [String : Double]] = [:]
+        var count = 0
 
 
         for segment in receivedJourney!.journeySegment ?? []  {
@@ -145,11 +145,10 @@ class JourneyDetailsViewController: UIViewController{
                 let diffInSeconds = s.segmentEnd?.timeIntervalSince(s.segmentStart!)
                 time = time + diffInSeconds!
             
-                arrayOfPolyline[counter] = s.segmentEncodedPolyLine
-                counter = counter + 1
+                arrayOfPolyline[s.segmentModeOfTravel] = s.segmentEncodedPolyLine
             
-                modeTransports[String(s.segmentModeOfTravel!)] = Double(diffInSeconds!)
-
+                modeTransports[count] = [String(s.segmentModeOfTravel!): Double(diffInSeconds!)]
+                count = count + 1
                 co2 = co2 + s.segmentCo2
             }
             let totalDistance = ["Distance Travelled": Double(distance)]
@@ -166,7 +165,8 @@ class JourneyDetailsViewController: UIViewController{
     
     func getImages(){
         for image in receivedJourney!.posts ?? [] {
-            print("Post: ", image)
+            let post = image as! Post
+            imageArray.append(post.postImg!)
         }
     }
     
@@ -205,7 +205,7 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         if section == 0 || section == 1 {
             return 1
         }else {
-            return images.count
+            return imageArray.count
         }
     }
     
@@ -225,7 +225,7 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImagePostCollectionViewCell.identifier, for: indexPath) as! ImagePostCollectionViewCell
             
-            cell.imageView.image = images[indexPath.row]
+            cell.imageView.image = UIImage(data:imageArray[indexPath.row])
             return cell
         }
         

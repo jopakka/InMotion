@@ -11,12 +11,14 @@ struct Details {
     var distanceTravelled = Double()
     var timeTravelledInSeconds = Double()
     var co2Emissions = Double()
-    var modeTransports = [String : Double]()
+    var modeTransports = [Int: [String : Double]]()
     var popularTransport = String()
-    var pieChartData = [String: Int]()
+    var pieChartData = [String: Double]()
+    var chartData = [String: Double]()
     var title: String?
     
-    init(dailyInfo: [Dictionary<String, Double>], transports: [String : Double]){
+    init(dailyInfo: [Dictionary<String, Double>], transports: [Int: [String : Double]]){
+        
         distanceTravelled = dailyInfo.compactMap { dict in
             return dict["Distance Travelled"]
         }.reduce(0, {$0 + $1})
@@ -27,20 +29,47 @@ struct Details {
             return dict["Total CO2 Emmissions"]
         }.reduce(0, {$0 + $1})
         distanceTravelled = distanceTravelled / 1000
-        popularTransport = transports.max{a, b in a.value < b.value }?.key ?? "no data"
+        co2Emissions = co2Emissions / 1000
+ 
         popularTransport = transportMode(value: popularTransport)
         modeTransports = transports
         createPieData()
+        
     }
     
     
     mutating func createPieData(){
-        for (key, value) in modeTransports {
-            pieChartData[self.transportMode(value: key)] = Int(value/timeTravelledInSeconds * 100)
+        var const = 0.0
+        
+        for x in modeTransports {
+            for y in x.value {
+                if const < y.value {
+                    const = y.value
+                    popularTransport = transportMode(value: y.key)
+
+                }
+                if let entry = pieChartData[y.key] {
+                    pieChartData[y.key] = entry + y.value
+                }else {
+                    pieChartData[y.key] = y.value
+                }
+            }
+            
         }
         if pieChartData.isEmpty {
             pieChartData["No Data"] = 100
         }
+        //print("timeInSeconds: ", timeTravelledInSeconds)
+        pieChartData.forEach{
+            let value = $0.value
+            let newValue = Double(value) / timeTravelledInSeconds * 100
+            chartData[transportMode(value: $0.key)] = newValue
+        }
+        
+        let total = chartData.compactMap( {Double($0.value)}).reduce(0.0, +)
+        chartData["Stationary"] = Double(100 - total)
+        }
+
     }
     
     func transportMode(value: String) -> String {
@@ -68,4 +97,4 @@ struct Details {
             return value.capitalized
         }
     }
-}
+

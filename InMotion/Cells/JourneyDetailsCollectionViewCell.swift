@@ -36,7 +36,7 @@ class JourneyDetailsCollectionViewCell: UICollectionViewCell {
                                     time.0,
                                     time.1,
                                     time.2)
-        emissions.text = String(format: "%.1f g",
+        emissions.text = String(format: "%.3f kg",
                                 journey.co2Emissions)
         popularTransport.text = journey.popularTransport
         journeyTitle.text = title.capitalized
