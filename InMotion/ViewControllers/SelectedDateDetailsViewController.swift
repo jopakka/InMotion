@@ -14,10 +14,13 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     var endDate = NSDate()
     
     var pieChartData = ["Car": 20, "Bus": 30, "Walking": 40, "Cycling": 10]
-    var dailyInfo = [Dictionary<String, String>]()
+
+    var dailyDetails: DailyDetails?
+
     
     var user: User!
     var userJourneys = [Journey]()
+    
     var journeySelected: Journey?
     private var fetchedResultController: NSFetchedResultsController<Journey>?
     
@@ -26,8 +29,6 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        print("startDate: \(startDate)")
-//        print("endDate: \(endDate)")
         
         user = UserHelper.instance.user
         if user == nil {
@@ -66,12 +67,10 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         
         do {
             try fetchedResultController!.performFetch()
-            print("fetch ok")
             guard let values = self.fetchedResultController?.fetchedObjects! else {
                 return
             }
             for x in values {
-                //print(x)
                 userJourneys.append(x)
             }
             
@@ -87,39 +86,40 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         self.title = String(date)
     }
     
-    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
-      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
-    }
-    
+
     func setDailyInfo(){
         var distance = 0
         var time = TimeInterval()
         var co2 = Double()
-        var modeTransport = [String]()
+        var dailyInfo = [Dictionary<String, Double>]()
+        var modeTransports: [String : Double] = [:]
+        
         
         for journey in userJourneys {
-
+            
             for segment in journey.journeySegment ?? []  {
                 let s = segment as! JourneySegment
                 
-                print("distance ", s.segmentDistanceTravelled)
                 distance = distance + Int(s.segmentDistanceTravelled)
                 
-                print("start time ", s.segmentStart! as Date)
-                print("end time ", s.segmentEnd! as Date)
                 let diffInSeconds = s.segmentEnd?.timeIntervalSince(s.segmentStart!)
                 time = time + diffInSeconds!
                 
-                print("mode of transport ", s.segmentModeOfTravel!)
-                modeTransport.append(s.segmentModeOfTravel!)
+                modeTransports[String(s.segmentModeOfTravel!)] = Double(diffInSeconds!)
                 
-                print("CO2 ", s.segmentCo2)
                 co2 = co2 + s.segmentCo2
             }
             
-            let totalDistance = ["Distance Travelled": String(distance)]
-            
+            let totalDistance = ["Distance Travelled": Double(distance)]
+            dailyInfo.append(totalDistance)
+            let totalTime = ["Time Spent Travelling" : time]
+            dailyInfo.append(totalTime)
+            let totalCO2 = ["Total CO2 Emmissions" : co2]
+            dailyInfo.append(totalCO2)
+ 
         }
+        
+        dailyDetails = DailyDetails(dailyInfo: dailyInfo, transports: modeTransports)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,8 +144,14 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         }
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: CarbonDetailsTableViewCell.identifier, for: indexPath) as! CarbonDetailsTableViewCell
-            cell.configure(distanceTravelled: "100km", timeTravelled: "10hr", emmissions: "300kg", popularTransport: "Car")
-            cell.selectionStyle = .none
+            
+            if !userJourneys.isEmpty{
+                
+                cell.configure(dailyInfo: dailyDetails!)
+                
+                cell.selectionStyle = .none
+                return cell
+            }
             return cell
         }
         else {
@@ -192,6 +198,30 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
+    
+}
+
+struct DailyDetails {
+    var distanceTravelled = Double()
+    var timeTravelledInSeconds = Double()
+    var co2Emissions = Double()
+    var modeTransports = [String : Double]()
+    var popularTransport = String()
+    
+    init(dailyInfo: [Dictionary<String, Double>], transports: [String : Double]){
+        distanceTravelled = dailyInfo.compactMap { dict in
+            return dict["Distance Travelled"]
+        }.reduce(0, {$0 + $1})
+        timeTravelledInSeconds = dailyInfo.compactMap { dict in
+            return dict["Time Spent Travelling"]
+        }.reduce(0, {$0 + $1})
+        co2Emissions = dailyInfo.compactMap { dict in
+            return dict["Total CO2 Emmissions"]
+        }.reduce(0, {$0 + $1})
+        
+        popularTransport = transports.max{a, b in a.value < b.value }!.key
+        modeTransports = transports
+    }
     
 }
 

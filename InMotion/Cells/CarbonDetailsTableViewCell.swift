@@ -38,14 +38,26 @@ class CarbonDetailsTableViewCell: UITableViewCell {
 
     }
     
-    func configure(distanceTravelled distance: String, timeTravelled time: String, emmissions carbon: String, popularTransport transport: String){
-        distanceTravelled.text = distance
-        timeTravelled.text = time
-        emissions.text = carbon
-        popularTransport.text = transport
+    func configure(dailyInfo: DailyDetails){
+        let time = secondsToHoursMinutesSeconds(seconds: Int(dailyInfo.timeTravelledInSeconds))
+
+        distanceTravelled.text = String(format: "%.0f km",
+                                        dailyInfo.distanceTravelled)
+        timeTravelled.text = String(format: "%d hr %d min %d sec",
+                                    time.0,
+                                    time.1,
+                                    time.2)
+        emissions.text = String(format: "%.1f g/km",
+                                dailyInfo.co2Emissions)
+        popularTransport.text = dailyInfo.popularTransport
     }
     
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
     
-
 }
+
+
+
 

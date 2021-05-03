@@ -30,8 +30,6 @@ class DatePickerViewController: UIViewController, FSCalendarDelegate  {
         startDate = date.addingTimeInterval(Double(3600 * 3)) as NSDate
         endDate = startDate.addingTimeInterval(Double(3600 * 24)) as NSDate
 
-        print(startDate)
-        print(endDate)
         performSegue(withIdentifier: "showDetails", sender: self)
     }
     
