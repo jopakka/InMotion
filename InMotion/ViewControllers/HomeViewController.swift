@@ -121,6 +121,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetails", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! JourneyDetailsViewController
+        let indexPath = favouriteTableView.indexPathForSelectedRow
+        destVC.index = indexPath!.row
+        self.favouriteTableView.deselectRow(at: indexPath!, animated: true)
+        
+    }
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         print("Controller change content")
         favouriteTableView.reloadData()
