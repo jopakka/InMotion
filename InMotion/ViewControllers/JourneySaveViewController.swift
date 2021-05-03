@@ -16,7 +16,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var favouriteSwitch: UISwitch!
     @IBOutlet weak var nameTf: UITextField!
-    
+    @IBOutlet weak var postsTableView: UITableView!
     
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
     let polylineIfNil = "kr_nJcngvC"
@@ -37,7 +37,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
             //            // fetching the route that we want to display
             MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
                 print("data saved")
-                print("journey: ", self.journey)
+                print("journey: ", self.journey ?? "no journey found")
                 
                 // Drawing journey and points of interest into a map
                 
@@ -48,24 +48,23 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                     print(x)
                     let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
                     self.mode = x.segmentModeOfTravel ?? self.modeIfNil
-                    print("MODE in Segment: ", self.mode)
+                    print("MODE in Segment: ", self.mode ?? "no segments found")
                     let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
                     
                     //render trail from the main thread
                     DispatchQueue.main.async{
                         self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil], mode: self.mode ?? self.modeIfNil )
                     }
-                    
-                    //fetch memories
-                    // ...add code here...
                 }
+                
+                //fetch memories
                 for p in self.journey.posts ?? [] {
                     print("LOOPING POSTS")
                     let y = p as! Post
                     print("POST")
                     print(y)
                     let postCoordinates: CLLocationCoordinate2D? = CLLocationCoordinate2D( latitude: y.postLat, longitude: y.postLong)
-                    print("POST COORDINATES: ", postCoordinates)
+                    print("POST COORDINATES: ", postCoordinates ?? "no post coordinates were retrieved")
                     
                     //render post from the main thread
                     DispatchQueue.main.async{
@@ -84,7 +83,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let rendere = MKPolylineRenderer(overlay: overlay)
         rendere.lineWidth = 5
-        print("MODE in mapView: ", mode)
+        print("MODE in mapView: ", mode ?? "no mode found")
         switch mode {
         case "stationary"?:
             rendere.strokeColor = .systemGray2
@@ -129,7 +128,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         print("ANNOTATION: ", annotation)
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
-        print("MODE in mapView for points: ", mode)
+        print("MODE in mapView for points: ", mode ?? "no mode found")
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
         }
