@@ -45,10 +45,7 @@ class JourneyDetailsViewController: UIViewController{
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        print(receivedJourney!)
-        print("segment")
-        print(receivedJourney!.journeySegment!.allObjects)
-        
+        collectionView.reloadData()
     }
     
     

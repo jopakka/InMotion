@@ -219,7 +219,7 @@ struct DailyDetails {
             return dict["Total CO2 Emmissions"]
         }.reduce(0, {$0 + $1})
         
-        popularTransport = transports.max{a, b in a.value < b.value }!.key
+        popularTransport = transports.max{a, b in a.value < b.value }?.key ?? "no data"
         modeTransports = transports
     }
     
