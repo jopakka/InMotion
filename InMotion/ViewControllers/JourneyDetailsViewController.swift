@@ -47,6 +47,8 @@ class JourneyDetailsViewController: UIViewController{
         collectionView.dataSource = self
         collectionView.delegate = self
         setDailyInfo()
+        getImages()
+        
         collectionView.reloadData()
     }
     
@@ -156,9 +158,16 @@ class JourneyDetailsViewController: UIViewController{
             dailyInfo.append(totalTime)
             let totalCO2 = ["Total CO2 Emmissions" : co2]
             dailyInfo.append(totalCO2)
- 
+        
+
         
         journeyDetails = Details(dailyInfo: dailyInfo, transports: modeTransports)
+    }
+    
+    func getImages(){
+        for image in receivedJourney!.posts ?? [] {
+            print("Post: ", image)
+        }
     }
     
 }
