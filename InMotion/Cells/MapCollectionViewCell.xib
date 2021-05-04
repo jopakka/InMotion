@@ -18,9 +18,6 @@
                 <subviews>
                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="926-TU-p76">
                         <rect key="frame" x="0.0" y="0.0" width="358" height="300"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="300" id="V7T-D4-iGK"/>
-                        </constraints>
                     </mapView>
                 </subviews>
             </view>

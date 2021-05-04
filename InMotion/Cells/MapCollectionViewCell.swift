@@ -27,18 +27,41 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         super.awakeFromNib()
         // Initialization code
     }
-
-    public func configure(with route: [String?: String?]){
-        dictOfPolylines = route
+    
+    public func configure(with journey: Journey){
         
-        for line in dictOfPolylines {
-            // print("pollyline: ", line)
+        // Drawing journey and points of interest into a map
+        
+        for s in journey.journeySegment ?? [] {
+            //print("LOOPING")
+            let x = s as! JourneySegment
+//            print("SEGMENT")
+//            print(x)
+            let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
+            self.mode = x.segmentModeOfTravel ?? self.modeIfNil
+            //print("MODE in Segment: ", self.mode ?? "no segments found")
             
-            let polyline = Polyline(encodedPolyline: line.value ?? self.polylineIfNil)
-            self.mode = line.key
             let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
+            
+            //render trail from the main thread
             DispatchQueue.main.async{
                 self.createPath(decodedCoordinates : decodedCoordinates ?? [self.pointIfNil], mode: self.mode ?? self.modeIfNil )
+            }
+        }
+        
+        //fetch memories
+        for p in journey.posts ?? [] {
+            //print("LOOPING POSTS")
+            let y = p as! Post
+            //print("POST")
+            //print(y)
+            let postCoordinates: CLLocationCoordinate2D? = CLLocationCoordinate2D( latitude: y.postLat, longitude: y.postLong)
+            //print("POST COORDINATES: ", postCoordinates ?? "no post coordinates were retrieved")
+            
+            
+            //render post from the main thread
+            DispatchQueue.main.async{
+                self.createPostPOI(postCoordinates : postCoordinates ?? self.pointIfNil, title: y.postTitle ?? "", subtitle: y.postBlog ?? "" )
             }
         }
     }

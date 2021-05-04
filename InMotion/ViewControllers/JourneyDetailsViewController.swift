@@ -14,7 +14,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     
     var receivedJourney: Journey?
     var postToSend: String?
-    var image: UIImage?
+    var post: Post?
     var journeyDetails: Details?
     var arrayOfPolyline: [String?: String?] = [:]
     var imageArray = [Post]()
@@ -23,22 +23,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     private var fetchedResultController: NSFetchedResultsController<Journey>?
     var user: User!
     
-    let images: [UIImage] = [
-        UIImage(named: "image1"),
-        UIImage(named: "image2"),
-        UIImage(named: "image3"),
-        UIImage(named: "image4"),
-        UIImage(named: "image5"),
-        UIImage(named: "image6"),
-        UIImage(named: "image7"),
-        UIImage(named: "image8"),
-        UIImage(named: "image9"),
-        UIImage(named: "image10")
-    ].compactMap({$0})
-    
     @IBOutlet weak var collectionView: UICollectionView!
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +36,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         }
         
         collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(), animated: true)
-    
+        
         collectionView.register(JourneyDetailsCollectionViewCell.nib(), forCellWithReuseIdentifier: JourneyDetailsCollectionViewCell.identifier)
         collectionView.register(ImagePostCollectionViewCell.nib(), forCellWithReuseIdentifier: ImagePostCollectionViewCell.identifier)
         collectionView.register(MapCollectionViewCell.nib(), forCellWithReuseIdentifier: MapCollectionViewCell.identifier)
@@ -74,7 +59,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
             fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: "journeyStarted", cacheName: nil)
             fetchedResultController!.delegate = self as NSFetchedResultsControllerDelegate
         }
-
+        
         let userPredicate = NSPredicate(format: "user == %@", user)
         let journeyIdPredicate = NSPredicate(format: "journeyId == %@", (receivedJourney?.journeyId)! as CVarArg)
         let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate, journeyIdPredicate])
@@ -88,6 +73,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         } catch {
             print("fetch failed")
         }
+        
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -115,7 +101,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(2/3),
                 heightDimension: .fractionalHeight(1))
-            )
+        )
         
         item.contentInsets = NSDirectionalEdgeInsets(
             top: 2, leading: 2, bottom: 2, trailing: 2)
@@ -125,7 +111,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .fractionalHeight(0.5)
             )
-    )
+        )
         verticalStackItem.contentInsets = NSDirectionalEdgeInsets(
             top: 2, leading: 2, bottom: 2, trailing: 2)
         
@@ -144,8 +130,8 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .fractionalWidth(3/5)),
             subitems: [
-            item,
-            verticalGroup
+                item,
+                verticalGroup
             ]
         )
         
@@ -176,8 +162,6 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         var modeTransports: [Int: [String : Double]] = [:]
         var count = 0
         
-        
-        print (receivedJourney!.journeySegment!)
         
         for segment in receivedJourney!.journeySegment! {
             let s = segment as! JourneySegment
@@ -222,7 +206,7 @@ extension JourneyDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             print("image pressed")
-            image = images[indexPath.row]
+            post = imageArray[indexPath.row]
             performSegue(withIdentifier: "showPostDetails", sender: self)
         }
         
@@ -230,13 +214,13 @@ extension JourneyDetailsViewController: UICollectionViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPostDetails" {
-
+            
             let destVC = segue.destination as! JourneyMediaDetailsViewController
-            destVC.cellImage = image
+            destVC.receivedPost = post!
         }
         
     }
-   
+    
     
 }
 
@@ -258,7 +242,7 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MapCollectionViewCell.identifier, for: indexPath) as! MapCollectionViewCell
             
-            cell.configure(with: arrayOfPolyline)
+            cell.configure(with: receivedJourney!)
             return cell
         }
         else if indexPath.section == 1 {

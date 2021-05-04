@@ -48,9 +48,6 @@ class CoreHelper {
         case .started:
             journey.journeyStarted = value as? Date
             break
-        default:
-            NSLog("Nothing is saved to journey")
-            return
         }
         
         do {

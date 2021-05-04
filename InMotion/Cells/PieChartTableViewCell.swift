@@ -50,7 +50,9 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         return UINib(nibName: "PieChartTableViewCell", bundle: nil)
     }
     
-    
+    override func prepareForReuse() {
+        entries = [ChartDataEntry]()
+    }
     func configureChart(_ pieChart: PieChartView){
         //pieChart.drawHoleEnabled = false
         pieChart.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)

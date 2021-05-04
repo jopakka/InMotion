@@ -30,7 +30,7 @@ struct Details {
         }.reduce(0, {$0 + $1})
         distanceTravelled = distanceTravelled / 1000
         co2Emissions = co2Emissions / 1000
- 
+        
         popularTransport = transportMode(value: popularTransport)
         modeTransports = transports
         createPieData()
@@ -40,13 +40,13 @@ struct Details {
     
     mutating func createPieData(){
         var const = 0.0
-
+        
         for x in modeTransports {
             for y in x.value {
                 if const < y.value {
                     const = y.value
                     popularTransport = transportMode(value: y.key)
-
+                    
                 }
                 if let entry = pieChartData[y.key] {
                     pieChartData[y.key] = entry + y.value
@@ -56,7 +56,7 @@ struct Details {
             }
             
         }
-
+        
         //print("timeInSeconds: ", timeTravelledInSeconds)
         pieChartData.forEach{
             let value = $0.value
@@ -72,33 +72,33 @@ struct Details {
         
         chartData["Stationary"] = Double(100 - total)
         
-        }
-
     }
     
-    func transportMode(value: String) -> String {
-        
-        switch value {
-        case "non-motorized/pedestrian/walk":
-            return "Walking"
-        case "non-motorized/bicycle":
-            return "Bicycle"
-        case "non-motorized/pedestrian/run":
-            return "Running"
-        case "motorized/road/car":
-            return "Car"
-        case "motorized/road/bus":
-            return "Bus"
-        case "motorized/rail/tram":
-            return "Tram"
-        case "motorized/rail/train":
-            return "Train"
-        case "motorized/rail/metro":
-            return "Metro"
-        case "motorized/air/plane":
-            return "Airplane"
-        default:
-            return value.capitalized
-        }
+}
+
+func transportMode(value: String) -> String {
+    
+    switch value {
+    case "non-motorized/pedestrian/walk":
+        return "Walking"
+    case "non-motorized/bicycle":
+        return "Bicycle"
+    case "non-motorized/pedestrian/run":
+        return "Running"
+    case "motorized/road/car":
+        return "Car"
+    case "motorized/road/bus":
+        return "Bus"
+    case "motorized/rail/tram":
+        return "Tram"
+    case "motorized/rail/train":
+        return "Train"
+    case "motorized/rail/metro":
+        return "Metro"
+    case "motorized/air/plane":
+        return "Airplane"
+    default:
+        return value.capitalized
     }
+}
 
