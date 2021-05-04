@@ -9,6 +9,30 @@ import XCTest
 
 class JourneyCreateViewControllerUITests: XCTestCase {
     
+    func testRegister() throws {
+        let app = XCUIApplication()
+        app.launch()
+        app/*@START_MENU_TOKEN@*/.staticTexts["Don't have an account yet? Register here"]/*[[".buttons[\"Don't have an account yet? Register here\"].staticTexts[\"Don't have an account yet? Register here\"]",".staticTexts[\"Don't have an account yet? Register here\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+       
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("mmmmmmm")
+        
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("nnnnnn")
+        
+        let confirmPasswordSecureTextField = app.secureTextFields["Confirm Password"]
+        confirmPasswordSecureTextField.tap()
+        confirmPasswordSecureTextField.typeText("nnnnnn")
+        
+        let registerStaticText = app/*@START_MENU_TOKEN@*/.staticTexts["Register"]/*[[".buttons[\"Register\"].staticTexts[\"Register\"]",".staticTexts[\"Register\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        registerStaticText.tap()
+        
+        app.tabBars["Tab Bar"].buttons["Journey"].tap()
+       
+    }
+    
     func testJourneyScreen() throws {
         let app = XCUIApplication()
         app.launch()
