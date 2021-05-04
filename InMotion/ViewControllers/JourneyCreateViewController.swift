@@ -27,6 +27,11 @@ class JourneyCreateViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set navbar gradient
+        let image = self.navigationController!.getGradient()
+        self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        
+        
         TMD.setAllowUploadOnCellularNetwork(true)
     }
     
