@@ -9,14 +9,9 @@ import UIKit
 
 class JourneyControlsCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var deleBtn: UIButton!
     @IBOutlet weak var favToggle: UISwitch!
     
-    
-    @IBAction func saveBtnPressed(_ sender: Any) {
-        print("save pressed")
-    }
     
     
     @IBAction func deleteBtnPressed(_ sender: Any) {
