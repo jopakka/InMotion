@@ -20,9 +20,11 @@ class JourneyCreateViewControllerUITests: XCTestCase {
         
         let passwordSecureTextField = app.secureTextFields["Password"]
         passwordSecureTextField.tap()
+        passwordSecureTextField.tap()
         passwordSecureTextField.typeText("nnnnnn")
         
         let confirmPasswordSecureTextField = app.secureTextFields["Confirm Password"]
+        confirmPasswordSecureTextField.tap()
         confirmPasswordSecureTextField.tap()
         confirmPasswordSecureTextField.typeText("nnnnnn")
         
