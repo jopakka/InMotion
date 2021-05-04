@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  InMotion
+
+  Created by iosdev on 4.5.2021.
+  
+*/
+
+"note_placeholder" = "Here you can write notes for memory...";
+"save" = "Save";
+"cancel" = "Cancel";
+"error" = "Error";
+"no_location" = "No location";
+"no_title" = "Title can't be empty";
+"no_image" = "Missing image";
+"success" = "Success";
+"memory_saved" = "Memory saved";
+"error_saving_memory" = "Error while saving memory";
+"warning" = "Warning";
+"memory_will_not_be_saved" = "Memory will not be saved. Do you still wanna continue?";
+"yes" = "Yes";
+"no" = "No";
+"not_work_in_sim" = "This does not work in simulator";

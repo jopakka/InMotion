@@ -1,0 +1,57 @@
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "4kU-FA-ITW"; */
+"4kU-FA-ITW.text" = "Confirm Password";
+
+/* Class = "UILabel"; text = "InMotion"; ObjectID = "5aB-7M-2Ja"; */
+"5aB-7M-2Ja.text" = "InMotion";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "6Um-qB-0xL"; */
+"6Um-qB-0xL.normalTitle" = "Login";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "BtV-EI-zeY"; */
+"BtV-EI-zeY.placeholder" = "Username";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "IiZ-Mg-3jF"; */
+"IiZ-Mg-3jF.title" = "Home";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "JA9-AB-S7q"; */
+"JA9-AB-S7q.placeholder" = "Username";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "NeL-zE-wnv"; */
+"NeL-zE-wnv.text" = "Password";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "O8B-iN-bQG"; */
+"O8B-iN-bQG.placeholder" = "Confirm Password";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "PN1-5U-2Od"; */
+"PN1-5U-2Od.text" = "Username";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "QF9-XU-yhk"; */
+"QF9-XU-yhk.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "TQp-Fj-iOD"; */
+"TQp-Fj-iOD.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "Tn8-A9-Us3"; */
+"Tn8-A9-Us3.text" = "Username";
+
+/* Class = "UITabBarItem"; title = "Journey"; ObjectID = "UbM-AV-tDx"; */
+"UbM-AV-tDx.title" = "Journey";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "aC3-bR-tkD"; */
+"aC3-bR-tkD.normalTitle" = "Register";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "bmG-k2-9PY"; */
+"bmG-k2-9PY.text" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Already have an account? Login here"; ObjectID = "dhM-m6-yyj"; */
+"dhM-m6-yyj.normalTitle" = "Already have an account? Login here";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "eRM-8V-BCd"; */
+"eRM-8V-BCd.title" = "Settings";
+
+/* Class = "UILabel"; text = "InMotion"; ObjectID = "qsm-0L-NIk"; */
+"qsm-0L-NIk.text" = "InMotion";
+
+/* Class = "UITabBarItem"; title = "History"; ObjectID = "sh8-1F-dd0"; */
+"sh8-1F-dd0.title" = "History";

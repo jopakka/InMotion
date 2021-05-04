@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "0iz-dG-XWN"; */
+"0iz-dG-XWN.text" = "Name";
+
+/* Class = "UINavigationItem"; title = "Add Memory"; ObjectID = "33k-UL-a8i"; */
+"33k-UL-a8i.title" = "Add Memory";
+
+/* Class = "UINavigationItem"; title = "Edit Journey"; ObjectID = "4WU-65-klM"; */
+"4WU-65-klM.title" = "Edit Journey";
+
+/* Class = "UIButton"; normalTitle = "Add memory"; ObjectID = "6wa-5U-y9C"; */
+"6wa-5U-y9C.normalTitle" = "Add memory";
+
+/* Class = "UIButton"; normalTitle = "Upload from file"; ObjectID = "6yd-qm-B1b"; */
+"6yd-qm-B1b.normalTitle" = "Upload from file";
+
+/* Class = "UILabel"; text = "Add to favourites"; ObjectID = "A5b-rs-kGy"; */
+"A5b-rs-kGy.text" = "Add to favourites";
+
+/* Class = "UIButton"; normalTitle = "Take photo"; ObjectID = "F3c-o4-j0u"; */
+"F3c-o4-j0u.normalTitle" = "Take photo";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "NPc-4x-9qY"; */
+"NPc-4x-9qY.text" = "Title";
+
+/* Class = "UITextField"; placeholder = "Add title ..."; ObjectID = "TBh-hg-1Ac"; */
+"TBh-hg-1Ac.placeholder" = "Add title ...";
+
+/* Class = "UINavigationItem"; title = "Journey"; ObjectID = "Wz8-Of-Hke"; */
+"Wz8-Of-Hke.title" = "Journey";
+
+/* Class = "UIButton"; normalTitle = "Start Journey"; ObjectID = "dwv-Um-xUV"; */
+"dwv-Um-xUV.normalTitle" = "Start Journey";
+
+/* Class = "UILabel"; text = "Notes"; ObjectID = "lk5-Mw-LeM"; */
+"lk5-Mw-LeM.text" = "Notes";
+
+/* Class = "UINavigationItem"; title = "Tracking Journey"; ObjectID = "mIy-SS-zU5"; */
+"mIy-SS-zU5.title" = "Tracking Journey";
+
+/* Class = "UIButton"; normalTitle = "Save journey"; ObjectID = "p7c-bn-rff"; */
+"p7c-bn-rff.normalTitle" = "Save journey";
+
+/* Class = "UITextField"; placeholder = "Give name to this journey"; ObjectID = "u2A-wC-gez"; */
+"u2A-wC-gez.placeholder" = "Give name to this journey";
+
+/* Class = "UIButton"; normalTitle = "Save journey"; ObjectID = "xRz-C5-zhy"; */
+"xRz-C5-zhy.normalTitle" = "Save journey";

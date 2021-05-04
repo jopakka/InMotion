@@ -1,0 +1,57 @@
+
+/* Class = "UILabel"; text = "Update Profile"; ObjectID = "0mB-Mb-eZE"; */
+"0mB-Mb-eZE.text" = "Muokkaa profiilia";
+
+/* Class = "UILabel"; text = "Jane Doe"; ObjectID = "1it-JD-CNa"; */
+"1it-JD-CNa.text" = "Matti Meikäläinen";
+
+/* Class = "UILabel"; text = "Lastname"; ObjectID = "3PE-S3-FIB"; */
+"3PE-S3-FIB.text" = "Sukunimi";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "55p-f3-9hW"; */
+"55p-f3-9hW.placeholder" = "Vahvista salasana";
+
+/* Class = "UITextField"; placeholder = "Old Password"; ObjectID = "7fc-JM-6Th"; */
+"7fc-JM-6Th.placeholder" = "Vanha salasana";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "M41-3m-Cl8"; */
+"M41-3m-Cl8.title" = "Profiili";
+
+/* Class = "UIButton"; normalTitle = "Logout"; ObjectID = "MuT-Cc-zs8"; */
+"MuT-Cc-zs8.normalTitle" = "Kirjaudu ulos";
+
+/* Class = "UITextField"; placeholder = "Lastname"; ObjectID = "RZn-m6-3Eu"; */
+"RZn-m6-3Eu.placeholder" = "Sukunimi";
+
+/* Class = "UITextField"; placeholder = "Firstname"; ObjectID = "YXv-w4-tWd"; */
+"YXv-w4-tWd.placeholder" = "Etunimi";
+
+/* Class = "UILabel"; text = "Change password"; ObjectID = "Yee-xl-aDe"; */
+"Yee-xl-aDe.text" = "Vaihda salasana";
+
+/* Class = "UILabel"; text = "Old Password"; ObjectID = "ajM-em-VVa"; */
+"ajM-em-VVa.text" = "Vanha salasana";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "bDF-Gk-vIl"; */
+"bDF-Gk-vIl.placeholder" = "Uusi salasana";
+
+/* Class = "UILabel"; text = "New Password"; ObjectID = "bxy-bw-cWa"; */
+"bxy-bw-cWa.text" = "Uusi salasana";
+
+/* Class = "UILabel"; text = "Firstname"; ObjectID = "cvH-Gl-yt3"; */
+"cvH-Gl-yt3.text" = "Etunimi";
+
+/* Class = "UIButton"; normalTitle = "Select profile picture"; ObjectID = "dB0-Wk-0bH"; */
+"dB0-Wk-0bH.normalTitle" = "Valitse profiilikuva";
+
+/* Class = "UIButton"; normalTitle = "Select banner picture"; ObjectID = "fEX-eq-i46"; */
+"fEX-eq-i46.normalTitle" = "Valitse taustakuva";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "iwB-vx-PI1"; */
+"iwB-vx-PI1.text" = "Vahvista salasana";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "uIf-Ga-A0o"; */
+"uIf-Ga-A0o.normalTitle" = "Tallenna";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "xGt-bJ-Wso"; */
+"xGt-bJ-Wso.normalTitle" = "Tallenna";
