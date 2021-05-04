@@ -217,6 +217,7 @@
                         <outlet property="favouriteSwitch" destination="ar9-Ys-ZbF" id="EyN-Cl-H0b"/>
                         <outlet property="mapView" destination="t9C-mk-Ror" id="JVn-Fe-z2O"/>
                         <outlet property="nameTf" destination="u2A-wC-gez" id="XcZ-Jb-DQk"/>
+                        <outlet property="postsTableView" destination="2oM-OJ-ke6" id="lRq-xx-9jN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mt9-T9-TmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
