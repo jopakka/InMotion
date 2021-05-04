@@ -9,7 +9,7 @@ import XCTest
 
 class JourneyCreateViewControllerUITests: XCTestCase {
     
-    func testRegister() throws {
+    func testARegister() throws {
         let app = XCUIApplication()
         app.launch()
         app/*@START_MENU_TOKEN@*/.staticTexts["Don't have an account yet? Register here"]/*[[".buttons[\"Don't have an account yet? Register here\"].staticTexts[\"Don't have an account yet? Register here\"]",".staticTexts[\"Don't have an account yet? Register here\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
@@ -35,20 +35,20 @@ class JourneyCreateViewControllerUITests: XCTestCase {
        
     }
     
-    func testJourneyScreen() throws {
+    func testBJourneyScreen() throws {
         let app = XCUIApplication()
         app.launch()
         app.tabBars["Tab Bar"].buttons["Journey"].tap()
     }
     
-    func testStartJourney() throws {
+    func testCStartJourney() throws {
         let app = XCUIApplication()
         app.launch()
         app.tabBars["Tab Bar"].buttons["Journey"].tap()
         app/*@START_MENU_TOKEN@*/.staticTexts["Start Journey"]/*[[".buttons[\"Start Journey\"].staticTexts[\"Start Journey\"]",".staticTexts[\"Start Journey\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }
     
-    func testAddPost() throws {
+    func testDAddPost() throws {
         let app = XCUIApplication()
         app.launch()
         app.tabBars["Tab Bar"].buttons["Journey"].tap()
@@ -56,7 +56,7 @@ class JourneyCreateViewControllerUITests: XCTestCase {
         app.staticTexts["Add memory"].tap()
     }
     
-    func testAddContentToPost() throws {
+    func testEAddContentToPost() throws {
         let app = XCUIApplication()
         app.launch()
         app.tabBars["Tab Bar"].buttons["Journey"].tap()
