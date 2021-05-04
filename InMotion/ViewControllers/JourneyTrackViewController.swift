@@ -38,6 +38,7 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // I think this is safe to delete
         //Uncomment this for testing on device
 //        TMD.start()

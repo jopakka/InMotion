@@ -25,7 +25,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
         user = UserHelper.instance.user
@@ -35,8 +35,10 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
             return
         }
         
+
         collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(), animated: true)
         
+        collectionView.register(JourneyControlsCollectionViewCell.nib(), forCellWithReuseIdentifier: JourneyControlsCollectionViewCell.identifier)
         collectionView.register(JourneyDetailsCollectionViewCell.nib(), forCellWithReuseIdentifier: JourneyDetailsCollectionViewCell.identifier)
         collectionView.register(ImagePostCollectionViewCell.nib(), forCellWithReuseIdentifier: ImagePostCollectionViewCell.identifier)
         collectionView.register(MapCollectionViewCell.nib(), forCellWithReuseIdentifier: MapCollectionViewCell.identifier)
@@ -78,6 +80,21 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         collectionView.reloadData()
+    }
+    
+    static func createControlLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(80.0))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: itemSize,
+            subitem: item,
+            count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return section
     }
     
     static func createSingleCellLayout() -> NSCollectionLayoutSection {
@@ -145,9 +162,12 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
-            if sectionIndex == 0 || sectionIndex == 1 {
+            if sectionIndex == 0 || sectionIndex == 2 {
                 return self.createSingleCellLayout()
-            }else{
+            }else if sectionIndex == 1 {
+                return self.createControlLayout()
+            }
+            else{
                 return self.createImageLayout()
             }
         }
@@ -204,7 +224,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
 extension JourneyDetailsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             print("image pressed")
             post = imageArray[indexPath.row]
             performSegue(withIdentifier: "showPostDetails", sender: self)
@@ -227,11 +247,11 @@ extension JourneyDetailsViewController: UICollectionViewDelegate {
 extension JourneyDetailsViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 || section == 1 {
+        if section == 0 || section == 1 || section == 2{
             return 1
         }else {
             return imageArray.count
@@ -245,7 +265,12 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
             cell.configure(with: receivedJourney!)
             return cell
         }
-        else if indexPath.section == 1 {
+        else if indexPath.section == 1{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyControlsCollectionViewCell.identifier, for: indexPath) as! JourneyControlsCollectionViewCell
+            
+            return cell
+        }
+        else if indexPath.section == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyDetailsCollectionViewCell.identifier, for: indexPath) as! JourneyDetailsCollectionViewCell
             
             cell.configure(journey: journeyDetails!, title: (receivedJourney?.journeyName)!)

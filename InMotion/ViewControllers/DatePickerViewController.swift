@@ -19,6 +19,11 @@ class DatePickerViewController: UIViewController, FSCalendarDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set navbar gradient
+        let image = self.navigationController!.getGradient()
+        self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        
         calendar.delegate = self
         calendar.firstWeekday = 2
         calendar.scrollDirection = .vertical

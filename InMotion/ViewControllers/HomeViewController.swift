@@ -27,8 +27,11 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // set navbar gradient
+        let image = self.navigationController!.getGradient()
+        self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        
         
         user = UserHelper.instance.user
         if user == nil {
@@ -145,5 +148,30 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+}
+
+extension UINavigationController {
+    
+    func getGradient() -> UIImage? {
+        
+        // code found when researching gradients for navbars
+        // https://stackoverflow.com/questions/50285911/how-to-add-vertical-gradient-color-in-uinavigationbar
+        
+        let gradientLayer = CAGradientLayer()
+        var updatedFrame = self.navigationController!.navigationBar.bounds
+        updatedFrame.size.height += 20
+        gradientLayer.frame = updatedFrame
+        gradientLayer.colors = [UIColor.link.cgColor, UIColor.blue.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0) // vertical gradient start
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0) // vertical gradient end
+
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+        
     }
 }
