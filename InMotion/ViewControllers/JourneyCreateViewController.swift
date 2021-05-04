@@ -75,15 +75,20 @@ class JourneyCreateViewController: UIViewController{
                     
                 }))
                 self.present(alert, animated: true)
-                
+                break
             case .authorizedAlways, .authorizedWhenInUse:
                 locationManager.allowsBackgroundLocationUpdates = true
                 locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
                 locationManager.distanceFilter = kCLDistanceFilterNone
                 locationManager.startUpdatingLocation()
+                break
             case .notDetermined:
                 locationManager.requestAlwaysAuthorization()
-                
+                locationManager.allowsBackgroundLocationUpdates = true
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
+                locationManager.distanceFilter = kCLDistanceFilterNone
+                locationManager.startUpdatingLocation()
+                break
             @unknown default:
                 break
             }
@@ -100,8 +105,25 @@ class JourneyCreateViewController: UIViewController{
             // Ideally this should take user back to login screen
             return
         }
-        journey = Journey.createNewJourney(user: user ,context: managedContext)
-        performSegue(withIdentifier: "trackJourney", sender: self)
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch locationManager.authorizationStatus  {
+            
+            case .restricted, .denied, .notDetermined:
+                let alert = UIAlertController(title: NSLocalizedString("Not enough permissions to record a jeurney", comment: "Cannot proceed without location permissions"), message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Acknowledges"), style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true)
+                break
+                
+            case .authorizedAlways, .authorizedWhenInUse:
+                journey = Journey.createNewJourney(user: user ,context: managedContext)
+                performSegue(withIdentifier: "trackJourney", sender: self)
+            @unknown default:
+                break
+            }}
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
