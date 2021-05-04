@@ -40,7 +40,7 @@ struct Details {
     
     mutating func createPieData(){
         var const = 0.0
-        
+
         for x in modeTransports {
             for y in x.value {
                 if const < y.value {
@@ -56,18 +56,22 @@ struct Details {
             }
             
         }
-        if pieChartData.isEmpty {
-            pieChartData["No Data"] = 100
-        }
+
         //print("timeInSeconds: ", timeTravelledInSeconds)
         pieChartData.forEach{
             let value = $0.value
             let newValue = Double(value) / timeTravelledInSeconds * 100
             chartData[transportMode(value: $0.key)] = newValue
         }
+        if pieChartData.isEmpty {
+            chartData["No Data"] = 100
+            return
+        }
         
         let total = chartData.compactMap( {Double($0.value)}).reduce(0.0, +)
+        
         chartData["Stationary"] = Double(100 - total)
+        
         }
 
     }

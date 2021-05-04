@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
-class JourneyDetailsViewController: UIViewController{
+class JourneyDetailsViewController: UIViewController, NSFetchedResultsControllerDelegate{
     
     
     
@@ -16,7 +17,11 @@ class JourneyDetailsViewController: UIViewController{
     var image: UIImage?
     var journeyDetails: Details?
     var arrayOfPolyline: [String?: String?] = [:]
-    var imageArray = [Data]()
+    var imageArray = [Post]()
+    let managedContext = AppDelegate.viewContext
+    
+    private var fetchedResultController: NSFetchedResultsController<Journey>?
+    var user: User!
     
     let images: [UIImage] = [
         UIImage(named: "image1"),
@@ -38,6 +43,13 @@ class JourneyDetailsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        user = UserHelper.instance.user
+        if user == nil {
+            // TODO: This should log user out
+            NSLog("No user. Logging out")
+            return
+        }
+        
         collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(), animated: true)
     
         collectionView.register(JourneyDetailsCollectionViewCell.nib(), forCellWithReuseIdentifier: JourneyDetailsCollectionViewCell.identifier)
@@ -47,12 +59,40 @@ class JourneyDetailsViewController: UIViewController{
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        fetchJourney()
         setDailyInfo()
         getImages()
         
-        collectionView.reloadData()
     }
     
+    func fetchJourney(){
+        if fetchedResultController == nil {
+            let fetchRequest: NSFetchRequest<Journey> = Journey.fetchRequest()
+            fetchRequest.returnsObjectsAsFaults = false
+            let sorter = NSSortDescriptor(key: "journeyStarted", ascending: true)
+            fetchRequest.sortDescriptors = [sorter]
+            fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: "journeyStarted", cacheName: nil)
+            fetchedResultController!.delegate = self as NSFetchedResultsControllerDelegate
+        }
+
+        let userPredicate = NSPredicate(format: "user == %@", user)
+        let journeyIdPredicate = NSPredicate(format: "journeyId == %@", (receivedJourney?.journeyId)! as CVarArg)
+        let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate, journeyIdPredicate])
+        fetchedResultController?.fetchRequest.predicate = andPredicate
+        
+        do {
+            try fetchedResultController!.performFetch()
+            receivedJourney = fetchedResultController?.fetchedObjects![0]
+            print("fetched Journey successful")
+            
+        } catch {
+            print("fetch failed")
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        collectionView.reloadData()
+    }
     
     static func createSingleCellLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
@@ -135,38 +175,43 @@ class JourneyDetailsViewController: UIViewController{
         var dailyInfo = [Dictionary<String, Double>]()
         var modeTransports: [Int: [String : Double]] = [:]
         var count = 0
-
-
-        for segment in receivedJourney!.journeySegment ?? []  {
-                let s = segment as! JourneySegment
-
-                distance = distance + Int(s.segmentDistanceTravelled)
-                
-                let diffInSeconds = s.segmentEnd?.timeIntervalSince(s.segmentStart!)
-                time = time + diffInSeconds!
-            
-                arrayOfPolyline[s.segmentModeOfTravel] = s.segmentEncodedPolyLine
-            
-                modeTransports[count] = [String(s.segmentModeOfTravel!): Double(diffInSeconds!)]
-                count = count + 1
-                co2 = co2 + s.segmentCo2
-            }
-            let totalDistance = ["Distance Travelled": Double(distance)]
-            dailyInfo.append(totalDistance)
-            let totalTime = ["Time Spent Travelling" : time]
-            dailyInfo.append(totalTime)
-            let totalCO2 = ["Total CO2 Emmissions" : co2]
-            dailyInfo.append(totalCO2)
         
-
+        
+        print (receivedJourney!.journeySegment!)
+        
+        for segment in receivedJourney!.journeySegment! {
+            let s = segment as! JourneySegment
+            
+            distance = distance + Int(s.segmentDistanceTravelled)
+            
+            let diffInSeconds = s.segmentEnd?.timeIntervalSince(s.segmentStart!)
+            time = time + diffInSeconds!
+            
+            arrayOfPolyline[s.segmentModeOfTravel] = s.segmentEncodedPolyLine
+            
+            modeTransports[count] = [String(s.segmentModeOfTravel!): Double(diffInSeconds!)]
+            count = count + 1
+            co2 = co2 + s.segmentCo2
+        }
+        let totalDistance = ["Distance Travelled": Double(distance)]
+        dailyInfo.append(totalDistance)
+        let totalTime = ["Time Spent Travelling" : time]
+        dailyInfo.append(totalTime)
+        let totalCO2 = ["Total CO2 Emmissions" : co2]
+        dailyInfo.append(totalCO2)
+        
+        
         
         journeyDetails = Details(dailyInfo: dailyInfo, transports: modeTransports)
+        
+        
     }
     
     func getImages(){
-        for image in receivedJourney!.posts ?? [] {
+        
+        for image in receivedJourney!.posts! {
             let post = image as! Post
-            imageArray.append(post.postImg!)
+            imageArray.append(post)
         }
     }
     
@@ -225,7 +270,7 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImagePostCollectionViewCell.identifier, for: indexPath) as! ImagePostCollectionViewCell
             
-            cell.imageView.image = UIImage(data:imageArray[indexPath.row])
+            cell.imageView.image = UIImage(data:imageArray[indexPath.row].postImg!)
             return cell
         }
         

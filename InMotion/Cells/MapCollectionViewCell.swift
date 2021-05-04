@@ -11,7 +11,7 @@ import Polyline
 import CoreLocation
 
 class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
-
+    
     static var identifier = "MapCollectionViewCell"
     var dictOfPolylines: [String?: String?] = [:]
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
@@ -19,6 +19,7 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
     let modeIfNil = "unknown"
     var mode:String?
     
+    var journey: Journey!
     
     @IBOutlet weak var mapView: MKMapView!
     
