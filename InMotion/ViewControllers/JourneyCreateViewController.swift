@@ -52,8 +52,8 @@ class JourneyCreateViewController: UIViewController{
             switch locationManager.authorizationStatus {
             
             case .restricted, .denied:
-                let alert = UIAlertController(title: NSLocalizedString("Location services are disabled. In order to record a journey you need to go to settings and enable location for InMotion app", comment: "Cannot proceed without permissions"), message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Back home", comment: "Do not change settings"), style: .destructive, handler: { action in
+                let alert = UIAlertController(title: NSLocalizedString("need_location_permission", comment: "Cannot proceed without permissions"), message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("back_to_home", comment: "Do not change settings"), style: .destructive, handler: { action in
                     
                     // Take user to home screen
                     let board = UIStoryboard(name: "Main", bundle: nil)
@@ -64,7 +64,7 @@ class JourneyCreateViewController: UIViewController{
                     self.navigationController?.popToRootViewController(animated: true)
                     
                 }))
-                alert.addAction(UIAlertAction(title: "Take me to settings", style: .cancel, handler: { action in
+                alert.addAction(UIAlertAction(title: "go_to_settings", style: .cancel, handler: { action in
                     
                     // This will open your app settings in settings App
                     let url = URL(string:UIApplication.openSettingsURLString)

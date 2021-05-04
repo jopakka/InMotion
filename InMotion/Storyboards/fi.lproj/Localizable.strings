@@ -21,3 +21,7 @@
 "yes" = "Kyllä";
 "no" = "Ei";
 "not_work_in_sim" = "Tämä ei toimi simulaattorilla";
+"need_location_permission" = "Sijaintipalvelut ovat pois käytöstä. Tallentaaksesi matkan, mene asetuksiin ja salli sijainti sovellukselle.";
+"cannot_continue_without_location" = "Ei pysty jatkamaan ilman lupaa";
+"back_to_home" = "Takaisin";
+"go_to_settings" = "Mene asetuksiin";
