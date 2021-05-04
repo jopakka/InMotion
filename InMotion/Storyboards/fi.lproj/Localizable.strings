@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  InMotion
+
+  Created by iosdev on 4.5.2021.
+  
+*/
+
+"note_placeholder" = "Tänne voit kirjoittaa muistiinpanoja muistosta...";
+"save" = "Tallenna";
+"cancel" = "Peruuta";
+"error" = "Virhe";
+"no_location" = "Ei sijaintia";
+"no_title" = "Otsikko ei voi olla tyhjä";
+"no_image" = "Kuva puuttuu";
+"success" = "Onnistui";
+"memory_saved" = "Muisto tallennettu";
+"error_saving_memory" = "Virhe tallennettaessa muistoa";
+"warning" = "Varoitus";
+"memory_will_not_be_saved" = "Muistoa ei tallenneta. Haluatko jatkaa?";
+"yes" = "Kyllä";
+"no" = "Ei";
+"not_work_in_sim" = "Tämä ei toimi simulaattorilla";

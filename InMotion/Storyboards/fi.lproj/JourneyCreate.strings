@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "0iz-dG-XWN"; */
+"0iz-dG-XWN.text" = "Nimi";
+
+/* Class = "UINavigationItem"; title = "Add Memory"; ObjectID = "33k-UL-a8i"; */
+"33k-UL-a8i.title" = "Lisää muisto";
+
+/* Class = "UINavigationItem"; title = "Edit Journey"; ObjectID = "4WU-65-klM"; */
+"4WU-65-klM.title" = "Muokkaa matkaa";
+
+/* Class = "UIButton"; normalTitle = "Add memory"; ObjectID = "6wa-5U-y9C"; */
+"6wa-5U-y9C.normalTitle" = "Lisää muisto";
+
+/* Class = "UIButton"; normalTitle = "Upload from file"; ObjectID = "6yd-qm-B1b"; */
+"6yd-qm-B1b.normalTitle" = "Valitse kuva";
+
+/* Class = "UILabel"; text = "Add to favourites"; ObjectID = "A5b-rs-kGy"; */
+"A5b-rs-kGy.text" = "Lisää suosikkeihin";
+
+/* Class = "UIButton"; normalTitle = "Take photo"; ObjectID = "F3c-o4-j0u"; */
+"F3c-o4-j0u.normalTitle" = "Ota kuva";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "NPc-4x-9qY"; */
+"NPc-4x-9qY.text" = "Otsikko";
+
+/* Class = "UITextField"; placeholder = "Add title ..."; ObjectID = "TBh-hg-1Ac"; */
+"TBh-hg-1Ac.placeholder" = "Lisää otsikko...";
+
+/* Class = "UINavigationItem"; title = "Journey"; ObjectID = "Wz8-Of-Hke"; */
+"Wz8-Of-Hke.title" = "Matka";
+
+/* Class = "UIButton"; normalTitle = "Start Journey"; ObjectID = "dwv-Um-xUV"; */
+"dwv-Um-xUV.normalTitle" = "Aloita matka";
+
+/* Class = "UILabel"; text = "Notes"; ObjectID = "lk5-Mw-LeM"; */
+"lk5-Mw-LeM.text" = "Muistiinpanot";
+
+/* Class = "UINavigationItem"; title = "Tracking Journey"; ObjectID = "mIy-SS-zU5"; */
+"mIy-SS-zU5.title" = "Matkan seuranta";
+
+/* Class = "UIButton"; normalTitle = "Save journey"; ObjectID = "p7c-bn-rff"; */
+"p7c-bn-rff.normalTitle" = "Tallenna matka";
+
+/* Class = "UITextField"; placeholder = "Give name to this journey"; ObjectID = "u2A-wC-gez"; */
+"u2A-wC-gez.placeholder" = "Anna matkalle nimi";
+
+/* Class = "UIButton"; normalTitle = "Save journey"; ObjectID = "xRz-C5-zhy"; */
+"xRz-C5-zhy.normalTitle" = "Tallenna matka";
