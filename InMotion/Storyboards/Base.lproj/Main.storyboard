@@ -22,7 +22,7 @@
         <!--Main Tab View Controller-->
         <scene sceneID="VBQ-lr-9wW">
             <objects>
-                <tabBarController id="s7B-gs-IB6" customClass="MainTabViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTab" id="s7B-gs-IB6" customClass="MainTabViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Lz6-9h-yXh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Kuv-vE-5R3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -127,7 +127,7 @@
         <!--Home-->
         <scene sceneID="MyM-Qq-nwH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="guX-5c-398" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Home" automaticallyAdjustsScrollViewInsets="NO" id="guX-5c-398" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="IiZ-Mg-3jF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="RUz-Et-htT">

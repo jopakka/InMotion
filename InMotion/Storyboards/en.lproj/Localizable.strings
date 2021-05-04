@@ -21,3 +21,7 @@
 "yes" = "Yes";
 "no" = "No";
 "not_work_in_sim" = "This does not work in simulator";
+"need_location_permission" = "Location services are disabled. In order to record a journey you need to go to settings and enable location for InMotion app";
+"cannot_continue_without_location" = "Cannot proceed without permissions";
+"back_to_home" = "Back to home";
+"go_to_settings" = "Take me to settings";

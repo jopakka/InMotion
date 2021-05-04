@@ -14,10 +14,8 @@ import MOPRIMTmdSdk
 
 class JourneyCreateViewController: UIViewController{
     
-    
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var startJourneyButton: UIButton!
-    
     
     fileprivate let locationManager = CLLocationManager()
     fileprivate let motionActivityManager = CMMotionActivityManager()
@@ -53,14 +51,55 @@ class JourneyCreateViewController: UIViewController{
     
     func askLocationPermissions() {
         locationManager.delegate = self
-        //        locationManager.requestWhenInUseAuthorization()
-        //        other permissions we might want to use
         locationManager.requestAlwaysAuthorization()
-        locationManager.allowsBackgroundLocationUpdates = true
-        //        locationManager.pausesLocationUpdatesAutomatically = true
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.startUpdatingLocation()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch locationManager.authorizationStatus {
+            
+            case .restricted, .denied:
+                let alert = UIAlertController(title: NSLocalizedString("need_location_permission", comment: "Cannot proceed without permissions"), message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("back_to_home", comment: "Do not change settings"), style: .destructive, handler: { action in
+                    
+                    // Take user to home screen
+                    let board = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = board.instantiateViewController(identifier: "MainTab")
+                    let win = UIApplication.shared.windows.first
+                    win?.rootViewController = vc
+                    win?.makeKeyAndVisible()
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "go_to_settings", style: .cancel, handler: { action in
+                    
+                    // This will open your app settings in settings App
+                    let url = URL(string:UIApplication.openSettingsURLString)
+                    if UIApplication.shared.canOpenURL(url!){
+                        // can open succeeded.. opening the url
+                        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                    }
+                    
+                }))
+                self.present(alert, animated: true)
+                break
+            case .authorizedAlways, .authorizedWhenInUse:
+                locationManager.allowsBackgroundLocationUpdates = true
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
+                locationManager.distanceFilter = kCLDistanceFilterNone
+                locationManager.startUpdatingLocation()
+                break
+            case .notDetermined:
+                locationManager.requestAlwaysAuthorization()
+                locationManager.allowsBackgroundLocationUpdates = true
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
+                locationManager.distanceFilter = kCLDistanceFilterNone
+                locationManager.startUpdatingLocation()
+                break
+            @unknown default:
+                break
+            }
+        } else {
+            print("Location services are not enabled")
+        }
     }
     
     @IBAction func startJourneyAction(_ sender: UIButton) {
@@ -71,8 +110,25 @@ class JourneyCreateViewController: UIViewController{
             // Ideally this should take user back to login screen
             return
         }
-        journey = Journey.createNewJourney(user: user ,context: managedContext)
-        performSegue(withIdentifier: "trackJourney", sender: self)
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch locationManager.authorizationStatus  {
+            
+            case .restricted, .denied, .notDetermined:
+                let alert = UIAlertController(title: NSLocalizedString("Not enough permissions to record a jeurney", comment: "Cannot proceed without location permissions"), message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Acknowledges"), style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true)
+                break
+                
+            case .authorizedAlways, .authorizedWhenInUse:
+                journey = Journey.createNewJourney(user: user ,context: managedContext)
+                performSegue(withIdentifier: "trackJourney", sender: self)
+            @unknown default:
+                break
+            }}
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
