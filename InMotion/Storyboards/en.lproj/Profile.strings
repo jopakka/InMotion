@@ -1,0 +1,57 @@
+
+/* Class = "UILabel"; text = "Update Profile"; ObjectID = "0mB-Mb-eZE"; */
+"0mB-Mb-eZE.text" = "Update Profile";
+
+/* Class = "UILabel"; text = "Jane Doe"; ObjectID = "1it-JD-CNa"; */
+"1it-JD-CNa.text" = "Jane Doe";
+
+/* Class = "UILabel"; text = "Lastname"; ObjectID = "3PE-S3-FIB"; */
+"3PE-S3-FIB.text" = "Lastname";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "55p-f3-9hW"; */
+"55p-f3-9hW.placeholder" = "Confirm Password";
+
+/* Class = "UITextField"; placeholder = "Old Password"; ObjectID = "7fc-JM-6Th"; */
+"7fc-JM-6Th.placeholder" = "Old Password";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "M41-3m-Cl8"; */
+"M41-3m-Cl8.title" = "Profile";
+
+/* Class = "UIButton"; normalTitle = "Logout"; ObjectID = "MuT-Cc-zs8"; */
+"MuT-Cc-zs8.normalTitle" = "Logout";
+
+/* Class = "UITextField"; placeholder = "Lastname"; ObjectID = "RZn-m6-3Eu"; */
+"RZn-m6-3Eu.placeholder" = "Lastname";
+
+/* Class = "UITextField"; placeholder = "Firstname"; ObjectID = "YXv-w4-tWd"; */
+"YXv-w4-tWd.placeholder" = "Firstname";
+
+/* Class = "UILabel"; text = "Change password"; ObjectID = "Yee-xl-aDe"; */
+"Yee-xl-aDe.text" = "Change password";
+
+/* Class = "UILabel"; text = "Old Password"; ObjectID = "ajM-em-VVa"; */
+"ajM-em-VVa.text" = "Old Password";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "bDF-Gk-vIl"; */
+"bDF-Gk-vIl.placeholder" = "New Password";
+
+/* Class = "UILabel"; text = "New Password"; ObjectID = "bxy-bw-cWa"; */
+"bxy-bw-cWa.text" = "New Password";
+
+/* Class = "UILabel"; text = "Firstname"; ObjectID = "cvH-Gl-yt3"; */
+"cvH-Gl-yt3.text" = "Firstname";
+
+/* Class = "UIButton"; normalTitle = "Select profile picture"; ObjectID = "dB0-Wk-0bH"; */
+"dB0-Wk-0bH.normalTitle" = "Select profile picture";
+
+/* Class = "UIButton"; normalTitle = "Select banner picture"; ObjectID = "fEX-eq-i46"; */
+"fEX-eq-i46.normalTitle" = "Select banner picture";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "iwB-vx-PI1"; */
+"iwB-vx-PI1.text" = "Confirm Password";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "uIf-Ga-A0o"; */
+"uIf-Ga-A0o.normalTitle" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "xGt-bJ-Wso"; */
+"xGt-bJ-Wso.normalTitle" = "Save";

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="hdp-u7-ngs">
             <objects>
                 <viewController id="64B-Fe-jwV" customClass="HomeViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
@@ -92,7 +92,7 @@
                             <constraint firstItem="M6h-oS-QgB" firstAttribute="leading" secondItem="BgX-9S-toB" secondAttribute="leading" constant="20" id="zuw-18-sQN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eox-HO-7E4"/>
+                    <navigationItem key="navigationItem" title="Home" id="eox-HO-7E4"/>
                     <connections>
                         <outlet property="bannerImageView" destination="AkM-1h-VzF" id="BM8-xV-kRW"/>
                         <outlet property="favouriteTableView" destination="mN7-kK-I1i" id="3oO-Ue-Fbx"/>

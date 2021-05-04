@@ -20,7 +20,8 @@ class AddMemoryViewController: UIViewController{
     var journey: Journey!
     var location: CLLocation!
     
-    private let notePlaceholder = "Here you can enter memory text"
+    private let notePlaceholder = NSLocalizedString("note_placeholder", comment: "")
+    private let errorTitle = NSLocalizedString("error", comment: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class AddMemoryViewController: UIViewController{
     }
     
     private func setSaveButton() {
-        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save(sender:)))
+        let saveButton = UIBarButtonItem(title: NSLocalizedString("save", comment: ""), style: .plain, target: self, action: #selector(save(sender:)))
         navigationItem.rightBarButtonItem = saveButton
     }
     
@@ -42,7 +43,7 @@ class AddMemoryViewController: UIViewController{
         print("save work")
         
         guard let location = location else {
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "No location", presenter: self)
+            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("no_location", comment: ""), presenter: self)
             return
         }
         
@@ -51,12 +52,12 @@ class AddMemoryViewController: UIViewController{
         }
         
         if title.count == 0 {
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Title can't be empty", presenter: self)
+            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("no_title", comment: ""), presenter: self)
             return
         }
         
         guard let imgData = selectedImageData else {
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Missing image", presenter: self)
+            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("no_image", comment: ""), presenter: self)
             return
         }
         
@@ -64,19 +65,19 @@ class AddMemoryViewController: UIViewController{
         let post = Post.createNewPost(title: title, blog: blog, imgData: imgData, location: location, journey: journey, context: managedContext)
         
         if post != nil {
-            AlertHelper.instance.showSimpleAlert(title: "Success", message: "Memory saved", presenter: self, actions: [UIAlertAction(title: "OK", style: .default, handler: ({ _ in
+            AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("success", comment: ""), message: NSLocalizedString("memory_saved", comment: ""), presenter: self, actions: [UIAlertAction(title: "OK", style: .default, handler: ({ _ in
                 self.clearAll()
                 self.navigationController?.popViewController(animated: true)
             }))])
         } else {
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Error while saving memory", presenter: self)
+            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("error_saving_memory", comment: ""), presenter: self)
         }
     }
     
     private func setNewBackButton() {
         // https://stackoverflow.com/a/27713813
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.back(sender:)))
+        let newBackButton = UIBarButtonItem(title: NSLocalizedString("cancel", comment: ""), style: .plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
@@ -87,12 +88,12 @@ class AddMemoryViewController: UIViewController{
         // Go back to the previous ViewController
         print("back works !!!!")
         
-        let alert = UIAlertController(title: "Warning!", message: "Your memory will not be saved. Do you wanna continue?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("YES", comment: "Default action"), style: .default) { _ in
+        let alert = UIAlertController(title: NSLocalizedString("warning", comment: ""), message: NSLocalizedString("memory_will_not_be_saved", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("yes", comment: ""), style: .default) { _ in
             self.clearAll()
             self.navigationController?.popViewController(animated: true)
         })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("NO", comment: "Default action"), style: .default))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("no", comment: ""), style: .default))
         self.present(alert, animated: true)
     }
     
@@ -142,7 +143,7 @@ extension AddMemoryViewController: UIImagePickerControllerDelegate, UINavigation
             
             present(imagePicker, animated: true)
         } else {
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "This is not working on simulator", presenter: self)
+            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("not_work_in_sim", comment: ""), presenter: self)
         }
     }
     

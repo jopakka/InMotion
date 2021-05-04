@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A1FA0EE263157B60083F61E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1FA0ED263157B60083F61E /* Home.storyboard */; };
 		6A1FA0F7263164DE0083F61E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1FA0F6263164DE0083F61E /* ProfileViewController.swift */; };
-		6A1FA1132636924A0083F61E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A1FA1122636924A0083F61E /* Profile.storyboard */; };
 		6A1FA1962636D4940083F61E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1FA1952636D4940083F61E /* HomeViewController.swift */; };
 		6A203F1C263BF4430058B156 /* CustomLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A203F1B263BF4430058B156 /* CustomLocation.swift */; };
 		6A203F20263C08330058B156 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A203F1F263C08330058B156 /* DateHelper.swift */; };
-		6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */; };
 		6A377277262D8462003A6417 /* JourneyCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A377276262D8462003A6417 /* JourneyCreateViewController.swift */; };
 		6A3772B42630CDF9003A6417 /* JourneyTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */; };
 		6A3772B82630D4DB003A6417 /* AddMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3772B72630D4DB003A6417 /* AddMemoryViewController.swift */; };
@@ -93,6 +90,10 @@
 		6AD81B6326301C000033399B /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD81B6226301C000033399B /* MainTabViewController.swift */; };
 		6ADF42D72639BE1B00D025F1 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF42D62639BE1B00D025F1 /* AlertHelper.swift */; };
 		6AF21DE1263FDB3C00BDD562 /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF21DE0263FDB3C00BDD562 /* DateHelperTests.swift */; };
+		6AF21E262641297500BDD562 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF21E282641297500BDD562 /* Profile.storyboard */; };
+		6AF21E3526412ABD00BDD562 /* JourneyCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF21E3726412ABD00BDD562 /* JourneyCreate.storyboard */; };
+		6AF21E4026412BDB00BDD562 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF21E4226412BDB00BDD562 /* Home.storyboard */; };
+		6AF21E552641381300BDD562 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AF21E532641381300BDD562 /* Localizable.strings */; };
 		6AFE46D12630CD4C00A63746 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 6AFE46D02630CD4C00A63746 /* FSCalendar */; };
 		6AFE46E22637EE7000A63746 /* JourneyOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE46E02637EE7000A63746 /* JourneyOverviewCell.swift */; };
 		6AFE46E32637EE7000A63746 /* JourneyOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFE46E12637EE7000A63746 /* JourneyOverviewCell.xib */; };
@@ -137,13 +138,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6A1FA0ED263157B60083F61E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		6A1FA0F6263164DE0083F61E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6A1FA1122636924A0083F61E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		6A1FA1952636D4940083F61E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6A203F1B263BF4430058B156 /* CustomLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocation.swift; sourceTree = "<group>"; };
 		6A203F1F263C08330058B156 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JourneyCreate.storyboard; sourceTree = "<group>"; };
 		6A377276262D8462003A6417 /* JourneyCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyCreateViewController.swift; sourceTree = "<group>"; };
 		6A3772B32630CDF9003A6417 /* JourneyTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyTrackViewController.swift; sourceTree = "<group>"; };
 		6A3772B72630D4DB003A6417 /* AddMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoryViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +217,29 @@
 		6AD81B6226301C000033399B /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		6ADF42D62639BE1B00D025F1 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		6AF21DE0263FDB3C00BDD562 /* DateHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
+		6AF21E1B2641293700BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DateSelector.strings; sourceTree = "<group>"; };
+		6AF21E1C2641294F00BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/DateSelector.strings; sourceTree = "<group>"; };
+		6AF21E1D2641294F00BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/SelectedDateDetails.strings; sourceTree = "<group>"; };
+		6AF21E1E2641294F00BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/JourneyDetails.strings; sourceTree = "<group>"; };
+		6AF21E212641295000BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/JourneyMedia.strings; sourceTree = "<group>"; };
+		6AF21E222641295000BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		6AF21E232641295100BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		6AF21E272641297500BDD562 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		6AF21E2C2641297F00BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
+		6AF21E2E2641298000BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Profile.strings; sourceTree = "<group>"; };
+		6AF21E3026412A2100BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectedDateDetails.strings; sourceTree = "<group>"; };
+		6AF21E3226412A3D00BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JourneyDetails.strings; sourceTree = "<group>"; };
+		6AF21E3426412AA500BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JourneyMedia.strings; sourceTree = "<group>"; };
+		6AF21E3626412ABD00BDD562 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/JourneyCreate.storyboard; sourceTree = "<group>"; };
+		6AF21E3926412AC400BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JourneyCreate.strings; sourceTree = "<group>"; };
+		6AF21E3B26412AC900BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/JourneyCreate.strings; sourceTree = "<group>"; };
+		6AF21E3D26412B4E00BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		6AF21E3F26412B5800BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		6AF21E4126412BDB00BDD562 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		6AF21E4626412BE100BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Home.strings; sourceTree = "<group>"; };
+		6AF21E4826412C1200BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Home.strings; sourceTree = "<group>"; };
+		6AF21E542641381300BDD562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Storyboards/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6AF21E59264138CD00BDD562 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = Storyboards/fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6AFE46E02637EE7000A63746 /* JourneyOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyOverviewCell.swift; sourceTree = "<group>"; };
 		6AFE46E12637EE7000A63746 /* JourneyOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JourneyOverviewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,14 +329,14 @@
 			isa = PBXGroup;
 			children = (
 				6A395640262FF87000A67AEB /* DateSelector.storyboard */,
-				6A1FA1122636924A0083F61E /* Profile.storyboard */,
+				6AF21E282641297500BDD562 /* Profile.storyboard */,
 				6A39563B262FF84500A67AEB /* SelectedDateDetails.storyboard */,
 				6A395636262FF7B200A67AEB /* JourneyDetails.storyboard */,
 				6A395631262FF58A00A67AEB /* JourneyMedia.storyboard */,
-				6A37726E262D6D76003A6417 /* JourneyCreate.storyboard */,
+				6AF21E3726412ABD00BDD562 /* JourneyCreate.storyboard */,
 				6AD054642626C0D300750EB8 /* LaunchScreen.storyboard */,
 				6AD0545C2626C0D000750EB8 /* Main.storyboard */,
-				6A1FA0ED263157B60083F61E /* Home.storyboard */,
+				6AF21E4226412BDB00BDD562 /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -403,6 +424,7 @@
 				6A3955682626DCCA00A67AEB /* Storyboards */,
 				6AD054622626C0D300750EB8 /* Assets.xcassets */,
 				6AD054672626C0D300750EB8 /* Info.plist */,
+				6AF21E532641381300BDD562 /* Localizable.strings */,
 			);
 			path = InMotion;
 			sourceTree = "<group>";
@@ -568,6 +590,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fi,
 			);
 			mainGroup = 6AD0544A2626C0D000750EB8;
 			packageReferences = (
@@ -592,15 +615,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AD8151F26282DE90033399B /* README.md in Resources */,
-				6A37726F262D6D76003A6417 /* JourneyCreate.storyboard in Resources */,
+				6AF21E3526412ABD00BDD562 /* JourneyCreate.storyboard in Resources */,
 				6A6DA453263AD85500D1FED0 /* MapCollectionViewCell.xib in Resources */,
 				6A39563D262FF84500A67AEB /* SelectedDateDetails.storyboard in Resources */,
-				6A1FA0EE263157B60083F61E /* Home.storyboard in Resources */,
+				6AF21E4026412BDB00BDD562 /* Home.storyboard in Resources */,
 				6A395642262FF87000A67AEB /* DateSelector.storyboard in Resources */,
-				6A1FA1132636924A0083F61E /* Profile.storyboard in Resources */,
+				6AF21E262641297500BDD562 /* Profile.storyboard in Resources */,
 				6A395633262FF58A00A67AEB /* JourneyMedia.storyboard in Resources */,
 				6A395638262FF7B200A67AEB /* JourneyDetails.storyboard in Resources */,
 				6AD054902628280600750EB8 /* .gitignore in Resources */,
+				6AF21E552641381300BDD562 /* Localizable.strings in Resources */,
 				6AD054662626C0D300750EB8 /* LaunchScreen.storyboard in Resources */,
 				6A6DA472263C44FC00D1FED0 /* MediaDetailsTableViewCell.xib in Resources */,
 				6AD054632626C0D300750EB8 /* Assets.xcassets in Resources */,
@@ -714,6 +738,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6A395632262FF58A00A67AEB /* Base */,
+				6AF21E212641295000BDD562 /* fi */,
+				6AF21E3426412AA500BDD562 /* en */,
 			);
 			name = JourneyMedia.storyboard;
 			sourceTree = "<group>";
@@ -722,6 +748,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6A395637262FF7B200A67AEB /* Base */,
+				6AF21E1E2641294F00BDD562 /* fi */,
+				6AF21E3226412A3D00BDD562 /* en */,
 			);
 			name = JourneyDetails.storyboard;
 			sourceTree = "<group>";
@@ -730,6 +758,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6A39563C262FF84500A67AEB /* Base */,
+				6AF21E1D2641294F00BDD562 /* fi */,
+				6AF21E3026412A2100BDD562 /* en */,
 			);
 			name = SelectedDateDetails.storyboard;
 			sourceTree = "<group>";
@@ -738,6 +768,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6A395641262FF87000A67AEB /* Base */,
+				6AF21E1B2641293700BDD562 /* en */,
+				6AF21E1C2641294F00BDD562 /* fi */,
 			);
 			name = DateSelector.storyboard;
 			sourceTree = "<group>";
@@ -746,6 +778,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6AD0545D2626C0D000750EB8 /* Base */,
+				6AF21E232641295100BDD562 /* fi */,
+				6AF21E3F26412B5800BDD562 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -754,8 +788,49 @@
 			isa = PBXVariantGroup;
 			children = (
 				6AD054652626C0D300750EB8 /* Base */,
+				6AF21E222641295000BDD562 /* fi */,
+				6AF21E3D26412B4E00BDD562 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6AF21E282641297500BDD562 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AF21E272641297500BDD562 /* Base */,
+				6AF21E2C2641297F00BDD562 /* en */,
+				6AF21E2E2641298000BDD562 /* fi */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		6AF21E3726412ABD00BDD562 /* JourneyCreate.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AF21E3626412ABD00BDD562 /* Base */,
+				6AF21E3926412AC400BDD562 /* en */,
+				6AF21E3B26412AC900BDD562 /* fi */,
+			);
+			name = JourneyCreate.storyboard;
+			sourceTree = "<group>";
+		};
+		6AF21E4226412BDB00BDD562 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AF21E4126412BDB00BDD562 /* Base */,
+				6AF21E4626412BE100BDD562 /* en */,
+				6AF21E4826412C1200BDD562 /* fi */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		6AF21E532641381300BDD562 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AF21E542641381300BDD562 /* en */,
+				6AF21E59264138CD00BDD562 /* fi */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -765,6 +840,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -826,6 +902,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
