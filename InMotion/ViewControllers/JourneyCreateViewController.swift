@@ -51,9 +51,9 @@ class JourneyCreateViewController: UIViewController{
         if CLLocationManager.locationServicesEnabled() {
             switch locationManager.authorizationStatus {
             
-            case .notDetermined, .restricted, .denied:
+            case .restricted, .denied:
                 let alert = UIAlertController(title: NSLocalizedString("Location services are disabled. In order to record a journey you need to go to settings and enable location for InMotion app", comment: "Cannot proceed without permissions"), message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Back home", style: .destructive, handler: { action in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Back home", comment: "Do not change settings"), style: .destructive, handler: { action in
                     
                     // Take user to home screen
                     let board = UIStoryboard(name: "Main", bundle: nil)
@@ -62,7 +62,7 @@ class JourneyCreateViewController: UIViewController{
                     win?.rootViewController = vc
                     win?.makeKeyAndVisible()
                     self.navigationController?.popToRootViewController(animated: true)
-                  
+                    
                 }))
                 alert.addAction(UIAlertAction(title: "Take me to settings", style: .cancel, handler: { action in
                     
@@ -76,15 +76,14 @@ class JourneyCreateViewController: UIViewController{
                 }))
                 self.present(alert, animated: true)
                 
-                print("No access")
             case .authorizedAlways, .authorizedWhenInUse:
-                print("Access")
-                
                 locationManager.allowsBackgroundLocationUpdates = true
-                //        locationManager.pausesLocationUpdatesAutomatically = true
                 locationManager.desiredAccuracy = kCLLocationAccuracyBest // affects battery
                 locationManager.distanceFilter = kCLDistanceFilterNone
                 locationManager.startUpdatingLocation()
+            case .notDetermined:
+                locationManager.requestAlwaysAuthorization()
+                
             @unknown default:
                 break
             }
