@@ -17,6 +17,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     var arrayOfPolyline: [String?: String?] = [:]
     var imageArray = [Post]()
     let managedContext = AppDelegate.viewContext
+    var isLandscape = false
     
     private var fetchedResultController: NSFetchedResultsController<Journey>?
     var user: User!
@@ -36,7 +37,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         }
         
         
-        collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(), animated: true)
+        collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(isLandscape: isLandscape), animated: true)
         
         collectionView.register(JourneyControlsCollectionViewCell.nib(), forCellWithReuseIdentifier: JourneyControlsCollectionViewCell.identifier)
         collectionView.register(JourneyDetailsCollectionViewCell.nib(), forCellWithReuseIdentifier: JourneyDetailsCollectionViewCell.identifier)
@@ -78,6 +79,8 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         
     }
     
+
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         collectionView.reloadData()
     }
@@ -88,27 +91,60 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
             heightDimension: .absolute(50.0))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: itemSize,
             subitem: item,
             count: 1)
         let section = NSCollectionLayoutSection(group: group)
-        
+ 
         return section
     }
     
-    static func createSingleCellLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalWidth(2/3))
-        
+    static func createMapCellLayout(landscape: Bool) -> NSCollectionLayoutSection {
+        let itemSize: NSCollectionLayoutSize
+        if landscape{
+           itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1.0))
+        }else {
+            itemSize = NSCollectionLayoutSize(
+             widthDimension: .fractionalWidth(1),
+             heightDimension: .fractionalWidth(2/3))
+        }
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: itemSize,
             subitem: item,
             count: 1)
         let section = NSCollectionLayoutSection(group: group)
+        if landscape{
+            let screenSize = UIScreen.main.bounds
+            let screenWidth = screenSize.width
+            let space = screenWidth * 0.05
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: space, bottom: 0, trailing: space)
+        }
+
+        return section
+    }
+    
+    static func createDetailCellLayout() -> NSCollectionLayoutSection {
         
+
+         let itemSize = NSCollectionLayoutSize(
+             widthDimension: .fractionalWidth(1),
+             heightDimension: .fractionalWidth(2/3))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: itemSize,
+            subitem: item,
+            count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+
+
         return section
     }
     
@@ -154,18 +190,20 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         
         //section
         let section = NSCollectionLayoutSection(group: group)
-        
+
         return section
     }
     
-    static func createLayout() -> UICollectionViewCompositionalLayout{
+    static func createLayout(isLandscape: Bool) -> UICollectionViewCompositionalLayout{
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
-            if sectionIndex == 0 || sectionIndex == 2 {
-                return self.createSingleCellLayout()
+            if sectionIndex == 0 {
+                return self.createMapCellLayout(landscape: isLandscape)
             }else if sectionIndex == 1 {
                 return self.createControlLayout()
+            }else if sectionIndex == 2 {
+                return self.createDetailCellLayout()
             }
             else{
                 return self.createImageLayout()
@@ -254,6 +292,35 @@ extension JourneyDetailsViewController: UICollectionViewDelegate {
         
     }
     
+    override func willRotate(to toInterfaceOrientation:
+                                            UIInterfaceOrientation, duration: TimeInterval) {
+        var text=""
+            switch UIDevice.current.orientation{
+            case .portrait:
+                text="Portrait"
+                isLandscape = false
+            case .portraitUpsideDown:
+                text="PortraitUpsideDown"
+                isLandscape = false
+            case .landscapeLeft:
+                text="LandscapeLeft"
+                isLandscape = true
+            case .landscapeRight:
+                text="LandscapeRight"
+                isLandscape = true
+            default:
+                text="Another"
+            }
+        print("orientation is: ", text)
+        print(isLandscape)
+        self.collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(isLandscape: isLandscape), animated: true)
+      
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
     
 }
 
