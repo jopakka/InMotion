@@ -85,7 +85,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     static func createControlLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(80.0))
+            heightDimension: .absolute(50.0))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let group = NSCollectionLayoutGroup.horizontal(

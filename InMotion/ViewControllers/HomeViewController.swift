@@ -160,7 +160,11 @@ extension UINavigationController {
         
         let gradientLayer = CAGradientLayer()
         var updatedFrame = self.navigationController!.navigationBar.bounds
-        updatedFrame.size.height += 20
+        
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        
+        updatedFrame.size.height += statusBarHeight
         gradientLayer.frame = updatedFrame
         gradientLayer.colors = [UIColor.link.cgColor, UIColor.blue.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0) // vertical gradient start

@@ -17,7 +17,7 @@ class MainTabViewController : UITabBarController {
         layerGradient.startPoint = CGPoint(x: 0.5, y: 0)
         layerGradient.endPoint = CGPoint(x: 0.5, y: 1)
        
-        layerGradient.frame = CGRect(x: 0, y: 0, width: tabBar.bounds.width,height: tabBar.bounds.height)
+        layerGradient.frame = CGRect(x: 0, y: 0, width: tabBar.bounds.width,height: tabBar.bounds.height + 40)
         self.tabBar.layer.insertSublayer(layerGradient, at: 0)
         
         // Test to see data directly from Moprim

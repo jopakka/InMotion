@@ -150,10 +150,6 @@
                                                     <constraint firstAttribute="height" constant="400" id="UAi-jj-vYa"/>
                                                 </constraints>
                                             </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7c-bn-rff">
-                                                <rect key="frame" x="184" y="950" width="46" height="30"/>
-                                                <state key="normal" title="Save journey"/>
-                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4bU-wk-U0i">
                                                 <rect key="frame" x="20" y="8" width="374" height="34"/>
                                                 <subviews>
@@ -178,16 +174,13 @@
                                             <constraint firstItem="2oM-OJ-ke6" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="8" id="CJO-9t-a7j"/>
                                             <constraint firstItem="2oM-OJ-ke6" firstAttribute="top" secondItem="t9C-mk-Ror" secondAttribute="bottom" constant="30" id="FPn-Ah-Gfv"/>
                                             <constraint firstAttribute="height" constant="1000" id="G29-ib-RBj"/>
-                                            <constraint firstItem="p7c-bn-rff" firstAttribute="top" secondItem="2oM-OJ-ke6" secondAttribute="bottom" constant="30" id="JVQ-L7-WD0"/>
                                             <constraint firstAttribute="trailing" secondItem="t9C-mk-Ror" secondAttribute="trailing" constant="8" id="Jqo-dt-j9J"/>
                                             <constraint firstAttribute="trailing" secondItem="4bU-wk-U0i" secondAttribute="trailing" constant="20" id="Wbe-w9-bOI"/>
                                             <constraint firstAttribute="trailing" secondItem="2hR-fh-oDF" secondAttribute="trailing" constant="20" id="aRf-Wu-buf"/>
                                             <constraint firstAttribute="trailing" secondItem="2oM-OJ-ke6" secondAttribute="trailing" constant="8" id="fWJ-XS-Y3J"/>
                                             <constraint firstItem="t9C-mk-Ror" firstAttribute="top" secondItem="2hR-fh-oDF" secondAttribute="bottom" constant="30" id="i2v-zJ-G9N"/>
                                             <constraint firstItem="4bU-wk-U0i" firstAttribute="top" secondItem="t4l-4H-h5e" secondAttribute="top" constant="8" id="pXS-8r-U5w"/>
-                                            <constraint firstItem="p7c-bn-rff" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="184" id="pbA-kP-d36"/>
                                             <constraint firstItem="t9C-mk-Ror" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="8" id="vog-zL-g5o"/>
-                                            <constraint firstAttribute="trailing" secondItem="p7c-bn-rff" secondAttribute="trailing" constant="184" id="yRx-Z2-Rox"/>
                                             <constraint firstItem="4bU-wk-U0i" firstAttribute="leading" secondItem="t4l-4H-h5e" secondAttribute="leading" constant="20" id="yXQ-qt-JAZ"/>
                                         </constraints>
                                     </view>
@@ -233,7 +226,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNd-n4-Zae">
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNd-n4-Zae">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktq-u4-JLX" userLabel="Content View">
