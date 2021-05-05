@@ -9,11 +9,10 @@ import UIKit
 
 class MediaDetailsTableViewCell: UITableViewCell {
  
-    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var titleView: UILabel!
     
-    @IBOutlet weak var titleText: UILabel!
-    
-    @IBOutlet weak var descriptionText: UILabel!
+    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var descriptionView: UILabel!
     
     static var identifier = "MediaDetailsTableViewCell"
     
@@ -27,15 +26,9 @@ class MediaDetailsTableViewCell: UITableViewCell {
     }
     
     func configure(image: UIImage, title: String, description: String){
-        cellImage.image = image
-        titleText.text = title
-        descriptionText.text = description
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        postImage.image = image
+        titleView.text = title
+        descriptionView.text = description
     }
     
 }
