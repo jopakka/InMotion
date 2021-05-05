@@ -64,13 +64,13 @@ struct Details {
             chartData[transportMode(value: $0.key)] = newValue
         }
         if pieChartData.isEmpty {
-            chartData["No Data"] = 100
+            chartData[NSLocalizedString("no_data", comment: "")] = 100
             return
         }
         
         let total = chartData.compactMap( {Double($0.value)}).reduce(0.0, +)
         
-        chartData["Stationary"] = Double(100 - total)
+        chartData[NSLocalizedString("stationary", comment: "")] = Double(100 - total)
         
     }
     
@@ -80,37 +80,37 @@ func transportMode(value: String) -> String {
     
     switch value {
     case "stationary":
-        return "Stationary"
+        return NSLocalizedString("stationary", comment: "")
     case "non-motorized":
-        return "Non-Motorized"
+        return NSLocalizedString("non-motorized", comment: "")
     case "non-motorized/pedestrian":
-        return "Pedestrian"
+        return NSLocalizedString("pedestrian", comment: "")
     case "non-motorized/pedestrian/walk":
-        return "Walking"
+        return NSLocalizedString("walk", comment: "")
     case "non-motorized/bicycle":
-        return "Bicycle"
+        return NSLocalizedString("bicycle", comment: "")
     case "non-motorized/pedestrian/run":
-        return "Running"
+        return NSLocalizedString("run", comment: "")
     case "motorized":
-        return "Motorized"
+        return NSLocalizedString("motorized", comment: "")
     case "motorized/road/":
-        return "Road Vehicle"
+        return NSLocalizedString("road", comment: "")
     case "motorized/road/car":
-        return "Car"
+        return NSLocalizedString("car", comment: "")
     case "motorized/road/bus":
-        return "Bus"
+        return NSLocalizedString("bus", comment: "")
     case "motorized/rail":
-        return "Rail Vehicle"
+        return NSLocalizedString("rail", comment: "")
     case "motorized/rail/tram":
-        return "Tram"
+        return NSLocalizedString("tram", comment: "")
     case "motorized/rail/train":
-        return "Train"
+        return NSLocalizedString("train", comment: "")
     case "motorized/rail/metro":
-        return "Metro"
+        return NSLocalizedString("metro", comment: "")
     case "motorized/air/plane":
-        return "Airplane"
+        return NSLocalizedString("plane", comment: "")
     default:
-        return "Unknown"
+        return NSLocalizedString("unknown", comment: "")
     }
 }
 
