@@ -57,8 +57,7 @@ class ProfileViewController: UIViewController {
         user = UserHelper.instance.user
         guard user != nil else {
             // User not found
-            // TODO: Logout
-            NSLog("This should logout")
+            logout()
             return
         }
         updateInfos()

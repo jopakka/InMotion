@@ -57,19 +57,19 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         
         // Check text fields for errors
         var errors = ""
-        if u.count < 3 { errors += "Username must be atleast 3 characters long.\n" }
-        if p.count < 6 { errors += "Password must be atleast 6 characters long.\n" }
-        if p != cp { errors += "Passwords doesn't match" }
+        if u.count < 3 { errors += NSLocalizedString("username_length_error", comment: "") + "\n" }
+        if p.count < 6 { errors += NSLocalizedString("password_length_error", comment: "") + "\n" }
+        if p != cp { errors += NSLocalizedString("passwords_not_match", comment: "") }
         if errors.count > 0 {
-            AlertHelper.instance.showSimpleAlert(title: "Errors while creating user", message: errors, presenter: self)
+            AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("user_creating_error_title", comment: ""), message: errors, presenter: self)
             return
         }
         
         // Checks if username already exists
         let managedContext = AppDelegate.viewContext
         guard let user = try? User.createIfNotExist(username: u, context: managedContext) else {
-            NSLog("Username already exists")
-            AlertHelper.instance.showSimpleAlert(title: "Username already exists", message: "Username already exists", presenter: self)
+//            NSLog("Username already exists")
+            AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("username_exists", comment: ""), message: NSLocalizedString("username_exists", comment: ""), presenter: self)
             return
         }
         
@@ -85,16 +85,16 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
             prefs.setValue(u, forKey: "user")
             let saved = prefs.synchronize()
             if !saved {
-                NSLog("Failed to save user in defaults")
+//                NSLog("Failed to save user in defaults")
                 throw UserCreationErrors.creationFailed
             }
-            NSLog("User saved to defaults")
+//            NSLog("User saved to defaults")
             
             // Navigate to next screen
             self.performSegue(withIdentifier: "registerSegue", sender: self)
         } catch {
-            NSLog("Creating user failed")
-            AlertHelper.instance.showSimpleAlert(title: "Creating user failed", message: "There was some errors while creating user. Please try again.", presenter: self)
+//            NSLog("Creating user failed")
+            AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("user_creating_error_title", comment: ""), message: NSLocalizedString("user_creating_error_title", comment: ""), presenter: self)
         }
     }
     
@@ -132,16 +132,16 @@ extension RegisterViewController: UITextFieldDelegate {
     
     // Setting background image
     func assignbackground(){
-          let background = UIImage(named: "loginBackground")
+        let background = UIImage(named: "loginBackground")
 
-          var imageView : UIImageView!
-          imageView = UIImageView(frame: view.bounds)
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
-          imageView.clipsToBounds = true
-          imageView.image = background
-          imageView.center = view.center
-          view.addSubview(imageView)
-          self.view.sendSubviewToBack(imageView)
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
       }
     
 }
