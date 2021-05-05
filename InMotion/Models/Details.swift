@@ -77,19 +77,32 @@ struct Details {
 }
 
 func transportMode(value: String) -> String {
-    print(value)
     
     switch value {
+    case "unknown":
+        return "Unknown"
+    case "stationary":
+        return "Stationary"
+    case "non-motorized":
+        return "Non-Motorized"
+    case "non-motorized/pedestrian":
+        return "Pedestrian"
     case "non-motorized/pedestrian/walk":
         return "Walking"
     case "non-motorized/bicycle":
         return "Bicycle"
     case "non-motorized/pedestrian/run":
         return "Running"
+    case "motorized":
+        return "Motorized"
+    case "motorized/road/":
+        return "Road Vehicle"
     case "motorized/road/car":
         return "Car"
     case "motorized/road/bus":
         return "Bus"
+    case "motorized/rail":
+        return "Rail Vehicle"
     case "motorized/rail/tram":
         return "Tram"
     case "motorized/rail/train":
@@ -99,7 +112,7 @@ func transportMode(value: String) -> String {
     case "motorized/air/plane":
         return "Airplane"
     default:
-        return value.capitalized
+        return "Unknown"
     }
 }
 
