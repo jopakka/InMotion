@@ -32,7 +32,6 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="sZE-5p-PKp"/>
                         </constraints>
-                        <size key="titleShadowOffset" width="1" height="2"/>
                         <state key="normal" title="Delete">
                             <color key="titleShadowColor" systemColor="labelColor"/>
                         </state>
