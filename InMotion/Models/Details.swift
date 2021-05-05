@@ -77,6 +77,7 @@ struct Details {
 }
 
 func transportMode(value: String) -> String {
+    print(value)
     
     switch value {
     case "non-motorized/pedestrian/walk":

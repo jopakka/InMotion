@@ -60,7 +60,7 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
     }
     
     func formatDescription(_ description: Description){
-        description.text = "Daily Travel Breakdown"
+        description.text = NSLocalizedString("daily_breakout", comment: "")
         description.font = UIFont.systemFont(ofSize: 15)
     }
     

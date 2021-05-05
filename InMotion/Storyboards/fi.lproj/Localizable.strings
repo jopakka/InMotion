@@ -25,3 +25,17 @@
 "cannot_continue_without_location" = "Ei pysty jatkamaan ilman lupaa";
 "back_to_home" = "Takaisin";
 "go_to_settings" = "Mene asetuksiin";
+"username_length_error" = "Käyttäjänimen täytyy olla vähintään 3 merkkiä pitkä.";
+"password_length_error" = "Salasanan täytyy olla vähintään 6 merkkiä pitkä.";
+"passwords_not_match" = "Salasanat eivät täsmää.";
+"user_creating_error_title" = "Virhe luodessa käyttäjää";
+"username_exists" = "Käyttäjänimi käytössä";
+"wrong_username_or_password" = "Väärä käyttäjänimi tai salasana";
+"there_was_error" = "Tapahtui virhe";
+"distance_travelled" = "Kuljettu matka";
+"time_spent_travelling" = "Kulutettu aika";
+"total_co2_emmissions" = "Kokonais CO2 kulutus";
+"ok" = "Ok";
+"not_working" = "Tämä ei toimi. Yritin parhaani :(";
+"no_name" = "Nimi ei voi olla tyhjä";
+"daily_breakout" = "Päivän matkat";

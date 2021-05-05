@@ -134,17 +134,18 @@ extension AddMemoryViewController: UIImagePickerControllerDelegate, UINavigation
     
     
     @IBAction func takeImageAction(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            NSLog("Taking image")
-            
-            imagePicker.delegate = self
-            imagePicker.sourceType = .camera
-            imagePicker.allowsEditing = true
-            
-            present(imagePicker, animated: true)
-        } else {
-            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("not_work_in_sim", comment: ""), presenter: self)
-        }
+        AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("not_working", comment: ""), message: "", presenter: self)
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            NSLog("Taking image")
+//
+//            imagePicker.delegate = self
+//            imagePicker.sourceType = .camera
+//            imagePicker.allowsEditing = true
+//
+//            present(imagePicker, animated: true)
+//        } else {
+//            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("not_work_in_sim", comment: ""), presenter: self)
+//        }
     }
     
     // MARK:-- ImagePicker delegate
