@@ -49,13 +49,32 @@ class CoreHelper {
             journey.journeyStarted = value as? Date
             break
         }
-        
         do {
             try managedContext.save()
         } catch {
             NSLog("saveJourneyData error: %@", error.localizedDescription)
         }
     }
+    
+    func updateFavouriteJourney(journey: Journey){
+        journey.favourite = !journey.favourite
+        
+        do {
+            try managedContext.save()
+        } catch {
+            NSLog("updateFavouriteJourney error: %@", error.localizedDescription)
+        }
+    }
+    
+    func deleteJourney(journey: Journey){
+        managedContext.delete(journey)
+        do {
+            try managedContext.save()
+        } catch {
+            NSLog("updateFavouriteJourney error: %@", error.localizedDescription)
+        }
+    }
+    
 }
 
 enum UserDataTypes {

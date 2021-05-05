@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="969.56521739130437" y="-243.08035714285714"/>
         </scene>
-        <!--UIViewController-Wvx-qw-cYy-->
+        <!--SelectedDateDetails-->
         <scene sceneID="BIX-3D-N2g">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="UIViewController-Wvx-qw-cYy" storyboardName="SelectedDateDetails" referencedIdentifier="UIViewController-Wvx-qw-cYy" id="piH-UC-kad" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="SelectedDateDetails" id="piH-UC-kad" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Q9j-kJ-FT9"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9yA-PR-Nkm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

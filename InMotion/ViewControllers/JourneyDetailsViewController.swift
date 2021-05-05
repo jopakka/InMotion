@@ -8,10 +8,8 @@
 import UIKit
 import CoreData
 
-class JourneyDetailsViewController: UIViewController, NSFetchedResultsControllerDelegate{
-    
-    
-    
+class JourneyDetailsViewController: UIViewController, NSFetchedResultsControllerDelegate, JourneyControlsCellDelegate{
+
     var receivedJourney: Journey?
     var postToSend: String?
     var post: Post?
@@ -204,8 +202,6 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         let totalCO2 = ["Total CO2 Emmissions" : co2]
         dailyInfo.append(totalCO2)
         
-        
-        
         journeyDetails = Details(dailyInfo: dailyInfo, transports: modeTransports)
         
         
@@ -219,6 +215,21 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         }
     }
     
+    
+    func deleteBtn() {
+        // Create the actions
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) {
+            UIAlertAction in
+            self.navigationController?.popToRootViewController(animated: false)
+            CoreHelper.instance.deleteJourney(journey: self.receivedJourney!)
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+            UIAlertAction in
+        }
+        AlertHelper.instance.showDeleteConfirmationAlert(title: "Comfirm Delete?", message: "Are you sure you want to delete this Journey? It will be permanent!", presenter: self, actions: [okAction, cancelAction])
+    }
 }
 
 extension JourneyDetailsViewController: UICollectionViewDelegate {
@@ -267,13 +278,14 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         }
         else if indexPath.section == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyControlsCollectionViewCell.identifier, for: indexPath) as! JourneyControlsCollectionViewCell
-            
+            cell.delegate = self
+            cell.configure(journey: receivedJourney!)
             return cell
         }
         else if indexPath.section == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyDetailsCollectionViewCell.identifier, for: indexPath) as! JourneyDetailsCollectionViewCell
             
-            cell.configure(journey: journeyDetails!, title: (receivedJourney?.journeyName)!)
+            cell.configure(journey: journeyDetails!, title: receivedJourney?.journeyName ?? "no data")
             
             return cell
         }else{
