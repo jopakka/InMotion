@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Distance Travelled"; ObjectID = "2i0-Ur-E39"; */
+"2i0-Ur-E39.text" = "Kuljettu matka";
+
+/* Class = "UILabel"; text = "Answer 1"; ObjectID = "DHN-X9-U5R"; */
+"DHN-X9-U5R.text" = "Answer 1";
+
+/* Class = "UILabel"; text = "Answer 4"; ObjectID = "Jsk-sz-8Yg"; */
+"Jsk-sz-8Yg.text" = "Answer 4";
+
+/* Class = "UILabel"; text = "Time Travelled"; ObjectID = "RC6-NH-dUS"; */
+"RC6-NH-dUS.text" = "Matka-aika";
+
+/* Class = "UILabel"; text = "Journey Details"; ObjectID = "aTf-xc-VZb"; */
+"aTf-xc-VZb.text" = "Matkan tiedot";
+
+/* Class = "UILabel"; text = "Emissions"; ObjectID = "buO-SF-fjt"; */
+"buO-SF-fjt.text" = "Päästöt";
+
+/* Class = "UILabel"; text = "Most Popular Transport"; ObjectID = "ckN-6M-hQn"; */
+"ckN-6M-hQn.text" = "Suosituin kulkumuoto";
+
+/* Class = "UILabel"; text = "Answer 2"; ObjectID = "jL9-MC-679"; */
+"jL9-MC-679.text" = "Answer 2";
+
+/* Class = "UILabel"; text = "Answer 3"; ObjectID = "zoO-Bt-Krn"; */
+"zoO-Bt-Krn.text" = "Answer 3";

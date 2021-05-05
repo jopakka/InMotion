@@ -64,15 +64,15 @@ class LoginViewController: UIViewController {
         
         // Check if username exists
         guard let user = try? User.checkIfUserExist(username: u, context: managedContext) else {
-            NSLog("User with username \"%@\" not exists", u)
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Wrong username or password", presenter: self)
+//            NSLog("User with username \"%@\" not exists", u)
+            AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong_username_or_password", comment: ""), presenter: self)
             return
         }
         
         // Check if password is correct
         if user.password != p {
-            NSLog("Wrong password")
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Wrong username or password", presenter: self)
+//            NSLog("Wrong password")
+            AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong_username_or_password", comment: ""), presenter: self)
             return
         }
         
@@ -81,8 +81,8 @@ class LoginViewController: UIViewController {
         prefs.setValue(u, forKey: "user")
         let saved = prefs.synchronize()
         if !saved {
-            NSLog("Failed to save user in defaults")
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "There was some error", presenter: self)
+//            NSLog("Failed to save user in defaults")
+            AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("there_was_error", comment: ""), presenter: self)
             return
         }
         
@@ -120,15 +120,15 @@ extension LoginViewController : UITextFieldDelegate {
     
     // Setting background image
     func assignbackground(){
-          let background = UIImage(named: "loginBackground")
+        let background = UIImage(named: "loginBackground")
 
-          var imageView : UIImageView!
-          imageView = UIImageView(frame: view.bounds)
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
-          imageView.clipsToBounds = true
-          imageView.image = background
-          imageView.center = view.center
-          view.addSubview(imageView)
-          self.view.sendSubviewToBack(imageView)
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
       }
 }
