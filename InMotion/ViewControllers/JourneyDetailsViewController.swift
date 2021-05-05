@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class JourneyDetailsViewController: UIViewController, NSFetchedResultsControllerDelegate, JourneyControlsCellDelegate{
-
+    
     var receivedJourney: Journey?
     var postToSend: String?
     var post: Post?
@@ -26,6 +26,8 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     override func viewDidLoad(){
         super.viewDidLoad()
         
+        
+        
         user = UserHelper.instance.user
         if user == nil {
             // TODO: This should log user out
@@ -33,7 +35,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
             return
         }
         
-
+        
         collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(), animated: true)
         
         collectionView.register(JourneyControlsCollectionViewCell.nib(), forCellWithReuseIdentifier: JourneyControlsCollectionViewCell.identifier)
@@ -285,7 +287,12 @@ extension JourneyDetailsViewController: UICollectionViewDataSource {
         else if indexPath.section == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JourneyDetailsCollectionViewCell.identifier, for: indexPath) as! JourneyDetailsCollectionViewCell
             
-            cell.configure(journey: journeyDetails!, title: receivedJourney?.journeyName ?? "no data")
+            if receivedJourney?.journeyName == nil{
+                self.navigationController?.popToRootViewController(animated: false)
+            }
+            else{
+                cell.configure(journey: journeyDetails!, title: receivedJourney?.journeyName ?? "no data")
+            }
             
             return cell
         }else{
