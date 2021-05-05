@@ -248,7 +248,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     private func setNewBackButton() {
         // https://stackoverflow.com/a/27713813
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.back(sender:)))
+        let newBackButton = UIBarButtonItem(title: NSLocalizedString("save", comment: ""), style: .plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
@@ -260,7 +260,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         print("back works !!!!")
         
         guard let n = getTrimmedTexts(), n.count > 0 else {
-            AlertHelper.instance.showSimpleAlert(title: "Error", message: "Name can't be empty", presenter: self)
+            AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("no_name", comment: ""), presenter: self)
             return
         }
         

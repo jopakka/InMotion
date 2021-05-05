@@ -69,7 +69,7 @@ class JourneyCreateViewController: UIViewController{
                     self.navigationController?.popToRootViewController(animated: true)
                     
                 }))
-                alert.addAction(UIAlertAction(title: "go_to_settings", style: .cancel, handler: { action in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("go_to_settings", comment: ""), style: .cancel, handler: { action in
                     
                     // This will open your app settings in settings App
                     let url = URL(string:UIApplication.openSettingsURLString)
@@ -115,8 +115,8 @@ class JourneyCreateViewController: UIViewController{
             switch locationManager.authorizationStatus  {
             
             case .restricted, .denied, .notDetermined:
-                let alert = UIAlertController(title: NSLocalizedString("Not enough permissions to record a jeurney", comment: "Cannot proceed without location permissions"), message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Acknowledges"), style: .cancel, handler: nil))
+                let alert = UIAlertController(title: NSLocalizedString("cannot_continue_without_location", comment: "Cannot proceed without location permissions"), message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: "Acknowledges"), style: .cancel, handler: nil))
                 
                 self.present(alert, animated: true)
                 break
