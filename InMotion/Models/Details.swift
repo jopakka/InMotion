@@ -79,8 +79,6 @@ struct Details {
 func transportMode(value: String) -> String {
     
     switch value {
-    case "unknown":
-        return "Unknown"
     case "stationary":
         return "Stationary"
     case "non-motorized":
