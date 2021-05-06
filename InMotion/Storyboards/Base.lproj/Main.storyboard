@@ -74,6 +74,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.095039491700000006" green="0.42900068390000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
@@ -102,6 +103,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" systemColor="linkColor"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -136,6 +138,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.095039491700000006" green="0.42900068390000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -160,6 +163,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.095039491700000006" green="0.42900068390000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -182,8 +186,8 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InMotion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsm-0L-NIk">
                                 <rect key="frame" x="8" y="94" width="398" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iq1-Qj-vmu">
@@ -217,21 +221,28 @@
                                             <action selector="textFieldOnChage:" destination="I4H-9k-1A9" eventType="editingChanged" id="vGk-mo-Smh"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtM-vA-XnO">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RtM-vA-XnO">
                                         <rect key="frame" x="0.0" y="141" width="374" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="Don't have an account yet? Register here"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Don't have an account yet? Register here">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <segue destination="ftp-FJ-JBn" kind="show" id="LP5-LM-8eI"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Um-qB-0xL">
-                                <rect key="frame" x="345" y="376" width="49" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Um-qB-0xL" customClass="StyledButton" customModule="InMotion" customModuleProvider="target">
+                                <rect key="frame" x="310" y="376" width="84" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.1738870998" green="0.53508901099999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
                                     <action selector="loginAction:" destination="I4H-9k-1A9" eventType="touchUpInside" id="5AK-V1-8lq"/>
@@ -248,11 +259,13 @@
                             <constraint firstItem="lA3-bd-HGv" firstAttribute="trailing" secondItem="qsm-0L-NIk" secondAttribute="trailing" constant="8" id="YXY-Fx-Jow"/>
                             <constraint firstItem="lA3-bd-HGv" firstAttribute="trailing" secondItem="Iq1-Qj-vmu" secondAttribute="trailing" constant="20" id="eNC-oC-njR"/>
                             <constraint firstItem="6Um-qB-0xL" firstAttribute="top" secondItem="Iq1-Qj-vmu" secondAttribute="bottom" constant="20" id="kIt-Xn-Imn"/>
+                            <constraint firstItem="6Um-qB-0xL" firstAttribute="leading" secondItem="lA3-bd-HGv" secondAttribute="leading" constant="310" id="pfZ-WJ-cAz"/>
                             <constraint firstItem="Iq1-Qj-vmu" firstAttribute="top" secondItem="qsm-0L-NIk" secondAttribute="bottom" constant="50" id="rGq-TL-1lU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IqG-MU-JcV"/>
                     <connections>
+                        <outlet property="changeScreenBtn" destination="RtM-vA-XnO" id="ZAY-O6-cpg"/>
                         <outlet property="loginButton" destination="6Um-qB-0xL" id="Hcc-e4-wLi"/>
                         <outlet property="passwordTf" destination="TQp-Fj-iOD" id="J59-pX-EtE"/>
                         <outlet property="usernameTf" destination="JA9-AB-S7q" id="Zfr-p9-Vdp"/>
@@ -273,8 +286,8 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InMotion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-7M-2Ja">
                                 <rect key="frame" x="8" y="94" width="398" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IgX-qV-Kgm">
@@ -331,11 +344,11 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-bR-tkD">
-                                <rect key="frame" x="321" y="446.5" width="73" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-bR-tkD" customClass="StyledButton" customModule="InMotion" customModuleProvider="target">
+                                <rect key="frame" x="290" y="446.5" width="104" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Register">
-                                    <color key="titleColor" red="0.1738870998" green="0.53508901099999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
                                     <action selector="registerAction:" destination="ftp-FJ-JBn" eventType="touchUpInside" id="dOL-82-lWg"/>
@@ -348,6 +361,7 @@
                             <constraint firstItem="5aB-7M-2Ja" firstAttribute="top" secondItem="ZuV-Sc-m6H" secondAttribute="top" constant="50" id="6jX-w2-PRR"/>
                             <constraint firstItem="IgX-qV-Kgm" firstAttribute="leading" secondItem="ZuV-Sc-m6H" secondAttribute="leading" constant="20" id="FDG-Ax-7sV"/>
                             <constraint firstItem="5aB-7M-2Ja" firstAttribute="leading" secondItem="ZuV-Sc-m6H" secondAttribute="leading" constant="8" id="LWq-Rl-3uj"/>
+                            <constraint firstItem="aC3-bR-tkD" firstAttribute="leading" secondItem="ZuV-Sc-m6H" secondAttribute="leading" constant="290" id="OKT-8U-kuc"/>
                             <constraint firstItem="aC3-bR-tkD" firstAttribute="top" secondItem="IgX-qV-Kgm" secondAttribute="bottom" constant="20" id="TOo-BA-gec"/>
                             <constraint firstItem="ZuV-Sc-m6H" firstAttribute="trailing" secondItem="aC3-bR-tkD" secondAttribute="trailing" constant="20" id="eAg-KN-RJJ"/>
                             <constraint firstItem="ZuV-Sc-m6H" firstAttribute="trailing" secondItem="5aB-7M-2Ja" secondAttribute="trailing" constant="8" id="hDS-bg-2Vh"/>
@@ -357,6 +371,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="F4y-r2-SqV"/>
                     <connections>
+                        <outlet property="changeScreenBtn" destination="dhM-m6-yyj" id="KHf-UU-rHC"/>
                         <outlet property="confirmPasswordTf" destination="O8B-iN-bQG" id="rtt-vu-hpr"/>
                         <outlet property="passwordTf" destination="QF9-XU-yhk" id="2FP-HJ-7z2"/>
                         <outlet property="registerButton" destination="aC3-bR-tkD" id="TVd-MP-1yr"/>
@@ -390,7 +405,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XSE-Mq-0e3"/>
+        <segue reference="0dW-LI-LAv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

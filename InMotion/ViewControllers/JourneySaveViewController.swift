@@ -375,16 +375,14 @@ extension JourneySaveViewController: UICollectionViewDataSource {
 extension JourneySaveViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 3 {
             print("image pressed")
             post = imageArray[indexPath.row]
-            //performSegue(withIdentifier: "showPostDetails", sender: self)
-        }
+            performSegue(withIdentifier: "editJourneyImages", sender: self)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPostDetails" {
+        if segue.identifier == "editJourneyImages" {
             
             let destVC = segue.destination as! JourneyMediaDetailsViewController
             destVC.receivedPost = post!

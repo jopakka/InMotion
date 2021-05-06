@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Jounrey Media-->
+        <!--Post Details-->
         <scene sceneID="yMA-eG-3Kb">
             <objects>
                 <viewController id="a0u-by-3wn" customClass="JourneyMediaDetailsViewController" customModule="InMotion" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                             <constraint firstItem="6rk-YA-fSL" firstAttribute="bottom" secondItem="aPZ-eZ-3sT" secondAttribute="bottom" id="vXm-7R-eBR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Jounrey Media" id="5mc-6F-xto"/>
+                    <navigationItem key="navigationItem" title="Post Details" id="5mc-6F-xto"/>
                     <connections>
                         <outlet property="tableView" destination="aPZ-eZ-3sT" id="FC3-0s-TGR"/>
                     </connections>

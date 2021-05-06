@@ -212,11 +212,22 @@
                         <outlet property="favouriteSwitch" destination="ar9-Ys-ZbF" id="EyN-Cl-H0b"/>
                         <outlet property="mapView" destination="t9C-mk-Ror" id="JVn-Fe-z2O"/>
                         <outlet property="nameTf" destination="u2A-wC-gez" id="XcZ-Jb-DQk"/>
+                        <segue destination="Fbz-Up-jNO" kind="show" identifier="editJourneyImages" id="A0S-kW-r52"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mt9-T9-TmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="-229.01785714285714"/>
+        </scene>
+        <!--JourneyMedia-->
+        <scene sceneID="FDs-DJ-LFY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JourneyMedia" id="Fbz-Up-jNO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nnQ-Ft-Rbz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RwP-bz-hpU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1650" y="-257"/>
         </scene>
         <!--Add Memory-->
         <scene sceneID="kMc-py-dMA">

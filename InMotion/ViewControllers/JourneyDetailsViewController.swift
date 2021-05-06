@@ -29,7 +29,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         
         if let interfaceOrientation = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation {
          // Use interfaceOrientation
-            print("interfaceOrientation: ", interfaceOrientation.isLandscape)
+            //print("interfaceOrientation: ", interfaceOrientation.isLandscape)
             
             if interfaceOrientation.isLandscape{
                 isLandscape = true
@@ -38,8 +38,6 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
             }
             
         }
-        
-        print("isLandscaping: ", isLandscape!)
         
         user = UserHelper.instance.user
         if user == nil {
@@ -83,7 +81,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
         do {
             try fetchedResultController!.performFetch()
             receivedJourney = fetchedResultController?.fetchedObjects![0]
-            print("fetched Journey successful")
+            // print("fetched Journey successful")
             
         } catch {
             print("fetch failed")

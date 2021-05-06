@@ -22,7 +22,8 @@ class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, 
         tableView.dataSource = self
         
         tableView.register(MediaDetailsTableViewCell.nib(), forCellReuseIdentifier: MediaDetailsTableViewCell.identifier)
-
+        
+        self.title = NSLocalizedString("Post Details", comment: "Post Details")
         
     }
     
