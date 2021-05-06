@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
-class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MediaDetailsCellDelegate, NSFetchedResultsControllerDelegate {
     
+
     @IBOutlet weak var tableView: UITableView!
     var receivedPost:Post!
-    
+    private var fetchedResultController: NSFetchedResultsController<Post>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,21 @@ class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, 
         
     }
     
+    func deleteBtn(post: Post) {
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) {
+            UIAlertAction in
+            print("post deleted")
+            self.navigationController?.popToRootViewController(animated: false)
+            CoreHelper.instance.deletePost(post: post)
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+            UIAlertAction in
+        }
+        AlertHelper.instance.showDeletePostConfirmationAlert(title: "Comfirm Delete?", message: "Are you sure you want to delete this Post? It will be permanent!", presenter: self, actions: [okAction, cancelAction])
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -38,8 +54,8 @@ class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
             let cell = tableView.dequeueReusableCell(withIdentifier: MediaDetailsTableViewCell.identifier, for: indexPath) as! MediaDetailsTableViewCell
-            
-            cell.configure(image: UIImage(data: receivedPost.postImg!)!, title: receivedPost.postTitle!, description: receivedPost.postBlog!)
+        cell.delegate = self
+            cell.configure(post: receivedPost)
             return cell
         
 

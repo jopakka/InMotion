@@ -75,6 +75,15 @@ class CoreHelper {
         }
     }
     
+    func deletePost(post: Post){
+        managedContext.delete(post)
+        do {
+            try managedContext.save()
+        } catch {
+            NSLog("updateFavouriteJourney error: %@", error.localizedDescription)
+        }
+    }
+    
 }
 
 enum UserDataTypes {

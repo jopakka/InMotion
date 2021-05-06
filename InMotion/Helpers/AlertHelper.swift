@@ -35,4 +35,16 @@ class AlertHelper {
         }
         presenter.present(alert, animated: true)
     }
+    
+    func showDeletePostConfirmationAlert(title: String, message: String, presenter: JourneyMediaDetailsViewController, actions: [UIAlertAction]? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if let actions = actions, actions.count > 0 {
+            for a in actions {
+                alert.addAction(a)
+            }
+        } else {
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        }
+        presenter.present(alert, animated: true)
+    }
 }
