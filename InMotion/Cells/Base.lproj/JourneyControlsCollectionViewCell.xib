@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlu-zY-9Sg">
-                        <rect key="frame" x="451" y="9.5" width="52" height="31"/>
+                        <rect key="frame" x="442" y="9.5" width="52" height="31"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="waM-Or-bxv"/>
                         </constraints>
@@ -28,7 +28,7 @@
                         </connections>
                     </switch>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPb-pC-T7j" customClass="StyledButton" customModule="InMotion" customModuleProvider="target">
-                        <rect key="frame" x="10" y="10.5" width="100" height="29"/>
+                        <rect key="frame" x="20" y="10.5" width="100" height="29"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="sZE-5p-PKp"/>
                         </constraints>
@@ -40,8 +40,8 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle Favourite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voq-el-7s4">
-                        <rect key="frame" x="302" y="15" width="129" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <rect key="frame" x="274" y="13" width="148" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -53,8 +53,8 @@
                 <constraint firstItem="dlu-zY-9Sg" firstAttribute="centerY" secondItem="gPb-pC-T7j" secondAttribute="centerY" id="5gg-if-TfN"/>
                 <constraint firstItem="dlu-zY-9Sg" firstAttribute="centerY" secondItem="voq-el-7s4" secondAttribute="centerY" id="FBZ-qB-LVE"/>
                 <constraint firstItem="gPb-pC-T7j" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10.5" id="WQi-A7-c3l"/>
-                <constraint firstItem="gPb-pC-T7j" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="ax2-Uv-XiD"/>
-                <constraint firstAttribute="trailing" secondItem="dlu-zY-9Sg" secondAttribute="trailing" constant="11" id="eEv-Ln-Sxj"/>
+                <constraint firstItem="gPb-pC-T7j" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ax2-Uv-XiD"/>
+                <constraint firstAttribute="trailing" secondItem="dlu-zY-9Sg" secondAttribute="trailing" constant="20" id="eEv-Ln-Sxj"/>
                 <constraint firstItem="dlu-zY-9Sg" firstAttribute="leading" secondItem="voq-el-7s4" secondAttribute="trailing" constant="20" id="gZ6-oU-KEv"/>
                 <constraint firstItem="dlu-zY-9Sg" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="uMZ-mc-qYP"/>
             </constraints>

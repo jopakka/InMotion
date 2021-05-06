@@ -17,7 +17,7 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     var arrayOfPolyline: [String?: String?] = [:]
     var imageArray = [Post]()
     let managedContext = AppDelegate.viewContext
-    var isLandscape = false
+    var isLandscape: Bool!
     
     private var fetchedResultController: NSFetchedResultsController<Journey>?
     var user: User!
@@ -27,7 +27,19 @@ class JourneyDetailsViewController: UIViewController, NSFetchedResultsController
     override func viewDidLoad(){
         super.viewDidLoad()
         
+        if let interfaceOrientation = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation {
+         // Use interfaceOrientation
+            print("interfaceOrientation: ", interfaceOrientation.isLandscape)
+            
+            if interfaceOrientation.isLandscape{
+                isLandscape = true
+            }else{
+                isLandscape = false
+            }
+            
+        }
         
+        print("isLandscaping: ", isLandscape!)
         
         user = UserHelper.instance.user
         if user == nil {
@@ -294,25 +306,9 @@ extension JourneyDetailsViewController: UICollectionViewDelegate {
     
     override func willRotate(to toInterfaceOrientation:
                                             UIInterfaceOrientation, duration: TimeInterval) {
-        var text=""
-            switch UIDevice.current.orientation{
-            case .portrait:
-                text="Portrait"
-                isLandscape = false
-            case .portraitUpsideDown:
-                text="PortraitUpsideDown"
-                isLandscape = false
-            case .landscapeLeft:
-                text="LandscapeLeft"
-                isLandscape = true
-            case .landscapeRight:
-                text="LandscapeRight"
-                isLandscape = true
-            default:
-                text="Another"
-            }
-        print("orientation is: ", text)
-        print(isLandscape)
+  
+        isLandscape = orientationCheck()
+
         self.collectionView.setCollectionViewLayout(JourneyDetailsViewController.createLayout(isLandscape: isLandscape), animated: true)
       
     }
@@ -320,6 +316,26 @@ extension JourneyDetailsViewController: UICollectionViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    func orientationCheck()  -> Bool {
+        switch UIDevice.current.orientation{
+        case .portrait:
+            print("portrait")
+            return false
+        case .portraitUpsideDown:
+            print("portraitUpside")
+            return false
+        case .landscapeLeft:
+            print("landscapeLeft")
+            return true
+        case .landscapeRight:
+            print("landscapeRight")
+            return true
+        default:
+            print("default")
+            return false
+        }
     }
     
 }

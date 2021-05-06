@@ -24,7 +24,7 @@ class StyledButton: UIButton {
         
         self.setTitleColor(UIColor.white, for: .normal)
         self.setTitleColor(disabledColor, for: .disabled)
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         self.titleLabel?.adjustsFontSizeToFitWidth = true
         self.setTitle(self.titleLabel?.text?.capitalized, for: .normal)
         self.layer.cornerRadius = 12.0
