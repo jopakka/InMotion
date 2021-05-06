@@ -15,12 +15,29 @@ class JourneyOverviewCell: UITableViewCell {
     @IBOutlet weak var decorationView: UIView!
     
     static var identifier = "JourneyOverviewCell"
+    
+    var cornerRadius: CGFloat = 2
+    var shadowOffsetWidth: Int = 0
+    var shadowOffsetHeight: Int = 3
+    var shadowColor: UIColor? = UIColor.black
+    var shadowOpacity: Float = 0.5
   
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         name.backgroundColor = .clear
+        
+        decorationView.layer.backgroundColor = UIColor.clear.cgColor
+        decorationView.layer.cornerRadius = cornerRadius
+        let shadowPath = UIBezierPath(roundedRect: decorationView.layer.bounds, cornerRadius: cornerRadius)
+
+        decorationView.layer.masksToBounds = false
+        decorationView.layer.shadowColor = shadowColor?.cgColor
+        decorationView.layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight);
+        decorationView.layer.shadowOpacity = shadowOpacity
+        decorationView.layer.shadowPath = shadowPath.cgPath
+        decorationView.backgroundColor = UIColor.systemYellow
         
     }
 

@@ -78,7 +78,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     
     func setDateHeader(date: NSDate){
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE dd-MM-YYYY"
+        formatter.dateFormat = "MMM d, yyyy"
         let date = formatter.string(from: startDate as Date)
         self.title = String(date)
     }

@@ -25,6 +25,8 @@ class JourneyCreateViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startJourneyButton.layer.zPosition = 1
+        map.layer.zPosition = 0
         // set navbar gradient
         let image = self.navigationController!.getGradient()
         self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)

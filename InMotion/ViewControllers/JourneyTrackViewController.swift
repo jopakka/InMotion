@@ -38,7 +38,7 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mapView.layer.zPosition = 0
         // I think this is safe to delete
         //Uncomment this for testing on device
 //        TMD.start()
