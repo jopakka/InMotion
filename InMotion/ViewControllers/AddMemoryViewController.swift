@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class AddMemoryViewController: UIViewController{
-
+    
     @IBOutlet weak var addTitleTextView: UITextField!
     @IBOutlet weak var memoryPhoto: UIImageView!
     @IBOutlet weak var notesTextView: UITextView!
@@ -86,7 +86,6 @@ class AddMemoryViewController: UIViewController{
         // Perform your custom actions
         // ...
         // Go back to the previous ViewController
-        print("back works !!!!")
         
         let alert = UIAlertController(title: NSLocalizedString("warning", comment: ""), message: NSLocalizedString("memory_will_not_be_saved", comment: ""), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("yes", comment: ""), style: .default) { _ in
@@ -122,7 +121,6 @@ extension AddMemoryViewController: UIImagePickerControllerDelegate, UINavigation
     // https://stackoverflow.com/a/25514262
     @IBAction func selectImageFromGallery(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            NSLog("Selecting image from album")
             
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
@@ -135,17 +133,17 @@ extension AddMemoryViewController: UIImagePickerControllerDelegate, UINavigation
     
     @IBAction func takeImageAction(_ sender: UIButton) {
         AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("not_working", comment: ""), message: "", presenter: self)
-//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//            NSLog("Taking image")
-//
-//            imagePicker.delegate = self
-//            imagePicker.sourceType = .camera
-//            imagePicker.allowsEditing = true
-//
-//            present(imagePicker, animated: true)
-//        } else {
-//            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("not_work_in_sim", comment: ""), presenter: self)
-//        }
+        //        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        //            NSLog("Taking image")
+        //
+        //            imagePicker.delegate = self
+        //            imagePicker.sourceType = .camera
+        //            imagePicker.allowsEditing = true
+        //
+        //            present(imagePicker, animated: true)
+        //        } else {
+        //            AlertHelper.instance.showSimpleAlert(title: errorTitle, message: NSLocalizedString("not_work_in_sim", comment: ""), presenter: self)
+        //        }
     }
     
     // MARK:-- ImagePicker delegate
@@ -179,7 +177,7 @@ extension AddMemoryViewController : UITextViewDelegate {
         }
         textView.becomeFirstResponder() //Optional
     }
-
+    
     func textViewDidEndEditing(_ textView: UITextView)
     {
         if (textView.text == "")
@@ -190,4 +188,3 @@ extension AddMemoryViewController : UITextViewDelegate {
         textView.resignFirstResponder()
     }
 }
-    

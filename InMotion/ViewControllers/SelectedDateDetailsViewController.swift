@@ -2,19 +2,20 @@
 //  SelectedDateDetailsViewController.swift
 //  InMotion
 //
-//  Created by iosdev on 17.4.2021.
+//  Created by Michael Carter on 17.4.2021.
 //
 
 import UIKit
 import CoreData
 
+// VC for processing journey data from selected date
 class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     var startDate = NSDate()
     var endDate = NSDate()
     
     var dailyDetails: Details?
-
+    
     var user: User!
     var userJourneys = [Journey]()
     
@@ -26,7 +27,6 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         user = UserHelper.instance.user
         if user == nil {
             // TODO: This should log user out
@@ -37,10 +37,12 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         tableView.delegate = self
         tableView.dataSource = self
         
+        // registering of cell to tableview
         tableView.register(JourneyOverviewCell.nib(), forCellReuseIdentifier: JourneyOverviewCell.identifier)
         tableView.register(CarbonDetailsTableViewCell.nib(), forCellReuseIdentifier: CarbonDetailsTableViewCell.identifier)
         tableView.register(PieChartTableViewCell.nib(), forCellReuseIdentifier: PieChartTableViewCell.identifier)
         
+        // fetch data from core data and set
         setDateHeader(date: startDate)
         fetchJourneyByDate()
         setDailyInfo()
@@ -56,7 +58,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
             fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: "journeyStarted", cacheName: nil)
             fetchedResultController!.delegate = self as NSFetchedResultsControllerDelegate
         }
-
+        // fetch request based on journeys by the logged in user and between 24 hours of date selected
         let userPredicate = NSPredicate(format: "user == %@", user)
         let datePredicate = NSPredicate(format: "journeyStarted >= %@ AND journeyStarted < %@ ", startDate, endDate)
         let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate, datePredicate])
@@ -76,6 +78,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
+    // set easy date format
     func setDateHeader(date: NSDate){
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
@@ -83,7 +86,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         self.title = String(date)
     }
     
-
+    // process journey data
     func setDailyInfo(){
         var distance = 0
         var time = 0.0
@@ -94,7 +97,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         
         
         for journey in userJourneys {
-
+            
             for segment in journey.journeySegment ?? []  {
                 let s = segment as! JourneySegment
                 distance = distance + Int(s.segmentDistanceTravelled)
@@ -112,7 +115,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
             dailyInfo.append(totalTime)
             let totalCO2 = ["Total CO2 Emmissions" : co2]
             dailyInfo.append(totalCO2)
- 
+            
         }
         
         dailyDetails = Details(dailyInfo: dailyInfo, transports: modeTransports)
@@ -131,6 +134,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         return 3
     }
     
+    // allocates cells based on section
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.identifier, for: indexPath) as! PieChartTableViewCell
@@ -154,12 +158,12 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
             return cell
         }
         else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "JourneyOverviewCell", for: indexPath) as! JourneyOverviewCell
-
+            let cell = tableView.dequeueReusableCell(withIdentifier: JourneyOverviewCell.identifier, for: indexPath) as! JourneyOverviewCell
+            
             cell.configureCell(journey: userJourneys[indexPath.row])
-
-                return cell
-    }
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -168,6 +172,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         return headerView 
     }
     
+    // if a cell from section 2 is clicked pass journey details to next VC
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2{
             journeySelected = userJourneys[indexPath.row]
@@ -183,6 +188,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         
     }
     
+    // setting heights for each section cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0{
             return 300
@@ -195,6 +201,7 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
+    // reloads data when context changes
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         print("Controller change content")
         tableView.reloadData()

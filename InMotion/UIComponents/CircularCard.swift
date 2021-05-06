@@ -2,7 +2,7 @@
 //  CircularCard.swift
 //  InMotion
 //
-//  Created by iosdev on 6.5.2021.
+//  Created by Michael Carter on 6.5.2021.
 //
 
 import UIKit

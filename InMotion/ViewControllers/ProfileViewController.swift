@@ -123,10 +123,8 @@ class ProfileViewController: UIViewController {
     
     // Action for save name button
     @IBAction func updateName(_ sender: UIButton) {
-        NSLog("Update name")
         // Check that text fields are valid
         guard var fname = firstnameTf.text, var lname = lastnameTf.text else {
-            NSLog("No firstname text or lastname text")
             return
         }
         
@@ -140,14 +138,6 @@ class ProfileViewController: UIViewController {
     
     // Logout button action
     @IBAction func logoutAction(_ sender: UIButton) {
-        NSLog("Logout begin")
-        
-        
-        
-        // Navigate to login page
-//        navigationController?.popToRootViewController(animated: true)
-        
-//        AlertHelper.instance.showSimpleAlert(title: "Not working", message: "This function is not working perfectly. You have to now restart app", presenter: self)
         
         logout()
     }
@@ -190,7 +180,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     @IBAction func selectImageFromGallery(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             currentImagePickerButton = sender.tag
-            NSLog("Selecting image from album")
             
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
@@ -204,12 +193,10 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     // https://stackoverflow.com/a/52263803
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.editedImage] as? UIImage else {
-            NSLog("No picked image")
             return
         }
         
         guard let imgData = pickedImage.jpegData(compressionQuality: 80) else {
-            NSLog("No image data")
             return
         }
         
@@ -233,7 +220,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 extension ProfileViewController: UITextFieldDelegate {
     // Hide keyboard when user touches outside keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        NSLog("View pressed")
         self.view.endEditing(true)
     }
     

@@ -36,23 +36,18 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         setNewBackButton()
         // Use only with emulator
         CustomLocation.instance.generateTripToMoprim().continueWith { task in
-            //print("trip saved")
-            //            // fetching the route that we want to display
+            
+            // fetching the route that we want to display
             MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
-                //print("data saved")
-                //print("journey: ", self.journey ?? "no journey found")
-                
                 
                 // Drawing journey and points of interest into a map
                 
                 for s in self.journey.journeySegment ?? [] {
-                    //print("LOOPING")
+                    
                     let x = s as! JourneySegment
-                    //print("SEGMENT")
-                    //print(x)
+                    
                     let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
                     self.mode = x.segmentModeOfTravel ?? self.modeIfNil
-                    //print("MODE in Segment: ", self.mode ?? "no segments found")
                     
                     let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
                     
@@ -64,14 +59,10 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                 
                 //fetch memories
                 for p in self.journey.posts ?? [] {
-                    //print("LOOPING POSTS")
                     let y = p as! Post
-                    //print("POST")
-                    //print(y)
+                    
                     self.imageArray.append(y)
                     let postCoordinates: CLLocationCoordinate2D? = CLLocationCoordinate2D( latitude: y.postLat, longitude: y.postLong)
-                    //print("POST COORDINATES: ", postCoordinates ?? "no post coordinates were retrieved")
-                    
                     
                     //render post from the main thread
                     DispatchQueue.main.async{
@@ -134,16 +125,16 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         
         //section
         let section = NSCollectionLayoutSection(group: group)
-
+        
         return section
     }
     
     static func createLayout() -> UICollectionViewCompositionalLayout{
-       return UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-
-                return self.createImageLayout()
-            }
+            
+            return self.createImageLayout()
+        }
     }
     
     
@@ -152,8 +143,6 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let rendere = MKPolylineRenderer(overlay: overlay)
         rendere.lineWidth = 5
-        
-        //print("MODE in mapView: ", mode ?? "no mode found")
         
         switch mode {
         case "stationary"?:
@@ -197,10 +186,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
     // Func for point on a map baloon shape
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //print("ANNOTATION: ", annotation)
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
-        
-        //print("MODE in mapView for points: ", mode ?? "no mode found")
         
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
@@ -323,7 +309,6 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         // Perform your custom actions
         // ...
         // Go back to the previous ViewController
-        //print("back works !!!!")
         
         guard let n = getTrimmedTexts(), n.count > 0 else {
             AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("no_name", comment: ""), presenter: self)
@@ -375,9 +360,9 @@ extension JourneySaveViewController: UICollectionViewDataSource {
 extension JourneySaveViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            print("image pressed")
-            post = imageArray[indexPath.row]
-            performSegue(withIdentifier: "editJourneyImages", sender: self)
+        print("image pressed")
+        post = imageArray[indexPath.row]
+        performSegue(withIdentifier: "editJourneyImages", sender: self)
         
     }
     

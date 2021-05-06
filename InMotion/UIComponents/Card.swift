@@ -2,7 +2,7 @@
 //  Card.swift
 //  InMotion
 //
-//  Created by iosdev on 5.5.2021.
+//  Created by Michael Carter on 5.5.2021.
 //
 
 import UIKit

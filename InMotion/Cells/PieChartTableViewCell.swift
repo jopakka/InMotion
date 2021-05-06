@@ -2,7 +2,7 @@
 //  pieChartTableViewCell.swift
 //  InMotion
 //
-//  Created by iosdev on 29.4.2021.
+//  Created by Michael Carter on 29.4.2021.
 //
 
 import Charts

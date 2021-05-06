@@ -2,7 +2,7 @@
 //  JourneyOverviewCell.swift
 //  InMotion
 //
-//  Created by iosdev on 27.4.2021.
+//  Created by Michael Carter on 27.4.2021.
 //
 
 import UIKit

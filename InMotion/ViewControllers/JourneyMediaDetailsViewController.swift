@@ -2,16 +2,18 @@
 //  JourneyMediaDetailsViewController.swift
 //  InMotion
 //
-//  Created by iosdev on 17.4.2021.
+//  Created by Michael Carter on 17.4.2021.
 //
 
 import UIKit
 import CoreData
 
+// VC for controlling details on post data
 class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MediaDetailsCellDelegate, NSFetchedResultsControllerDelegate {
     
-
+    
     @IBOutlet weak var tableView: UITableView!
+    
     var receivedPost:Post!
     private var fetchedResultController: NSFetchedResultsController<Post>?
     
@@ -22,6 +24,7 @@ class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, 
         tableView.delegate = self
         tableView.dataSource = self
         
+        // cell registration
         tableView.register(MediaDetailsTableViewCell.nib(), forCellReuseIdentifier: MediaDetailsTableViewCell.identifier)
         
         self.title = NSLocalizedString("Post Details", comment: "Post Details")
@@ -32,7 +35,7 @@ class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, 
         
         let okAction = UIAlertAction(title: "OK", style: .default) {
             UIAlertAction in
-            print("post deleted")
+            // when ok is pressed navigation controller pops to root and deletes post
             self.navigationController?.popToRootViewController(animated: false)
             CoreHelper.instance.deletePost(post: post)
             
@@ -50,18 +53,17 @@ class JourneyMediaDetailsViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
+    
+    // configures cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: MediaDetailsTableViewCell.identifier, for: indexPath) as! MediaDetailsTableViewCell
-        cell.delegate = self
-            cell.configure(post: receivedPost)
-            return cell
         
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: MediaDetailsTableViewCell.identifier, for: indexPath) as! MediaDetailsTableViewCell
+        cell.delegate = self
+        cell.configure(post: receivedPost)
+        return cell
     }
     
-
+    // when device rotates, tableview will reload
     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         tableView.reloadData()
     }

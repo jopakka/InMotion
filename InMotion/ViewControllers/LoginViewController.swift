@@ -74,14 +74,12 @@ class LoginViewController: UIViewController {
         
         // Check if username exists
         guard let user = try? User.checkIfUserExist(username: u, context: managedContext) else {
-            //            NSLog("User with username \"%@\" not exists", u)
             AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong_username_or_password", comment: ""), presenter: self)
             return
         }
         
         // Check if password is correct
         if user.password != p {
-            //            NSLog("Wrong password")
             AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong_username_or_password", comment: ""), presenter: self)
             return
         }
@@ -91,7 +89,6 @@ class LoginViewController: UIViewController {
         prefs.setValue(u, forKey: "user")
         let saved = prefs.synchronize()
         if !saved {
-            //            NSLog("Failed to save user in defaults")
             AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("there_was_error", comment: ""), presenter: self)
             return
         }

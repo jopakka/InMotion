@@ -78,7 +78,6 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         // Checks if username already exists
         let managedContext = AppDelegate.viewContext
         guard let user = try? User.createIfNotExist(username: u, context: managedContext) else {
-//            NSLog("Username already exists")
             AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("username_exists", comment: ""), message: NSLocalizedString("username_exists", comment: ""), presenter: self)
             return
         }
@@ -95,15 +94,12 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
             prefs.setValue(u, forKey: "user")
             let saved = prefs.synchronize()
             if !saved {
-//                NSLog("Failed to save user in defaults")
                 throw UserCreationErrors.creationFailed
             }
-//            NSLog("User saved to defaults")
             
             // Navigate to next screen
             self.performSegue(withIdentifier: "registerSegue", sender: self)
         } catch {
-//            NSLog("Creating user failed")
             AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("user_creating_error_title", comment: ""), message: NSLocalizedString("user_creating_error_title", comment: ""), presenter: self)
         }
     }
@@ -143,7 +139,7 @@ extension RegisterViewController: UITextFieldDelegate {
     // Setting background image
     func assignbackground(){
         let background = UIImage(named: "loginBackground")
-
+        
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
@@ -152,7 +148,7 @@ extension RegisterViewController: UITextFieldDelegate {
         imageView.center = view.center
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
-      }
+    }
     
 }
 

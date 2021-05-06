@@ -2,7 +2,7 @@
 //  JourneyControlsCollectionViewCell.swift
 //  InMotion
 //
-//  Created by iosdev on 4.5.2021.
+//  Created by Michael Carter on 4.5.2021.
 //
 
 import UIKit

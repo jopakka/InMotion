@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Struct to hold data values for processed journeys
 struct Details {
     var distanceTravelled = Double()
     var timeTravelledInSeconds = Double()
@@ -17,8 +18,11 @@ struct Details {
     var chartData = [String: Double]()
     var title: String?
     
+    // initiator to set the variables of the struct
     init(dailyInfo: [Dictionary<String, Double>], transports: [Int: [String : Double]]){
         
+        // taking an array of dictionaries and returning a new array with values matching
+        // this new array is then reduced into a single "total" value
         distanceTravelled = dailyInfo.compactMap { dict in
             return dict["Distance Travelled"]
         }.reduce(0, {$0 + $1})
@@ -28,16 +32,20 @@ struct Details {
         co2Emissions = dailyInfo.compactMap { dict in
             return dict["Total CO2 Emmissions"]
         }.reduce(0, {$0 + $1})
+        
         distanceTravelled = distanceTravelled / 1000
         co2Emissions = co2Emissions / 1000
         
+        // passed data is processed into a easy to read format
         popularTransport = transportMode(value: popularTransport)
         modeTransports = transports
+        
+        // piechart data is generated
         createPieData()
         
     }
     
-    
+    // funcion that processes transport data into usable pie chart data
     mutating func createPieData(){
         var const = 0.0
         
@@ -57,7 +65,6 @@ struct Details {
             
         }
         
-        //print("timeInSeconds: ", timeTravelledInSeconds)
         pieChartData.forEach{
             let value = $0.value
             let newValue = Double(value) / timeTravelledInSeconds * 100
@@ -76,6 +83,7 @@ struct Details {
     
 }
 
+// Simpifies the Moprim return value into easy to read string and localisation
 func transportMode(value: String) -> String {
     
     switch value {

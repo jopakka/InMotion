@@ -2,7 +2,7 @@
 //  MediaDetailsTableViewCell.swift
 //  InMotion
 //
-//  Created by iosdev on 30.4.2021.
+//  Created by Michael Carter on 30.4.2021.
 //
 
 import UIKit

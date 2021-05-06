@@ -39,15 +39,9 @@ class JourneyTrackViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.layer.zPosition = 0
-        // I think this is safe to delete
-        //Uncomment this for testing on device
-//        TMD.start()
-//        TMD.setAllowUploadOnCellularNetwork(true)
-//        let firstUploadTime = Date() // format 2021-04-25 14:10:18 +0000
-
         NSLog(TMD.isOn() ? "TMD is ON" : "TMD is OFF")
         navigationItem.hidesBackButton = true
-    
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -104,7 +98,7 @@ extension JourneyTrackViewController: CLLocationManagerDelegate{
             print("waiting")
         }
         
-       
+        
         
     }
     
