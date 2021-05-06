@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var bannerImageView: UIImageView!
     
+    @IBOutlet weak var profileContainer: CircularCard!
     // Table view
     @IBOutlet weak var favouriteTableView: UITableView!
     
@@ -27,6 +28,14 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set profile image settings
+        profileImageView.layer.borderWidth = 1.0
+        profileImageView.layer.masksToBounds = false
+        profileImageView.layer.borderColor = UIColor.white.cgColor
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+        
+        profileContainer.cornerRadius = profileImageView.frame.size.width / 2
         
         // set navbar gradient
         let image = self.navigationController!.getGradient()
@@ -176,3 +185,5 @@ extension UINavigationController {
         
     }
 }
+
+

@@ -31,6 +31,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var saveNameButton: UIButton!
     @IBOutlet weak var savePasswordButton: UIButton!
     
+    @IBOutlet weak var profileContainer: CircularCard!
+    
     private var user: User!
     private var imagePicker = UIImagePickerController()
     private var currentImagePickerButton: Int?
@@ -38,6 +40,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set profile image settings
+        profileImageView.layer.borderWidth = 1.0
+        profileImageView.layer.masksToBounds = false
+        profileImageView.layer.borderColor = UIColor.white.cgColor
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+        
+        profileContainer.cornerRadius = profileImageView.frame.size.width / 2
         // set navbar gradient
         let image = self.navigationController!.getGradient()
         self.navigationController!.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)

@@ -47,7 +47,7 @@
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-Vu-KWB" customClass="Card" customModule="InMotion" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-Vu-KWB">
                                 <rect key="frame" x="436" y="0.0" width="20" height="114"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
@@ -109,6 +109,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <accessibility key="accessibilityConfiguration" identifier="JourneyOverviewCell"/>
             <connections>
+                <outlet property="decorationView" destination="NSd-Vu-KWB" id="hEZ-Zo-1j7"/>
                 <outlet property="distanceTravelled" destination="1VC-36-aXM" id="AOJ-36-7jZ"/>
                 <outlet property="name" destination="fNX-4f-chl" id="hDo-8p-PSi"/>
                 <outlet property="photoView" destination="emK-bJ-f45" id="Dc4-rz-8qP"/>

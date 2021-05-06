@@ -12,6 +12,7 @@ class JourneyOverviewCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet var photoView: UIImageView!
     @IBOutlet weak var distanceTravelled: UILabel!
+    @IBOutlet weak var decorationView: UIView!
     
     static var identifier = "JourneyOverviewCell"
   
@@ -20,6 +21,7 @@ class JourneyOverviewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         name.backgroundColor = .clear
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

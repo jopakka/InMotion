@@ -28,31 +28,48 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="AkM-1h-VzF">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odI-R1-Cma">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="odI-R1-Cma">
                                         <rect key="frame" x="20" y="30" width="374" height="120"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gRq-Su-Css">
-                                                <rect key="frame" x="0.0" y="1.5" width="120" height="117"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGY-Ao-kTg" customClass="CircularCard" customModule="InMotion" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gRq-Su-Css">
+                                                        <rect key="frame" x="0.0" y="1.5" width="120" height="117"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="gRq-Su-Css" secondAttribute="height" multiplier="1:1" id="ewL-Ll-Sst"/>
+                                                    <constraint firstAttribute="height" constant="120" id="R8i-cf-ZEb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gRq-Su-Css" secondAttribute="trailing" id="ZZr-1a-8Iy"/>
+                                                    <constraint firstAttribute="width" constant="120" id="bRf-YB-aLe"/>
+                                                    <constraint firstItem="gRq-Su-Css" firstAttribute="top" secondItem="CGY-Ao-kTg" secondAttribute="top" id="cUx-wF-8oQ"/>
+                                                    <constraint firstItem="gRq-Su-Css" firstAttribute="leading" secondItem="CGY-Ao-kTg" secondAttribute="leading" id="jSz-Z7-zgK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gRq-Su-Css" secondAttribute="bottom" id="uE3-uh-z7c"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sC5-Pq-Ybb">
-                                                <rect key="frame" x="120" y="0.0" width="254" height="120"/>
+                                                <rect key="frame" x="134" y="0.0" width="240" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jane Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-g9-Dvs">
-                                                        <rect key="frame" x="20" y="0.0" width="214" height="120"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="20" y="40" width="200" height="40"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="gSe-gb-wjk"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <size key="shadowOffset" width="1" height="1"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="Toy-g9-Dvs" secondAttribute="bottom" id="WPB-SL-CGn"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Toy-g9-Dvs" secondAttribute="bottom" constant="40" id="WPB-SL-CGn"/>
                                                     <constraint firstAttribute="trailing" secondItem="Toy-g9-Dvs" secondAttribute="trailing" constant="20" id="gu1-r1-yqn"/>
                                                     <constraint firstItem="Toy-g9-Dvs" firstAttribute="leading" secondItem="sC5-Pq-Ybb" secondAttribute="leading" constant="20" id="jwz-sv-qzu"/>
-                                                    <constraint firstItem="Toy-g9-Dvs" firstAttribute="top" secondItem="sC5-Pq-Ybb" secondAttribute="top" id="xr2-N4-3hd"/>
+                                                    <constraint firstItem="Toy-g9-Dvs" firstAttribute="top" secondItem="sC5-Pq-Ybb" secondAttribute="top" constant="40" id="xr2-N4-3hd"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -73,7 +90,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite Routes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6h-oS-QgB">
                                 <rect key="frame" x="10" y="254" width="394" height="30"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -104,6 +121,7 @@
                         <outlet property="bannerImageView" destination="AkM-1h-VzF" id="BM8-xV-kRW"/>
                         <outlet property="favouriteTableView" destination="mN7-kK-I1i" id="3oO-Ue-Fbx"/>
                         <outlet property="fullnameTf" destination="Toy-g9-Dvs" id="iGZ-Ju-nZe"/>
+                        <outlet property="profileContainer" destination="CGY-Ao-kTg" id="r2y-Dy-7W1"/>
                         <outlet property="profileImageView" destination="gRq-Su-Css" id="rPV-q2-CU8"/>
                         <segue destination="JTx-JF-APJ" kind="show" identifier="showDetails" id="axD-7N-gpP"/>
                     </connections>
@@ -128,9 +146,6 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
