@@ -17,8 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mN7-kK-I1i">
-                                <rect key="frame" x="0.0" y="284" width="414" height="578"/>
+                                <rect key="frame" x="0.0" y="294" width="414" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yn2-ZD-STr">
@@ -71,25 +72,31 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite Routes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6h-oS-QgB">
-                                <rect key="frame" x="20" y="252" width="374" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <rect key="frame" x="10" y="254" width="394" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BgX-9S-toB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mN7-kK-I1i" firstAttribute="leading" secondItem="BgX-9S-toB" secondAttribute="leading" id="5vI-Ym-9e7"/>
                             <constraint firstItem="yn2-ZD-STr" firstAttribute="leading" secondItem="QnI-Ie-55J" secondAttribute="leading" id="86T-kk-sOg"/>
                             <constraint firstAttribute="trailing" secondItem="yn2-ZD-STr" secondAttribute="trailing" id="8tb-9f-wul"/>
-                            <constraint firstItem="mN7-kK-I1i" firstAttribute="top" secondItem="M6h-oS-QgB" secondAttribute="bottom" constant="8" id="RUA-Df-qo3"/>
+                            <constraint firstItem="mN7-kK-I1i" firstAttribute="top" secondItem="M6h-oS-QgB" secondAttribute="bottom" constant="10" id="RUA-Df-qo3"/>
                             <constraint firstItem="BgX-9S-toB" firstAttribute="bottom" secondItem="mN7-kK-I1i" secondAttribute="bottom" id="cuh-2q-NPr"/>
-                            <constraint firstItem="BgX-9S-toB" firstAttribute="trailing" secondItem="M6h-oS-QgB" secondAttribute="trailing" constant="20" id="ec6-DQ-XeX"/>
+                            <constraint firstItem="BgX-9S-toB" firstAttribute="trailing" secondItem="M6h-oS-QgB" secondAttribute="trailing" constant="10" id="ec6-DQ-XeX"/>
                             <constraint firstItem="BgX-9S-toB" firstAttribute="trailing" secondItem="mN7-kK-I1i" secondAttribute="trailing" id="oRo-pf-Mez"/>
-                            <constraint firstItem="M6h-oS-QgB" firstAttribute="top" secondItem="yn2-ZD-STr" secondAttribute="bottom" constant="8" id="oqF-In-REP"/>
+                            <constraint firstItem="M6h-oS-QgB" firstAttribute="top" secondItem="yn2-ZD-STr" secondAttribute="bottom" constant="10" id="oqF-In-REP"/>
                             <constraint firstItem="yn2-ZD-STr" firstAttribute="top" secondItem="BgX-9S-toB" secondAttribute="top" id="zJh-Mc-RO8"/>
-                            <constraint firstItem="M6h-oS-QgB" firstAttribute="leading" secondItem="BgX-9S-toB" secondAttribute="leading" constant="20" id="zuw-18-sQN"/>
+                            <constraint firstItem="M6h-oS-QgB" firstAttribute="leading" secondItem="BgX-9S-toB" secondAttribute="leading" constant="10" id="zuw-18-sQN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="eox-HO-7E4"/>
@@ -121,6 +128,9 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

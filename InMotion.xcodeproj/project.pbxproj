@@ -28,6 +28,7 @@
 		6A63FA732640725B00E6EC4E /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63FA722640725B00E6EC4E /* Details.swift */; };
 		6A63FA7E264158A700E6EC4E /* JourneyControlsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63FA7C264158A700E6EC4E /* JourneyControlsCollectionViewCell.swift */; };
 		6A63FA8A2641626500E6EC4E /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63FA892641626500E6EC4E /* StyledButton.swift */; };
+		6A63FAB62643365F00E6EC4E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A63FAB52643365F00E6EC4E /* Card.swift */; };
 		6A6DA3F82638321D00D1FED0 /* CarbonDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA3F62638321D00D1FED0 /* CarbonDetailsTableViewCell.swift */; };
 		6A6DA41826388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA41626388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift */; };
 		6A6DA4352639668D00D1FED0 /* ImagePostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA4342639668D00D1FED0 /* ImagePostCollectionViewCell.swift */; };
@@ -164,6 +165,7 @@
 		6A63FA722640725B00E6EC4E /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		6A63FA7C264158A700E6EC4E /* JourneyControlsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyControlsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6A63FA892641626500E6EC4E /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
+		6A63FAB52643365F00E6EC4E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		6A6DA3F62638321D00D1FED0 /* CarbonDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		6A6DA41626388DA500D1FED0 /* JourneyDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6A6DA4342639668D00D1FED0 /* ImagePostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				6A63FA892641626500E6EC4E /* StyledButton.swift */,
+				6A63FAB52643365F00E6EC4E /* Card.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				6AD81545262844090033399B /* JourneySegment+CoreDataProperties.swift in Sources */,
 				6AD81540262844090033399B /* User+CoreDataClass.swift in Sources */,
 				6A203F1C263BF4430058B156 /* CustomLocation.swift in Sources */,
+				6A63FAB62643365F00E6EC4E /* Card.swift in Sources */,
 				6AA4A17326389B06005F1BB9 /* CoreHelper.swift in Sources */,
 				6AD8152426283A950033399B /* RegisterViewController.swift in Sources */,
 				6AD054612626C0D000750EB8 /* InMotion.xcdatamodeld in Sources */,

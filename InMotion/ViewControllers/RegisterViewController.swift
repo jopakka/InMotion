@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
     
     // Buttons
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var changeScreenBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,15 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         
         // assigning background
         assignbackground()
+        
+        // sets color to specific word in button text
+        let mainString = "Already have an account? Login here"
+        let stringToColor = "Login here"
+        let range = (mainString as NSString).range(of: stringToColor)
+        
+        let mutableAttributedString = NSMutableAttributedString.init(string: mainString)
+        mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
+        changeScreenBtn.setAttributedTitle(mutableAttributedString, for: [])
     }
     
     // Trims text fields and if every text field have some text

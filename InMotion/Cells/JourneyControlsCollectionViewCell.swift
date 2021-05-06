@@ -12,6 +12,7 @@ class JourneyControlsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var deleBtn: UIButton!
     @IBOutlet weak var favToggle: UISwitch!
+    @IBOutlet weak var favouriteLabel: UILabel!
     
     var journeyReceived: Journey!
     var delegate: JourneyControlsCellDelegate!
@@ -39,6 +40,7 @@ class JourneyControlsCollectionViewCell: UICollectionViewCell {
 
     func configure(journey: Journey){
         journeyReceived = journey
+        favouriteLabel.text = NSLocalizedString("Favourite", comment: "Favourite")
         favToggle.isOn = journey.favourite
 
     }

@@ -61,7 +61,7 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
     
     func formatDescription(_ description: Description){
         description.text = NSLocalizedString("daily_breakout", comment: "")
-        description.font = UIFont.systemFont(ofSize: 15)
+        description.font = UIFont.systemFont(ofSize: 13)
     }
     
     func formatCenter(_ pieChart: PieChartView){
@@ -95,13 +95,13 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         pFormatter.percentSymbol = " %"
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
         
-        data.setValueFont(.systemFont(ofSize: 15, weight: .regular))
+        data.setValueFont(.systemFont(ofSize: 13, weight: .regular))
         data.setValueTextColor(.black)
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let text = entry.value(forKey: "label") as! String
-        let font = UIFont.systemFont(ofSize: 18)
+        let font = UIFont.systemFont(ofSize: 13)
         let myAttribute = [ NSAttributedString.Key.font: font]
         let myAttrString = NSAttributedString(string: text, attributes: myAttribute)
         pieChart.centerAttributedText = myAttrString

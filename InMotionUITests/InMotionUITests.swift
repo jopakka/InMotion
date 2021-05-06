@@ -54,8 +54,8 @@ class InMotionUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments += ["UI-Testing"]
         app.launch()
-        
-        let toRegisterButton = app.buttons["Don't have an account yet? Register here"]
+                
+        let toRegisterButton = app/*@START_MENU_TOKEN@*/.buttons["Already have an account? Register here"].staticTexts["Already have an account? Register here"]/*[[".buttons[\"Already have an account? Register here\"].staticTexts[\"Already have an account? Register here\"]",".staticTexts[\"Already have an account? Register here\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
         toRegisterButton.tap()
         
         let registerButton = app.buttons["Register"]

@@ -153,15 +153,13 @@ class SelectedDateDetailsViewController: UIViewController, UITableViewDelegate, 
             }
             return cell
         }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: JourneyOverviewCell.identifier, for: indexPath) as! JourneyOverviewCell
-            cell.name.text = userJourneys[indexPath.row].journeyName
-            cell.photoView.clipsToBounds = true
-            cell.photoView.layer.masksToBounds = true
-            cell.photoView.contentMode = .scaleAspectFill
-            cell.photoView.image = UIImage(named: "loginBackground")
-            return cell
-        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "JourneyOverviewCell", for: indexPath) as! JourneyOverviewCell
+
+            cell.configureCell(journey: userJourneys[indexPath.row])
+
+                return cell
+    }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
