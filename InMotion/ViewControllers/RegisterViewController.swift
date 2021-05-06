@@ -30,8 +30,8 @@ class RegisterViewController: UIViewController, NSFetchedResultsControllerDelega
         assignbackground()
         
         // sets color to specific word in button text
-        let mainString = "Already have an account? Register here"
-        let stringToColor = "Register here"
+        let mainString = "Already have an account? Login here"
+        let stringToColor = "Login here"
         let range = (mainString as NSString).range(of: stringToColor)
         
         let mutableAttributedString = NSMutableAttributedString.init(string: mainString)

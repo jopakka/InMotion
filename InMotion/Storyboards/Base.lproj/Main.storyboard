@@ -240,7 +240,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Um-qB-0xL" customClass="StyledButton" customModule="InMotion" customModuleProvider="target">
                                 <rect key="frame" x="310" y="376" width="84" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
@@ -346,7 +346,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-bR-tkD" customClass="StyledButton" customModule="InMotion" customModuleProvider="target">
                                 <rect key="frame" x="290" y="446.5" width="104" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
@@ -405,7 +405,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0dW-LI-LAv"/>
+        <segue reference="XSE-Mq-0e3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
