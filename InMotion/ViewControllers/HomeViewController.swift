@@ -115,11 +115,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Journey not found in contoller")
         }
         
-        cell.name.text = journeyItem.journeyName ?? "Placeholder name"
-        cell.photoView.clipsToBounds = true
-        cell.photoView.layer.masksToBounds = true
-        cell.photoView.contentMode = .scaleAspectFill
-        cell.photoView.image = UIImage(named: "loginBackground")
+        cell.configureCell(journey: journeyItem)
+//        cell.name.text = journeyItem.journeyName ?? "Placeholder name"
+//        cell.photoView.clipsToBounds = true
+//        cell.photoView.layer.masksToBounds = true
+//        cell.photoView.contentMode = .scaleAspectFill
+//        cell.photoView.image = UIImage(named: "loginBackground")
         return cell
     }
     
