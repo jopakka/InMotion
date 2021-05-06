@@ -16,13 +16,16 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var favouriteSwitch: UISwitch!
     @IBOutlet weak var nameTf: UITextField!
-    @IBOutlet weak var postsTableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     let pointIfNil = CLLocationCoordinate2D(latitude: 40.23497, longitude: -3.77074)
     let polylineIfNil = "kr_nJcngvC"
     let modeIfNil = "unknown"
     var mode:String? = "unknown"
     var journey: Journey!
+    var imageArray = [Post]()
+    var post: Post!
+    
     
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let locationManager = CLLocationManager()
@@ -33,23 +36,23 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         setNewBackButton()
         // Use only with emulator
         CustomLocation.instance.generateTripToMoprim().continueWith { task in
-            print("trip saved")
+            //print("trip saved")
             //            // fetching the route that we want to display
             MoprimApi.instance.saveDataToCore(date: Date(), journey: self.journey, context: AppDelegate.viewContext).continueWith { task in
-                print("data saved")
-                print("journey: ", self.journey ?? "no journey found")
+                //print("data saved")
+                //print("journey: ", self.journey ?? "no journey found")
                 
                 
                 // Drawing journey and points of interest into a map
                 
                 for s in self.journey.journeySegment ?? [] {
-                    print("LOOPING")
+                    //print("LOOPING")
                     let x = s as! JourneySegment
-                    print("SEGMENT")
-                    print(x)
+                    //print("SEGMENT")
+                    //print(x)
                     let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
                     self.mode = x.segmentModeOfTravel ?? self.modeIfNil
-                    print("MODE in Segment: ", self.mode ?? "no segments found")
+                    //print("MODE in Segment: ", self.mode ?? "no segments found")
                     
                     let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
                     
@@ -61,16 +64,18 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
                 
                 //fetch memories
                 for p in self.journey.posts ?? [] {
-                    print("LOOPING POSTS")
+                    //print("LOOPING POSTS")
                     let y = p as! Post
-                    print("POST")
-                    print(y)
+                    //print("POST")
+                    //print(y)
+                    self.imageArray.append(y)
                     let postCoordinates: CLLocationCoordinate2D? = CLLocationCoordinate2D( latitude: y.postLat, longitude: y.postLong)
-                    print("POST COORDINATES: ", postCoordinates ?? "no post coordinates were retrieved")
+                    //print("POST COORDINATES: ", postCoordinates ?? "no post coordinates were retrieved")
                     
                     
                     //render post from the main thread
                     DispatchQueue.main.async{
+                        self.collectionView.reloadData()
                         self.createPostPOI(postCoordinates : postCoordinates ?? self.pointIfNil, title: y.postTitle ?? "", subtitle: y.postBlog ?? "" )
                     }
                 }
@@ -78,6 +83,67 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
             }
             return nil
         }
+        
+        collectionView.setCollectionViewLayout(JourneySaveViewController.createLayout(), animated: true)
+        collectionView.register(ImagePostCollectionViewCell.nib(), forCellWithReuseIdentifier: ImagePostCollectionViewCell.identifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+    // collection view layout func
+    
+    static func createImageLayout() -> NSCollectionLayoutSection{
+        //item
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(2/3),
+                heightDimension: .fractionalHeight(1))
+        )
+        
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 2, leading: 2, bottom: 2, trailing: 2)
+        
+        let verticalStackItem = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(0.5)
+            )
+        )
+        verticalStackItem.contentInsets = NSDirectionalEdgeInsets(
+            top: 2, leading: 2, bottom: 2, trailing: 2)
+        
+        
+        //group
+        let verticalGroup = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1/3),
+                heightDimension: .fractionalHeight(1)
+            ),
+            subitem: verticalStackItem,
+            count: 2)
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalWidth(3/5)),
+            subitems: [
+                item,
+                verticalGroup
+            ]
+        )
+        
+        //section
+        let section = NSCollectionLayoutSection(group: group)
+
+        return section
+    }
+    
+    static func createLayout() -> UICollectionViewCompositionalLayout{
+       return UICollectionViewCompositionalLayout {
+            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+
+                return self.createImageLayout()
+            }
     }
     
     
@@ -87,7 +153,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         let rendere = MKPolylineRenderer(overlay: overlay)
         rendere.lineWidth = 5
         
-        print("MODE in mapView: ", mode ?? "no mode found")
+        //print("MODE in mapView: ", mode ?? "no mode found")
         
         switch mode {
         case "stationary"?:
@@ -131,10 +197,10 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
     
     // Func for point on a map baloon shape
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print("ANNOTATION: ", annotation)
+        //print("ANNOTATION: ", annotation)
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
         
-        print("MODE in mapView for points: ", mode ?? "no mode found")
+        //print("MODE in mapView for points: ", mode ?? "no mode found")
         
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
@@ -257,7 +323,7 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         // Perform your custom actions
         // ...
         // Go back to the previous ViewController
-        print("back works !!!!")
+        //print("back works !!!!")
         
         guard let n = getTrimmedTexts(), n.count > 0 else {
             AlertHelper.instance.showSimpleAlert(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("no_name", comment: ""), presenter: self)
@@ -285,3 +351,46 @@ class JourneySaveViewController: UIViewController, MKMapViewDelegate {
         return n
     }
 }
+
+extension JourneySaveViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageArray.count 
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImagePostCollectionViewCell.identifier, for: indexPath) as! ImagePostCollectionViewCell
+        
+        cell.imageView.image = UIImage(data:imageArray[indexPath.row].postImg!)
+        return cell
+    }
+    
+    
+}
+
+extension JourneySaveViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 3 {
+            print("image pressed")
+            post = imageArray[indexPath.row]
+            //performSegue(withIdentifier: "showPostDetails", sender: self)
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPostDetails" {
+            
+            let destVC = segue.destination as! JourneyMediaDetailsViewController
+            destVC.receivedPost = post!
+        }
+        
+    }
+}
+
+
