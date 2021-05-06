@@ -10,6 +10,8 @@ import MapKit
 import Polyline
 import CoreLocation
 
+
+// Displays interactiove map on a collection cell and draws polylines
 class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
     
     static var identifier = "MapCollectionViewCell"
@@ -18,7 +20,6 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
     let polylineIfNil = "kr_nJcngvC"
     let modeIfNil = "unknown"
     var mode:String?
-    
     var journey: Journey!
     
     @IBOutlet weak var mapView: MKMapView!
@@ -33,13 +34,9 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         // Drawing journey and points of interest into a map
         
         for s in journey.journeySegment ?? [] {
-            //print("LOOPING")
             let x = s as! JourneySegment
-//            print("SEGMENT")
-//            print(x)
             let polyline = Polyline(encodedPolyline: x.segmentEncodedPolyLine ?? self.polylineIfNil)
             self.mode = x.segmentModeOfTravel ?? self.modeIfNil
-            //print("MODE in Segment: ", self.mode ?? "no segments found")
             
             let decodedCoordinates: [CLLocationCoordinate2D]? = polyline.coordinates
             
@@ -51,12 +48,10 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         
         //fetch memories
         for p in journey.posts ?? [] {
-            //print("LOOPING POSTS")
+            
             let y = p as! Post
-            //print("POST")
-            //print(y)
+            
             let postCoordinates: CLLocationCoordinate2D? = CLLocationCoordinate2D( latitude: y.postLat, longitude: y.postLong)
-            //print("POST COORDINATES: ", postCoordinates ?? "no post coordinates were retrieved")
             
             
             //render post from the main thread
@@ -118,9 +113,8 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
     
     // Func for point on a map baloon shape
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //print("ANNOTATION: ", annotation)
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
-        //print("MODE in mapView for points: ", mode!)
+        
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
         }
@@ -167,8 +161,6 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
             annotationView?.image = UIImage(named: "photo")
         }
         
-        
-        
         annotationView?.canShowCallout = true
         
         return annotationView
@@ -176,7 +168,6 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
     
     // Func for point on a map baloon shape
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        //print("The annotation was selected: \(String(describing: view.annotation?.title))")
     }
     
     func createPath(decodedCoordinates : [CLLocationCoordinate2D], mode : String) {
@@ -195,14 +186,14 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         
         let sourceAnotation = MKPointAnnotation()
         sourceAnotation.title = "start"
-        //sourceAnotation.subtitle = ""
+        
         if let location = sourcePlaceMark.location {
             sourceAnotation.coordinate = location.coordinate
         }
         
         let destinationAnotation = MKPointAnnotation()
         destinationAnotation.title = "finish"
-        //destinationAnotation.subtitle = ""
+        
         if let location = destinationPlaceMark.location {
             destinationAnotation.coordinate = location.coordinate
         }
@@ -212,7 +203,7 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         let rect = polylineTwo.boundingMapRect
         self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
         mapView.addOverlay(polylineTwo)
-        //print("PATH DRAWN SUCCESSFULLY")
+        
     }
     
     func createPostPOI(postCoordinates : CLLocationCoordinate2D, title : String, subtitle : String) {
@@ -227,7 +218,7 @@ class MapCollectionViewCell: UICollectionViewCell, MKMapViewDelegate {
         }
         
         self.mapView.showAnnotations([postAnotation], animated: true)
-        //print("POST POI DRAWN SUCCESSFULLY")
+        
     }
     
 }

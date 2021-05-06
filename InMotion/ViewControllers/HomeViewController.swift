@@ -165,13 +165,13 @@ extension UINavigationController {
         // https://stackoverflow.com/questions/50285911/how-to-add-vertical-gradient-color-in-uinavigationbar
         
         let gradientLayer = CAGradientLayer()
-        var updatedFrame = self.navigationController!.navigationBar.bounds
+        var updatedFrame = self.navigationController?.navigationBar.bounds
         
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         
-        updatedFrame.size.height += statusBarHeight
-        gradientLayer.frame = updatedFrame
+        updatedFrame?.size.height += statusBarHeight
+        gradientLayer.frame = updatedFrame!
         gradientLayer.colors = [UIColor.link.cgColor, UIColor.blue.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0) // vertical gradient start
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0) // vertical gradient end

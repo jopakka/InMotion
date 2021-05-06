@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Displays carbon details and other facts about journeys accumilated over a single day
 class CarbonDetailsTableViewCell: UITableViewCell {
     
     @IBOutlet var distanceTravelled: UILabel!
@@ -14,19 +15,15 @@ class CarbonDetailsTableViewCell: UITableViewCell {
     @IBOutlet var emissions: UILabel!
     @IBOutlet var popularTransport: UILabel!
     
+    // Identifier access
     static var identifier = "CarbonDetailsTableViewCell"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    // Nib access
     static func nib() -> UINib {
         return UINib(nibName: "CarbonDetailsTableViewCell", bundle: nil)
     }
@@ -35,12 +32,13 @@ class CarbonDetailsTableViewCell: UITableViewCell {
         super.layoutSubviews()
         let margins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         contentView.frame = contentView.frame.inset(by: margins)
-
+        
     }
-    
+    // Cell configuration
     func configure(dailyInfo: Details){
         let time = secondsToHoursMinutesSeconds(seconds: Int(dailyInfo.timeTravelledInSeconds))
-
+        
+        // String formatting to display data in a specific way
         distanceTravelled.text = String(format: "%.2f km",
                                         dailyInfo.distanceTravelled)
         timeTravelled.text = String(format: "%d hr %d min %d sec",
@@ -53,7 +51,7 @@ class CarbonDetailsTableViewCell: UITableViewCell {
     }
     
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
-      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
 }

@@ -10,23 +10,20 @@ import UIKit
 
 
 class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
-
+    
     static var identifier = "PieChartTableViewCell"
-    var entries = [ChartDataEntry]()
+    
+    private var entries = [ChartDataEntry]()
     
     @IBOutlet weak var pieChart: PieChartView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         pieChart.delegate = self
-        
-
-        
-    
     }
     
+    // Configure pie chart cell and format the layout and legend
     public func configure(pieChartDataArray data: [String: Double]){
         
         for x in data {
@@ -46,28 +43,36 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         pieChart.notifyDataSetChanged()
     }
     
+    // access to the nib
     static func nib() -> UINib {
         return UINib(nibName: "PieChartTableViewCell", bundle: nil)
     }
     
+    // resets the data stored on the cell before reuse
     override func prepareForReuse() {
         entries = [ChartDataEntry]()
     }
+    
+    // sets animation options and turns of labels
     func configureChart(_ pieChart: PieChartView){
         //pieChart.drawHoleEnabled = false
         pieChart.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)
         pieChart.drawEntryLabelsEnabled = false
     }
     
+    
+    
     func formatDescription(_ description: Description){
         description.text = NSLocalizedString("daily_breakout", comment: "")
         description.font = UIFont.systemFont(ofSize: 13)
     }
     
+    // sets space in center of pieChart for text
     func formatCenter(_ pieChart: PieChartView){
         pieChart.centerTextRadiusPercent = 0.95
-
+        
     }
+    
     
     func formatLegend(_ legend: Legend){
         legend.font = UIFont.systemFont(ofSize: 13)
@@ -77,7 +82,7 @@ class PieChartTableViewCell: UITableViewCell, ChartViewDelegate {
         legend.xEntrySpace = 7
         legend.yEntrySpace = 0
         legend.yOffset = 0
-
+        
     }
     
     func formatDataSet(_ dataSet: ChartDataSet){

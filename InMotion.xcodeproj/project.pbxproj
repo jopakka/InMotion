@@ -398,13 +398,6 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
-		6A6DA42226393D3F00D1FED0 /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Layout;
-			sourceTree = "<group>";
-		};
 		6ABA149A2636DBBA00A13DC3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,7 +439,6 @@
 			isa = PBXGroup;
 			children = (
 				6A63FA862641621100E6EC4E /* UIComponents */,
-				6A6DA42226393D3F00D1FED0 /* Layout */,
 				6AFE46DF2637EE3100A63746 /* Cells */,
 				6ABA149A2636DBBA00A13DC3 /* Helpers */,
 				6A3955742626EE0900A67AEB /* Networking */,

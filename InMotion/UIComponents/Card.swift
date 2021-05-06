@@ -7,10 +7,10 @@
 
 import UIKit
 
+// Custom view that is designed to look like a card with shadow and gradient background
 class Card: UIView {
-
+    
     var cornerRadius: CGFloat = 2
-
     var shadowOffsetWidth: Int = 0
     var shadowOffsetHeight: Int = 3
     var shadowColor: UIColor? = UIColor.black
@@ -22,8 +22,10 @@ class Card: UIView {
     override func layoutSubviews() {
         layer.backgroundColor = UIColor.clear.cgColor
         layer.cornerRadius = cornerRadius
+        
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
-
+        
+        // Adds shadow
         layer.masksToBounds = false
         layer.shadowColor = shadowColor?.cgColor
         layer.shadowOffset = CGSize(width: shadowOffsetWidth, height: shadowOffsetHeight);
@@ -32,6 +34,7 @@ class Card: UIView {
         let gradient = self.getGradient()
         layer.insertSublayer(gradient!, at: 0)
         
+        // Adds a blur effect - attempt at glassmorphism
         let blurEffect = UIBlurEffect(style: .extraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
@@ -40,22 +43,18 @@ class Card: UIView {
         
     }
     
+    // Creates a gratient object layer
     func getGradient() -> CAGradientLayer? {
         
         let gradientLayer = CAGradientLayer()
-
+        
         gradientLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width,height: self.bounds.height)
         gradientLayer.colors = [gradientColorOne.cgColor, gradientColorTwo.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1) //
         
-//        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
-//        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-        
         return gradientLayer
         
     }
-
+    
 }
