@@ -188,3 +188,17 @@ extension AddMemoryViewController : UITextViewDelegate {
         textView.resignFirstResponder()
     }
 }
+
+extension AddMemoryViewController : UITextFieldDelegate {
+    // Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // Hide keyboard when presses return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addTitleTextView.resignFirstResponder()
+        notesTextView.resignFirstResponder()
+        return(true)
+    }
+}
