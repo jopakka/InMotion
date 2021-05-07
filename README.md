@@ -1,4 +1,2 @@
 # InMotion
-I hope this will work :)\
-More testing\
-:)
+iOS project application for our iOS course in Metropolia UAS
